@@ -7,6 +7,6 @@ namespace Global.Network.Connection.Runtime
     {
         event Action Disconnected;
         
-        UniTask<ConnectionResultType> Connect(string playerName);
+        UniTask<ConnectionResultType> Connect();
     }
 }

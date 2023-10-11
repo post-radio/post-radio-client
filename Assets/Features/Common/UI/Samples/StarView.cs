@@ -9,10 +9,10 @@ namespace Common.UI.Samples
     {
         [SerializeField] [Min(0f)] private float _speed;
         [SerializeField] [Min(0f)] private float _maxSize;
-        
+
         [SerializeField] private Transform _sun;
         [SerializeField] private SplineContainer _spline;
-        
+
         private float _progress;
 
         private void Awake()

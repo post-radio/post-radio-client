@@ -4,12 +4,14 @@ using Common.Architecture.ScopeLoaders.Runtime.Services;
 using GamePlay.Common.Paths;
 using GamePlay.Level.Scene.Runtime;
 using GamePlay.Loop.Runtime;
+using GamePlay.Network.Compose;
 using GamePlay.Services.Common.Scope;
 using GamePlay.Services.LevelCameras.Runtime;
 using GamePlay.Services.VfxPools.Runtime;
 using GamePlay.UI.Runtime;
 using Internal.Services.Scenes.Data;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -17,7 +19,7 @@ namespace GamePlay.Config.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "Level", menuName = GamePlayAssetsPaths.Root + "Scene")]
-    public class LevelConfig : ScriptableObject, IScopeConfig
+    public class LevelScopeConfig : ScriptableObject, IScopeConfig
     {
         [FoldoutGroup("Level")] [SerializeField]
         private BaseLevelSceneFactory _levelScene;
@@ -33,6 +35,8 @@ namespace GamePlay.Config.Runtime
         [FoldoutGroup("Level")] [SerializeField]
         private LevelCameraFactory _levelCamera;
 
+        [SerializeField] private LevelNetworkCompose _network;
+
         [SerializeField] private LevelScope _scopePrefab;
         [SerializeField] private SceneData _servicesScene;
 
@@ -43,7 +47,7 @@ namespace GamePlay.Config.Runtime
         
         protected IServiceFactory[] GetFactories()
         {
-            var services = new IServiceFactory[]
+            var services = new List<IServiceFactory>()
             {
                 _levelCamera,
                 _levelLoop,
@@ -51,8 +55,10 @@ namespace GamePlay.Config.Runtime
                 _levelScene,
                 _ui
             };
+            
+            services.AddRange(_network.Services);
 
-            return services;
+            return services.ToArray();
         }
         
         private ICallbacksFactory[] GetCallbacks()

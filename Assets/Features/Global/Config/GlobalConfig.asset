@@ -32,7 +32,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea80077ce545cf749a170808f9c1a1ff, type: 3}
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
-  _levelConfiguration: {fileID: 11400000, guid: 450aeb2fac4f82c4294b9e34a035fc37, type: 2}
   _soundsPlayer: {fileID: 11400000, guid: 4a6a716ae9c4454418344f45046c1fad, type: 2}
   _audioSwitcher: {fileID: 11400000, guid: 878184c44b6c3b844bf50430e7702fb5, type: 2}
   _cameraUtils: {fileID: 11400000, guid: 68abf8d3e8faf6c4aae3fcd6cdffc314, type: 2}
@@ -56,12 +55,7 @@ MonoBehaviour:
   _overlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}
   _uiStateMachine: {fileID: 11400000, guid: 2690e14f4af6ab843bac352463df3ee6, type: 2}
   _eventSystem: {fileID: 11400000, guid: 491d8430bcb9a374bad4c693194a48d6, type: 2}
-  _achievements: {fileID: 11400000, guid: f8d7c8da0fd3c3b4fbfa2e27ce7279b4, type: 2}
-  _collections: {fileID: 11400000, guid: 4e87a452f716bbe44b6b27903666227e, type: 2}
-  _leaderboards: {fileID: 11400000, guid: a85229b769ff76241b39315a1fa8d702, type: 2}
-  _questsService: {fileID: 11400000, guid: 9c103526f746d534c92000af94c80399, type: 2}
   _settings: {fileID: 11400000, guid: f619e9043e5db8e4485bd99397fc6c79, type: 2}
-  _shop: {fileID: 11400000, guid: 506be411ce3bdb6459588eeb27d18303, type: 2}
-  _calendar: {fileID: 11400000, guid: a36ac17533fd6324fa41e14b08e408bd, type: 2}
+  _network: {fileID: 11400000, guid: 649d534f012d93848a5d2d1dc76defcc, type: 2}
   _scope: {fileID: 4425232438733536047, guid: 6dff990b64ff40b4980ef90789bf70a4, type: 3}
   _servicesScene: {fileID: -101793589594642012}

@@ -8,12 +8,12 @@ namespace Global.Publisher.Abstract.Purchases
     public class PurchasesSave : IStorageEntry
     {
         public const string Key = "purchases";
-        
+
         private List<string> _purchases;
 
         public string SaveKey => Key;
         public IReadOnlyList<string> Purchases => _purchases;
-        
+
         public event Action Changed;
 
         public void CreateDefault()
@@ -34,7 +34,7 @@ namespace Global.Publisher.Abstract.Purchases
         public void OnPurchase(string id)
         {
             _purchases.Add(id);
-            
+
             Changed?.Invoke();
         }
     }

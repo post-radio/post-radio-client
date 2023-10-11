@@ -347,61 +347,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dac6cd2459665c4d99dfc854b72464e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _left:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _right:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _top:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _bottom:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _center: {fileID: 0}
+  _left: []
+  _right: []
+  _top: []
+  _bottom: []
+  _center: {fileID: 142583320}
 --- !u!114 &142583324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,26 +1610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navigations:
-    _keys:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    _values:
-    - _definition: {fileID: 11400000, guid: eff591c7992c1974cb000ab361e60f98, type: 2}
-      _type: 2
-    - _definition: {fileID: 11400000, guid: 8400c8fc7de7b5d4faaca796aa4ed45f, type: 2}
-      _type: 1
-    - _definition: {fileID: 11400000, guid: cb9e3dbb3a8f4f94998973d60d80c6b8, type: 2}
-      _type: 0
-    - _definition: {fileID: 11400000, guid: b8fa8a6aea2489c43b4dd57c026aae20, type: 2}
-      _type: 1
-    - _definition: {fileID: 11400000, guid: 90ee67466d535a146b54b133dbfc744d, type: 2}
-      _type: 1
-    - _definition: {fileID: 11400000, guid: 877dc6d19e21e6d4ab0b3106332f9b71, type: 2}
-      _type: 0
+    _keys: []
+    _values: []
 --- !u!1 &1257178150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,11 +1943,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navigations:
-    _keys:
-    - {fileID: 0}
-    _values:
-    - _definition: {fileID: 11400000, guid: 41af1f1fdd51cb244b790b0e887429c2, type: 2}
-      _type: 3
+    _keys: []
+    _values: []
 --- !u!1 &1524548997
 GameObject:
   m_ObjectHideFlags: 0

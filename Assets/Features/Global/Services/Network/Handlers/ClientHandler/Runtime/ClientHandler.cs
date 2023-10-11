@@ -16,14 +16,17 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
         private readonly IUpdater _updater;
 
         public RagonClient Client => _client;
-        
+
         public void OnAwake()
         {
             _updater.Add(this);
         }
-        
+
         public void OnUpdate(float delta)
         {
+            if (_client.Status == RagonStatus.DISCONNECTED)
+                return;
+            
             _client.Update(delta);
         }
 

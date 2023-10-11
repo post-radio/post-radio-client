@@ -3,6 +3,7 @@ using Common.Architecture.ScopeLoaders.Factory;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Runtime;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 
 namespace GamePlay.Common.GlobalBootstrapMocks
@@ -10,7 +11,7 @@ namespace GamePlay.Common.GlobalBootstrapMocks
     [DisallowMultipleComponent]
     public class LevelGlobalMock : MockBase
     {
-        [SerializeField] private LevelConfig _level;
+        [FormerlySerializedAs("_level")] [SerializeField] private LevelScopeConfig _levelScope;
         [SerializeField] private GlobalMock _mock;
         
         public override async UniTaskVoid Process()
@@ -22,7 +23,7 @@ namespace GamePlay.Common.GlobalBootstrapMocks
         private async UniTask BootstrapLocal(MockBootstrapResult result)
         {
             var scopeLoaderFactory = result.Resolver.Resolve<IScopeLoaderFactory>();
-            var scopeLoader = scopeLoaderFactory.Create(_level, result.Parent);
+            var scopeLoader = scopeLoaderFactory.Create(_levelScope, result.Parent);
             var scope = await scopeLoader.Load();
 
             await result.RegisterLoadedScene(scope);

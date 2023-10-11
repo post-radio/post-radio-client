@@ -37,13 +37,13 @@ namespace Menu.Settings.UI
 
         private void OnEnable()
         {
-            _socialButton.Clicked += OnSocialClicked;
-            _languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
+            //_socialButton.Clicked += OnSocialClicked;
+            //_languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
         
         private void OnDisable()
         {
-            _socialButton.Clicked -= OnSocialClicked;
+            //_socialButton.Clicked -= OnSocialClicked;
         }
         
         public void SetSlidersValue(float music, float sounds)

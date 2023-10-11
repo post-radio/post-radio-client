@@ -13,7 +13,7 @@ namespace Global.Audio.Listener.Runtime
     public class AudioListenerSwitcherFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private AudioListenerSwitcher _prefab;
-        
+
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             var switcher = Instantiate(_prefab);

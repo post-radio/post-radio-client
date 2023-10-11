@@ -13,9 +13,8 @@ namespace Global.Publisher.Abstract.Purchases
         [SerializeField] private PaymentMethod _paymentMethod;
         [SerializeField] private string _id;
         [SerializeField] private Sprite _shopIcon;
-        [ShowIf("_paymentMethod", PaymentMethod.Currency)]
-        [SerializeField] private int _price;
-        
+        [ShowIf("_paymentMethod", PaymentMethod.Currency)] [SerializeField] private int _price;
+
         [SerializeField] [NestedScriptableObjectField] private LanguageTextData _description;
 
         public Sprite ShopIcon => _shopIcon;

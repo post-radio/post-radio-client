@@ -12,7 +12,7 @@ namespace Common.Serialization.ScriptableRegistries
         [SerializeField] private T[] _objects;
 
         public IReadOnlyList<T> Objects => _objects;
-        
+
         [Button]
         private void Scan()
         {
@@ -30,12 +30,12 @@ namespace Common.Serialization.ScriptableRegistries
 
                 if (IsObjectValid(asset) == false)
                     continue;
-                
+
                 definitions.Add(asset);
             }
-            
+
             OnRegistryValidation(definitions);
-            
+
             AssetDatabase.SaveAssets();
 
             Undo.RecordObject(this, "Assign objects");
@@ -48,7 +48,6 @@ namespace Common.Serialization.ScriptableRegistries
 
         protected virtual void OnRegistryValidation(IReadOnlyList<T> objects)
         {
-            
         }
 
         protected virtual bool IsObjectValid(T target)

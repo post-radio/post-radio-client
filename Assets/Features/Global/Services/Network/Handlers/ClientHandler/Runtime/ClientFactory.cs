@@ -20,22 +20,20 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
             _connectionType = connectionType;
             _rate = rate;
         }
-        
+
         private readonly ISceneCollectorBridge _sceneCollectorBridge;
         private readonly IEntityListener _entityListener;
         private readonly RagonConnectionType _connectionType;
         private readonly int _rate;
-        
+
         public RagonClient Create()
         {
-            var sceneCollector = (IRagonSceneCollector)_sceneCollectorBridge;
-            
-            Assert.IsNotNull(sceneCollector);
+            Assert.IsNotNull(_sceneCollectorBridge);
 
             var connection = GetConnection(_connectionType);
             var client = new RagonClient(connection, _rate);
             client.Configure(_entityListener);
-            client.Configure(sceneCollector);
+            client.Configure(_sceneCollectorBridge);
             return client;
         }
 

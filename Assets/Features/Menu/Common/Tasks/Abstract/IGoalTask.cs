@@ -7,4 +7,4 @@
         ITaskCompletionProcessor CompletionProcessor { get; }
         ITaskProgress Progress { get; }
     }
-} 
+}

@@ -18,7 +18,7 @@ namespace Menu.Loop.Runtime
 
         public void OnLoaded()
         {
-            _stateMachine.Select(_mainDefinition, TabTransitionType.LeftToRight).Forget();
+            // _stateMachine.Select(_mainDefinition, TabTransitionType.LeftToRight).Forget();
         }
     }
 }

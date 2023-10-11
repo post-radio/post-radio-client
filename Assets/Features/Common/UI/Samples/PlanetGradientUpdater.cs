@@ -10,16 +10,16 @@ namespace Common.UI.Samples
     {
         [SerializeField] private int _fromIndex = 0;
         [SerializeField] private int _toIndex = 3;
-        
+
         [SerializeField] [Min(0f)] private float _speed;
 
         private PlanetStage _stage = PlanetStage.Raise;
-        
+
         private float _progress;
-        
+
         private Color _start;
         private Color _end;
-        
+
         private MPImage _image;
 
         private void Awake()
@@ -63,7 +63,7 @@ namespace Common.UI.Samples
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
+
             var from = Color.Lerp(_start, _end, fromProgress);
             var to = Color.Lerp(_start, _end, toProgress);
 
@@ -85,7 +85,7 @@ namespace Common.UI.Samples
                 _ => throw new ArgumentOutOfRangeException(nameof(stage), stage, null)
             };
         }
-        
+
         public enum PlanetStage
         {
             Raise_0,

@@ -6,4 +6,4 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
     {
         RagonClient Create();
     }
-}   
+}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GlobalService_Overlay
   m_EditorClassIdentifier: 
   _scene: {fileID: 3095340188543733075}
+  _localization: {fileID: 11400000, guid: bec237c08663cd1429fe45680a012b20, type: 2}
 --- !u!114 &3095340188543733075
 MonoBehaviour:
   m_ObjectHideFlags: 0

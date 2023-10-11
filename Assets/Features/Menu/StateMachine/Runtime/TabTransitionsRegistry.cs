@@ -56,6 +56,9 @@ namespace Menu.StateMachine.Runtime
 
         private Vector2 GetRandom(RectTransform[] points)
         {
+            if (points.Length == 0)
+                return Vector2.zero;
+
             var random = Random.Range(0, points.Length);
             return points[random].anchoredPosition;
         }

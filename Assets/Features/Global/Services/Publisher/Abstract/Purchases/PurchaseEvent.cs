@@ -6,7 +6,7 @@
         {
             ProductLink = productLink;
         }
-        
+
         public readonly IProductLink ProductLink;
     }
 }

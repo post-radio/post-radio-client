@@ -11,6 +11,7 @@ using Global.Debugs.Console.Runtime;
 using Global.GameLoops.Runtime;
 using Global.Inputs.View.Runtime;
 using Global.Localizations.Runtime;
+using Global.Network.Compose;
 using Global.Publisher.Abstract.Bootstrap;
 using Global.System.ApplicationProxies.Runtime;
 using Global.System.DestroyHandlers.Runtime;
@@ -27,7 +28,9 @@ using Global.UI.UiStateMachines.Runtime;
 using Internal.Services.Scenes.Data;
 using Menu.Settings.Global;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer.Unity;
 
 namespace Global.Config.Runtime
@@ -56,11 +59,13 @@ namespace Global.Config.Runtime
         [FoldoutGroup("System")] [SerializeField] private ObjectsFactory _objects;
         [FoldoutGroup("UI")] [SerializeField] private LoadingScreenFactory _loadingScreen;
         [FoldoutGroup("UI")] [SerializeField] private LocalizationFactory _localization;
-        [FoldoutGroup("UI")] [SerializeField] private OverlayAsset _overlay;
+        [FormerlySerializedAs("_overlay")] [FoldoutGroup("UI")] [SerializeField] private GlobalOverlayFactory _globalOverlay;
         [FoldoutGroup("UI")] [SerializeField] private UiStateMachineFactory _uiStateMachine;
         [FoldoutGroup("UI")] [SerializeField] private EventSystemFactory _eventSystem;
         [FoldoutGroup("Menu")] [SerializeField] private SettingsFactory _settings;
 
+        [SerializeField] private GlobalNetworkCompose _network;
+        
         [SerializeField] private GlobalScope _scope;
         [SerializeField] private SceneData _servicesScene;
         public LifetimeScope ScopePrefab => _scope;
@@ -70,7 +75,7 @@ namespace Global.Config.Runtime
 
         private IServiceFactory[] GetFactories()
         {
-            return new IServiceFactory[]
+            var services = new List<IServiceFactory>()
             {
                 _applicationProxy,
                 _cameraUtils,
@@ -94,9 +99,13 @@ namespace Global.Config.Runtime
                 _settings,
                 _publisherSdk,
                 _loadingScreen,
-                _overlay,
+                _globalOverlay,
                 _gameLoop
             };
+
+            services.AddRange(_network.Services);
+
+            return services.ToArray();
         }
 
         private ICallbacksFactory[] GetCallbacks()

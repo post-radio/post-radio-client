@@ -4,6 +4,7 @@ using Global.Network.Connection.Logs;
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
 using Ragon.Protocol;
+using Random = UnityEngine.Random;
 
 namespace Global.Network.Connection.Runtime
 {
@@ -25,11 +26,11 @@ namespace Global.Network.Connection.Runtime
 
         public event Action Disconnected;
         
-        public async UniTask<ConnectionResultType> Connect(string playerName)
+        public async UniTask<ConnectionResultType> Connect()
         {
             var attempt = new ConnectionAttempt(_clientProvider.Client, _config, _logger);
 
-            var result = await attempt.Connect(playerName);
+            var result = await attempt.Connect($"Doomer_{Random.Range(0,100)}");
 
             return result;
         }

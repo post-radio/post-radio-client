@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Network.Compose",
+  "references":[ "GUID:ab8fcff7ea894a14a4e8393a6ba0191c", "GUID:c50bcf42e5334355b142951d2473d15a", "GUID:11e314dc645044a29ae7e2a45107ebae", "GUID:f039ae9bb39d4991a4da04c2692781b3", "GUID:dec28d2fc9064a05abcbf9e3264fa16a", "GUID:48069c8ab725461aa2292e6e15df5a63", "GUID:c45ca77cef9c48a7bc47593cda21574a", "GUID:b5878a2475b84dbe861135980ad7c328", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9" ]
+}

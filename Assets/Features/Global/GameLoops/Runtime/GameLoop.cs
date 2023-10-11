@@ -1,20 +1,26 @@
-﻿using Common.Architecture.ScopeLoaders.Factory;
+﻿using System;
+using Common.Architecture.ScopeLoaders.Factory;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Cameras.GlobalCameras.Runtime;
+using Global.GameLoops.Events;
+using Global.Network.Connection.Runtime;
 using Global.System.LoadedHandler.Runtime;
+using Global.System.MessageBrokers.Runtime;
 using Global.UI.LoadingScreens.Runtime;
+using Global.UI.Overlays.Runtime;
 using Internal.Services.Options.Runtime;
 using Internal.Services.Scenes.Abstract;
 using Menu.Config.Runtime;
 using VContainer.Unity;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Global.GameLoops.Runtime
 {
-    public class GameLoop : IScopeLoadAsyncListener
+    public class GameLoop : IScopeLoadAsyncListener, IScopeSwitchListener
     {
         public GameLoop(
             LifetimeScope scope,
@@ -24,10 +30,12 @@ namespace Global.GameLoops.Runtime
             ILoadedScenesHandler loadedScenesHandler,
             ICurrentCamera currentCamera,
             IOptions options,
-            LevelConfig level,
+            IConnection connection,
+            IGlobalExceptionController globalException,
+            LevelScopeConfig levelScope,
             MenuConfig menu)
         {
-            _level = level;
+            _levelScope = levelScope;
             _menu = menu;
             _scope = scope;
             _scopeLoaderFactory = scopeLoaderFactory;
@@ -36,10 +44,14 @@ namespace Global.GameLoops.Runtime
             _loadedScenesHandler = loadedScenesHandler;
             _currentCamera = currentCamera;
             _options = options;
+            _connection = connection;
+            _globalException = globalException;
         }
 
         private readonly ICurrentCamera _currentCamera;
         private readonly IOptions _options;
+        private readonly IConnection _connection;
+        private readonly IGlobalExceptionController _globalException;
         private readonly ILoadedScenesHandler _loadedScenesHandler;
         private readonly IGlobalCamera _globalCamera;
 
@@ -49,11 +61,41 @@ namespace Global.GameLoops.Runtime
         private readonly LifetimeScope _scope;
         private readonly IScopeLoaderFactory _scopeLoaderFactory;
 
-        private readonly LevelConfig _level;
+        private readonly LevelScopeConfig _levelScope;
         private readonly MenuConfig _menu;
 
+        private IDisposable _restartListener;
+
+        public void OnEnabled()
+        {
+            _restartListener = Msg.Listen<GameRestartRequest>(OnRestartRequested);
+        }
+
+        public void OnDisabled()
+        {
+            _restartListener.Dispose();
+        }
+        
         public async UniTask OnLoadedAsync()
         {
+            ProcessGameStart().Forget();
+        }
+
+        private void OnRestartRequested(GameRestartRequest request)
+        {
+            ProcessGameStart().Forget();
+        }
+
+        private async UniTask ProcessGameStart()
+        {
+            var connectionResult = await _connection.Connect();
+
+            if (connectionResult == ConnectionResultType.Fail)
+            {
+                _globalException.Show();
+                return;
+            }
+            
             LoadScene(_menu).Forget();
         }
 

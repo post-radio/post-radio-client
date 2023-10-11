@@ -12,15 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab067f883cf40c4bb5d90a2ff09020d, type: 3}
   m_Name: Level
   m_EditorClassIdentifier: 
-  _dotFactory: {fileID: 11400000, guid: 35cbca77a563edb469d54e0eb8d7a3e6, type: 2}
-  _fieldFlow: {fileID: 11400000, guid: f19bd057ae9ed7d4dbb0a10f00c2dfd3, type: 2}
   _levelScene: {fileID: 11400000, guid: 2ee6a3df4c24d6640b21d7216ed923b8, type: 2}
-  _dotMover: {fileID: 11400000, guid: 565ca6d6e1265a84fb6322fcf02b3813, type: 2}
-  _assembleCheck: {fileID: 11400000, guid: f6dc9768513e7d94e9d811d54b0a2fb9, type: 2}
-  _score: {fileID: 11400000, guid: 8f1952b527a0b1445b27b989b30c3644, type: 2}
   _ui: {fileID: 11400000, guid: e2dba7c6c41e62643b1487868972b5d6, type: 2}
   _levelLoop: {fileID: 11400000, guid: d062479df73f1744e9fcf2226501a5b7, type: 2}
   _vfxPool: {fileID: 11400000, guid: cea96a53738615f49857ce3c96a9ffd1, type: 2}
   _levelCamera: {fileID: 11400000, guid: 910ee659212786c41abfaf809b0f616b, type: 2}
+  _network: {fileID: 11400000, guid: b83e32330189b494998753bbcb4950b1, type: 2}
   _scopePrefab: {fileID: 6256164544057903142, guid: 739bd40898e14fe4ebe3aa07b287a0fb, type: 3}
   _servicesScene: {fileID: 11400000, guid: ccf110f09d2b8014dbbf3bb44fbe2e1e, type: 2}

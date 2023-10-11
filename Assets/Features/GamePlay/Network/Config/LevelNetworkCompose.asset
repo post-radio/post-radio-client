@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16fd3199bba2db4991c240880d95d6e, type: 3}
+  m_Name: LevelNetworkCompose
+  m_EditorClassIdentifier: 
+  _roomStarter: {fileID: 11400000, guid: d9834be6887265f4cbe7b647af83910b, type: 2}
+  _entityDestroyer: {fileID: 11400000, guid: ff9ce1e249587e049b7a219f67586acd, type: 2}
+  _factoriesRegistry: {fileID: 11400000, guid: 37bd74f3a3a508e4d82fefbeb84724dc, type: 2}
+  _sceneEntityFactory: {fileID: 11400000, guid: 3b54f159fd462484098362a44c967d77, type: 2}
+  _sceneCollector: {fileID: 11400000, guid: 435494323403e204b8b742d0f3cb8633, type: 2}
+  _dynamicEntityFactory: {fileID: 11400000, guid: 67adf2a5e7a06f34198fc24a45e9fb73, type: 2}
+  _playersRegistry: {fileID: 11400000, guid: 7ccdf775f6fa7994982118acea3a319f, type: 2}

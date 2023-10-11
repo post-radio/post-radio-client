@@ -7,6 +7,7 @@ using Global.GameLoops.Common;
 using Menu.Config.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Global.GameLoops.Runtime
 {
@@ -16,12 +17,12 @@ namespace Global.GameLoops.Runtime
     public class GameLoopFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private MenuConfig _menu;
-        [SerializeField] private LevelConfig _level;
+        [FormerlySerializedAs("_level")] [SerializeField] private LevelScopeConfig _levelScope;
 
         public virtual async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<GameLoop>()
-                .WithParameter(_level)
+                .WithParameter(_levelScope)
                 .WithParameter(_menu)
                 .WithParameter(utils.Data.Scope)
                 .AsSelfResolvable()

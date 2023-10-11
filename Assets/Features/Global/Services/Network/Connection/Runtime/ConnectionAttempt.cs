@@ -29,7 +29,7 @@ namespace Global.Network.Connection.Runtime
             _logger.OnConnectionAttempt(_config.Address, _config.Protocol, _config.Port);
             
             Listen();
-
+        
             _client.Connect(_config.Address, _config.Port, _config.Protocol);
 
             var connectionResult = await _connectCompletion.Task;

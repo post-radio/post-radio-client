@@ -132,7 +132,7 @@ namespace Global.System.Updaters.Logs
 
             _logger.Log($"PostFixed update called for {count} listeners", _settings.LogParameters);
         }
-        
+
         public void OnGizmosUpdatableAdded(int count)
         {
             if (_settings.IsAvailable(UpdaterLogType.GizmosUpdatableAdd) == false)
