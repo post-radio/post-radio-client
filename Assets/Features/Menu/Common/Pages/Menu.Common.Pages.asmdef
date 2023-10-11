@@ -1,0 +1,4 @@
+﻿{
+  "name": "Menu.Common.Pages",
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:64fc87719642b7f4b87ac73bc99031fd" ]
+}

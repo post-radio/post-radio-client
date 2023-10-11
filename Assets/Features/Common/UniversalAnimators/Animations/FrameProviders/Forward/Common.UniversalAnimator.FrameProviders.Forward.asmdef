@@ -1,0 +1,4 @@
+﻿{
+  "name": "Common.UniversalAnimator.FrameProviders.Forward",
+  "references":[ "GUID:9c221aad6c194a8fb7ac7c64a5cf6928", "GUID:6fe3e5bc5e27400aa7e27dded3e1e008" ]
+}

@@ -1,0 +1,4 @@
+﻿{
+  "name": "Menu.StateMachine.Definitions",
+  "references":[ "GUID:8a83233468706104cbcb2ba1be8d3eb6", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
+}

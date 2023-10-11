@@ -1,0 +1,13 @@
+﻿{
+  "name": "Internal.Runtime",
+  "references": [
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:2ef144f1edca7a1438d7ed500325c442",
+    "GUID:1af919ad20217be41b61d5c0bb458967",
+    "GUID:e934484c95af1c24388464b2a4cffff6",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:b2b063a02a4bdd147955e91fc459daeb",
+    "GUID:e56bdfe1a348957498e17c00f7773b6e",
+    "GUID:fe4adae493555af4788e53948d7966ca"
+  ]
+}

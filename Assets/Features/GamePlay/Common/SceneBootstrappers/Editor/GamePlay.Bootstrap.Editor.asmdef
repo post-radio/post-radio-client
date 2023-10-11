@@ -1,0 +1,18 @@
+﻿{
+  "name": "GamePlay.Bootstrap.Editor",
+  "rootNamespace": "",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "references": [
+    "GUID:e4924bae8b7f4512af86f641579b370f"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "GamePlay.Network.Entities.Factory",
+    "rootNamespace": "",
+    "references": [
+        "GUID:48069c8ab725461aa2292e6e15df5a63",
+        "GUID:213e82e2dc114b00a73d41eb34b80fdc",
+        "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:129a2d34d9b24d59800010a0ce2f1e48",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

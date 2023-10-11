@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feeb1c75b29e4a5cba3028a02e9f9716, type: 3}
+  m_Name: LocalService_VfxPool
+  m_EditorClassIdentifier: 
+  _scene: {fileID: 1667970547280720310}
+--- !u!114 &1667970547280720310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b4814d8868c443ae796e180394d9b, type: 3}
+  m_Name: LocalService_VfxPool_SceneAsset
+  m_EditorClassIdentifier: 
+  _name:
+    m_SceneAsset: {fileID: 102900000, guid: b7b72bee03fb185418428cf2553e9ef7, type: 3}
+    m_SceneName: Pool_Vfx
+  _reference:
+    m_AssetGUID: b7b72bee03fb185418428cf2553e9ef7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

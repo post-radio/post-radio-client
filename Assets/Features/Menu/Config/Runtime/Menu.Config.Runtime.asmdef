@@ -1,0 +1,32 @@
+{
+  "name": "Menu.Config.Runtime",
+  "rootNamespace": "",
+  "references": [
+    "GUID:09ebb73bf0f447d418c3031742da498a",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+    "GUID:2d3f3ffe391f6a14f82a4e4d955aee55",
+    "GUID:225574f276a43d94581cd5ff2c0a9246",
+    "GUID:438439c37f9de544fb4158ae9314763d",
+    "GUID:e25269209928aa0458c943bedb2eaf76",
+    "GUID:18825a5bfe7c8604282d423bd850cc80",
+    "GUID:6cb7107fbbc7c4549b9c5f52d5ab5f5c",
+    "GUID:df74a424ee046174fa641825211d7202",
+    "GUID:bdb464a898d68b94ebe3472cafd4fc12",
+    "GUID:d631cc9bffa0cc044a4a994223a38a9e",
+    "GUID:46dd048916d5cbc4abc3ad96ead5b02a",
+    "GUID:965a3ceddfcfbd04d81ce4c2a0af1b89",
+    "GUID:9ef6057d44df0514ab5f94f4efc62b60",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:579e5a5c70a34914d87b1e5a12948aba"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

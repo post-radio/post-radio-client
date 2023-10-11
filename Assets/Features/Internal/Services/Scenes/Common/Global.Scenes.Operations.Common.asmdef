@@ -1,0 +1,16 @@
+{
+    "name": "Global.Scenes.Operations.Common",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1af919ad20217be41b61d5c0bb458967"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

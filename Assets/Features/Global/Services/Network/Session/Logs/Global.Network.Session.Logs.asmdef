@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Network.Session.Logs",
+  "references":[ "GUID:27897721eb98469ca005c3866945af04", "GUID:fe4adae493555af4788e53948d7966ca", "GUID:94e5ca42c58876942a8ffdd1c63b952f" ]
+}

@@ -1,0 +1,14 @@
+﻿{
+  "name": "Menu.Config.Mock",
+  "references": [
+    "GUID:c4f970143afa5f2418c5190e2d9aeefb",
+    "GUID:51481429a34a4e32ba1e7eab23368623",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:09ebb73bf0f447d418c3031742da498a",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:d49f87d10289e9340861bf05e1f156f0",
+    "GUID:2ef144f1edca7a1438d7ed500325c442",
+    "GUID:e934484c95af1c24388464b2a4cffff6",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
+  ]
+}

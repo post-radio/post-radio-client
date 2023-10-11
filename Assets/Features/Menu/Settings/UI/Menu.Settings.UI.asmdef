@@ -1,0 +1,32 @@
+{
+    "name": "Menu.Settings.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:72d0f444232051147afffa162c8b4a82",
+        "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:4e49484642048a24284fdb5ab7355045",
+        "GUID:5d58b6ff52a35b043a6c0f5c4f5bb144",
+        "GUID:670db52dbd764144d87636f1b6272023",
+        "GUID:ac84fa5698134749b8ca9ae45e3eab59",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:47b5752185ff436fa116dfaa3b0957be",
+        "GUID:5423649eb0b944b2bd9c4b76a724721c",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:7347c5f7bb3f4b8b84942d18625079ec",
+        "GUID:04243451437dcfe48b583ab43ef0a8fa",
+        "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:64fc87719642b7f4b87ac73bc99031fd",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

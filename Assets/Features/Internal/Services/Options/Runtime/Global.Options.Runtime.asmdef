@@ -1,0 +1,9 @@
+﻿{
+  "name": "Global.Options.Runtime",
+  "references": [
+    "GUID:fb9b00a9a42c4c1459774b1ef88fcd74",
+    "GUID:9f12b849425b4eee835913da917e6c20",
+    "GUID:ae4831055b9d1e043a6a415fde22dc02",
+    "GUID:94e5ca42c58876942a8ffdd1c63b952f"
+  ]
+}

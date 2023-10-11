@@ -1,0 +1,16 @@
+{
+    "name": "Global.Options.Editor",
+    "rootNamespace": "",
+    "references": ["GUID:d945054fb520ae0408f2ec087ffa5163","GUID:2ef144f1edca7a1438d7ed500325c442"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

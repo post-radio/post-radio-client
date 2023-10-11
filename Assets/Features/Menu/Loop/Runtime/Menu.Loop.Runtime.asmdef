@@ -1,0 +1,12 @@
+﻿{
+  "name": "Menu.Loop.Runtime",
+  "references": [
+    "GUID:4e49484642048a24284fdb5ab7355045",
+    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
+    "GUID:2d9184f77f5453b448c51bb0a731d6be",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:46dd048916d5cbc4abc3ad96ead5b02a",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
+  ]
+}

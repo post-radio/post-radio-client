@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5265334050477315453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f1286c4a7455e4ca66db4e4856426b, type: 3}
+  m_Name: GlobalService_Objects_TestObjectAsset
+  m_EditorClassIdentifier: 
+  _object: {fileID: 6336504564788748447, guid: 00a42b33a21519a4b90eb4bb3ebf0fb3, type: 3}
+  _reference:
+    m_AssetGUID: 00a42b33a21519a4b90eb4bb3ebf0fb3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0894e452d4db5594c83f05e650add2e5, type: 3}
+  m_Name: GlobalService_Objects
+  m_EditorClassIdentifier: 
+  _asset: {fileID: -5265334050477315453}

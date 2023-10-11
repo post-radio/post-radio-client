@@ -1,0 +1,20 @@
+{
+    "name": "Common.UI.Global",
+    "rootNamespace": "",
+    "references": [
+        "GUID:67848743b0d8ef04ebd504e24e154c7c",
+        "GUID:401398c75a71e5444a495125c9dd1a21",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

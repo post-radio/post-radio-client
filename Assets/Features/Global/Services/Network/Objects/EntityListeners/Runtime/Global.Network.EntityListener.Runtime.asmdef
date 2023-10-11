@@ -1,0 +1,11 @@
+﻿{
+  "name": "Global.Network.EntityListener.Runtime",
+  "references": [
+    "GUID:7338080da93f4c60a8926457ef406a5f",
+    "GUID:401398c75a71e5444a495125c9dd1a21",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:ecbec71ef7654563a88aafe3bf7bf2ce",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23"
+  ]
+}

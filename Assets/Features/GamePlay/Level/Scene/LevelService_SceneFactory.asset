@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6232151519075159007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b4814d8868c443ae796e180394d9b, type: 3}
+  m_Name: LevelService_SceneFactory_SceneAsset
+  m_EditorClassIdentifier: 
+  _name:
+    m_SceneAsset: {fileID: 102900000, guid: 15b689a9fe7f25d498c61197e8b66959, type: 3}
+    m_SceneName: Level_0
+  _reference:
+    m_AssetGUID: 15b689a9fe7f25d498c61197e8b66959
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90c242c5ccd48499966ff2bd1cbfabc, type: 3}
+  m_Name: LevelService_SceneFactory
+  m_EditorClassIdentifier: 
+  _scene: {fileID: -6232151519075159007}

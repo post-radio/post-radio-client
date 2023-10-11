@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Network.Objects.Factory.Common",
+  "references":[ "GUID:ab8fcff7ea894a14a4e8393a6ba0191c" ]
+}

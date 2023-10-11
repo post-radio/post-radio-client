@@ -1,0 +1,19 @@
+﻿{
+  "name": "Global.Network.Connection.Editor",
+  "rootNamespace": "",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "references": [
+    "GUID:d945054fb520ae0408f2ec087ffa5163",
+    "GUID:65de87aae514490f9a8a6c77cd3f1599"
+  ]
+}

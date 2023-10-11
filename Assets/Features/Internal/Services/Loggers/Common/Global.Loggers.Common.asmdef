@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Loggers.Common",
+  "references":[ "GUID:1af919ad20217be41b61d5c0bb458967" ]
+}

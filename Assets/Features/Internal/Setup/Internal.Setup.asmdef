@@ -1,0 +1,11 @@
+﻿{
+  "name": "Internal.Setup",
+  "references": [
+    "GUID:093e318cbe9d985428d014c6b45bcae4",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:e934484c95af1c24388464b2a4cffff6",
+    "GUID:4d4d51802f9d644478b589797702a86b",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
+  ]
+}

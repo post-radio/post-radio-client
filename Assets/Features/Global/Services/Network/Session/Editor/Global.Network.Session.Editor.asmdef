@@ -1,0 +1,16 @@
+﻿{
+  "name": "Global.Network.Session.Editor",
+  "rootNamespace": "",
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "references":[ "GUID:d945054fb520ae0408f2ec087ffa5163", "GUID:931481ea883344a18320eb3f69d1775b" ]
+}

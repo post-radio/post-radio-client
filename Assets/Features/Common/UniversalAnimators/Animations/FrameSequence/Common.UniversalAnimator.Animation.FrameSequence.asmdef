@@ -1,0 +1,4 @@
+﻿{
+  "name": "Common.UniversalAnimator.Animation.FrameSequence",
+  "references":[ "GUID:9f12b849425b4eee835913da917e6c20", "GUID:3e7167d9f58d47b7839bb3ce134a78f1" ]
+}

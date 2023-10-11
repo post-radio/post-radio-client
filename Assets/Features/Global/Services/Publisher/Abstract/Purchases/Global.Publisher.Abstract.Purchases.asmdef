@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Publisher.Abstract.Purchases",
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:75f29b67883912c4683d10d111aca113", "GUID:023b9f8af58848e3992d954a4b1d0e51", "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79", "GUID:e3f90ec7da70443198fdd279336fd055", "GUID:9f12b849425b4eee835913da917e6c20" ]
+}

@@ -1,0 +1,4 @@
+﻿{
+  "name": "Common.UniversalAnimator.Animations.Debug",
+  "references":[ "GUID:aac41f60988d442497259de79205647b", "GUID:9c221aad6c194a8fb7ac7c64a5cf6928", "GUID:92c45879a0f342a29c0e271981946ba1", "GUID:6fe3e5bc5e27400aa7e27dded3e1e008", "GUID:b0275d8a7d994d97ae1652be17935f0f" ]
+}
