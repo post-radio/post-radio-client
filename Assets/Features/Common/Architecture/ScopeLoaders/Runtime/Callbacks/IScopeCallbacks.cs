@@ -9,7 +9,9 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
     {
         public IReadOnlyDictionary<CallbackStage, ICallbacksHandler> Handlers { get; }
         
-        void AddCallback<T>(Action<T> invoker, CallbackStage stage, int order);
-        void AddAsyncCallback<T>(Func<T, UniTask> invoker, CallbackStage stage, int order);
+        void AddScopeCallback<T>(Action<T> invoker, CallbackStage stage, int order);
+        void AddScopeAsyncCallback<T>(Func<T, UniTask> invoker, CallbackStage stage, int order);
+
+        void AddGenericCallbackRegister(ICallbackRegister callbackRegister);
     }
 }

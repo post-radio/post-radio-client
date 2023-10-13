@@ -1,4 +1,4 @@
 ﻿{
   "name": "GamePlay.Network.SceneCollector.Runtime",
-  "references":[ "GUID:129a2d34d9b24d59800010a0ce2f1e48", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:ef4aaacd10b84c709f51054170bfba2d", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:401398c75a71e5444a495125c9dd1a21", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
+  "references":[ "GUID:129a2d34d9b24d59800010a0ce2f1e48", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:ef4aaacd10b84c709f51054170bfba2d", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:da1917f3a79694c539a148addd06d33b", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
 }

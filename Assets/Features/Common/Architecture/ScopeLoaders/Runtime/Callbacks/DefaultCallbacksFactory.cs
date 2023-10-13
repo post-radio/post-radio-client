@@ -19,26 +19,26 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
         /// <param name="data"></param>
         public void AddCallbacks(IScopeCallbacks callbacks, IScopeData data)
         {
-            callbacks.AddCallback<IScopeBuiltListener>(
+            callbacks.AddScopeCallback<IScopeBuiltListener>(
                 listener => listener.OnContainerBuilt(data.Scope), CallbackStage.Construct, 0);
-            callbacks.AddCallback<IScopeAwakeListener>(
+            callbacks.AddScopeCallback<IScopeAwakeListener>(
                 listener => listener.OnAwake(), CallbackStage.Construct, 1000);
-            callbacks.AddAsyncCallback<IScopeAwakeAsyncListener>(
+            callbacks.AddScopeAsyncCallback<IScopeAwakeAsyncListener>(
                 listener => listener.OnAwakeAsync(), CallbackStage.Construct, 2000);
-            callbacks.AddCallback<IScopeEnableListener>(
+            callbacks.AddScopeCallback<IScopeEnableListener>(
                 listener => listener.OnEnabled(), CallbackStage.Construct, 3000);
-            callbacks.AddAsyncCallback<IScopeEnableAsyncListener>(
+            callbacks.AddScopeAsyncCallback<IScopeEnableAsyncListener>(
                 listener => listener.OnEnabledAsync(), CallbackStage.Construct, 4000);
 
-            callbacks.AddCallback<IScopeLoadListener>(
+            callbacks.AddScopeCallback<IScopeLoadListener>(
                 listener => listener.OnLoaded(), CallbackStage.SetupComplete, 0);
-            callbacks.AddAsyncCallback<IScopeLoadAsyncListener>(
+            callbacks.AddScopeAsyncCallback<IScopeLoadAsyncListener>(
                 listener => listener.OnLoadedAsync(), CallbackStage.SetupComplete, 1000);
             
-            callbacks.AddCallback<IScopeDisableListener>(
+            callbacks.AddScopeCallback<IScopeDisableListener>(
                 listener => listener.OnDisabled(), CallbackStage.Dispose, 0);
             
-            callbacks.AddAsyncCallback<IScopeDisableAsyncListener>(
+            callbacks.AddScopeAsyncCallback<IScopeDisableAsyncListener>(
                 listener => listener.OnDisabledAsync(), CallbackStage.Dispose, 1000);
         }
     }

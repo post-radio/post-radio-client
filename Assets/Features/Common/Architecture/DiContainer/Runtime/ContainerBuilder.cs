@@ -68,7 +68,7 @@ namespace Common.Architecture.DiContainer.Runtime
             return registration;
         }
 
-        public void Inject<T>(T component) where T : Object
+        public void Inject<T>(T component)
         {
             if (component == null)
                 throw new NullReferenceException("No component provided");

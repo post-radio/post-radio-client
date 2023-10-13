@@ -68,6 +68,7 @@ namespace Global.Config.Runtime
         
         [SerializeField] private GlobalScope _scope;
         [SerializeField] private SceneData _servicesScene;
+        
         public LifetimeScope ScopePrefab => _scope;
         public ISceneAsset ServicesScene => _servicesScene;
         public IReadOnlyList<IServiceFactory> Services => GetFactories();

@@ -15,8 +15,8 @@ namespace GamePlay.Network.Players.Registry.Runtime
     {
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            services.Register<PlayersRegistry>()
-                .As<IPlayersRegistry>();
+            services.Register<PlayersList>()
+                .As<IPlayersList>();
         }
     }
 }

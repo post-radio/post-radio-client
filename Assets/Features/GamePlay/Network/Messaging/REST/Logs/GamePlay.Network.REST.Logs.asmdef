@@ -1,0 +1,9 @@
+﻿{
+  "name": "GamePlay.Network.REST.Logs",
+  "references": [
+    "GUID:fe4adae493555af4788e53948d7966ca",
+    "GUID:94e5ca42c58876942a8ffdd1c63b952f",
+    "GUID:48689ccc8e6b4fc5ade6e611da299600",
+    "GUID:b5878a2475b84dbe861135980ad7c328"
+  ]
+}

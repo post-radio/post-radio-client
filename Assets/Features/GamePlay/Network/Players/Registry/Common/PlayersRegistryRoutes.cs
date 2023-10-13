@@ -1,4 +1,5 @@
 ﻿using GamePlay.Network.Common;
+using GamePlay.Network.Common.Paths;
 
 namespace GamePlay.Network.Players.Registry.Common
 {

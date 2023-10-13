@@ -11,7 +11,6 @@ using GamePlay.Services.VfxPools.Runtime;
 using GamePlay.UI.Runtime;
 using Internal.Services.Scenes.Data;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -63,7 +62,7 @@ namespace GamePlay.Config.Runtime
         
         private ICallbacksFactory[] GetCallbacks()
         {
-            return new ICallbacksFactory[]
+            return new[]
             {
                 new DefaultCallbacksFactory()
             };

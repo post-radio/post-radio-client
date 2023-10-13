@@ -4,7 +4,7 @@ using Global.Network.Handlers.ClientHandler.Runtime;
 
 namespace GamePlay.Network.Room.Starter.Runtime
 {
-    public class MockRoomStarter : INetworkStartListener
+    public class MockRoomStarter : INetworkDestroyListener
     {
         public MockRoomStarter(IRoomProvider roomProvider, IClientProvider clientProvider)
         {
@@ -15,7 +15,7 @@ namespace GamePlay.Network.Room.Starter.Runtime
         private readonly IRoomProvider _roomProvider;
         private readonly IClientProvider _clientProvider;
 
-        public async UniTask OnNetworkStart()
+        public async UniTask OnNetworkDestroy()
         {
             var joinHandler = new JoinHandler(_roomProvider, _clientProvider);
             var joinTask = joinHandler.ProcessJoin();

@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Room.SceneCollectors.Runtime;
 using Ragon.Client;
+using UnityEngine;
 
 namespace GamePlay.Network.Room.Entities.Factory
 {
@@ -28,9 +29,7 @@ namespace GamePlay.Network.Room.Entities.Factory
         public async UniTask<RagonEntity> Create()
         {
             var entity = CreateLocal();
-
             var awaiter = new AttachAwaiter(entity);
-
             await awaiter.WaitAttachAsync();
 
             return entity;

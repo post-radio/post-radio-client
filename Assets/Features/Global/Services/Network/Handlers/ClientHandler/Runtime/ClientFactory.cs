@@ -42,7 +42,7 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
             return connectionType switch
             {
                 RagonConnectionType.None => new RagonWebSocketConnection(),
-                RagonConnectionType.UDP => new RagonWebSocketConnection(),
+                RagonConnectionType.UDP => new RagonENetConnection(),
                 RagonConnectionType.WebSocket => new RagonWebSocketConnection(),
                 _ => throw new ArgumentOutOfRangeException(nameof(connectionType), connectionType, null)
             };

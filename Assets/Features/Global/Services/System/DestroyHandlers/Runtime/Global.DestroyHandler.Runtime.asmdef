@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.DestroyHandler.Runtime",
-  "references":[ "GUID:401398c75a71e5444a495125c9dd1a21", "GUID:b0214a6008ed146ff8f122a6a9c2f6cc", "GUID:5a2ca3f7b51c4a929f209ae51a38775e", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9" ]
+  "references":[ "GUID:da1917f3a79694c539a148addd06d33b", "GUID:b0214a6008ed146ff8f122a6a9c2f6cc", "GUID:5a2ca3f7b51c4a929f209ae51a38775e", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9" ]
 }

@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c1db21e6744f5da7743d50055d146c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: {fileID: 11400000, guid: f89b54c23a70a7d4ab3c84d20dff4fa6, type: 2}
+  _levelScope: {fileID: 11400000, guid: f89b54c23a70a7d4ab3c84d20dff4fa6, type: 2}
   _mock:
     _config: {fileID: 11400000, guid: c3772a04da26b5044bbbcd3c0e6b2857, type: 2}
 --- !u!4 &1080868724

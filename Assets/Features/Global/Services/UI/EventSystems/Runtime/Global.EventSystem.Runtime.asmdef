@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.EventSystem.Runtime",
-  "references":[ "GUID:401398c75a71e5444a495125c9dd1a21", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:cb483401097e46ca9130f44dd16d5c7b", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
+  "references":[ "GUID:da1917f3a79694c539a148addd06d33b", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:cb483401097e46ca9130f44dd16d5c7b", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
 }

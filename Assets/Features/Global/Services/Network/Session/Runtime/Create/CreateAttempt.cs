@@ -41,11 +41,13 @@ namespace Global.Network.Session.Runtime.Create
         private void Listen()
         {
             _client.AddListener((IRagonFailedListener)this);
+            _client.AddListener((IRagonSceneRequestListener)this);
         }
 
         private void Unlisten()
         {
             _client.RemoveListener((IRagonFailedListener)this);
+            _client.RemoveListener((IRagonSceneRequestListener)this);
         }
 
         public void OnRequestScene(RagonClient client, string sceneName)

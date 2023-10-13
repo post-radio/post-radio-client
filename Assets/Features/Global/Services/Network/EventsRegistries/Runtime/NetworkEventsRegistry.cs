@@ -15,7 +15,6 @@ namespace Global.Network.EventsRegistries.Runtime
         public void OnAwake()
         {
             var eventCache = _clientProvider.Client.Event;
-            
         }
     }
 }

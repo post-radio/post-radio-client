@@ -12,7 +12,7 @@ namespace GamePlay.Network.Room.Starter.Runtime
     {
         public override async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            services.Register<RoomStarter>()
+            services.Register<RoomLifecycle>()
                 .AsCallbackListener();
         }
     }

@@ -2,6 +2,7 @@
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Global.Network.Handlers.SceneCollectors.Runtime;
 using Ragon.Client;
+using UnityEngine;
 
 namespace GamePlay.Network.Room.SceneCollectors.Runtime
 {
@@ -34,7 +35,6 @@ namespace GamePlay.Network.Room.SceneCollectors.Runtime
         public RagonEntity[] Collect()
         {
             _isCollected = true;
-            
             return _entities.ToArray();
         }
     }

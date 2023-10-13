@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16fd3199bba2db4991c240880d95d6e, type: 3}
   m_Name: LevelNetworkCompose
   m_EditorClassIdentifier: 
-  _roomStarter: {fileID: 11400000, guid: d9834be6887265f4cbe7b647af83910b, type: 2}
+  _roomStarter: {fileID: 11400000, guid: 7fe28def989a48f47ad00330c8c7a29c, type: 2}
   _entityDestroyer: {fileID: 11400000, guid: ff9ce1e249587e049b7a219f67586acd, type: 2}
   _factoriesRegistry: {fileID: 11400000, guid: 37bd74f3a3a508e4d82fefbeb84724dc, type: 2}
   _sceneEntityFactory: {fileID: 11400000, guid: 3b54f159fd462484098362a44c967d77, type: 2}
   _sceneCollector: {fileID: 11400000, guid: 435494323403e204b8b742d0f3cb8633, type: 2}
   _dynamicEntityFactory: {fileID: 11400000, guid: 67adf2a5e7a06f34198fc24a45e9fb73, type: 2}
   _playersRegistry: {fileID: 11400000, guid: 7ccdf775f6fa7994982118acea3a319f, type: 2}
+  _eventsLoop: {fileID: 11400000, guid: 2f0caaef26eab2847b7e112d32fe5f52, type: 2}
+  _messenger: {fileID: 11400000, guid: 8c2b0c023dc9ea84b9b601334d6a3ed6, type: 2}

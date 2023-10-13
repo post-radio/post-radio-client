@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Ragon.Client;
+using UnityEngine;
 
 namespace GamePlay.Network.Room.Entities.Factory
 {
@@ -24,7 +25,7 @@ namespace GamePlay.Network.Room.Entities.Factory
             _entity.Attached += OnAttached;
 
             await completion.Task;
-
+            
             _entity.Attached -= OnAttached;
         }
     }

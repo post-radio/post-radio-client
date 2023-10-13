@@ -1,6 +1,7 @@
 ﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Global.System.Updaters.Runtime.Abstract;
 using Ragon.Client;
+using UnityEngine;
 
 namespace Global.Network.Handlers.ClientHandler.Runtime
 {
@@ -24,9 +25,6 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
 
         public void OnUpdate(float delta)
         {
-            if (_client.Status == RagonStatus.DISCONNECTED)
-                return;
-            
             _client.Update(delta);
         }
 
