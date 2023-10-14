@@ -1,5 +1,4 @@
-﻿using GamePlay.Network.Common;
-using GamePlay.Network.Common.Paths;
+﻿using GamePlay.Network.Common.Paths;
 
 namespace GamePlay.Network.Messaging.REST.Common
 {

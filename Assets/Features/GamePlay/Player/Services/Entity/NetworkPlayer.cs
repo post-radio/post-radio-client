@@ -1,6 +1,6 @@
 ﻿using Ragon.Client;
 
-namespace GamePlay.Network.Players.Registry.Runtime
+namespace GamePlay.Player.Services.Entity
 {
     public class NetworkPlayer
     {

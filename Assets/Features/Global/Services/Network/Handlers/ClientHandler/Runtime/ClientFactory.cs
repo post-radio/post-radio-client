@@ -1,4 +1,5 @@
 ﻿using System;
+using Global.Network.Connection.Configuration;
 using Global.Network.Handlers.SceneCollectors.Runtime;
 using Global.Network.Objects.EntityListeners.Runtime;
 using Ragon.Client;
@@ -12,26 +13,23 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
         public ClientFactory(
             ISceneCollectorBridge sceneCollectorBridge,
             IEntityListener entityListener,
-            RagonConnectionType connectionType,
-            int rate)
+            IRagonConnectionOptions options)
         {
             _sceneCollectorBridge = sceneCollectorBridge;
             _entityListener = entityListener;
-            _connectionType = connectionType;
-            _rate = rate;
+            _options = options;
         }
 
         private readonly ISceneCollectorBridge _sceneCollectorBridge;
         private readonly IEntityListener _entityListener;
-        private readonly RagonConnectionType _connectionType;
-        private readonly int _rate;
+        private readonly IRagonConnectionOptions _options;
 
         public RagonClient Create()
         {
             Assert.IsNotNull(_sceneCollectorBridge);
 
-            var connection = GetConnection(_connectionType);
-            var client = new RagonClient(connection, _rate);
+            var connection = GetConnection(_options.Type);
+            var client = new RagonClient(connection, _options.Rate);
             client.Configure(_entityListener);
             client.Configure(_sceneCollectorBridge);
             return client;

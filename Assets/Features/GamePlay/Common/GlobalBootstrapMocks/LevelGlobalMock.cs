@@ -1,6 +1,5 @@
 ﻿using Common.Architecture.Mocks.Runtime;
 using Common.Architecture.ScopeLoaders.Factory;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Runtime;
 using Global.Network.Connection.Runtime;

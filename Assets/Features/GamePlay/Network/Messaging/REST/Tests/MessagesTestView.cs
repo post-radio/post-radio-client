@@ -64,6 +64,7 @@ namespace GamePlay.Network.Messaging.REST.Tests
         private async UniTask ProcessRequest(IResponseHandler<TestRequest, TestResponse> responseHandler)
         {
             responseHandler.Response(new TestResponse() { Value = _client.Value });
+            _client.SetValue(responseHandler.RequestPayload.Value);
         }
 
         private RagonPlayer GetAnotherPlayer()

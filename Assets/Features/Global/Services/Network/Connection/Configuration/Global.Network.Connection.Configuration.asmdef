@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Network.Connection.Configuration",
+  "references":[ "GUID:2ef144f1edca7a1438d7ed500325c442", "GUID:da1917f3a79694c539a148addd06d33b" ]
+}

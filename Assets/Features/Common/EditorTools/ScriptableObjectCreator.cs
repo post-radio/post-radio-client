@@ -17,7 +17,7 @@ namespace Common.EditorTools
                 t.IsClass &&
                 typeof(ScriptableObject).IsAssignableFrom(t) &&
                 !typeof(EditorWindow).IsAssignableFrom(t) &&
-                !typeof(UnityEditor.Editor).IsAssignableFrom(t))
+                !typeof(Editor).IsAssignableFrom(t))
             .ToHashSet();
         
         private ScriptableObject previewObject;

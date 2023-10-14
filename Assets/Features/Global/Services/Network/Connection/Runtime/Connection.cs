@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using Global.Network.Connection.Configuration;
 using Global.Network.Connection.Logs;
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
@@ -13,22 +14,22 @@ namespace Global.Network.Connection.Runtime
         public Connection(
             IClientProvider clientProvider,
             ConnectionLogger logger,
-            ConnectionConfig config)
+            IRagonConnectionOptions options)
         {
             _clientProvider = clientProvider;
             _logger = logger;
-            _config = config;
+            _options = options;
         }
         
         private readonly IClientProvider _clientProvider;
         private readonly ConnectionLogger _logger;
-        private readonly ConnectionConfig _config;
+        private readonly IRagonConnectionOptions _options;
 
         public event Action Disconnected;
         
         public async UniTask<ConnectionResultType> Connect()
         {
-            var attempt = new ConnectionAttempt(_clientProvider.Client, _config, _logger);
+            var attempt = new ConnectionAttempt(_clientProvider.Client, _options, _logger);
 
             var result = await attempt.Connect($"Doomer_{Random.Range(0,100)}");
 

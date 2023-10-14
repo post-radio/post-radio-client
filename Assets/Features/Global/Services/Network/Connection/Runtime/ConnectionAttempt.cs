@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Global.Network.Connection.Configuration;
 using Global.Network.Connection.Logs;
 using Ragon.Client;
 using Ragon.Protocol;
@@ -7,10 +8,10 @@ namespace Global.Network.Connection.Runtime
 {
     public struct ConnectionAttempt : IRagonConnectionListener, IRagonFailedListener, IRagonAuthorizationListener
     {
-        public ConnectionAttempt(RagonClient client, ConnectionConfig config, ConnectionLogger logger)
+        public ConnectionAttempt(RagonClient client, IRagonConnectionOptions options, ConnectionLogger logger)
         {
             _client = client;
-            _config = config;
+            _options = options;
             _logger = logger;
 
             _connectCompletion = new UniTaskCompletionSource<ConnectionResultType>();
@@ -18,7 +19,7 @@ namespace Global.Network.Connection.Runtime
         }
 
         private readonly RagonClient _client;
-        private readonly ConnectionConfig _config;
+        private readonly IRagonConnectionOptions _options;
         private readonly ConnectionLogger _logger;
         
         private readonly UniTaskCompletionSource<ConnectionResultType> _connectCompletion;
@@ -26,11 +27,11 @@ namespace Global.Network.Connection.Runtime
 
         public async UniTask<ConnectionResultType> Connect(string playerName)
         {
-            _logger.OnConnectionAttempt(_config.Address, _config.Protocol, _config.Port);
+            _logger.OnConnectionAttempt(_options.Address, _options.Protocol, _options.Port);
             
             Listen();
         
-            _client.Connect(_config.Address, _config.Port, _config.Protocol);
+            _client.Connect(_options.Address, _options.Port, _options.Protocol);
 
             var connectionResult = await _connectCompletion.Task;
 

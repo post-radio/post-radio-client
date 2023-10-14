@@ -16,7 +16,6 @@ using Internal.Services.Options.Runtime;
 using Internal.Services.Scenes.Abstract;
 using Menu.Config.Runtime;
 using VContainer.Unity;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Global.GameLoops.Runtime
 {

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Common.EditorTools
 {
-    public class SelectGameObjectsWithMissingScripts : UnityEditor.Editor
+    public class SelectGameObjectsWithMissingScripts : Editor
     {
         [MenuItem("Tools/Select missing references")]
         private static void SelectGameObjects()

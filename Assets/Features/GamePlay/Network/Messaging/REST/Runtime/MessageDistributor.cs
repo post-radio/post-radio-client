@@ -2,7 +2,8 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Messaging.REST.Runtime.Abstract;
-using GamePlay.Network.Players.Registry.Runtime;
+using GamePlay.Player.Services.Entity;
+using GamePlay.Player.Services.Lists.Runtime;
 using Ragon.Client;
 
 namespace GamePlay.Network.Messaging.REST.Runtime

@@ -7,7 +7,7 @@ namespace Global.Network.Objects.Factories.Abstract
     {
         int Id { get; }
 
-        UniTaskVoid CreateRemote(int objectId, RagonEntity entity);
+        UniTaskVoid OnRemoteCreated(int objectId, RagonEntity entity);
         void AssignId(int id);
     }
 }

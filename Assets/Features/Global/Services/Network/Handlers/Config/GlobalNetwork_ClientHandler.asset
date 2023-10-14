@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243f427e8d634a79a12bc53c20f05f73, type: 3}
   m_Name: GlobalNetwork_ClientHandler
   m_EditorClassIdentifier: 
-  _configuration: {fileID: 11400000, guid: d7e5784266fdbc14986a4ceff0566c45, type: 2}
+  _configuration: {fileID: 11400000, guid: 48478ec2e0b1f834c898e9466982544e, type: 2}

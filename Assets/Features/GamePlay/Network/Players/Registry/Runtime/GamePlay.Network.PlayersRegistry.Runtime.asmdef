@@ -1,4 +1,0 @@
-﻿{
-  "name": "GamePlay.Network.PlayersRegistry.Runtime",
-  "references":[ "GUID:582d70e07d0d48d195daeab83b72aa33", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:7adcf9a0f9eb4aa39b12636ab3acc20f", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
-}

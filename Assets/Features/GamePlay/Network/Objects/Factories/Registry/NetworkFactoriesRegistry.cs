@@ -47,7 +47,7 @@ namespace GamePlay.Network.Objects.Factories.Registry
         {
             var factory = GetFactory(id.FactoryId);
             
-            factory.CreateRemote(id.ObjectId, entity).Forget();
+            factory.OnRemoteCreated(id.ObjectId, entity).Forget();
         }
         
         private IEntityFactory GetFactory(int id)

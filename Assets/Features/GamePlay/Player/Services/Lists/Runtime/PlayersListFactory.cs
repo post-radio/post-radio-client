@@ -2,16 +2,16 @@
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
-using GamePlay.Network.Players.Registry.Common;
+using GamePlay.Player.Services.Lists.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Network.Players.Registry.Runtime
+namespace GamePlay.Player.Services.Lists.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = PlayersRegistryRoutes.ServiceName,
-        menuName = PlayersRegistryRoutes.ServicePath)]
-    public class PlayersRegistryFactory : ScriptableObject, IServiceFactory
+    [CreateAssetMenu(fileName = PlayersListRoutes.ServiceName,
+        menuName = PlayersListRoutes.ServicePath)]
+    public class PlayersListFactory : ScriptableObject, IServiceFactory
     {
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {

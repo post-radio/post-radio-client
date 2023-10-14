@@ -28,7 +28,6 @@ using Global.UI.UiStateMachines.Runtime;
 using Internal.Services.Scenes.Data;
 using Menu.Settings.Global;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VContainer.Unity;

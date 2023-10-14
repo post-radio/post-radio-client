@@ -1,5 +1,4 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
-using UnityEngine;
 using VContainer;
 
 namespace Common.Architecture.DiContainer.Runtime

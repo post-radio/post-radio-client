@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using GamePlay.Player.Services.Entity;
 using Ragon.Client;
 
-namespace GamePlay.Network.Players.Registry.Runtime
+namespace GamePlay.Player.Services.Lists.Runtime
 {
     public interface IPlayersList
     {

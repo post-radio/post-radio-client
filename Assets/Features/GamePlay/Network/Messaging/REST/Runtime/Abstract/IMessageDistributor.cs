@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using GamePlay.Network.Players.Registry.Runtime;
+using GamePlay.Player.Services.Entity;
 using Ragon.Client;
 
 namespace GamePlay.Network.Messaging.REST.Runtime.Abstract

@@ -5,7 +5,6 @@ using UnityEngine;
 using VContainer;
 using VContainer.Internal;
 using VContainer.Unity;
-using Object = UnityEngine.Object;
 
 namespace Common.Architecture.DiContainer.Runtime
 {

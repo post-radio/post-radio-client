@@ -42,6 +42,26 @@ MonoBehaviour:
   - {fileID: -7493556215027156586}
   - {fileID: 7872554466723321229}
   - {fileID: -4990500854133510256}
+  - {fileID: 7391102754513568748}
+--- !u!114 &7391102754513568748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b38719efb204637964d907ffea78ddd, type: 3}
+  m_Name: Options_Release_RagonConnectionOptions
+  m_EditorClassIdentifier: 
+  _type: 2
+  _ip: 127.0.0.1
+  _udpProtocol: 1.0.0
+  _port: 500
+  _url: server.post-radio.io
+  _webSocketProtocol: 1
+  _rate: 10
 --- !u!114 &7872554466723321229
 MonoBehaviour:
   m_ObjectHideFlags: 0
