@@ -16,11 +16,13 @@ namespace Menu.Main.UI
     public class MainUIFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private TabDefinition _tabDefinition;
+        [SerializeField] private TransitToGameConfig _config;
         
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<MainController>()
                 .As<IMainController>()
+                .WithParameter(_config)
                 .AsTab<MainController>(_tabDefinition);
         }
     }

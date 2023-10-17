@@ -28,15 +28,15 @@ namespace Global.System.MessageBrokers.Logs
 
             _logger.Log($"{typeof(T)} is published.", _settings.LogParameters);
         }
-        
+
         public void OnListenAsync<T>()
-        {   
+        {
             if (_settings.IsAvailable(MessageBrokerLogType.ListenAsync) == false)
                 return;
 
             _logger.Log($"{typeof(T)} is listened async.", _settings.LogParameters);
         }
-        
+
         public void OnPublishAsync<T>()
         {
             if (_settings.IsAvailable(MessageBrokerLogType.PublishAsync) == false)

@@ -7,7 +7,7 @@ namespace Common.UI.Buttons
 {
     [Serializable]
     public class ImageSwitchButtonState : 
-        IButtonState,
+        ButtonState,
         IPointerEnterListener,
         IPointerExitListener,
         IPointerDownListener,
@@ -19,12 +19,12 @@ namespace Common.UI.Buttons
         [SerializeField] private Sprite _pressed;
         [SerializeField] private Sprite _exited;
         
-        public void Construct(IButtonUtils utils)
+        public override void Construct(IButtonUtils utils)
         {
             OnPointerExit();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
         }
 

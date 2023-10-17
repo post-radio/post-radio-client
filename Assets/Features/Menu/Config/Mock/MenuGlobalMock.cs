@@ -11,7 +11,7 @@ namespace Menu.Config.Mock
     [DisallowMultipleComponent]
     public class MenuGlobalMock : MockBase
     {
-        [SerializeField] private MenuConfig _menu;
+        [SerializeField] private MenuScopeConfig _menuScope;
         [SerializeField] private GlobalMock _mock;
         
         public override async UniTaskVoid Process()
@@ -29,7 +29,7 @@ namespace Menu.Config.Mock
             
             var scopeLoaderFactory = resolver.Resolve<IScopeLoaderFactory>();
             
-            var scopeLoader = scopeLoaderFactory.Create(_menu, result.Parent);
+            var scopeLoader = scopeLoaderFactory.Create(_menuScope, result.Parent);
             var scope = await scopeLoader.Load();
             
             await result.RegisterLoadedScene(scope);

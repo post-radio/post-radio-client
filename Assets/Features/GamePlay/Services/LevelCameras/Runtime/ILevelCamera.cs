@@ -4,11 +4,11 @@ namespace GamePlay.Services.LevelCameras.Runtime
 {
     public interface ILevelCamera
     {
+        Vector2 Position { get; }
+        float Scale { get; }
         Camera Camera { get; }
 
-        void StartFollow(Transform target);
-        void StopFollow();
-        void Teleport(Vector2 target);
-        void SetSize(float size);
+        void SetPosition(Vector2 position);
+        void SetScale(float size);
     }
 }

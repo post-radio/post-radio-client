@@ -20,19 +20,14 @@ namespace GamePlay.Config.Runtime
     [CreateAssetMenu(fileName = "Level", menuName = GamePlayAssetsPaths.Root + "Scene")]
     public class LevelScopeConfig : ScriptableObject, IScopeConfig
     {
-        [FoldoutGroup("Level")] [SerializeField]
-        private BaseLevelSceneFactory _levelScene;
-        
-        [FoldoutGroup("UI")] [SerializeField]
-        private LevelUiFactory _ui;
-        
-        [FoldoutGroup("System")] [SerializeField]
-        private LevelLoopFactory _levelLoop;
-        [FoldoutGroup("System")] [SerializeField]
-        private VfxPoolFactory _vfxPool;
+        [FoldoutGroup("Level")] [SerializeField] private BaseLevelSceneFactory _levelScene;
 
-        [FoldoutGroup("Level")] [SerializeField]
-        private LevelCameraFactory _levelCamera;
+        [FoldoutGroup("UI")] [SerializeField] private LevelUiFactory _ui;
+
+        [FoldoutGroup("System")] [SerializeField] private LevelLoopFactory _levelLoop;
+        [FoldoutGroup("System")] [SerializeField] private VfxPoolFactory _vfxPool;
+
+        [FoldoutGroup("Level")] [SerializeField] private LevelCameraFactory _levelCamera;
 
         [SerializeField] private LevelNetworkCompose _network;
 
@@ -43,7 +38,7 @@ namespace GamePlay.Config.Runtime
         public ISceneAsset ServicesScene => _servicesScene;
         public IReadOnlyList<IServiceFactory> Services => GetFactories();
         public IReadOnlyList<ICallbacksFactory> Callbacks => GetCallbacks();
-        
+
         protected IServiceFactory[] GetFactories()
         {
             var services = new List<IServiceFactory>()
@@ -54,12 +49,12 @@ namespace GamePlay.Config.Runtime
                 _levelScene,
                 _ui
             };
-            
+
             services.AddRange(_network.Services);
 
             return services.ToArray();
         }
-        
+
         private ICallbacksFactory[] GetCallbacks()
         {
             return new[]

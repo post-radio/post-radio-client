@@ -4,7 +4,7 @@ namespace Global.Network.Connection.Configuration
 {
     public interface IRagonConnectionOptions
     {
-        RagonConnectionType Type { get; }   
+        RagonConnectionType Type { get; }
         public string Address { get; }
         public string Protocol { get; }
         public ushort Port { get; }

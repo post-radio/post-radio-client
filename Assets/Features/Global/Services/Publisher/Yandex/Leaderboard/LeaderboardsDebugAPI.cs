@@ -9,7 +9,7 @@ namespace Global.Publisher.Yandex.Leaderboard
         {
             _callbacks = callbacks;
         }
-        
+
         private readonly YandexCallbacks _callbacks;
 
         public void SetLeaderboard_Internal(string target, int score)
@@ -22,7 +22,7 @@ namespace Global.Publisher.Yandex.Leaderboard
             {
                 LeaderboardName = target
             };
-            
+
             var entries = new LeaderboardEntry[]
             {
                 new()
@@ -88,7 +88,7 @@ namespace Global.Publisher.Yandex.Leaderboard
             };
 
             var raw = JsonConvert.SerializeObject(response);
-            
+
             _callbacks.OnLeaderboardsReceived(raw);
         }
     }

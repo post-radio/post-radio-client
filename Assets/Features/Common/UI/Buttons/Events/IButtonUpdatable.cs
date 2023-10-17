@@ -2,6 +2,6 @@
 {
     public interface IButtonUpdatable
     {
-        void Update();
+        void UpdateState(float delta);
     }
 }

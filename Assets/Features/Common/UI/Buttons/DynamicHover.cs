@@ -1,13 +1,13 @@
 ﻿namespace Common.UI.Buttons
 {
-    public class DynamicHover : IButtonState
+    public class DynamicHover : ButtonState
     {
-        public void Construct(IButtonUtils utils)
+        public override void Construct(IButtonUtils utils)
         {
             
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
         }
     }

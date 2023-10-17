@@ -17,7 +17,7 @@ namespace Common.UniversalAnimators.Updaters.Runtime
         {
             _updater.Add(this);
         }
-        
+
         public void Register(IUpdatableAnimator animator)
         {
             _animators.Add(animator);
@@ -27,7 +27,7 @@ namespace Common.UniversalAnimators.Updaters.Runtime
         {
             _animators.Remove(animator);
         }
-        
+
         public void OnUpdate(float delta)
         {
             _animators.Fetch();

@@ -70,20 +70,20 @@ namespace Common.Serialization.NestedScriptableObjects.Attributes
                 nestedObjectsTypes.Add(nestedObject.GetType());
 
             var objectsToRemove = new List<ValueDropdownItem>();
-            
+
             foreach (var type in allObjectsOfType)
             {
                 var dropdownType = type.Value.GetType();
-                
+
                 if (nestedObjectsTypes.Contains(dropdownType) == false)
                     continue;
-                
+
                 objectsToRemove.Add(type);
             }
 
             foreach (var objectToRemove in objectsToRemove)
                 allObjectsOfType.Remove(objectToRemove);
-            
+
             return allObjectsOfType;
         }
 
@@ -107,7 +107,7 @@ namespace Common.Serialization.NestedScriptableObjects.Attributes
             if (info.Value is not ScriptableObject scriptableObject)
                 return;
 
-            
+
             if (scriptableObject.name.Contains("EmptyEntry"))
             {
                 _create.Add(null);

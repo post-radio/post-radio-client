@@ -25,7 +25,7 @@ namespace Common.Architecture.ObjectsPools.Runtime
         public void OnInactiveCreated(T poolObject)
         {
             _inactive.Add(poolObject);
-            
+
             _values.Add(poolObject, poolObject);
         }
 

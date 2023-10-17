@@ -32,10 +32,10 @@ namespace Global.GameLoops.Runtime
             IConnection connection,
             IGlobalExceptionController globalException,
             LevelScopeConfig levelScope,
-            MenuConfig menu)
+            MenuScopeConfig menuScope)
         {
             _levelScope = levelScope;
-            _menu = menu;
+            _menuScope = menuScope;
             _scope = scope;
             _scopeLoaderFactory = scopeLoaderFactory;
             _loadingScreen = loadingScreen;
@@ -61,7 +61,7 @@ namespace Global.GameLoops.Runtime
         private readonly IScopeLoaderFactory _scopeLoaderFactory;
 
         private readonly LevelScopeConfig _levelScope;
-        private readonly MenuConfig _menu;
+        private readonly MenuScopeConfig _menuScope;
 
         private IDisposable _restartListener;
 
@@ -95,7 +95,7 @@ namespace Global.GameLoops.Runtime
                 return;
             }
             
-            LoadScene(_menu).Forget();
+            LoadScene(_menuScope).Forget();
         }
 
         private async UniTaskVoid LoadScene(IScopeConfig config)

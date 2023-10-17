@@ -5,5 +5,6 @@ namespace Global.Network.Session.Runtime.Join
     public interface ISessionJoin
     {
         UniTask<SessionJoinResult> Join(string id);
+        UniTask<SessionJoinResult> JoinRandom();
     }
 }

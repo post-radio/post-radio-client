@@ -4,6 +4,6 @@ namespace Global.Network.Session.Runtime.Create
 {
     public interface ISessionCreate
     {
-        UniTask<SessionCreateResult> Create(string id);
+        UniTask<SessionCreateResult> Create();
     }
 }

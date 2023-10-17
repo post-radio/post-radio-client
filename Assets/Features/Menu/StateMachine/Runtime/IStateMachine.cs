@@ -5,6 +5,6 @@ namespace Menu.StateMachine.Runtime
 {
     public interface IStateMachine
     {
-        UniTask Select(ITabDefinition tabDefinition, TabTransitionType transitionType);
+        UniTask Select(ITabDefinition tabDefinition);
     }
 }

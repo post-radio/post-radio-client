@@ -43,7 +43,7 @@ namespace GamePlay.Network.Room.EventLoops.Runtime
             _sceneEntityCreation.Listen(listener);
             _destroy.Listen(listener);
         }
-        
+
         public async UniTask InvokeRegisterCallbacks(RagonEventCache events)
         {
             await _callbacksRegistration.Run();
@@ -61,14 +61,14 @@ namespace GamePlay.Network.Room.EventLoops.Runtime
 
         public async UniTask InvokeDestroyCallbacks()
         {
-           await _destroy.Run();
+            await _destroy.Run();
         }
 
         private void RegisterCallbacks(INetworkEventsRegistrationListener listener)
         {
             listener.RegisterEvents(_clientProvider.Client.Event);
         }
-        
+
         private UniTask CreateSceneEntities(INetworkSceneEntityCreationListener listener)
         {
             return listener.OnSceneEntityCreation(_sceneEntityFactory);

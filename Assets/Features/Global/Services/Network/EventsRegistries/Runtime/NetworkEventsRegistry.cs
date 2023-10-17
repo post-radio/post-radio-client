@@ -9,7 +9,7 @@ namespace Global.Network.EventsRegistries.Runtime
         {
             _clientProvider = clientProvider;
         }
-        
+
         private readonly IClientProvider _clientProvider;
 
         public void OnAwake()

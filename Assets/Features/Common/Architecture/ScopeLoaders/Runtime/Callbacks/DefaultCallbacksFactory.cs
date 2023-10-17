@@ -34,10 +34,10 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
                 listener => listener.OnLoaded(), CallbackStage.SetupComplete, 0);
             callbacks.AddScopeAsyncCallback<IScopeLoadAsyncListener>(
                 listener => listener.OnLoadedAsync(), CallbackStage.SetupComplete, 1000);
-            
+
             callbacks.AddScopeCallback<IScopeDisableListener>(
                 listener => listener.OnDisabled(), CallbackStage.Dispose, 0);
-            
+
             callbacks.AddScopeAsyncCallback<IScopeDisableAsyncListener>(
                 listener => listener.OnDisabledAsync(), CallbackStage.Dispose, 1000);
         }

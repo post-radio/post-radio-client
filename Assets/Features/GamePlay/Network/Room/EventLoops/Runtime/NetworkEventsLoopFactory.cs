@@ -14,12 +14,12 @@ namespace GamePlay.Network.Room.EventLoops.Runtime
     {
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            var callbacks = new NetworkCallbacksFactory();            
+            var callbacks = new NetworkCallbacksFactory();
             utils.Callbacks.AddGenericCallbackRegister(callbacks);
-            
+
             services.RegisterInstance(callbacks)
                 .As<IGamePlayNetworkCallbacks>();
-            
+
             services.Inject(callbacks);
         }
     }

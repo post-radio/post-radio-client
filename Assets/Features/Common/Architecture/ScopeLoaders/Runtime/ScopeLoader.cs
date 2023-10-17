@@ -78,7 +78,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime
 
             await UniTask.WhenAll(tasks);
         }
-        
+
         private async UniTask BuildContainer(IDependenciesBuilder builder, IScopeUtils utils)
         {
             using (LifetimeScope.EnqueueParent(_parent))

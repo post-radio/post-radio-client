@@ -11,7 +11,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
         private readonly List<ICallbackRegister> _genericRegisters = new();
 
         public IReadOnlyDictionary<CallbackStage, ICallbacksHandler> Handlers => _callbacks;
-        
+
         public void Listen(object listener)
         {
             foreach (var (_, handler) in _callbacks)

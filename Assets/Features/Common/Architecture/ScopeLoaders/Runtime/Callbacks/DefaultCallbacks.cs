@@ -17,17 +17,17 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
     {
         void OnEnabled();
     }
-    
+
     public interface IScopeEnableAsyncListener
     {
         UniTask OnEnabledAsync();
     }
-    
+
     public interface IScopeDisableListener
     {
         void OnDisabled();
     }
-    
+
     public interface IScopeDisableAsyncListener
     {
         UniTask OnDisabledAsync();
@@ -37,7 +37,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
     {
         void OnLoaded();
     }
-    
+
     public interface IScopeLoadAsyncListener
     {
         UniTask OnLoadedAsync();
@@ -47,7 +47,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
     {
         void OnContainerBuilt(LifetimeScope scope);
     }
-    
+
     public interface IScopeSwitchListener : IScopeEnableListener, IScopeDisableListener
     {
     }

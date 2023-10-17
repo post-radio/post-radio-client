@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Global.Network.Session.Logs;
 
@@ -15,10 +16,12 @@ namespace Global.Network.Session.Runtime.Create
         private readonly IClientProvider _clientProvider;
         private readonly SessionLogger _logger;
 
-        public async UniTask<SessionCreateResult> Create(string id)
+        public async UniTask<SessionCreateResult> Create()
         {
             var attempt = new CreateAttempt(_clientProvider.Client, _logger);
-            
+
+            var id = Guid.NewGuid().ToString();
+            id = id.Substring(0, 8);
             return await attempt.Create(id);
         }
     }

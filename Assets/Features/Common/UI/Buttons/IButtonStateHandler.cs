@@ -2,7 +2,7 @@
 {
     public interface IButtonStateHandler
     {
-        void Lock(IButtonState current);
-        bool IsLocked(IButtonState state);
+        void Lock(ButtonState current);
+        bool IsLocked(ButtonState state);
     }
 }

@@ -19,7 +19,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Utils
             _data = data;
             _callbacks = callbacks;
         }
-        
+
         private readonly IOptions _options;
         private readonly ISceneLoader _sceneLoader;
         private readonly IScopeBinder _binder;

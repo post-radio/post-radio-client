@@ -4,6 +4,7 @@ using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using Menu.StateMachine.Common;
 using Menu.StateMachine.Registry;
+using Menu.StateMachine.Runtime.Transition;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Menu.StateMachine.Runtime
     public class StateMachineFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private TabsTabTransitionConfig _config;
-        
+
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<StateMachine>()

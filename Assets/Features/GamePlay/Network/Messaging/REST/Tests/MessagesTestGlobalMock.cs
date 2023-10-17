@@ -65,7 +65,7 @@ namespace GamePlay.Network.Messaging.REST.Tests
             if (joinResult.Type == SessionJoinResultType.Fail)
             {
                 var sessionCreate = resolver.Resolve<ISessionCreate>();
-                await sessionCreate.Create(sessionName);
+                await sessionCreate.Create();
             }
 
             var scopeLoaderFactory = resolver.Resolve<IScopeLoaderFactory>();

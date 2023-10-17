@@ -8,7 +8,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Utils
         {
             _scope = scope;
         }
-        
+
         private readonly LifetimeScope _scope;
 
         public LifetimeScope Scope => _scope;

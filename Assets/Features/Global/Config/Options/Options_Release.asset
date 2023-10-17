@@ -58,7 +58,7 @@ MonoBehaviour:
   _type: 2
   _ip: 127.0.0.1
   _udpProtocol: 1.0.0
-  _port: 500
+  _port: 5000
   _url: server.post-radio.io
   _webSocketProtocol: 1
   _rate: 10

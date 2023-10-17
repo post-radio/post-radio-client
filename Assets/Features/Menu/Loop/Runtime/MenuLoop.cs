@@ -1,4 +1,5 @@
 ﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Cysharp.Threading.Tasks;
 using Menu.StateMachine.Definitions;
 using Menu.StateMachine.Runtime;
 
@@ -17,7 +18,7 @@ namespace Menu.Loop.Runtime
 
         public void OnLoaded()
         {
-            // _stateMachine.Select(_mainDefinition, TabTransitionType.LeftToRight).Forget();
+             _stateMachine.Select(_mainDefinition).Forget();
         }
     }
 }

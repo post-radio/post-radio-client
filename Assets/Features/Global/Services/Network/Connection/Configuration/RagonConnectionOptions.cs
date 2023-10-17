@@ -10,18 +10,13 @@ namespace Global.Network.Connection.Configuration
     public class RagonConnectionOptions : OptionsEntry, IRagonConnectionOptions
     {
         [SerializeField] private RagonConnectionType _type;
-        
-        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] 
-        private string _ip;
-        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] 
-        private string _udpProtocol;
-        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] 
-        private ushort _port;
 
-        [SerializeField] [ShowIf("_type", RagonConnectionType.WebSocket)] 
-        private string _url;
-        [SerializeField] [ShowIf("_type", RagonConnectionType.WebSocket)]
-        private WebSocketProtocol _webSocketProtocol;
+        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] private string _ip;
+        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] private string _udpProtocol;
+        [SerializeField] [ShowIf("_type", RagonConnectionType.UDP)] private ushort _port;
+
+        [SerializeField] [ShowIf("_type", RagonConnectionType.WebSocket)] private string _url;
+        [SerializeField] [ShowIf("_type", RagonConnectionType.WebSocket)] private WebSocketProtocol _webSocketProtocol;
 
         [SerializeField] [Range(1, 60)] private int _rate;
 

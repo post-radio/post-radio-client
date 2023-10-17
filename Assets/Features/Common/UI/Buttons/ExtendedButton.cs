@@ -7,7 +7,7 @@ namespace Common.UI.Buttons
     public class ExtendedButton : MonoBehaviour
     {
         [SerializeField] private ExtendedTriggerReceiver _triggerReceiver;
-        [SerializeReference] private IButtonState[] _stateHandlers;
+        [SerializeField] private ButtonState[] _stateHandlers;
 
         private bool _isLocked;
         
@@ -45,6 +45,7 @@ namespace Common.UI.Buttons
 
         public void UnsubscribeAll()
         {
+            Debug.Log("Unsubscibe");
             Clicked = null;
         }
 

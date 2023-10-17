@@ -48,12 +48,12 @@ namespace Global.Publisher.Yandex.Leaderboard
                     completion.TrySetCanceled();
                     return;
                 }
-                
+
                 completion.TrySetResult(response);
             }
 
             var response = await completion.Task;
-            
+
             _callbacks.LeaderboardsReceived -= OnReceived;
 
             return ParseResponse(response);

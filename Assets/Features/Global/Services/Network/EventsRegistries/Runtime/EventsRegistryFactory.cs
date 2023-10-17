@@ -11,7 +11,7 @@ namespace Global.Network.EventsRegistries.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = EventsRegistryRoutes.ServiceName,
         menuName = EventsRegistryRoutes.ServicePath)]
-    public class EventsRegistryFactory : ScriptableObject, IServiceFactory  
+    public class EventsRegistryFactory : ScriptableObject, IServiceFactory
     {
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {

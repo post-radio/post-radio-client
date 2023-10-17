@@ -7,6 +7,5 @@ namespace Menu.StateMachine.Definitions
         menuName = StateMachineRoutes.TadDefinitionPath)]
     public class TabDefinition : ScriptableObject, ITabDefinition
     {
-        
     }
 }

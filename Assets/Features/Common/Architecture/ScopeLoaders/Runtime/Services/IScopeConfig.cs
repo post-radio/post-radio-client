@@ -7,8 +7,8 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Services
     public interface IScopeConfig
     {
         LifetimeScope ScopePrefab { get; }
-        ISceneAsset ServicesScene { get; } 
-        
+        ISceneAsset ServicesScene { get; }
+
         IReadOnlyList<IServiceFactory> Services { get; }
         IReadOnlyList<ICallbacksFactory> Callbacks { get; }
     }

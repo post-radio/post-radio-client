@@ -38,15 +38,15 @@ namespace Internal.Services.Scenes.Addressable
 
             return new AddressablesSceneLoadTypedResult<T>(scene, searched);
         }
-        
+
         private T Search<T>(Scene scene)
         {
             var rootObjects = scene.GetRootGameObjects();
-            
+
             foreach (var rootObject in rootObjects)
                 if (rootObject.TryGetComponent(out T searched) == true)
                     return searched;
-            
+
             throw new NullReferenceException($"Searched {typeof(T)} is not found");
         }
     }

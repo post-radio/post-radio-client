@@ -7,5 +7,10 @@ namespace Menu.Main.UI
     {
         ITabNavigation Navigation { get; }
         RectTransform Transform { get; }
+        Transform TargetCameraPoint { get; }
+
+        void Construct(IMainInterceptor interceptor);
+        void Dispose();
+        void OnError();
     }
 }

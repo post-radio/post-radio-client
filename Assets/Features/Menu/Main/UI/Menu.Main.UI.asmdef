@@ -1,17 +1,28 @@
-﻿{
-  "name": "Menu.Main.UI",
-  "references": [
-    "GUID:dd17c7da000db554e8cb1468c5339657",
-    "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c",
-    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
-    "GUID:4e49484642048a24284fdb5ab7355045",
-    "GUID:5d58b6ff52a35b043a6c0f5c4f5bb144",
-    "GUID:46dd048916d5cbc4abc3ad96ead5b02a",
-    "GUID:f51ebe6a0ceec4240a699833d6309b23",
-    "GUID:670db52dbd764144d87636f1b6272023",
-    "GUID:71d2af7606d84abb998e3db811acf857",
-    "GUID:64fc87719642b7f4b87ac73bc99031fd",
-    "GUID:4b20e61099a183343b8919b8f8e0e624",
-    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
-  ]
+{
+    "name": "Menu.Main.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dd17c7da000db554e8cb1468c5339657",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:4e49484642048a24284fdb5ab7355045",
+        "GUID:5d58b6ff52a35b043a6c0f5c4f5bb144",
+        "GUID:46dd048916d5cbc4abc3ad96ead5b02a",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:670db52dbd764144d87636f1b6272023",
+        "GUID:64fc87719642b7f4b87ac73bc99031fd",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:ce20231345ac4bf78b1172f10bf74169",
+        "GUID:023cf439d76f82743a21c05af54cdbd9",
+        "GUID:9a34842b183a1fb4797341ba693aa70c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

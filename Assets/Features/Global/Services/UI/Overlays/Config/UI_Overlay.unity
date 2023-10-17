@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 945629699}
   - component: {fileID: 945629698}
   - component: {fileID: 945629697}
+  - component: {fileID: 945629701}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -374,13 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerReceiver: {fileID: 945629697}
   _stateHandlers:
-  - rid: 1510322426854768640
-  references:
-    version: 2
-    RefIds:
-    - rid: 1510322426854768640
-      type: {class: DynamicHover, ns: Common.UI.Buttons, asm: Common.UI.Buttons}
-      data: 
+  - {fileID: 945629701}
 --- !u!114 &945629699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +490,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945629695}
   m_CullTransparentMesh: 1
+--- !u!114 &945629701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945629695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b152421d2b14d8c9d3e1d520b98a4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _idle: {fileID: 11400000, guid: 3338999c6ed8b1c4b89ba670bc348cd7, type: 2}
+  _selected: {fileID: 11400000, guid: 3338999c6ed8b1c4b89ba670bc348cd7, type: 2}
+  _pressed: {fileID: 11400000, guid: 3338999c6ed8b1c4b89ba670bc348cd7, type: 2}
+  _time: {fileID: 11400000, guid: 93f43c17b165c1c4cbf60026c1d8018c, type: 2}
+  _image: {fileID: 945629699}
 --- !u!1 &1076632023
 GameObject:
   m_ObjectHideFlags: 0

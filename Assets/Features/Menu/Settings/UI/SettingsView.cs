@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.UI.Buttons;
 using Global.Localizations.Definition;
 using Menu.Common.Navigation;
 using TMPro;
@@ -15,8 +14,6 @@ namespace Menu.Settings.UI
         [SerializeField] private Slider _musicSlider;
         [SerializeField] private Slider _soundSlider;
 
-        [SerializeField] private ExtendedButton _socialButton;
-        
         private ITabNavigation _navigation;
         private RectTransform _transform;
         
@@ -27,7 +24,6 @@ namespace Menu.Settings.UI
         public float SoundValue => _soundSlider.value;
 
         public event Action<Language> LanguageChanged;
-        public event Action SocialClicked;
         
         private void Awake()
         {
@@ -37,13 +33,12 @@ namespace Menu.Settings.UI
 
         private void OnEnable()
         {
-            //_socialButton.Clicked += OnSocialClicked;
-            //_languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
+            _languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
         }
         
         private void OnDisable()
         {
-            //_socialButton.Clicked -= OnSocialClicked;
+            _languageDropdown.onValueChanged.RemoveListener(OnLanguageChanged);
         }
         
         public void SetSlidersValue(float music, float sounds)
@@ -61,11 +56,6 @@ namespace Menu.Settings.UI
         {
             var language = (Language)value;
             LanguageChanged?.Invoke(language);
-        }
-
-        private void OnSocialClicked()
-        {
-            SocialClicked?.Invoke();    
         }
     }
 }

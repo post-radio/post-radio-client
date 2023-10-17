@@ -14,14 +14,15 @@ namespace Common.Architecture.ScopeLoaders.Runtime
             _scenes = sceneLoader.Results;
             _scope = scope;
         }
-        
-        public ScopeLoadResult(LifetimeScope scope, IReadOnlyDictionary<CallbackStage, ICallbacksHandler> callbacks, IReadOnlyList<ISceneLoadResult> scenes)
+
+        public ScopeLoadResult(LifetimeScope scope, IReadOnlyDictionary<CallbackStage, ICallbacksHandler> callbacks,
+            IReadOnlyList<ISceneLoadResult> scenes)
         {
             _callbacks = callbacks;
             _scenes = scenes;
             _scope = scope;
         }
-        
+
         private readonly IReadOnlyDictionary<CallbackStage, ICallbacksHandler> _callbacks;
         private readonly IReadOnlyList<ISceneLoadResult> _scenes;
         private readonly LifetimeScope _scope;

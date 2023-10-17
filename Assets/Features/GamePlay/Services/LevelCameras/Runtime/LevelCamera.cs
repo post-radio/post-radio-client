@@ -2,9 +2,7 @@
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using GamePlay.Services.LevelCameras.Logs;
 using Global.Cameras.CurrentCameras.Runtime;
-using Global.Inputs.View.Runtime.Projection;
 using Global.System.ApplicationProxies.Runtime;
-using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 
@@ -13,23 +11,16 @@ namespace GamePlay.Services.LevelCameras.Runtime
     public class LevelCamera :
         MonoBehaviour,
         ILevelCamera,
-        IPostFixedUpdatable,
         IScopeAwakeListener,
-        IScopeSwitchListener
+        IScopeEnableListener
     {
         [Inject]
         private void Construct(
             ICurrentCamera currentCamera,
-            IInputProjection inputProjection,
-            ILevelCameraConfig config,
-            IUpdater updater,
             IScreen screen,
             LevelCameraLogger logger)
         {
             _screen = screen;
-            _updater = updater;
-            _config = config;
-            _inputProjection = inputProjection;
             _logger = logger;
             _currentCamera = currentCamera;
 
@@ -48,11 +39,10 @@ namespace GamePlay.Services.LevelCameras.Runtime
         private Transform _target;
 
         private Transform _transform;
-        private IInputProjection _inputProjection;
-        private ILevelCameraConfig _config;
-        private IUpdater _updater;
         private IScreen _screen;
 
+        public Vector2 Position => _transform.position;
+        public float Scale => Camera.orthographicSize;
         public Camera Camera { get; private set; }
 
         public void OnAwake()
@@ -63,8 +53,6 @@ namespace GamePlay.Services.LevelCameras.Runtime
         
         public void OnEnabled()
         {
-            _updater.Add(this);
-
             Camera.orthographicSize = _screen.ScreenMode switch
             {
                 ScreenMode.Horizontal => _horizontalSize,
@@ -73,65 +61,16 @@ namespace GamePlay.Services.LevelCameras.Runtime
             };
         }
 
-        public void OnDisabled()
+        public void SetPosition(Vector2 position)
         {
-            _updater.Remove(this);
-        }
-        
-        public void StartFollow(Transform target)
-        {
-            _target = target;
-
-            _logger.OnStartFollow(target.name);
+            transform.position = new Vector3(position.x, position.y, _offsetZ);
+            _logger.OnMove(position);
         }
 
-        public void StopFollow()
-        {
-            if (_target == null)
-            {
-                _logger.OnStopFollowError();
-                return;
-            }
-
-            _logger.OnStopFollow(_target.name);
-
-            _target = null;
-        }
-
-        public void Teleport(Vector2 target)
-        {
-            var position = new Vector3(target.x, target.y, _offsetZ);
-            _transform.position = position;
-
-            _logger.OnTeleport(position);
-        }
-
-        public void SetSize(float size)
+        public void SetScale(float size)
         {
             Camera.orthographicSize = size;
-        }
-        
-        public void OnPostFixedUpdate(float delta)
-        {
-            if (_target == null)
-                return;
-
-            var targetPosition = _target.position;
-            var line = _inputProjection.GetLineFrom(targetPosition);
-
-            var distanceToCursor =
-                line.Length - Vector2.Distance(targetPosition, _transform.position);
-
-            var sight = _config.CreateSight(line.Direction, distanceToCursor);
-
-            if (sight.IsOversight == true)
-                targetPosition += sight.CreateOversightMove();
-
-            var speed = _config.FollowSpeed * delta;
-            var position = Vector3.Lerp(_transform.position, targetPosition, speed);
-            position.z = _offsetZ;
-
-            _transform.position = position;
+            _logger.OnScale(size);
         }
     }
 }

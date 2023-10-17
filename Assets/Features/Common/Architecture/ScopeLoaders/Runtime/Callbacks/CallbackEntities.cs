@@ -14,11 +14,11 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
 
         private readonly List<T> _targets = new();
         private readonly Action<T> _invoker;
-        
+
         private readonly int _order;
 
         public int Order => _order;
-        
+
         public void Listen(object target)
         {
             if (target is T castedTarget)
@@ -29,12 +29,12 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
         {
             foreach (var target in _targets)
                 _invoker?.Invoke(target);
-            
+
             return UniTask.CompletedTask;
         }
     }
-    
-        
+
+
     public class AsyncCallbackEntity<T> : ICallbackEntity
     {
         public AsyncCallbackEntity(Func<T, UniTask> invoker, int order)
@@ -45,7 +45,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
 
         private readonly List<T> _targets = new();
         private readonly Func<T, UniTask> _invoker;
-        
+
         private readonly int _order;
 
         public int Order => _order;

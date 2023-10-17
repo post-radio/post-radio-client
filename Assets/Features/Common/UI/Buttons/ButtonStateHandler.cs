@@ -2,14 +2,14 @@
 {
     public class ButtonStateHandler : IButtonStateHandler
     {
-        private IButtonState _current;
+        private ButtonState _current;
         
-        public void Lock(IButtonState current)
+        public void Lock(ButtonState current)
         {
             _current = current;
         }
 
-        public bool IsLocked(IButtonState state)
+        public bool IsLocked(ButtonState state)
         {
             return state == _current;
         }

@@ -32,7 +32,7 @@ namespace Common.UI.Buttons
         public void InvokeUpdate()
         {
             foreach (var listener in _updateListeners)
-                listener.Update();
+                listener.UpdateState(Time.deltaTime);
         }
         
         public void InvokePointerUp()

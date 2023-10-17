@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using Menu.StateMachine.Definitions;
 using Menu.StateMachine.Runtime;
 using UnityEngine;
 using VContainer;
@@ -30,9 +31,9 @@ namespace Menu.Common.Navigation
                 button.UnsubscribeAll();
         }
 
-        private void OnClicked(NavigationEntry entry)
+        private void OnClicked(TabDefinition entry)
         {
-            _stateMachine.Select(entry.Definition, entry.Type).Forget();
+            _stateMachine.Select(entry).Forget();
         }
     }
 }

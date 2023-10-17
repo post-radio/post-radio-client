@@ -21,5 +21,12 @@ namespace Global.Network.Session.Runtime.Join
 
             return await attempt.Join(id);
         }
+
+        public async UniTask<SessionJoinResult> JoinRandom()
+        {
+            var attempt = new JoinRandomAttempt(_clientProvider.Client, _logger);
+
+            return await attempt.JoinRandom();
+        }
     }
 }

@@ -2,9 +2,7 @@
 {
     public enum LevelCameraLogType
     {
-        StartFollow,
-        StopFollow,
-        StopFollowError,
-        Teleport
+        Move,
+        Scale
     }
 }

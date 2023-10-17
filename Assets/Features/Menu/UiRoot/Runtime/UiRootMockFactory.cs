@@ -20,10 +20,11 @@ namespace Menu.UiRoot.Runtime
             for (var i = 0; i < linker.Root.childCount; i++)
                 linker.Root.GetChild(i).gameObject.SetActive(true);
             
+            services.RegisterInstance(linker.About);
             services.RegisterInstance(linker.Main);
             services.RegisterInstance(linker.Settings);
             services.RegisterInstance(linker.TabTransitionPoints);
-
+            
             var navigations = FindObjectsByType<TabNavigation>(FindObjectsSortMode.None);
 
             foreach (var navigation in navigations)

@@ -18,7 +18,7 @@ namespace Common.Architecture.ScopeLoaders.Runtime.Callbacks
             foreach (var callbackHandler in _callbacks)
                 callbackHandler.Listen(listener);
         }
-        
+
         public async UniTask Run()
         {
             var orderedCallbacks = _callbacks.OrderBy(t => t.Order);

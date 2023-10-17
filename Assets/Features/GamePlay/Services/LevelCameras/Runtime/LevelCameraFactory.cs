@@ -14,7 +14,6 @@ namespace GamePlay.Services.LevelCameras.Runtime
         menuName = LevelCameraRoutes.ServicePath)]
     public class LevelCameraFactory : ScriptableObject, IServiceFactory
     {
-        [SerializeField] [Indent] private LevelCameraConfigAsset _config;
         [SerializeField] [Indent] private LevelCameraLogSettings _logSettings;
         [SerializeField] [Indent] private LevelCamera _prefab;
 
@@ -26,10 +25,6 @@ namespace GamePlay.Services.LevelCameras.Runtime
             services.Register<LevelCameraLogger>()
                 .WithParameter(_logSettings)
                 .AsSelf();
-
-            services.Register<LevelCameraConfig>()
-                .WithParameter(_config)
-                .As<ILevelCameraConfig>();
 
             services.RegisterComponent(levelCamera)
                 .As<ILevelCamera>()

@@ -23,7 +23,7 @@ namespace GamePlay.Common.SceneObjects.Runtime
             builder.RegisterComponent(this)
                 .As<ISceneObjectsHandler>();
         }
-        
+
         public void InvokeAwake()
         {
             foreach (var sceneObject in _objects)

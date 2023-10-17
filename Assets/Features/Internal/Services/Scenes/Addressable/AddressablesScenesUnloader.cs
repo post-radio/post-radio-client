@@ -28,7 +28,7 @@ namespace Internal.Services.Scenes.Addressable
             }
 
             _logger.OnSceneUnload(sceneInstanceProvider.SceneInstance.Scene);
-            
+
             await Addressables.UnloadSceneAsync(sceneInstanceProvider.SceneInstance);
         }
 
@@ -53,7 +53,7 @@ namespace Internal.Services.Scenes.Addressable
 
             foreach (var scene in scenes)
                 _logger.OnSceneUnload(scene.Scene);
-            
+
             for (var i = 0; i < scenes.Count; i++)
                 tasks[i] = Addressables.UnloadSceneAsync(scenes[i]).ToUniTask();
 

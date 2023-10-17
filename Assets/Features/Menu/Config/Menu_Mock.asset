@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6993896812693c64fa2fe2e5888ef5df, type: 3}
   m_Name: Menu_Mock
   m_EditorClassIdentifier: 
-  _achievements: {fileID: 11400000, guid: 09db6fd68a6ed2848b6ac7d50b3bbaaa, type: 2}
-  _collections: {fileID: 11400000, guid: 3763cb6e5028c3042930501059dec4a6, type: 2}
-  _leaderboards: {fileID: 11400000, guid: 2f79e6b33d8720642af4f8947fde6dba, type: 2}
-  _main: {fileID: 11400000, guid: e6fa85d282268aa45a1e70ce366ab872, type: 2}
-  _quests: {fileID: 11400000, guid: e9ad364e2cd5b9a4696e576eb36e7110, type: 2}
   _settings: {fileID: 11400000, guid: fee95e69b39f22e48a3503ee68df5a0c, type: 2}
-  _shop: {fileID: 11400000, guid: 2fa8d89c27558394c90f64004f51ea6f, type: 2}
-  _calendar: {fileID: 11400000, guid: 057def4d4c9d7a24fb1941d3f761672e, type: 2}
+  _main: {fileID: 11400000, guid: e6fa85d282268aa45a1e70ce366ab872, type: 2}
+  _about: {fileID: 11400000, guid: a10e2b7e452e5114b890880d1e1c35b1, type: 2}
   _uiRoot: {fileID: 11400000, guid: 3f91954f63cb67c42a7b725200b7f7e1, type: 2}
   _stateMachine: {fileID: 11400000, guid: 01f99b4157fa56b459476968d9b2e243, type: 2}
   _loop: {fileID: 11400000, guid: 20362fed774451b45b81ffdb6bbee266, type: 2}
+  _camera: {fileID: 11400000, guid: 910ee659212786c41abfaf809b0f616b, type: 2}
   _scopePrefab: {fileID: 5821963483655333938, guid: a272c3595f6a54142af6fb3b37691900, type: 3}
   _servicesScene: {fileID: 11400000, guid: ccf110f09d2b8014dbbf3bb44fbe2e1e, type: 2}

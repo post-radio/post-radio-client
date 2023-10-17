@@ -14,36 +14,20 @@ namespace GamePlay.Services.LevelCameras.Logs
         private readonly ILogger _logger;
         private readonly LevelCameraLogSettings _settings;
 
-        public void OnStartFollow(string targetName)
+        public void OnMove(Vector2 position)
         {
-            if (_settings.IsAvailable(LevelCameraLogType.StartFollow) == false)
+            if (_settings.IsAvailable(LevelCameraLogType.Move) == false)
                 return;
 
-            _logger.Log($"Start follow: {targetName}", _settings.LogParameters);
+            _logger.Log($"Move to: {position}", _settings.LogParameters);
         }
 
-        public void OnStopFollow(string targetName)
+        public void OnScale(float size)
         {
-            if (_settings.IsAvailable(LevelCameraLogType.StopFollow) == false)
+            if (_settings.IsAvailable(LevelCameraLogType.Scale) == false)
                 return;
 
-            _logger.Log($"Stop follow: {targetName}", _settings.LogParameters);
-        }
-
-        public void OnStopFollowError()
-        {
-            if (_settings.IsAvailable(LevelCameraLogType.StopFollowError) == false)
-                return;
-
-            _logger.Log("Stop follow error. No target selected", _settings.LogParameters);
-        }
-
-        public void OnTeleport(Vector2 target)
-        {
-            if (_settings.IsAvailable(LevelCameraLogType.Teleport) == false)
-                return;
-
-            _logger.Log($"Teleported to: {target}", _settings.LogParameters);
+            _logger.Log($"Scale to: {size}", _settings.LogParameters);
         }
     }
 }
