@@ -13,11 +13,37 @@
         <option value="$PROJECT_DIR$/ProjectSettings" />
         <option value="$PROJECT_DIR$/Temp" />
         <option value="$PROJECT_DIR$/UserSettings" />
-        <option value="$PROJECT_DIR$/Assets/Plugins" />
         <option value="$PROJECT_DIR$/Assets/Resources" />
         <option value="$PROJECT_DIR$/Assets/Scenes" />
         <option value="$PROJECT_DIR$/Assets/Settings" />
         <option value="$PROJECT_DIR$/Assets/Ragon" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/BuildReport" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Demigiant" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/ForceFour" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/MPUIKit" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/NaughtyAttributes" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/ParrelSync" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Sirenix" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/TextMesh Pro" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/UniRx" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/UniTask" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/VContainer" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Ragon/Runtime/Libraries" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Ragon/Runtime/Plugins" />
+        <option value="$PROJECT_DIR$/.git" />
+        <option value="$PROJECT_DIR$/.idea" />
+        <option value="$PROJECT_DIR$/Library" />
+        <option value="$PROJECT_DIR$/Logs" />
+        <option value="$PROJECT_DIR$/MemoryCaptures" />
+        <option value="$PROJECT_DIR$/obj" />
+        <option value="$PROJECT_DIR$/Packages" />
+        <option value="$PROJECT_DIR$/ProjectSettings" />
+        <option value="$PROJECT_DIR$/Temp" />
+        <option value="$PROJECT_DIR$/UserSettings" />
+        <option value="$PROJECT_DIR$/Assets/Plugins" />
+        <option value="$PROJECT_DIR$/Assets/Resources" />
+        <option value="$PROJECT_DIR$/Assets/Settings" />
       </list>
     </option>
   </component>

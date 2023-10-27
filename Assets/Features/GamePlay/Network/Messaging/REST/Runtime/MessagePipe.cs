@@ -25,8 +25,8 @@ namespace GamePlay.Network.Messaging.REST.Runtime
         private readonly RagonEntity _entity;
         private readonly MessengerLogger _logger;
 
-        private readonly Action<RagonPlayer, IRagonEvent> _requestListener;
-        private readonly Action<RagonPlayer, IRagonEvent> _responseListener;
+        private readonly IDisposable _requestListener;
+        private readonly IDisposable _responseListener;
 
         private readonly Dictionary<Guid, IRequestHandler<TRequest, TResponse>> _requestHandlers = new();
 
@@ -34,8 +34,8 @@ namespace GamePlay.Network.Messaging.REST.Runtime
 
         public void Dispose()
         {
-            _entity.OffEvent<TRequest>(_requestListener);
-            _entity.OffEvent<TResponse>(_responseListener);
+            _requestListener.Dispose();
+            _responseListener.Dispose();
         }
 
         public void AddRequestRoute(Func<IResponseHandler<TRequest, TResponse>, UniTask> route)
@@ -46,7 +46,7 @@ namespace GamePlay.Network.Messaging.REST.Runtime
         public IRequestHandler<TRequest, TResponse> SendRequest(RagonPlayer player, TRequest payload)
         {
             var id = Guid.NewGuid();
-            payload.RequestId = id;
+            payload.RequestId.SetValue(id);
 
             var requestHandler = new RequestHandler<TRequest, TResponse>(id, player, payload);
             _requestHandlers.Add(id, requestHandler);
@@ -72,9 +72,9 @@ namespace GamePlay.Network.Messaging.REST.Runtime
 
         private void OnResponse(RagonPlayer player, TResponse response)
         {
-            if (_requestHandlers.TryGetValue(response.RequestId, out var responseHandler) == false)
+            if (_requestHandlers.TryGetValue(response.RequestId.Value, out var responseHandler) == false)
             {
-                _logger.NoResponseHandlerFoundException<TResponse>(response.RequestId);
+                _logger.NoResponseHandlerFoundException<TResponse>(response.RequestId.Value);
                 throw new NullReferenceException();
             }
 

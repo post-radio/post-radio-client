@@ -17,7 +17,7 @@ namespace GamePlay.Network.Objects.Factories.Registry
         private readonly IEntityListener _entityListener;
         private readonly Dictionary<int, IEntityFactory> _factories = new();
 
-        private int _counter;
+        private ushort _counter;
         
         public void OnEnabled()
         {

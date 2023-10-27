@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Visuals.View",
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:cef0d70bef4446c79e32fa1e997315a3" ]
+}

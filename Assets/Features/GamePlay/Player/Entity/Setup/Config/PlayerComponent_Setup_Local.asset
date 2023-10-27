@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95169037c31141b583b79b8d7c68575a, type: 3}
+  m_Name: PlayerComponent_Setup_Local
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 4138374558910247210, guid: d99e245c064fce94eade53140d2b3cfb, type: 3}
+  _identity: {fileID: 11400000, guid: 63bb4525efe436a4d9b4d1a42e06acc5, type: 2}
+  _location: {fileID: 11400000, guid: d34580880cccdc84984c17d20b87d3e9, type: 2}
+  _visual: {fileID: 11400000, guid: 9a6c92abf28a8be4fb8766b10b7870e0, type: 2}
+  _root: {fileID: 11400000, guid: 47dc767f795891f419b2dd4c58fbaa8f, type: 2}
+  _propertyBinder: {fileID: 11400000, guid: 330fa98fcc5ef474ea5a10006e12cd51, type: 2}
+  _animator: {fileID: 11400000, guid: fa786477317043f4388506127323ee6a, type: 2}

@@ -3,6 +3,8 @@ using Common.Architecture.ScopeLoaders.Factory;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Runtime;
 using Global.Network.Connection.Runtime;
+using Global.Network.Session.Runtime.Create;
+using Global.Network.Session.Runtime.Join;
 using UnityEngine;
 using VContainer;
 
@@ -26,6 +28,17 @@ namespace GamePlay.Common.GlobalBootstrapMocks
             
             var connection = resolver.Resolve<IConnection>();
             await connection.Connect();
+            
+            var sessionName = "message-test";
+            
+            var sessionJoin = resolver.Resolve<ISessionJoin>();
+            var joinResult =  await sessionJoin.Join(sessionName);
+
+            if (joinResult.Type == SessionJoinResultType.Fail)
+            {
+                var sessionCreate = resolver.Resolve<ISessionCreate>();
+                await sessionCreate.Create();
+            }
             
             var scopeLoaderFactory = resolver.Resolve<IScopeLoaderFactory>();
             var scopeLoader = scopeLoaderFactory.Create(_levelScope, result.Parent);

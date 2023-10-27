@@ -8,10 +8,8 @@ using GamePlay.Network.Room.Entities.Factory;
 using GamePlay.Network.Room.EventLoops.Runtime;
 using GamePlay.Network.Room.SceneCollectors.Runtime;
 using GamePlay.Network.Room.Starter.Runtime;
-using GamePlay.Player.Services.Lists.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GamePlay.Network.Compose
 {
@@ -25,7 +23,6 @@ namespace GamePlay.Network.Compose
         [SerializeField] private SceneEntityFactoryServiceFactory _sceneEntityFactory;
         [SerializeField] private NetworkSceneCollectorFactory _sceneCollector;
         [SerializeField] private DynamicEntityFactoryServiceFactory _dynamicEntityFactory;
-        [FormerlySerializedAs("_playersRegistry")] [SerializeField] private PlayersListFactory _playersList;
         [SerializeField] private NetworkEventsLoopFactory _eventsLoop;
         [SerializeField] private MessengerFactory _messenger;
         
@@ -37,7 +34,6 @@ namespace GamePlay.Network.Compose
             _sceneEntityFactory,
             _sceneCollector,
             _dynamicEntityFactory,
-            _playersList,
             _eventsLoop,
             _messenger
         };

@@ -29,8 +29,6 @@ namespace Global.UI.LoadingScreens.Runtime
 
             services.RegisterComponent(loadingScreen)
                 .As<ILoadingScreen>();
-
-            utils.Binder.MoveToModules(loadingScreen);
         }
     }
 }

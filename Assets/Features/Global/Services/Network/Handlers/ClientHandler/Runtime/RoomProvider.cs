@@ -34,9 +34,9 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
                 payload.Serialize(buffer);
 
                 rawPayload = new RagonPayload(buffer.WriteOffset);
-                rawPayload.Read(buffer);
-
-                entity.AttachPayload(rawPayload);
+                rawPayload.Read(buffer);    
+                
+                entity.Prepare(_clientProvider.Client, 0, entity.Type, true, _room.Local, rawPayload);
             }
 
             _room.CreateEntity(entity, rawPayload);

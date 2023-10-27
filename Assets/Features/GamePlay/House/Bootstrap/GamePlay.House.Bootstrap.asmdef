@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.House.Bootstrap",
+  "references":[ "GUID:e4924bae8b7f4512af86f641579b370f", "GUID:7b2b95a117b24623884537fea08c347f", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:668e9d4d8c99497da8ea9eb81cb1c14e", "GUID:e2e540ace5c44cae9346602735dc043c", "GUID:dfb87880f8f54d3c98304c2fc7c47073", "GUID:a84671023cbf44d5b771fe68e40859ba" ]
+}

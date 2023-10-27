@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using GamePlay.Player.Services.Entity;
+using GamePlay.Player.Entity.Definition;
 using Internal.Services.Loggers.Runtime;
 using Ragon.Client;
 
@@ -68,7 +68,7 @@ namespace GamePlay.Network.Messaging.REST.Logs
             if (_settings.IsAvailable(MessengerLogType.Request_Owner_Sent) == false)
                 return;
 
-            _logger.Log($"On response sent to owner: {player.Id}/{player.DisplayName} with type: {typeof(TResponse)}",
+            _logger.Log($"On response sent to owner: {player.Id}/{player.Root.Identity.DisplayName} with type: {typeof(TResponse)}",
                 _settings.LogParameters);
         }
 
@@ -80,7 +80,7 @@ namespace GamePlay.Network.Messaging.REST.Logs
             var stringBuilder = new StringBuilder();
 
             foreach (var player in players)
-                stringBuilder.AppendLine($"{player.Id}/{player.DisplayName}");
+                stringBuilder.AppendLine($"{player.Id}/{player.Root.Identity.DisplayName}");
 
             _logger.Log($"On request sent to all players with type: {typeof(TResponse)} \n Players: \n {stringBuilder}",
                 _settings.LogParameters);

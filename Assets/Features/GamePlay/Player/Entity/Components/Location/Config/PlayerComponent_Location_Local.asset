@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5115668121143600286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e84b3e434114c498a9faef43a60399e, type: 3}
+  m_Name: PlayerComponent_Location_Local_HideAnimationFactory_HideAnimation
+  m_EditorClassIdentifier: 
+  _stateName: Hide
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858b027780db4907a9e442a960530204, type: 3}
+  m_Name: PlayerComponent_Location_Local
+  m_EditorClassIdentifier: 
+  _showAnimation: {fileID: 5730899176499525949}
+  _hideAnimation: {fileID: -5115668121143600286}
+--- !u!114 &5730899176499525949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe8057f125f40b28ce46c11a344a130, type: 3}
+  m_Name: PlayerComponent_Location_Local_ShowAnimationFactory_ShowAnimation
+  m_EditorClassIdentifier: 
+  _stateName: Show

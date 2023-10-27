@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using GamePlay.Player.Services.Entity;
+using GamePlay.Player.Entity.Definition;
 using Ragon.Client;
 
 namespace GamePlay.Network.Messaging.REST.Runtime.Abstract
@@ -18,12 +18,12 @@ namespace GamePlay.Network.Messaging.REST.Runtime.Abstract
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new();
 
-        IReadOnlyDictionary<NetworkPlayer, IRequestHandler<TRequest, TResponse>> SendAll<TRequest, TResponse>(
+        IReadOnlyDictionary<INetworkPlayer, IRequestHandler<TRequest, TResponse>> SendAll<TRequest, TResponse>(
             TRequest requestPayload)
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new();
 
-        UniTask<IReadOnlyDictionary<NetworkPlayer, TResponse>> SendAllAsync<TRequest, TResponse>(
+        UniTask<IReadOnlyDictionary<INetworkPlayer, TResponse>> SendAllAsync<TRequest, TResponse>(
             TRequest requestPayload,
             CancellationToken cancellation)
             where TRequest : IRagonEvent, IMessage, new()

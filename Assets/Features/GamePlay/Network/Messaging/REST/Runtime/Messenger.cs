@@ -8,7 +8,6 @@ using GamePlay.Network.Room.Entities.Factory;
 using GamePlay.Network.Room.EventLoops.Runtime;
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
-using UnityEngine;
 
 namespace GamePlay.Network.Messaging.REST.Runtime
 {
@@ -29,8 +28,6 @@ namespace GamePlay.Network.Messaging.REST.Runtime
         public async UniTask OnSceneEntityCreation(ISceneEntityFactory factory)
         {
             _entity = await factory.Create();
-            
-            Debug.Log(_entity.Id);
         }
 
         public void AddRoute<TRequest, TResponse>(Func<IResponseHandler<TRequest, TResponse>, UniTask> route)

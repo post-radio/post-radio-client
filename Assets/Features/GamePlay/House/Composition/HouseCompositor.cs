@@ -6,43 +6,36 @@ using UnityEngine;
 
 namespace GamePlay.House.Composition
 {
+    [DisallowMultipleComponent]
     public class HouseCompositor : MonoBehaviour, IHouseCompositor
     {
         [SerializeField] private float _cellSize = 1f;
         [SerializeField] private Transform _root;
 
-        [SerializeField] [Min(0)] private int _rowCapacity;
+        [SerializeField] [Min(0)] private int _debugRawCapacity;
 
-        private readonly List<Transform> _cells = new();
-        
-        public void AddCell(Transform cell)
+        public void OrderCells(IReadOnlyList<ICell> cells, int rowCapacity)
         {
-            _cells.Add(cell);
-            
-            OrderCells();
-        }
-
-        private void OrderCells()
-        {
-            var rowsCount = _cells.Count / _rowCapacity;
-            var xOffset = (_rowCapacity * _cellSize) / -2f;
+            var rowsCount = cells.Count / rowCapacity;
+            var xOffset = (rowCapacity * _cellSize) / -2f;
             var yOffset = _root.position.y;
 
             for (var y = 0; y <= rowsCount; y++)
             {
-                for (var x = 0; x < _rowCapacity; x++)
+                for (var x = 0; x < rowCapacity; x++)
                 {
-                    var cellIndex = y * _rowCapacity + x;
+                    var cellIndex = y * rowCapacity + x;
                     
-                    if (cellIndex >= _cells.Count)
+                    if (cellIndex >= cells.Count)
                         break;
 
                     var xPosition = _cellSize * x + xOffset;
                     var yPosition = _cellSize * y + yOffset;
 
                     var position = new Vector2(xPosition, yPosition);
-                    var cell = _cells[cellIndex];
+                    var cell = cells[cellIndex].Transform;
 
+                    cell.parent = _root;
                     cell.position = position;
                 }
             }
@@ -51,12 +44,9 @@ namespace GamePlay.House.Composition
         [Button("Order")]
         private void TestOrder()
         {
-            var cells = FindObjectsByType<CellRoot>(FindObjectsSortMode.None).Select(cell => cell.transform).ToList();
+            var cells = FindObjectsByType<Cell>(FindObjectsSortMode.None).ToList();
             
-            _cells.Clear();
-            _cells.AddRange(cells);
-            
-            OrderCells();
+            OrderCells(cells, _debugRawCapacity);
         }
     }
 }

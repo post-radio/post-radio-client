@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Compose",
+  "references":[ "GUID:21b356032bd9416d8daec72f4dbdef0a", "GUID:f47db4b3f5aa46d1812ebd228592457c", "GUID:b5878a2475b84dbe861135980ad7c328", "GUID:6538e9f107db41ae90f7ef0c367558dc", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9" ]
+}

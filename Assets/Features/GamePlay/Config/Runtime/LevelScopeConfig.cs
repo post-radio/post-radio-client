@@ -2,9 +2,11 @@
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using GamePlay.Common.Paths;
+using GamePlay.House.Bootstrap;
 using GamePlay.Level.Scene.Runtime;
 using GamePlay.Loop.Runtime;
 using GamePlay.Network.Compose;
+using GamePlay.Player.Services.Compose;
 using GamePlay.Services.Common.Scope;
 using GamePlay.Services.LevelCameras.Runtime;
 using GamePlay.Services.VfxPools.Runtime;
@@ -20,15 +22,17 @@ namespace GamePlay.Config.Runtime
     [CreateAssetMenu(fileName = "Level", menuName = GamePlayAssetsPaths.Root + "Scene")]
     public class LevelScopeConfig : ScriptableObject, IScopeConfig
     {
-        [FoldoutGroup("Level")] [SerializeField] private BaseLevelSceneFactory _levelScene;
-
         [FoldoutGroup("UI")] [SerializeField] private LevelUiFactory _ui;
 
         [FoldoutGroup("System")] [SerializeField] private LevelLoopFactory _levelLoop;
         [FoldoutGroup("System")] [SerializeField] private VfxPoolFactory _vfxPool;
-
+        
         [FoldoutGroup("Level")] [SerializeField] private LevelCameraFactory _levelCamera;
-
+        [FoldoutGroup("Level")] [SerializeField] private HouseServicesFactory _houseServices;
+        [FoldoutGroup("Level")] [SerializeField] private BaseLevelSceneFactory _levelScene;
+        
+        [SerializeField] private PlayerServicesCompose _playerServices;
+        
         [SerializeField] private LevelNetworkCompose _network;
 
         [SerializeField] private LevelScope _scopePrefab;
@@ -47,10 +51,12 @@ namespace GamePlay.Config.Runtime
                 _levelLoop,
                 _vfxPool,
                 _levelScene,
-                _ui
+                _ui,
+                _houseServices
             };
 
             services.AddRange(_network.Services);
+            services.AddRange(_playerServices.Services);
 
             return services.ToArray();
         }

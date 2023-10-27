@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Setup.Local",
+  "references":[ "GUID:a6bee730cad343c7ac8840da91376019", "GUID:f9ec208898ae40b48b242403caaa4d3a", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:258edbd8e0d24e8eba0821c78fc10da2", "GUID:dce3465e259a409fa3dcefa82869bf8c", "GUID:d821726fd242421fb92310d1bcc2ee2d", "GUID:b24771d6830c4f4faff5cdbdb4e983d8", "GUID:6099692a60404fb1b53e8422f9f6b859", "GUID:a3fcfa39488642aba6e860f91cce18b0", "GUID:a2da4ec5f33d46609c6e11c261567bd0" ]
+}

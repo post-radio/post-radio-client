@@ -1,0 +1,13 @@
+﻿{
+  "name": "GamePlay.Player.Animator.Runtime",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:699865ac82ed4bfc98e47c9342127ab0",
+    "GUID:aac41f60988d442497259de79205647b",
+    "GUID:b0275d8a7d994d97ae1652be17935f0f",
+    "GUID:21171dc9403d4f7f9dbdcd96ff5bc568",
+    "GUID:a6bee730cad343c7ac8840da91376019",
+    "GUID:4eea489444474258991b18c053a62273",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2"
+  ]
+}

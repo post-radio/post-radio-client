@@ -14,7 +14,8 @@ namespace GamePlay.Loop.Runtime
         menuName = LevelLoopRoutes.ServicePath)]
     public class LevelLoopFactory : ScriptableObject, IServiceFactory
     {
-        [SerializeField] [Indent] private LevelLoopLogSettings _logSettings;
+        [SerializeField] private LevelLoopLogSettings _logSettings;
+        [SerializeField] private TransitToGameConfig _config;
 
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
@@ -22,6 +23,7 @@ namespace GamePlay.Loop.Runtime
                 .WithParameter(_logSettings);
 
             services.Register<LevelLoop>()
+                .WithParameter(_config)
                 .AsCallbackListener();
         }
     }

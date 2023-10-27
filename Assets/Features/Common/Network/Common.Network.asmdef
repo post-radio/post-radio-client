@@ -1,0 +1,16 @@
+{
+    "name": "Common.Network",
+    "rootNamespace": "",
+    "references": [
+        "GUID:da1917f3a79694c539a148addd06d33b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using GamePlay.Network.Messaging.REST.Runtime;
 using GamePlay.Network.Messaging.REST.Runtime.Abstract;
 using Ragon.Client;
 using Ragon.Protocol;
@@ -11,30 +11,27 @@ namespace GamePlay.Network.Messaging.REST.Tests
         {
             
         }
-        
-        public int Value;
+
         private const int _intSize = 100000000;
-        public Guid RequestId { get; set; }
+        
+        private readonly MessageId _id = new(); 
+
+        public int Value;
+        
+        public IMessageId RequestId => _id; 
         
         public void Serialize(RagonBuffer buffer)
         {
-            var bytes = RequestId.ToByteArray();
+            _id.Serialize(buffer);
 
             buffer.WriteInt(Value, 0, _intSize);
-            buffer.WriteInt(bytes.Length, 0, _intSize);
-            
-            foreach (var value in bytes)
-                buffer.WriteByte(value);
         }
 
         public void Deserialize(RagonBuffer buffer)
         {
+            _id.Deserialize(buffer);
+
             Value = buffer.ReadInt(0, _intSize);
-            var length = buffer.ReadInt(0, _intSize);
-            var bytes = new byte[length];
-            for (var i = 0; i < length; i++)
-                bytes[i] = buffer.ReadByte();
-            RequestId = new Guid(bytes);
         }
     }
     
@@ -47,27 +44,24 @@ namespace GamePlay.Network.Messaging.REST.Tests
         
         private const int _intSize = 100000000;
         
+        private readonly MessageId _id = new(); 
+
         public int Value;
-        public Guid RequestId { get; set; }
+        
+        public IMessageId RequestId => _id; 
         
         public void Serialize(RagonBuffer buffer)
         {
+            _id.Serialize(buffer);
+
             buffer.WriteInt(Value, 0, _intSize);
-            var bytes = RequestId.ToByteArray();
-            buffer.WriteInt(bytes.Length, 0, _intSize);
-            
-            foreach (var value in bytes)
-                buffer.WriteByte(value);
         }
 
         public void Deserialize(RagonBuffer buffer)
         {
+            _id.Deserialize(buffer);
+
             Value = buffer.ReadInt(0, _intSize);
-            var length = buffer.ReadInt(0, _intSize);
-            var bytes = new byte[length];
-            for (var i = 0; i < length; i++)
-                bytes[i] = buffer.ReadByte();
-            RequestId = new Guid(bytes);
         }
     }
 }

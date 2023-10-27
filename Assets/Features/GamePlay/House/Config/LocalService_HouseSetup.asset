@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d118d94288344a0c9973011e2ebf0744, type: 3}
+  m_Name: LocalService_HouseSetup
+  m_EditorClassIdentifier: 
+  _cellFactoryConfig: {fileID: 11400000, guid: c95ef5c1e9e45374ab6357767f18eb50, type: 2}
+  _houseSetupConfig: {fileID: 11400000, guid: 4154aea464e3cc843b31dda132d6a747, type: 2}

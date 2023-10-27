@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Relocation.Common",
+  "references":[ "GUID:582d70e07d0d48d195daeab83b72aa33", "GUID:ab8fcff7ea894a14a4e8393a6ba0191c", "GUID:21b356032bd9416d8daec72f4dbdef0a" ]
+}

@@ -64,15 +64,21 @@ namespace Global.GameLoops.Runtime
         private readonly MenuScopeConfig _menuScope;
 
         private IDisposable _restartListener;
+        private IDisposable _enterGameListener;
+        private IDisposable _enterMenuListener;
 
         public void OnEnabled()
         {
             _restartListener = Msg.Listen<GameRestartRequest>(OnRestartRequested);
+            _enterGameListener = Msg.Listen<GameRequest>(OnLevelRequest);
+            _enterMenuListener = Msg.Listen<MenuRequest>(OnMenuRequest);
         }
 
         public void OnDisabled()
         {
             _restartListener.Dispose();
+            _enterGameListener.Dispose();
+            _enterMenuListener.Dispose();
         }
         
         public async UniTask OnLoadedAsync()
@@ -85,6 +91,16 @@ namespace Global.GameLoops.Runtime
             ProcessGameStart().Forget();
         }
 
+        private void OnLevelRequest(GameRequest request)
+        {
+            LoadScene(_levelScope).Forget();
+        }
+        
+        private void OnMenuRequest(MenuRequest request)
+        {
+            LoadScene(_menuScope).Forget();
+        }
+        
         private async UniTask ProcessGameStart()
         {
             var connectionResult = await _connection.Connect();
@@ -103,8 +119,6 @@ namespace Global.GameLoops.Runtime
             _globalCamera.Enable();
             _currentCamera.SetCamera(_globalCamera.Camera);
 
-            _loadingScreen.Show();
-
             var scopeLoader = _scopeLoaderFactory.Create(config, _scope);
             var scopeLoadResult = await scopeLoader.Load();
             await scopeLoadResult.Callbacks[CallbackStage.Construct].Run();
@@ -116,7 +130,6 @@ namespace Global.GameLoops.Runtime
 
             _loadedScenesHandler.OnLoaded(scopeLoadResult);
             _globalCamera.Disable();
-            _loadingScreen.Hide();
             
             await scopeLoadResult.Callbacks[CallbackStage.SetupComplete].Run();
         }

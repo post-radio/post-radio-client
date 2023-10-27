@@ -1,0 +1,20 @@
+﻿{
+  "name": "GamePlay.Player.Location.Remote",
+  "references": [
+    "GUID:a6bee730cad343c7ac8840da91376019",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:cec3ede77ad4409eb1c806af53030a16",
+    "GUID:d94ddda0b1064b8ba7f3167bd37982bd",
+    "GUID:cef0d70bef4446c79e32fa1e997315a3",
+    "GUID:9f12b849425b4eee835913da917e6c20",
+    "GUID:699865ac82ed4bfc98e47c9342127ab0",
+    "GUID:aa6a0dee91f74321b14d0be5c8476c73",
+    "GUID:a2da4ec5f33d46609c6e11c261567bd0",
+    "GUID:258edbd8e0d24e8eba0821c78fc10da2",
+    "GUID:954bed7845ef3b94c8f2d8ca3cd76154",
+    "GUID:b0275d8a7d994d97ae1652be17935f0f",
+    "GUID:9c221aad6c194a8fb7ac7c64a5cf6928",
+    "GUID:6538e9f107db41ae90f7ef0c367558dc"
+  ]
+}

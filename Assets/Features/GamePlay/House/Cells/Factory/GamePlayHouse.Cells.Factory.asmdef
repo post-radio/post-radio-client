@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlayHouse.Cells.Factory",
+  "references":[ "GUID:cef0d70bef4446c79e32fa1e997315a3", "GUID:668e9d4d8c99497da8ea9eb81cb1c14e" ]
+}

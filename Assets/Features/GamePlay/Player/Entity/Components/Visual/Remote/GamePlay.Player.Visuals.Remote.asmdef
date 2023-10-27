@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Visuals.Remote",
+  "references":[ "GUID:5fb4d2a34936493aab28ff2424a869de", "GUID:a6bee730cad343c7ac8840da91376019", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:d94ddda0b1064b8ba7f3167bd37982bd" ]
+}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name:
     m_SceneAsset: {fileID: 102900000, guid: 15b689a9fe7f25d498c61197e8b66959, type: 3}
-    m_SceneName: Level_0
+    m_SceneName: Level
   _reference:
     m_AssetGUID: 15b689a9fe7f25d498c61197e8b66959
     m_SubObjectName: 

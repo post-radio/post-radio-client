@@ -1,51 +1,74 @@
 ﻿using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using GamePlay.Network.Room.Entities.Factory;
-using GamePlay.Network.Room.EventLoops.Runtime;
+using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using GamePlay.Player.Entity.Definition;
+using GamePlay.Player.Services.Lists.Events;
+using Global.Network.Handlers.ClientHandler.Runtime;
+using Global.System.MessageBrokers.Runtime;
 using Ragon.Client;
 using UnityEngine;
-using NetworkPlayer = GamePlay.Player.Services.Entity.NetworkPlayer;
 
-namespace GamePlay.Player.Services.Lists.Runtime
+namespace GamePlay.Player.Lists.Runtime
 {
-    public class PlayersList : IPlayersList, IRagonPlayerLeftListener, INetworkSceneEntityCreationListener
+    public class PlayersList :
+        IPlayersList,
+        IRagonPlayerLeftListener,
+        IScopeSwitchListener
     {
-        private readonly Dictionary<RagonPlayer, NetworkPlayer> _players = new();
-        private RagonEntity _entity;
-        
-        public NetworkPlayer Owner { get; }
-        public IReadOnlyList<NetworkPlayer> All { get; }
-
-        public async UniTask OnSceneEntityCreation(ISceneEntityFactory factory)
+        public PlayersList(IClientProvider clientProvider)
         {
-            _entity = await factory.Create();
-        }
-        
-        public void Add(RagonPlayer player, NetworkPlayer data)
-        {
-            _players.Add(player, data);
+            _clientProvider = clientProvider;
         }
 
-        public NetworkPlayer Get(RagonPlayer player)
+        private readonly IClientProvider _clientProvider;
+
+        private readonly Dictionary<RagonPlayer, INetworkPlayer> _dictionary = new();
+        private readonly List<INetworkPlayer> _list = new();
+        
+        private INetworkPlayer _owner;
+
+        public INetworkPlayer Owner => _owner;
+        public IReadOnlyList<INetworkPlayer> All => _list;
+        
+        public void OnEnabled()
         {
-            if (_players.ContainsKey(player) == false)
+            _clientProvider.Client.AddListener(this);
+        }
+
+        public void OnDisabled()
+        {
+            _clientProvider.Client.RemoveListener(this);
+        }
+
+        public void Add(INetworkPlayer data)
+        {
+            _dictionary.Add(data.Player, data);
+            _list.Add(data);
+
+            if (data.Player.IsRoomOwner == true)
+                _owner = data;
+        }
+
+        public INetworkPlayer Get(RagonPlayer player)
+        {
+            if (_dictionary.ContainsKey(player) == false)
             {
                 Debug.LogError($"Player: {player.Name} not found in registry");
                 return null;
             }
             
-            return _players[player];
+            return _dictionary[player];
         }
 
         public void OnPlayerLeft(RagonClient client, RagonPlayer player)
         {
-            if (_players.ContainsKey(player) == false)
+            if (_dictionary.ContainsKey(player) == false)
             {
                 Debug.LogError($"Player: {player.Name} not found in registry");
                 return;
             }
 
-            _players.Remove(player);
+            Msg.Publish(new PlayerLeftEvent(_dictionary[player]));
+            _dictionary.Remove(player);
         }
     }
 }

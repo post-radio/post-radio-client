@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Common.Architecture.EntityCreators.Factory;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Common.UniversalAnimators.Updaters.Runtime;
@@ -29,7 +30,6 @@ using Internal.Services.Scenes.Data;
 using Menu.Settings.Global;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VContainer.Unity;
 
 namespace Global.Config.Runtime
@@ -56,9 +56,10 @@ namespace Global.Config.Runtime
         [FoldoutGroup("System")] [SerializeField] private AnimatorsUpdaterFactory _animatorsUpdater;
         [FoldoutGroup("System")] [SerializeField] private DestroyHandlerFactory _destroyHandler;
         [FoldoutGroup("System")] [SerializeField] private ObjectsFactory _objects;
+        [FoldoutGroup("System")] [SerializeField] private EntityCreatorServiceFactory _entityCreator;
         [FoldoutGroup("UI")] [SerializeField] private LoadingScreenFactory _loadingScreen;
         [FoldoutGroup("UI")] [SerializeField] private LocalizationFactory _localization;
-        [FormerlySerializedAs("_overlay")] [FoldoutGroup("UI")] [SerializeField] private GlobalOverlayFactory _globalOverlay;
+        [FoldoutGroup("UI")] [SerializeField] private GlobalOverlayFactory _globalOverlay;
         [FoldoutGroup("UI")] [SerializeField] private UiStateMachineFactory _uiStateMachine;
         [FoldoutGroup("UI")] [SerializeField] private EventSystemFactory _eventSystem;
         [FoldoutGroup("Menu")] [SerializeField] private SettingsFactory _settings;
@@ -100,7 +101,8 @@ namespace Global.Config.Runtime
                 _publisherSdk,
                 _loadingScreen,
                 _globalOverlay,
-                _gameLoop
+                _gameLoop,
+                _entityCreator
             };
 
             services.AddRange(_network.Services);

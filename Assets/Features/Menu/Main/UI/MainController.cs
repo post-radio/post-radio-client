@@ -2,8 +2,10 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Services.LevelCameras.Runtime;
+using Global.GameLoops.Events;
 using Global.Network.Session.Runtime.Create;
 using Global.Network.Session.Runtime.Join;
+using Global.System.MessageBrokers.Runtime;
 using Global.UI.LoadingScreens.Runtime;
 using Menu.StateMachine.Definitions;
 using UnityEngine;
@@ -138,6 +140,7 @@ namespace Menu.Main.UI
             }
             
             _loadingScreen.Show();
+            Msg.Publish(new GameRequest());
         }
     }
 }

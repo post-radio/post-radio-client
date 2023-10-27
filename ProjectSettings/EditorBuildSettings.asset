@@ -41,5 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Features/GamePlay/Level/Scene/Level.unity
     guid: 15b689a9fe7f25d498c61197e8b66959
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 6d5938066972c944b8bc8dede421fdfc, type: 2}
   m_UseUCBPForAssetBundles: 0

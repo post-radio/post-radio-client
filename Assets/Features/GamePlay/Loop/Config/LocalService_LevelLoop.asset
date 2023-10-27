@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5722cd434ec44e52ad8384070e333966, type: 3}
   m_Name: LocalService_LevelLoop
   m_EditorClassIdentifier: 
-  _randomCount: 5
   _logSettings: {fileID: 11400000, guid: 31207c82d090b844aa4b7757eb91c258, type: 2}
+  _config:
+    _time: 1
+    _startCameraScale: 4.2185
+    _targetCameraScale: 54

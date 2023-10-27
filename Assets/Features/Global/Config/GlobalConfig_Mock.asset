@@ -50,6 +50,7 @@ MonoBehaviour:
   _animatorsUpdater: {fileID: 11400000, guid: 1befadf89c3618649840fc80766674c0, type: 2}
   _destroyHandler: {fileID: 11400000, guid: 7f066b28155a68c4392e22b05375bde4, type: 2}
   _objects: {fileID: 11400000, guid: 00ed52d065f83784c972bd24f51b9bef, type: 2}
+  _entityCreator: {fileID: 11400000, guid: a5c463909bd25bb428685f95eb6726ce, type: 2}
   _loadingScreen: {fileID: 11400000, guid: eec2ff44ff08d794bbf4de47c3720c13, type: 2}
   _localization: {fileID: 11400000, guid: 024ab526c90be39488815de7d2b2f729, type: 2}
   _globalOverlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}

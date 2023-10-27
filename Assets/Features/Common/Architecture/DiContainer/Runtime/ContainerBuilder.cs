@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Architecture.DiContainer.Abstract;
-using UnityEngine;
 using VContainer;
 using VContainer.Internal;
 using VContainer.Unity;
+using Object = UnityEngine.Object;
 
 namespace Common.Architecture.DiContainer.Runtime
 {
@@ -57,7 +57,7 @@ namespace Common.Architecture.DiContainer.Runtime
             return registration;
         }
 
-        public IRegistration RegisterComponent<T>(T component) where T : MonoBehaviour
+        public IRegistration RegisterComponent<T>(T component) where T : Object
         {
             var builder = new ComponentRegistrationBuilder(component);
             var registration = new Registration(builder, typeof(T), this);

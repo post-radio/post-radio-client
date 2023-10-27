@@ -10,7 +10,7 @@ namespace GamePlay.Network.Messaging.REST.Runtime
     {
         public ResponseHandler(RagonPlayer player, TRequest requestPayload, IMessageSender<TRequest, TResponse> sender)
         {
-            _requestId = requestPayload.RequestId;
+            _requestId = requestPayload.RequestId.Value;
             _player = player;
             _requestPayload = requestPayload;
             _sender = sender;
@@ -26,7 +26,7 @@ namespace GamePlay.Network.Messaging.REST.Runtime
         
         public void Response(TResponse payload)
         {
-            payload.RequestId = _requestId;
+            payload.RequestId.SetValue(_requestId);
             _sender.SendResponse(_player, payload);
         }
     }

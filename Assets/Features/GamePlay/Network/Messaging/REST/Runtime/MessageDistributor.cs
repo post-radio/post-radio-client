@@ -2,8 +2,8 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Messaging.REST.Runtime.Abstract;
-using GamePlay.Player.Services.Entity;
-using GamePlay.Player.Services.Lists.Runtime;
+using GamePlay.Player.Entity.Definition;
+using GamePlay.Player.Lists.Runtime;
 using Ragon.Client;
 
 namespace GamePlay.Network.Messaging.REST.Runtime
@@ -36,12 +36,12 @@ namespace GamePlay.Network.Messaging.REST.Runtime
             return _messenger.RequestAsync<TRequest, TResponse>(_players.Owner.Player, requestPayload, cancellation);
         }
 
-        public IReadOnlyDictionary<NetworkPlayer, IRequestHandler<TRequest, TResponse>> SendAll<TRequest, TResponse>(
+        public IReadOnlyDictionary<INetworkPlayer, IRequestHandler<TRequest, TResponse>> SendAll<TRequest, TResponse>(
             TRequest requestPayload)
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new()
         {
-            var list = new Dictionary<NetworkPlayer, IRequestHandler<TRequest, TResponse>>();
+            var list = new Dictionary<INetworkPlayer, IRequestHandler<TRequest, TResponse>>();
 
             foreach (var targetPlayer in _players.All)
             {
@@ -52,14 +52,14 @@ namespace GamePlay.Network.Messaging.REST.Runtime
             return list;
         }
 
-        public async UniTask<IReadOnlyDictionary<NetworkPlayer, TResponse>> SendAllAsync<TRequest, TResponse>(
+        public async UniTask<IReadOnlyDictionary<INetworkPlayer, TResponse>> SendAllAsync<TRequest, TResponse>(
             TRequest requestPayload,
             CancellationToken cancellation)
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new()
         {
-            var list = new List<UniTask<(NetworkPlayer, TResponse)>>();
-            var dictionary = new Dictionary<NetworkPlayer, TResponse>();
+            var list = new List<UniTask<(INetworkPlayer, TResponse)>>();
+            var dictionary = new Dictionary<INetworkPlayer, TResponse>();
             
             foreach (var targetPlayer in _players.All)
             {
@@ -86,13 +86,13 @@ namespace GamePlay.Network.Messaging.REST.Runtime
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new()
         {
-            private readonly NetworkPlayer _player;
+            private readonly INetworkPlayer _player;
             private readonly IMessenger _messenger;
             private readonly TRequest _requestPayload;
             private readonly CancellationToken _cancellation;
 
             public AsyncMessageHandler(
-                NetworkPlayer player,
+                INetworkPlayer player,
                 IMessenger messenger,
                 TRequest requestPayload,
                 CancellationToken cancellation)
@@ -103,7 +103,7 @@ namespace GamePlay.Network.Messaging.REST.Runtime
                 _cancellation = cancellation;
             }
 
-            public async UniTask<(NetworkPlayer, TResponse)> SendAsync()
+            public async UniTask<(INetworkPlayer, TResponse)> SendAsync()
             {
                 var response = await _messenger.RequestAsync<TRequest, TResponse>(
                     _player.Player,

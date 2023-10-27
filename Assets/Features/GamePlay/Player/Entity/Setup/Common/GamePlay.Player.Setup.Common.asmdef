@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Setup.Common",
+  "references":[ "GUID:21b356032bd9416d8daec72f4dbdef0a", "GUID:b0214a6008ed146ff8f122a6a9c2f6cc" ]
+}

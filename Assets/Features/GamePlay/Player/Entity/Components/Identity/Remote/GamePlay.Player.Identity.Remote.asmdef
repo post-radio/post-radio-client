@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Player.Identity.Remote",
+  "references":[ "GUID:8945b755c2a744eca27a341d79e92303", "GUID:a6bee730cad343c7ac8840da91376019", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:d94ddda0b1064b8ba7f3167bd37982bd", "GUID:cef0d70bef4446c79e32fa1e997315a3" ]
+}

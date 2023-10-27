@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.House.Setup",
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:668e9d4d8c99497da8ea9eb81cb1c14e", "GUID:b0214a6008ed146ff8f122a6a9c2f6cc", "GUID:7b2b95a117b24623884537fea08c347f", "GUID:e2e540ace5c44cae9346602735dc043c", "GUID:cef0d70bef4446c79e32fa1e997315a3", "GUID:a84671023cbf44d5b771fe68e40859ba" ]
+}

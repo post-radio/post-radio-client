@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed91773fed34684834484380c8f6421, type: 3}
   m_Name: GlobalService_GameLoop
   m_EditorClassIdentifier: 
-  _menu: {fileID: 11400000, guid: 5cc8549eafaba19468d8e48f9d1d7aa6, type: 2}
-  _menu1: {fileID: 0}
-  _level: {fileID: 11400000, guid: cf189df22dd498640879252f0d8dfe3f, type: 2}
+  _menuScope: {fileID: 11400000, guid: 5cc8549eafaba19468d8e48f9d1d7aa6, type: 2}
+  _levelScope: {fileID: 11400000, guid: cf189df22dd498640879252f0d8dfe3f, type: 2}

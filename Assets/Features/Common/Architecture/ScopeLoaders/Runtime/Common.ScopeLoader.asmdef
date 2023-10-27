@@ -2,13 +2,13 @@
   "name": "Common.ScopeLoader",
   "references": [
     "GUID:d49f87d10289e9340861bf05e1f156f0",
-    "GUID:e9135e3c7cd59c846883d3dd93d87b30",
     "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
     "GUID:f51ebe6a0ceec4240a699833d6309b23",
     "GUID:e07e6ccd9241474dbca4e70862df2bc2",
     "GUID:579e5a5c70a34914d87b1e5a12948aba",
     "GUID:2ef144f1edca7a1438d7ed500325c442",
     "GUID:f60712f7c5ea4162b9d86912c1cc1708",
-    "GUID:fe4adae493555af4788e53948d7966ca"
+    "GUID:fe4adae493555af4788e53948d7966ca",
+    "GUID:494516fb123a4f7aa28997e4d847ac0e"
   ]
 }

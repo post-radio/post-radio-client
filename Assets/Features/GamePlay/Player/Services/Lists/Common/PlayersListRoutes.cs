@@ -1,10 +1,10 @@
-﻿using GamePlay.Network.Common.Paths;
+﻿using GamePlay.Player.Common.Paths;
 
-namespace GamePlay.Player.Services.Lists.Common
+namespace GamePlay.Player.Lists.Common
 {
     public class PlayersListRoutes
     {
-        public const string ServiceName = GamePlayNetworkAssetsPrefixes.Service + "PlayersRegistry";
-        public const string ServicePath = GamePlayNetworkAssetsPaths.Root + "PlayersRegistry";
+        public const string ServiceName = PlayerAssetsPrefixes.Service + "PlayersRegistry";
+        public const string ServicePath = PlayerAssetsPaths.Root + "PlayersRegistry";
     }
 }

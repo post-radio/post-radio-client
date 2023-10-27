@@ -1,0 +1,8 @@
+﻿{
+  "name": "Common.UniversalAnimator.Animation.Native",
+  "references": [
+    "GUID:b0275d8a7d994d97ae1652be17935f0f",
+    "GUID:9c221aad6c194a8fb7ac7c64a5cf6928",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23"
+  ]
+}

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using GamePlay.House.Cells.Root;
 
 namespace GamePlay.House.Composition
 {
     public interface IHouseCompositor
     {
-        void AddCell(Transform cell);
+        void OrderCells(IReadOnlyList<ICell> cells, int rowCapacity);
     }
 }

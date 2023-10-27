@@ -1,4 +1,10 @@
 ﻿{
   "name": "Common.UniversalAnimator.Animation.Looped",
-  "references":[ "GUID:9c221aad6c194a8fb7ac7c64a5cf6928", "GUID:6fe3e5bc5e27400aa7e27dded3e1e008", "GUID:3e7167d9f58d47b7839bb3ce134a78f1", "GUID:9f12b849425b4eee835913da917e6c20", "GUID:92c45879a0f342a29c0e271981946ba1" ]
+  "references": [
+    "GUID:9c221aad6c194a8fb7ac7c64a5cf6928",
+    "GUID:6fe3e5bc5e27400aa7e27dded3e1e008",
+    "GUID:3e7167d9f58d47b7839bb3ce134a78f1",
+    "GUID:9f12b849425b4eee835913da917e6c20",
+    "GUID:92c45879a0f342a29c0e271981946ba1"
+  ]
 }
