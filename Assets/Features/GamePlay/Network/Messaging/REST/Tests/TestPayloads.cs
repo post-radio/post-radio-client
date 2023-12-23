@@ -7,11 +7,6 @@ namespace GamePlay.Network.Messaging.REST.Tests
 {
     public class TestRequest : IRagonEvent, IMessage
     {
-        public TestRequest()
-        {
-            
-        }
-
         private const int _intSize = 100000000;
         
         private readonly MessageId _id = new(); 
@@ -37,11 +32,6 @@ namespace GamePlay.Network.Messaging.REST.Tests
     
     public class TestResponse : IRagonEvent, IMessage
     {
-        public TestResponse()
-        {
-            
-        }
-        
         private const int _intSize = 100000000;
         
         private readonly MessageId _id = new(); 

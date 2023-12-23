@@ -10,7 +10,7 @@ namespace GamePlay.Player.Entity.Components.Identity.Local
         {
         }
 
-        public string DisplayName { get; }
+        public string DisplayName => "Очередной долбаеб который считает себя программистом";
         
         public override void Serialize(RagonBuffer buffer)
         {

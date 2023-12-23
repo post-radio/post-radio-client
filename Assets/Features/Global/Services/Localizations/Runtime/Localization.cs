@@ -35,7 +35,7 @@ namespace Global.Localizations.Runtime
                 _language = saves.Value.Language;
             else
                 _language = _systemLanguageProvider.GetLanguage();
-            
+
             var datas = _storage.GetDatas();
 
             foreach (var data in datas)
@@ -46,19 +46,19 @@ namespace Global.Localizations.Runtime
         {
             _language = language;
 
-            var payload = new LanguageSavesPayload()
+            var payload = new LanguageSavesPayload
             {
                 IsOverriden = true,
                 Language = language
             };
 
-            var save = new LanguageSave()
+            var save = new LanguageSave
             {
                 Value = payload
             };
 
             _dataStorage.Save(save, LanguageSave.Key);
-            
+
             var datas = _storage.GetDatas();
 
             foreach (var data in datas)

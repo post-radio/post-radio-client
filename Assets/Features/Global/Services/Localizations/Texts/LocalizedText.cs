@@ -1,30 +1,32 @@
 ﻿using System;
-using TMPro;
+using Nova;
 using UnityEngine;
 
 namespace Global.Localizations.Texts
 {
     [DisallowMultipleComponent]
-    [RequireComponent(typeof(TMP_Text))]
+    [RequireComponent(typeof(TextBlock))]
     public class LocalizedText : MonoBehaviour
     {
         [SerializeField] private LanguageTextData _data;
 
-        private TMP_Text _text;
-
-        public event Action Changed;
+        private TextBlock _text;
 
         private void Awake()
         {
-            _text = GetComponent<TMP_Text>();
+            _text = GetComponent<TextBlock>();
 
-            _data.AttachText(OnLanguageChanged);
+            _data.AddCallback(OnLanguageChanged);
+        }
+
+        private void OnDestroy()
+        {
+            _data.RemoveCallback(OnLanguageChanged);
         }
 
         private void OnLanguageChanged(string text)
         {
-            _text.text = text;
-            Changed?.Invoke();
+            _text.Text = text;
         }
     }
 }

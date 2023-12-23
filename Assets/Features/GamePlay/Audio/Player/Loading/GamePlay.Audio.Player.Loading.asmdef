@@ -1,0 +1,15 @@
+﻿{
+  "name": "GamePlay.Audio.Player.Loading",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:2c239ae6ea45480193848d01f37ce02b",
+    "GUID:ee5e6a766cac4620a1f8d6325af03da2",
+    "GUID:ae100401a21144338e6bf128881190f3",
+    "GUID:35eeb6aa4120423480aa5ee23000685a",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:954bed7845ef3b94c8f2d8ca3cd76154",
+    "GUID:47b5752185ff436fa116dfaa3b0957be",
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:7b31d05b64884c7eb893a4e9067b8944"
+  ]
+}

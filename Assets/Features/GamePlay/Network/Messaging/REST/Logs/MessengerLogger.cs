@@ -68,7 +68,8 @@ namespace GamePlay.Network.Messaging.REST.Logs
             if (_settings.IsAvailable(MessengerLogType.Request_Owner_Sent) == false)
                 return;
 
-            _logger.Log($"On response sent to owner: {player.Id}/{player.Root.Identity.DisplayName} with type: {typeof(TResponse)}",
+            _logger.Log(
+                $"On response sent to owner: {player.Id}/{player.Root.Identity.DisplayName} with type: {typeof(TResponse)}",
                 _settings.LogParameters);
         }
 

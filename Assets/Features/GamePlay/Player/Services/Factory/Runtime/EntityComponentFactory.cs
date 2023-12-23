@@ -3,7 +3,7 @@ using Common.Architecture.EntityCreators.Runtime;
 using Cysharp.Threading.Tasks;
 using Ragon.Client;
 
-namespace GamePlay.Player.Factory.Runtime
+namespace GamePlay.Player.Services.Factory.Runtime
 {
     public class EntityComponentFactory : IComponentFactory
     {

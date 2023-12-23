@@ -1,5 +1,6 @@
 ﻿using System;
-using Common.Serialization.NestedScriptableObjects.Attributes;
+using System.Collections.Generic;
+using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Global.Localizations.Common;
 using Global.Localizations.Definition;
 using Sirenix.OdinInspector;
@@ -17,21 +18,26 @@ namespace Global.Localizations.Texts
 
         private Language _selected;
         private bool _isInitialized;
-        private Action<string> _localizeCallback;
+        private readonly HashSet<Action<string>> _localizeCallback = new();
 
-        public void AttachText(Action<string> localizeCallback)
+        public void AddCallback(Action<string> localizeCallback)
         {
-            _localizeCallback = localizeCallback;
+            _localizeCallback.Add(localizeCallback);
 
             if (_isInitialized == true)
-                _localizeCallback?.Invoke(GetText());
+                InvokeCallback();
+        }
+        
+        public void RemoveCallback(Action<string> localizeCallback)
+        {
+            _localizeCallback.Remove(localizeCallback);
         }
 
         public void SelectLanguage(Language language)
         {
             _selected = language;
             _isInitialized = true;
-            _localizeCallback?.Invoke(GetText());
+            InvokeCallback();
         }
 
         public string GetText()
@@ -42,6 +48,14 @@ namespace Global.Localizations.Texts
                 Language.Eng => _eng.Text,
                 _ => throw new ArgumentOutOfRangeException()
             };
+        }
+
+        private void InvokeCallback()
+        {
+            var text = GetText();
+            
+            foreach (var callback in _localizeCallback)
+                callback?.Invoke(text);
         }
     }
 }

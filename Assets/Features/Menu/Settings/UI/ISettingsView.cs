@@ -9,13 +9,13 @@ namespace Menu.Settings.UI
     {
         ITabNavigation Navigation { get; }
         RectTransform Transform { get; }
-        
+
         float MusicValue { get; }
         float SoundValue { get; }
 
         event Action<Language> LanguageChanged;
 
-        void SetSlidersValue(float music, float sounds);
-        void SetLanguage(Language language);
+        void OnActivate(float music, float sounds, Language language);
+        void OnDeactivate();
     }
 }

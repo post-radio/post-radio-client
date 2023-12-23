@@ -20,12 +20,12 @@ namespace Global.UI.Overlays.Runtime
         
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            var result = await utils.SceneLoader.LoadTyped<GlobalOverlayView>(_scene);
-
-            var view = result.Searched;
+            // var result = await utils.SceneLoader.LoadTyped<GlobalOverlayView>(_scene);
+            //
+            // var view = result.Searched;
 
             services.Register<GlobalExceptionController>()
-                .WithParameter(view.ExceptionView)
+//                .WithParameter(view.ExceptionView)
                 .WithParameter(_localization)
                 .As<IGlobalExceptionController>();
         }

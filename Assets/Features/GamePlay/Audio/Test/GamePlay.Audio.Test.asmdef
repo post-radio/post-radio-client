@@ -1,0 +1,30 @@
+﻿{
+  "name": "GamePlay.Audio.Test",
+  "references": [
+    "GUID:51481429a34a4e32ba1e7eab23368623",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:54bcd1a0761a487e8fffb2c08a4ab072",
+    "GUID:e8336ad812b616c4282ef8e8da0c2928",
+    "GUID:579e5a5c70a34914d87b1e5a12948aba",
+    "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f",
+    "GUID:2d33e8fed7a44b11a89009ac1ccd30a4",
+    "GUID:ce20231345ac4bf78b1172f10bf74169",
+    "GUID:e934484c95af1c24388464b2a4cffff6",
+    "GUID:e425838849fb409eb05992236d0066da",
+    "GUID:35eeb6aa4120423480aa5ee23000685a",
+    "GUID:ee5e6a766cac4620a1f8d6325af03da2",
+    "GUID:3944dd557e8f416c84ad000a528839e7",
+    "GUID:2dd8320ea6434e0e999334d3f015c0b7",
+    "GUID:2c239ae6ea45480193848d01f37ce02b",
+    "GUID:03db95662c9841f419b479b735121e6a",
+    "GUID:b5878a2475b84dbe861135980ad7c328",
+    "GUID:954bed7845ef3b94c8f2d8ca3cd76154",
+    "GUID:ad14d18655924e768ccb5dfe8ec105cc",
+    "GUID:dec28d2fc9064a05abcbf9e3264fa16a",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:da1917f3a79694c539a148addd06d33b",
+    "GUID:552447fb6cdb3d34b969d73c1b33b7d8"
+  ]
+}

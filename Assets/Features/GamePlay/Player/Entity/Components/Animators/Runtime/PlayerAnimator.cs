@@ -1,7 +1,7 @@
 ﻿using System.Threading;
-using Common.UniversalAnimators.Animations.Implementations.Async;
-using Common.UniversalAnimators.Animations.Implementations.Looped;
-using Common.UniversalAnimators.Animators.Native;
+using Common.Tools.UniversalAnimators.Animations.Implementations.Async;
+using Common.Tools.UniversalAnimators.Animations.Implementations.Looped;
+using Common.Tools.UniversalAnimators.Animators.Native;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

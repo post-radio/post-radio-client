@@ -39,7 +39,7 @@ MonoBehaviour:
   _globalCamera: {fileID: 11400000, guid: 539dc15f36c0ea84ab540841a8ceec0a, type: 2}
   _debugConsole: {fileID: 11400000, guid: e3ab40223d3185148955ce7add75ce44, type: 2}
   _inputView: {fileID: 11400000, guid: 59f0f3c41ac20364ba23a15c6eeeb5d1, type: 2}
-  _publisherSdk: {fileID: 11400000, guid: e6f74e9a77cf96644a9adec1fb4ed1cf, type: 2}
+  _publisherSdk: {fileID: 11400000, guid: a7a6608e698f54249907145b756aff63, type: 2}
   _loadedScenesHandler: {fileID: 11400000, guid: 5d5d34fb2bc5e654ab9562f3bb1cd75f, type: 2}
   _gameLoop: {fileID: 11400000, guid: 960cf754496699e448303f2d40ba452d, type: 2}
   _applicationProxy: {fileID: 11400000, guid: f8225ff56a4a96a4e80b0602b4cd3656, type: 2}
@@ -56,6 +56,7 @@ MonoBehaviour:
   _globalOverlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}
   _uiStateMachine: {fileID: 11400000, guid: 2690e14f4af6ab843bac352463df3ee6, type: 2}
   _eventSystem: {fileID: 11400000, guid: 491d8430bcb9a374bad4c693194a48d6, type: 2}
+  _nova: {fileID: 11400000, guid: 54764956bf8cd674ebbbc5841cd7390b, type: 2}
   _settings: {fileID: 11400000, guid: f619e9043e5db8e4485bd99397fc6c79, type: 2}
   _network: {fileID: 11400000, guid: 649d534f012d93848a5d2d1dc76defcc, type: 2}
   _scope: {fileID: 4425232438733536047, guid: 6dff990b64ff40b4980ef90789bf70a4, type: 3}

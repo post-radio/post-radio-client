@@ -1,0 +1,18 @@
+﻿{
+  "name": "Global.Nova.InputManager.Editor",
+  "references": [
+    "GUID:d945054fb520ae0408f2ec087ffa5163",
+    "GUID:44fa5717f0654625a46c067594f731b3"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

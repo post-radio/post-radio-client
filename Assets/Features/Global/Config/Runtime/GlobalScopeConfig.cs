@@ -2,13 +2,12 @@
 using Common.Architecture.EntityCreators.Factory;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Architecture.ScopeLoaders.Runtime.Services;
-using Common.UniversalAnimators.Updaters.Runtime;
+using Common.Tools.UniversalAnimators.Updaters.Runtime;
 using Global.Audio.Listener.Runtime;
 using Global.Audio.Player.Runtime;
 using Global.Cameras.CameraUtilities.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Cameras.GlobalCameras.Runtime;
-using Global.Debugs.Console.Runtime;
 using Global.GameLoops.Runtime;
 using Global.Inputs.View.Runtime;
 using Global.Localizations.Runtime;
@@ -18,12 +17,12 @@ using Global.System.ApplicationProxies.Runtime;
 using Global.System.DestroyHandlers.Runtime;
 using Global.System.LoadedHandler.Runtime;
 using Global.System.MessageBrokers.Runtime;
-using Global.System.Objects.Factory;
 using Global.System.Pauses.Runtime;
 using Global.System.ResourcesCleaners.Runtime;
 using Global.System.Updaters.Runtime;
 using Global.UI.EventSystems.Runtime;
 using Global.UI.LoadingScreens.Runtime;
+using Global.UI.Nova.Compose;
 using Global.UI.Overlays.Runtime;
 using Global.UI.UiStateMachines.Runtime;
 using Internal.Services.Scenes.Data;
@@ -43,7 +42,6 @@ namespace Global.Config.Runtime
         [FoldoutGroup("Camera")] [SerializeField] private CameraUtilsFactory _cameraUtils;
         [FoldoutGroup("Camera")] [SerializeField] private CurrentCameraFactory _currentCamera;
         [FoldoutGroup("Camera")] [SerializeField] private GlobalCameraFactory _globalCamera;
-        [FoldoutGroup("Debugs")] [SerializeField] private DebugConsoleFactory _debugConsole;
         [FoldoutGroup("Input")] [SerializeField] private InputViewFactory _inputView;
         [FoldoutGroup("Publisher")] [SerializeField] private PublisherSdkFactory _publisherSdk;
         [FoldoutGroup("Scenes")] [SerializeField] private LoadedScenesHandlerFactory _loadedScenesHandler;
@@ -55,15 +53,14 @@ namespace Global.Config.Runtime
         [FoldoutGroup("System")] [SerializeField] private UpdaterFactory _updater;
         [FoldoutGroup("System")] [SerializeField] private AnimatorsUpdaterFactory _animatorsUpdater;
         [FoldoutGroup("System")] [SerializeField] private DestroyHandlerFactory _destroyHandler;
-        [FoldoutGroup("System")] [SerializeField] private ObjectsFactory _objects;
         [FoldoutGroup("System")] [SerializeField] private EntityCreatorServiceFactory _entityCreator;
         [FoldoutGroup("UI")] [SerializeField] private LoadingScreenFactory _loadingScreen;
         [FoldoutGroup("UI")] [SerializeField] private LocalizationFactory _localization;
         [FoldoutGroup("UI")] [SerializeField] private GlobalOverlayFactory _globalOverlay;
         [FoldoutGroup("UI")] [SerializeField] private UiStateMachineFactory _uiStateMachine;
         [FoldoutGroup("UI")] [SerializeField] private EventSystemFactory _eventSystem;
+        [FoldoutGroup("UI")] [SerializeField] private NovaCompose _nova;
         [FoldoutGroup("Menu")] [SerializeField] private SettingsFactory _settings;
-
         [SerializeField] private GlobalNetworkCompose _network;
         
         [SerializeField] private GlobalScope _scope;
@@ -76,7 +73,7 @@ namespace Global.Config.Runtime
 
         private IServiceFactory[] GetFactories()
         {
-            var services = new List<IServiceFactory>()
+            var services = new List<IServiceFactory>
             {
                 _applicationProxy,
                 _cameraUtils,
@@ -87,7 +84,6 @@ namespace Global.Config.Runtime
                 _resourcesCleaner,
                 _updater,
                 _animatorsUpdater,
-                _debugConsole,
                 _messageBroker,
                 _uiStateMachine,
                 _eventSystem,
@@ -96,13 +92,13 @@ namespace Global.Config.Runtime
                 _localization,
                 _pause,
                 _destroyHandler,
-                _objects,
                 _settings,
                 _publisherSdk,
                 _loadingScreen,
                 _globalOverlay,
                 _gameLoop,
-                _entityCreator
+                _entityCreator,
+                _nova
             };
 
             services.AddRange(_network.Services);

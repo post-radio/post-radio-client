@@ -1,4 +1,4 @@
-﻿using Common.UniversalAnimators.Animators.Runtime;
+﻿using Common.Tools.UniversalAnimators.Animators.Runtime;
 
 namespace GamePlay.Player.Entity.Components.Animators.Runtime
 {

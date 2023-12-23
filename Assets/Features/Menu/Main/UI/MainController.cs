@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading;
+using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Services.LevelCameras.Runtime;
+using Global.Cameras.GlobalCameras.Runtime;
 using Global.GameLoops.Events;
 using Global.Network.Session.Runtime.Create;
 using Global.Network.Session.Runtime.Join;
@@ -12,9 +14,10 @@ using UnityEngine;
 
 namespace Menu.Main.UI
 {
-    public class MainController : IMainController, ITab, IMainInterceptor
+    public class MainController : IMainController, ITab, IMainInterceptor, IScopeAwakeListener
     {
         public MainController(
+            IGlobalCamera globalCamera,
             IMainView view, 
             ISessionJoin join, 
             ISessionCreate create, 
@@ -22,6 +25,7 @@ namespace Menu.Main.UI
             ILoadingScreen loadingScreen,
             TransitToGameConfig config)
         {
+            _globalCamera = globalCamera;
             _view = view;
             _join = join;
             _create = create;
@@ -30,6 +34,7 @@ namespace Menu.Main.UI
             _config = config;
         }
 
+        private readonly IGlobalCamera _globalCamera;
         private readonly IMainView _view;
         private readonly ISessionJoin _join;
         private readonly ISessionCreate _create;
@@ -38,6 +43,13 @@ namespace Menu.Main.UI
         private readonly TransitToGameConfig _config;
 
         public RectTransform Transform => _view.Transform;
+        
+        public void OnAwake()
+        {
+            _globalCamera.Disable();
+            _camera.SetScale(_config.BaseCameraScale);
+            _camera.Enable();
+        }
         
         public async UniTask Activate(CancellationToken cancellation)
         {
@@ -140,6 +152,7 @@ namespace Menu.Main.UI
             }
             
             _loadingScreen.Show();
+            _globalCamera.Enable();
             Msg.Publish(new GameRequest());
         }
     }

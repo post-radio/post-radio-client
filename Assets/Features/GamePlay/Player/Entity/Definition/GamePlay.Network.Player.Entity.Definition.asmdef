@@ -1,4 +1,4 @@
 ﻿{
   "name": "GamePlay.Network.Player.Entity.Definition",
-  "references":[ "GUID:0b04a2140d644a69995b4b97da182233", "GUID:61ba9059fed64a94b4974924a022d56b" ]
+  "references":[ "GUID:0b04a2140d644a69995b4b97da182233", "GUID:61ba9059fed64a94b4974924a022d56b", "GUID:8945b755c2a744eca27a341d79e92303" ]
 }

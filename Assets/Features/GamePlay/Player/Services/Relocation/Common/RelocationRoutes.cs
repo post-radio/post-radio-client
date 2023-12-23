@@ -1,6 +1,6 @@
 ﻿using GamePlay.Player.Common.Paths;
 
-namespace GamePlay.Player.Relocation.Common
+namespace GamePlay.Player.Services.Relocation.Common
 {
     public class RelocationRoutes
     {

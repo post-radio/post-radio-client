@@ -16,7 +16,7 @@ namespace Menu.About.UI
     public class AboutUIFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private TabDefinition _tabDefinition;
-        
+
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<AboutController>()

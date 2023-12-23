@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8714735197411241375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420b4814d8868c443ae796e180394d9b, type: 3}
+  m_Name: LocalService_Chat_UI_SceneData_Scene
+  m_EditorClassIdentifier: 
+  _name:
+    m_SceneAsset: {fileID: 102900000, guid: b4c9c54e35192fd48bfdf2e04fa0c4a7, type: 3}
+    m_SceneName: UI_Chat
+  _reference:
+    m_AssetGUID: b4c9c54e35192fd48bfdf2e04fa0c4a7
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae8db8b9dc044fdae2617fe195d747e, type: 3}
+  m_Name: LocalService_Chat_UI
+  m_EditorClassIdentifier: 
+  _scene: {fileID: -8714735197411241375}

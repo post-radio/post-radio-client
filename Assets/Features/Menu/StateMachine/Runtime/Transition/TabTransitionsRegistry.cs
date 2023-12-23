@@ -9,11 +9,11 @@ namespace Menu.StateMachine.Runtime.Transition
     {
         [SerializeField] private TransitionPointsDictionary _points;
 
-        private IReadOnlyDictionary<ITabDefinition, RectTransform> _castedPoints;
+        private IReadOnlyDictionary<ITabDefinition, Transform> _castedPoints;
 
         public void Setup()
         {
-            var dictionary = new Dictionary<ITabDefinition, RectTransform>();
+            var dictionary = new Dictionary<ITabDefinition, Transform>();
 
             foreach (var (tab, rect) in _points)
                 dictionary.Add(tab, rect);
@@ -23,9 +23,9 @@ namespace Menu.StateMachine.Runtime.Transition
 
         public Vector2 GetTarget(ITabDefinition tabDefinition)
         {
-            var rect = _castedPoints[tabDefinition];
+            var target = _castedPoints[tabDefinition];
 
-            return rect.position;
+            return target.position;
         }
     }
 }

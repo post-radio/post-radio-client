@@ -1,5 +1,6 @@
 ﻿using Common.Architecture.ScopeLoaders.Runtime.Services;
 using GamePlay.Network.Common.Paths;
+using GamePlay.Network.Messaging.Events.Runtime;
 using GamePlay.Network.Messaging.REST.Runtime;
 using GamePlay.Network.Objects.Destroyer.Runtime;
 using GamePlay.Network.Objects.Factories.Registry;
@@ -25,6 +26,7 @@ namespace GamePlay.Network.Compose
         [SerializeField] private DynamicEntityFactoryServiceFactory _dynamicEntityFactory;
         [SerializeField] private NetworkEventsLoopFactory _eventsLoop;
         [SerializeField] private MessengerFactory _messenger;
+        [SerializeField] private NetworkEventsFactory _events;
         
         public IServiceFactory[] Services => new IServiceFactory[]
         {
@@ -35,7 +37,8 @@ namespace GamePlay.Network.Compose
             _sceneCollector,
             _dynamicEntityFactory,
             _eventsLoop,
-            _messenger
+            _messenger,
+            _events
         };
     }
 }

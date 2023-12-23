@@ -51,8 +51,8 @@ namespace Global.Publisher.Yandex.Bootstrap
             
             if (options.IsEditor == true)
                 await RegisterEditorApis(builder, utils.SceneLoader, yandexCallbacks);
-            else
-                RegisterBuildApis(builder);
+            // else
+            //     RegisterBuildApis(builder);
         }
 
         private void RegisterModules(IServiceCollection builder)

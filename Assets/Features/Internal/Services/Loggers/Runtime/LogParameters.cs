@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common.Serialization.NestedScriptableObjects.Attributes;
+using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Internal.Services.Loggers.Runtime.Headers;
 using Sirenix.OdinInspector;
 using UnityEngine;

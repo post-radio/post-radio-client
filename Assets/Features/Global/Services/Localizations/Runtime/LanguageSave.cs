@@ -10,18 +10,18 @@ namespace Global.Localizations.Runtime
         public LanguageSavesPayload Value = new()
         {
             IsOverriden = false,
-            Language = Language.Ru
+            Language = Language.Eng
         };
-        
+
         public const string Key = "language";
 
         public string SaveKey => Key;
-        
+
         public event Action Changed;
-        
+
         public void CreateDefault()
         {
-            Value = new LanguageSavesPayload()
+            Value = new LanguageSavesPayload
             {
                 IsOverriden = false,
                 Language = Language.Ru

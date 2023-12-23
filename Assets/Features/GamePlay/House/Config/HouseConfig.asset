@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HouseConfig
   m_EditorClassIdentifier: 
   _rowsCount: 8
-  _columnsCount: 10
+  _columnsCount: 9

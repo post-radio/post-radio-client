@@ -132,7 +132,7 @@ namespace Cysharp.Threading.Tasks
         public static UniTask Delay(float delay)
         {
             var time = Mathf.CeilToInt(delay * 1000);
-            return Delay(time);
+            return Delay(time, true, PlayerLoopTiming.TimeUpdate);
         }
         
         public static UniTask Delay(float delay, CancellationToken cancellation)

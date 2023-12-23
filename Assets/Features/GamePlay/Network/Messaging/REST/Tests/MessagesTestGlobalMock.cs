@@ -31,7 +31,7 @@ namespace GamePlay.Network.Messaging.REST.Tests
         
         protected IServiceFactory[] GetFactories()
         {
-            var services = new List<IServiceFactory>()
+            var services = new List<IServiceFactory>
             {
                 new MessagesTestFactory()
             };

@@ -65,7 +65,7 @@ namespace Global.Publisher.Yandex.Leaderboard
 
             foreach (var entry in response.Entries)
             {
-                var user = new LeaderboardUser()
+                var user = new LeaderboardUser
                 {
                     PlayerName = entry.Player.PublicName,
                     Rank = entry.Rank,

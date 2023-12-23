@@ -2,16 +2,18 @@
 using Cysharp.Threading.Tasks;
 using GamePlay.House.Setup;
 using GamePlay.Loop.Logs;
-using GamePlay.Player.Factory.Runtime;
-using GamePlay.Player.Relocation.Runtime;
+using GamePlay.Player.Services.Factory.Runtime;
+using GamePlay.Player.Services.Relocation.Runtime;
 using GamePlay.Services.LevelCameras.Runtime;
 using GamePlay.UI.Runtime;
+using Global.Cameras.GlobalCameras.Runtime;
 using Global.UI.LoadingScreens.Runtime;
+using Global.UI.Nova.InputManagers.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Loop.Runtime
 {
-    public class LevelLoop : IScopeLoadAsyncListener, IScopeAwakeAsyncListener
+    public class LevelLoop : IScopeLoadAsyncListener, IScopeAwakeAsyncListener, IScopeDisableListener
     {
         public LevelLoop(
             ILevelUiController levelUiController,
@@ -20,6 +22,9 @@ namespace GamePlay.Loop.Runtime
             IHouseSetup houseSetup,
             ILevelCamera camera,
             ILoadingScreen loadingScreen,
+            ICameraMover cameraMover,
+            IGlobalCamera globalCamera,
+            IUIInputManager uiInputManager,
             TransitToGameConfig config,
             LevelLoopLogger logger)
         {
@@ -29,6 +34,9 @@ namespace GamePlay.Loop.Runtime
             _houseSetup = houseSetup;
             _camera = camera;
             _loadingScreen = loadingScreen;
+            _cameraMover = cameraMover;
+            _globalCamera = globalCamera;
+            _UIInputManager = uiInputManager;
             _config = config;
             _logger = logger;
         }
@@ -39,11 +47,15 @@ namespace GamePlay.Loop.Runtime
         private readonly IHouseSetup _houseSetup;
         private readonly ILevelCamera _camera;
         private readonly ILoadingScreen _loadingScreen;
+        private readonly ICameraMover _cameraMover;
+        private readonly IGlobalCamera _globalCamera;
+        private readonly IUIInputManager _UIInputManager;
         private readonly TransitToGameConfig _config;
         private readonly LevelLoopLogger _logger;
 
         public async UniTask OnAwakeAsync()
         {
+            _UIInputManager.SetCamera(_camera.Camera);
             _loadingScreen.Show();
             await _houseSetup.Setup();
         }
@@ -53,6 +65,12 @@ namespace GamePlay.Loop.Runtime
             _logger.OnLoaded();
             Begin().Forget();
         }
+        
+        public void OnDisabled()
+        {
+            _UIInputManager.RemoveCamera(_camera.Camera);
+            _cameraMover.Disable();   
+        }
 
         private async UniTask Begin()
         {
@@ -60,15 +78,17 @@ namespace GamePlay.Loop.Runtime
             var targetCell = await _relocation.GetRandomCell();
             await player.Root.Location.Relocate(targetCell);
             _loadingScreen.Hide();
-            await TransitToGame(targetCell.CameraPoint.position);
-
+            _camera.SetPosition(targetCell.Transform.position);
+            _camera.SetScale(_config.StartCameraScale);
+            _camera.Enable();
+            _globalCamera.Disable();
+            await TransitToGame();
+            
+            _cameraMover.Enable();
         }
         
-        private async UniTask TransitToGame(Vector2 targetPosition)
+        private async UniTask TransitToGame()
         {
-            _camera.SetPosition(targetPosition);
-            _camera.SetScale(_config.StartCameraScale);
-            
             var progress = 0f;
             var time = 0f;
             var startScale = _camera.Scale;

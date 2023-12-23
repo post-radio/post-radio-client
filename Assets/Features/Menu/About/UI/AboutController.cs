@@ -15,7 +15,7 @@ namespace Menu.About.UI
         private readonly IAboutView _view;
 
         public RectTransform Transform => _view.Transform;
-        
+
         public async UniTask Activate(CancellationToken cancellation)
         {
             _view.Navigation.Enable();

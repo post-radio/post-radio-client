@@ -24,12 +24,13 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
 
         public void OnUpdate(float delta)
         {
-            _client.Update(delta);
+            _client?.Update(delta);
         }
 
         public void OnDisabled()
         {
-            _client.Dispose();
+            _client?.Dispose();
+            _client?.Dispose();
         }
     }
 }

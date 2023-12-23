@@ -1,4 +1,4 @@
-﻿using Common.Serialization.ReadOnlyDictionaries.Editor;
+﻿using Common.DataTypes.Collections.ReadOnlyDictionaries.Editor;
 using Global.Network.Session.Logs;
 using UnityEditor;
 

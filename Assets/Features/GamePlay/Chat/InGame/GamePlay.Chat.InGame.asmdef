@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Chat.InGame",
+  "references":[ "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:47579ea5f54146979f8eb055fe4c2ff3", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:e07e6ccd9241474dbca4e70862df2bc2" ]
+}

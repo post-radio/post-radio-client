@@ -14,12 +14,18 @@ namespace Global.UI.LoadingScreens.Runtime
         }
 
         [SerializeField] private GameObject _canvas;
-
+        [SerializeField] private GameObject _gameLoad; 
+        
         private LoadingScreenLogger _logger;
 
         private void Awake()
         {
             _canvas.SetActive(false);
+        }
+
+        public void HideGameLoading()
+        {
+            _gameLoad.SetActive(false);
         }
 
         public void Show()

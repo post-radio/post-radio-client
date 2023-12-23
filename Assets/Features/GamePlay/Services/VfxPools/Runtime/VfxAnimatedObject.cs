@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.Architecture.ObjectsPools.Runtime.Abstract;
+using Common.Tools.ObjectsPools.Runtime.Abstract;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

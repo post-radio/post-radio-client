@@ -11,7 +11,7 @@ using GamePlay.Player.Services.Lists.Events;
 using Global.System.MessageBrokers.Runtime;
 using Random = UnityEngine.Random;
 
-namespace GamePlay.Player.Relocation.Runtime
+namespace GamePlay.Player.Services.Relocation.Runtime
 {
     public class Relocation : IRelocation, INetworkAwakeListener, IScopeSwitchListener
     {

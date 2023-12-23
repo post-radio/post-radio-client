@@ -10,7 +10,7 @@ namespace GamePlay.Player.Entity.Components.Visual.View
         
         public void SnapToCell(ICell cell)
         {
-            transform.parent = cell.Transform;
+            transform.parent = cell.CameraPoint;
             transform.localPosition = Vector3.zero;
         }
     }

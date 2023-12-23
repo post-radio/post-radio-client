@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8724836606350553350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a30034639f34966b453ea7da3fa33f0, type: 3}
+  m_Name: Options_Release_ImageGalleryOptions
+  m_EditorClassIdentifier: 
+  _switchDelay: 20
 --- !u!114 &-7493556215027156586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,6 +26,24 @@ MonoBehaviour:
   m_Name: Options_Release_AssetsOptions
   m_EditorClassIdentifier: 
   _useAddressables: 1
+--- !u!114 &-6331544929465107737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3105d53a03dc4780a4d381a65bddd175, type: 3}
+  m_Name: Options_Release_AudioOptions
+  m_EditorClassIdentifier: 
+  _backend: {fileID: 11400000, guid: 27eef775244eed7478e396b86c68f847, type: 2}
+  _vote:
+    _voteStartOffset: 45
+    _voteDuration: 30
+    _voteCollectDuration: 5
+    _voteHideOffset: 5
 --- !u!114 &-4990500854133510256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,6 +57,19 @@ MonoBehaviour:
   m_Name: Options_Release_VersionOptions
   m_EditorClassIdentifier: 
   _value: 1.0.0
+--- !u!114 &-3316992074516321325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530eae7749a642f6931189eb041925d8, type: 3}
+  m_Name: Options_Release_BackendOptions
+  m_EditorClassIdentifier: 
+  _streamingApiUrl: https://streaming.post-radio.io/api/
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,6 +87,23 @@ MonoBehaviour:
   - {fileID: 7872554466723321229}
   - {fileID: -4990500854133510256}
   - {fileID: 7391102754513568748}
+  - {fileID: -6331544929465107737}
+  - {fileID: 4117996499007336812}
+  - {fileID: -8724836606350553350}
+  - {fileID: -3316992074516321325}
+--- !u!114 &4117996499007336812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a28d8043c68a6d4e85991404e2deccb, type: 3}
+  m_Name: Options_Release_PlatformOptions
+  m_EditorClassIdentifier: 
+  _platform: 10
 --- !u!114 &7391102754513568748
 MonoBehaviour:
   m_ObjectHideFlags: 0

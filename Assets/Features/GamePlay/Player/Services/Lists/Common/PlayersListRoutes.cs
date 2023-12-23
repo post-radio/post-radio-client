@@ -1,6 +1,6 @@
 ﻿using GamePlay.Player.Common.Paths;
 
-namespace GamePlay.Player.Lists.Common
+namespace GamePlay.Player.Services.Lists.Common
 {
     public class PlayersListRoutes
     {

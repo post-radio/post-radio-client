@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ObjectsPools.Runtime.Abstract;
+﻿using Common.Tools.ObjectsPools.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Services.VfxPools.Runtime

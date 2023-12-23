@@ -1,0 +1,7 @@
+﻿{
+  "name": "GamePlay.Audio.Common",
+  "references": [
+    "GUID:5f85ab5dc178ff54c81b21f197b82d14",
+    "GUID:2ef144f1edca7a1438d7ed500325c442"
+  ]
+}

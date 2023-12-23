@@ -33,7 +33,7 @@ namespace GamePlay.Network.Messaging.REST.Runtime
         public event Action<TResponse> Responded;
 
         public Guid RequestId => _requestId;
-        public bool ContainsResponse => _responsePayload == null;
+        public bool ContainsResponse => _responsePayload != null;
 
         public void OnResponded(TResponse payload)
         {

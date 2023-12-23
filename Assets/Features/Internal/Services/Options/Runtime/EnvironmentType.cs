@@ -1,6 +1,6 @@
 ﻿namespace Internal.Services.Options.Runtime
 {
-    public enum EnvironmentType : int
+    public enum EnvironmentType
     {
         Release = 1,
         Debug = 2,

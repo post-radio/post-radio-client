@@ -18,6 +18,6 @@ MonoBehaviour:
   _sceneEntityFactory: {fileID: 11400000, guid: 3b54f159fd462484098362a44c967d77, type: 2}
   _sceneCollector: {fileID: 11400000, guid: 435494323403e204b8b742d0f3cb8633, type: 2}
   _dynamicEntityFactory: {fileID: 11400000, guid: 67adf2a5e7a06f34198fc24a45e9fb73, type: 2}
-  _playersRegistry: {fileID: 11400000, guid: 7ccdf775f6fa7994982118acea3a319f, type: 2}
   _eventsLoop: {fileID: 11400000, guid: 2f0caaef26eab2847b7e112d32fe5f52, type: 2}
   _messenger: {fileID: 11400000, guid: 8c2b0c023dc9ea84b9b601334d6a3ed6, type: 2}
+  _events: {fileID: 11400000, guid: d96c24016fe7dd242bdf7d5e7ad971ad, type: 2}

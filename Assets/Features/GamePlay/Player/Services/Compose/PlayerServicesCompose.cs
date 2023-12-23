@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using GamePlay.Player.Common.Paths;
-using GamePlay.Player.Factory.Runtime;
-using GamePlay.Player.Lists.Runtime;
-using GamePlay.Player.Relocation.Runtime;
+using GamePlay.Player.Services.Factory.Runtime;
+using GamePlay.Player.Services.Lists.Runtime;
+using GamePlay.Player.Services.Relocation.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

@@ -2,7 +2,7 @@
 using GamePlay.Player.Entity.Definition;
 using Ragon.Client;
 
-namespace GamePlay.Player.Lists.Runtime
+namespace GamePlay.Player.Services.Lists.Runtime
 {
     public interface IPlayersList
     {

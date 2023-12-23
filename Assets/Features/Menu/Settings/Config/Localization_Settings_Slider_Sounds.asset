@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dae25f9d6934f25ababdb11b5c848de, type: 3}
   m_Name: Localization_Settings_Slider_Sounds_LanguageEntry
   m_EditorClassIdentifier: 
-  _text: Sounds
+  _text: SFX
 --- !u!114 &8387013049428625927
 MonoBehaviour:
   m_ObjectHideFlags: 0

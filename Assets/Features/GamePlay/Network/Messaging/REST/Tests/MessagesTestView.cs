@@ -48,7 +48,7 @@ namespace GamePlay.Network.Messaging.REST.Tests
         private async UniTask ProcessSend(int value)
         {
             var player = GetAnotherPlayer();
-            var payload = new TestRequest()
+            var payload = new TestRequest
             {
                 Value = value
             };
@@ -63,7 +63,7 @@ namespace GamePlay.Network.Messaging.REST.Tests
         
         private async UniTask ProcessRequest(IResponseHandler<TestRequest, TestResponse> responseHandler)
         {
-            responseHandler.Response(new TestResponse() { Value = _client.Value });
+            responseHandler.Response(new TestResponse { Value = _client.Value });
             _client.SetValue(responseHandler.RequestPayload.Value);
         }
 

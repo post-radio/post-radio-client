@@ -111,10 +111,11 @@ namespace Global.GameLoops.Runtime
                 return;
             }
             
-            LoadScene(_menuScope).Forget();
+            await LoadScene(_menuScope);
+            _loadingScreen.HideGameLoading();
         }
 
-        private async UniTaskVoid LoadScene(IScopeConfig config)
+        private async UniTask LoadScene(IScopeConfig config)
         {
             _globalCamera.Enable();
             _currentCamera.SetCamera(_globalCamera.Camera);
@@ -129,7 +130,6 @@ namespace Global.GameLoops.Runtime
             await _loadedScenesHandler.FinalizeUnloading();
 
             _loadedScenesHandler.OnLoaded(scopeLoadResult);
-            _globalCamera.Disable();
             
             await scopeLoadResult.Callbacks[CallbackStage.SetupComplete].Run();
         }

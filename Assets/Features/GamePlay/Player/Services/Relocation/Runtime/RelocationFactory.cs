@@ -2,11 +2,11 @@
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
-using GamePlay.Player.Relocation.Common;
+using GamePlay.Player.Services.Relocation.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Player.Relocation.Runtime
+namespace GamePlay.Player.Services.Relocation.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = RelocationRoutes.ServiceName, menuName = RelocationRoutes.ServicePath)]

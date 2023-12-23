@@ -1,4 +1,4 @@
-﻿using Common.Serialization.ScriptableRegistries;
+﻿using Common.DataTypes.Collections.ScriptableRegistries;
 using Global.Publisher.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;

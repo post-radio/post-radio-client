@@ -18,7 +18,7 @@ namespace Global.Publisher.Yandex.Leaderboard
 
         public void GetLeaderboard_Internal(string target, int quantityTop, int quantityAround)
         {
-            var leaderboard = new Leaderboard()
+            var leaderboard = new Leaderboard
             {
                 LeaderboardName = target
             };
@@ -27,7 +27,7 @@ namespace Global.Publisher.Yandex.Leaderboard
             {
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_1"
                     },
@@ -36,7 +36,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 },
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_2"
                     },
@@ -45,7 +45,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 },
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_3"
                     },
@@ -54,7 +54,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 },
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_66"
                     },
@@ -63,7 +63,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 },
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_65"
                     },
@@ -72,7 +72,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 },
                 new()
                 {
-                    Player = new LeaderboardPlayer()
+                    Player = new LeaderboardPlayer
                     {
                         PublicName = "Aboba_64"
                     },
@@ -81,7 +81,7 @@ namespace Global.Publisher.Yandex.Leaderboard
                 }
             };
 
-            var response = new LeaderboardResponse()
+            var response = new LeaderboardResponse
             {
                 Leaderboard = leaderboard,
                 Entries = entries

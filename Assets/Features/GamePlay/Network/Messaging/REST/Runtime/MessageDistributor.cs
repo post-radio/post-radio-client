@@ -3,7 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Messaging.REST.Runtime.Abstract;
 using GamePlay.Player.Entity.Definition;
-using GamePlay.Player.Lists.Runtime;
+using GamePlay.Player.Services.Lists.Runtime;
 using Ragon.Client;
 
 namespace GamePlay.Network.Messaging.REST.Runtime
@@ -41,15 +41,15 @@ namespace GamePlay.Network.Messaging.REST.Runtime
             where TRequest : IRagonEvent, IMessage, new()
             where TResponse : IRagonEvent, IMessage, new()
         {
-            var list = new Dictionary<INetworkPlayer, IRequestHandler<TRequest, TResponse>>();
+            var dictionary = new Dictionary<INetworkPlayer, IRequestHandler<TRequest, TResponse>>();
 
             foreach (var targetPlayer in _players.All)
             {
                 var handler = _messenger.Request<TRequest, TResponse>(targetPlayer.Player, requestPayload);
-                list.Add(targetPlayer, handler);
+                dictionary.Add(targetPlayer, handler);
             }
 
-            return list;
+            return dictionary;
         }
 
         public async UniTask<IReadOnlyDictionary<INetworkPlayer, TResponse>> SendAllAsync<TRequest, TResponse>(

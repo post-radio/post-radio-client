@@ -20,7 +20,7 @@ namespace Global.Cameras.GlobalCameras.Runtime
 
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            var globalCamera = Instantiate(_prefab);
+            var globalCamera = Instantiate(_prefab, new Vector3(0f, 0f, -10f), Quaternion.identity);
             globalCamera.name = "Camera_Global";
             globalCamera.gameObject.SetActive(false);
 

@@ -1,0 +1,30 @@
+{
+    "name": "GamePlay.Audio.Overlay",
+    "rootNamespace": "",
+    "references": [
+        "GUID:26ab46a8624b4a83abc0d844c3c5866b",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:04243451437dcfe48b583ab43ef0a8fa",
+        "GUID:ee5e6a766cac4620a1f8d6325af03da2",
+        "GUID:c713b254602614c43a1d94a2a13ba844",
+        "GUID:53d4551bcbb91394fbaf6bc9f0348986",
+        "GUID:47b5752185ff436fa116dfaa3b0957be",
+        "GUID:d3646cb6c22de2d4e9ab342c87024f8e",
+        "GUID:552447fb6cdb3d34b969d73c1b33b7d8",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:2c239ae6ea45480193848d01f37ce02b",
+        "GUID:9b51a48d04164033bd0ea196e24c1113",
+        "GUID:7b31d05b64884c7eb893a4e9067b8944"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

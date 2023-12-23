@@ -15,10 +15,13 @@ MonoBehaviour:
   _ui: {fileID: 11400000, guid: e2dba7c6c41e62643b1487868972b5d6, type: 2}
   _levelLoop: {fileID: 11400000, guid: d062479df73f1744e9fcf2226501a5b7, type: 2}
   _vfxPool: {fileID: 11400000, guid: cea96a53738615f49857ce3c96a9ffd1, type: 2}
-  _levelCamera: {fileID: 11400000, guid: 910ee659212786c41abfaf809b0f616b, type: 2}
+  _menuCamera: {fileID: 11400000, guid: ca5df30642d669e4fb83d19b3088462f, type: 2}
   _houseServices: {fileID: 11400000, guid: 1b5ae7f952d9a9a4a9e7a256e926ef90, type: 2}
   _levelScene: {fileID: 11400000, guid: 7cae4174e1320fb46a2ca5a2c080325e, type: 2}
+  _audio: {fileID: 11400000, guid: 036a78c98fe88c64aa3993d2bc52cc14, type: 2}
   _playerServices: {fileID: 11400000, guid: 2f7f6714b4c402e4693616790dd5176d, type: 2}
   _network: {fileID: 11400000, guid: b83e32330189b494998753bbcb4950b1, type: 2}
+  _chat: {fileID: 11400000, guid: 14bb0b1e91c38cb48b99cd7258dca1e7, type: 2}
+  _imageGallery: {fileID: 11400000, guid: 9468898c2e15ed146bd06a46fa30cd19, type: 2}
   _scopePrefab: {fileID: 6256164544057903142, guid: 739bd40898e14fe4ebe3aa07b287a0fb, type: 3}
   _servicesScene: {fileID: 11400000, guid: ccf110f09d2b8014dbbf3bb44fbe2e1e, type: 2}

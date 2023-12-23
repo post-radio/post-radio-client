@@ -1,0 +1,26 @@
+{
+    "name": "GamePlay.Chat.UI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:47579ea5f54146979f8eb055fe4c2ff3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:9f12b849425b4eee835913da917e6c20",
+        "GUID:579e5a5c70a34914d87b1e5a12948aba",
+        "GUID:d49f87d10289e9340861bf05e1f156f0",
+        "GUID:d1f63e1b73894bf1847d97f6329e1ca2",
+        "GUID:9b51a48d04164033bd0ea196e24c1113",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9aefe6534a7a451f8d7f8f5fd1c1bee4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

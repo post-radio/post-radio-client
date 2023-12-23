@@ -5,6 +5,6 @@ namespace GamePlay.House.Composition
 {
     public interface IHouseCompositor
     {
-        void OrderCells(IReadOnlyList<ICell> cells, int rowCapacity);
+        void OrderCells(IReadOnlyList<ICell> cells);
     }
 }

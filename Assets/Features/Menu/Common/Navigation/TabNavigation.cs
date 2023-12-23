@@ -28,7 +28,7 @@ namespace Menu.Common.Navigation
         public void Disable()
         {
             foreach (var (button, _) in _navigations)
-                button.UnsubscribeAll();
+                button.ClearListeners();
         }
 
         private void OnClicked(TabDefinition entry)

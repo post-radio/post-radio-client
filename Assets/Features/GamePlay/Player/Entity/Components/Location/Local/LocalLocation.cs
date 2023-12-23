@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using Common.Architecture.EntityCreators.Runtime.Callbacks;
-using Common.Network;
+using Common.DataTypes.Network;
 using Cysharp.Threading.Tasks;
 using GamePlay.House.Cells.Root;
 using GamePlay.Player.Entity.Components.Animators.Runtime;

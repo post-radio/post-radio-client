@@ -34,7 +34,7 @@ namespace Global.Network.Session.Logs
             if (_settings.IsAvailable(SessionLogType.CreateSuccess) == false)
                 return;
 
-            _logger.Log($"Room creation succeed", _settings.LogParameters);
+            _logger.Log("Room creation succeed", _settings.LogParameters);
         }
         
         public void OnJoinAttempt(string id)
@@ -58,7 +58,7 @@ namespace Global.Network.Session.Logs
             if (_settings.IsAvailable(SessionLogType.JoinSuccess) == false)
                 return;
 
-            _logger.Log($"Room join succeed", _settings.LogParameters);
+            _logger.Log("Room join succeed", _settings.LogParameters);
         }
         
         public void OnLeaveAttempt(string id)
@@ -82,7 +82,7 @@ namespace Global.Network.Session.Logs
             if (_settings.IsAvailable(SessionLogType.LeaveSuccess) == false)
                 return;
 
-            _logger.Log($"Room leave succeed", _settings.LogParameters);
+            _logger.Log("Room leave succeed", _settings.LogParameters);
         }
     }
 }

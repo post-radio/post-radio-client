@@ -4,9 +4,9 @@ namespace Global.UI.Overlays.Runtime
 {
     public class GlobalExceptionController : IGlobalExceptionController
     {
-        public GlobalExceptionController(IGlobalExceptionView view, LanguageTextData localization)
+        public GlobalExceptionController(/*IGlobalExceptionView view, */LanguageTextData localization)
         {
-            _view = view;
+            // _view = view;
             _localization = localization;
         }
 

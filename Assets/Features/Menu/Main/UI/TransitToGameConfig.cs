@@ -8,8 +8,10 @@ namespace Menu.Main.UI
     {
         [SerializeField] private float _time;
         [SerializeField] private float _targetCameraScale;
+        [SerializeField] private float _baseCameraScale;
 
         public float Time => _time;
         public float TargetCameraScale => _targetCameraScale;
+        public float BaseCameraScale => _baseCameraScale;
     }
 }

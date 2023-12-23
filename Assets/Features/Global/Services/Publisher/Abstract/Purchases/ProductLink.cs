@@ -1,4 +1,4 @@
-﻿using Common.Serialization.NestedScriptableObjects.Attributes;
+﻿using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Global.Localizations.Texts;
 using Global.Publisher.Common;
 using Sirenix.OdinInspector;

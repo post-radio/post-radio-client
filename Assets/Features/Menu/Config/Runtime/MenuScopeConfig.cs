@@ -26,7 +26,7 @@ namespace Menu.Config.Runtime
         [FoldoutGroup("System")] [SerializeField] private BaseUiRootFactory _uiRoot;
         [FoldoutGroup("System")] [SerializeField] private StateMachineFactory _stateMachine;
         [FoldoutGroup("System")] [SerializeField] private MenuLoopFactory _loop;
-        [FoldoutGroup("System")] [SerializeField] private LevelCameraFactory _camera;
+        [FoldoutGroup("System")] [SerializeField] private MenuCameraFactory _camera;
         
         [SerializeField] private MenuScope _scopePrefab;
         [SerializeField] private SceneData _servicesScene;

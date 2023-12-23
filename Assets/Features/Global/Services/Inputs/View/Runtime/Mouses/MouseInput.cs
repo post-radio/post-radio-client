@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Common.DataTypes.Structs;
 using Cysharp.Threading.Tasks;
 using Global.Cameras.CameraUtilities.Runtime;
 using Global.Inputs.Constranits.Definition;
@@ -37,12 +38,16 @@ namespace Global.Inputs.View.Runtime.Mouses
         private readonly Controls.GamePlayActions _gamePlay;
         private readonly InputViewLogger _logger;
 
+        private bool _isWheelPressed;
+
         public event Action LeftDown;
         public event Action LeftUp;
         public event Action RightDown;
         public event Action RightUp;
+        public event Action<Vertical> Scroll;
 
         public Vector2 Position { get; private set; }
+        public bool IsWheelPressed => _isWheelPressed;
 
         public async UniTask WaitLeftDownAsync(CancellationToken cancellation)
         {
@@ -76,6 +81,11 @@ namespace Global.Inputs.View.Runtime.Mouses
             _gamePlay.LeftClick.canceled += OnLeftMouseButtonUp;
             _gamePlay.RightClick.performed += OnRightMouseButtonDown;
             _gamePlay.RightClick.canceled += OnRightMouseButtonUp;
+            
+            _gamePlay.MouseWheel.performed += OnMouseWheelDown;
+            _gamePlay.MouseWheel.canceled += OnMouseWheelUp;
+
+            _gamePlay.Scroll.performed += OnScroll;
 
             _updater.Add(this);
         }
@@ -86,6 +96,11 @@ namespace Global.Inputs.View.Runtime.Mouses
             _gamePlay.LeftClick.canceled -= OnLeftMouseButtonUp;
             _gamePlay.RightClick.performed -= OnRightMouseButtonDown;
             _gamePlay.RightClick.canceled -= OnRightMouseButtonUp;
+            
+            _gamePlay.MouseWheel.performed += OnMouseWheelDown;
+            _gamePlay.MouseWheel.canceled += OnMouseWheelUp;
+
+            _gamePlay.Scroll.performed += OnScroll;
 
             _updater.Remove(this);
         }
@@ -141,17 +156,41 @@ namespace Global.Inputs.View.Runtime.Mouses
 
             RightUp?.Invoke();
         }
+        
+        
+        private void OnScroll(InputAction.CallbackContext context)
+        {
+            var scroll = context.ReadValue<float>();
+            
+            if (scroll > 0f)
+                Scroll?.Invoke(Vertical.Up);
+            else
+                Scroll?.Invoke(Vertical.Down);
+        }
+
+        private void OnMouseWheelDown(InputAction.CallbackContext context)
+        {
+            _isWheelPressed = true;
+
+        }
+        
+        private void OnMouseWheelUp(InputAction.CallbackContext context)
+        {
+            _isWheelPressed = false;
+        }
 
         public void OnUpdate(float delta)
         {
             if (Application.isMobilePlatform == true)
             {
                 var touches = Input.touches;
-
+                _isWheelPressed = false;
+                
                 if (touches.Length < 1)
                     return;
 
                 Position = touches[0].rawPosition;
+                _isWheelPressed = true;
                 LeftDown?.Invoke();
 
                 _logger.OnLeftMouseButtonDown();

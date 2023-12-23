@@ -10,27 +10,38 @@ using UnityEngine;
 namespace GamePlay.Services.LevelCameras.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = LevelCameraRoutes.ServiceName,
-        menuName = LevelCameraRoutes.ServicePath)]
+    [CreateAssetMenu(fileName = LevelCameraRoutes.LevelServiceName,
+        menuName = LevelCameraRoutes.LevelServicePath)]
     public class LevelCameraFactory : ScriptableObject, IServiceFactory
     {
-        [SerializeField] [Indent] private LevelCameraLogSettings _logSettings;
-        [SerializeField] [Indent] private LevelCamera _prefab;
-
+        [SerializeField] private LevelCameraLogSettings _logSettings;
+        [SerializeField] private Camera _prefab;
+        [SerializeField] private CameraMoverConfig _config;
+        
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            var levelCamera = Instantiate(_prefab);
-            levelCamera.name = "LevelCamera";
+            var camera = Instantiate(_prefab);
+            camera.name = "LevelCamera";
 
             services.Register<LevelCameraLogger>()
                 .WithParameter(_logSettings)
                 .AsSelf();
 
-            services.RegisterComponent(levelCamera)
+            services.Register<CameraMover>()
+                .WithParameter(_config)
+                .As<ICameraMover>()
+                .AsCallbackListener();
+
+            services.Register<LevelCamera>()
+                .WithParameter(camera)
                 .As<ILevelCamera>()
                 .AsCallbackListener();
 
-            utils.Binder.MoveToModules(levelCamera);
+            services.Register<CameraBlockerListener>()
+                .As<ICameraBlockListener>()
+                .AsCallbackListener();
+
+            utils.Binder.MoveToModules(camera.gameObject);
         }
     }
 }

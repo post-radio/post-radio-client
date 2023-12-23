@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Nova.Components",
+  "references":[ "GUID:552447fb6cdb3d34b969d73c1b33b7d8", "GUID:bccd0efc1f964d6ead970aff96f49744", "GUID:d3646cb6c22de2d4e9ab342c87024f8e" ]
+}

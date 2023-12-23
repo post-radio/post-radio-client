@@ -2,6 +2,7 @@
 using Common.Architecture.ScopeLoaders.Factory;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
+using Global.UI.LoadingScreens.Runtime;
 using Internal.Scope;
 using UnityEngine;
 using VContainer;
@@ -24,6 +25,8 @@ namespace Common.Architecture.Mocks.Runtime
             
             await scopeLoadResult.Callbacks[CallbackStage.Construct].Run();
             await scopeLoadResult.Callbacks[CallbackStage.SetupComplete].Run();
+
+            scopeLoadResult.Scope.Container.Resolve<ILoadingScreen>().HideGameLoading();
 
             return new MockBootstrapResult(scopeLoadResult.Scope);
         }

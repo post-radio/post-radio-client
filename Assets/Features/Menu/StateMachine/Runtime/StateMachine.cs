@@ -26,7 +26,6 @@ namespace Menu.StateMachine.Runtime
         public void OnAwake()
         {
             _transitionPointsRegistry.Setup();
-            ;
         }
 
         public async UniTask Select(ITabDefinition tabDefinition)

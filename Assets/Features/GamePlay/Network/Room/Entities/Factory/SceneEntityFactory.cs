@@ -1,20 +1,23 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Room.SceneCollectors.Runtime;
+using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
 
 namespace GamePlay.Network.Room.Entities.Factory
 {
     public class SceneEntityFactory : ISceneEntityFactory
     {
-        public SceneEntityFactory(IGameSceneCollector sceneCollector)
+        public SceneEntityFactory(IGameSceneCollector sceneCollector, IClientProvider clientProvider)
         {
             _sceneCollector = sceneCollector;
+            _clientProvider = clientProvider;
         }
 
         private readonly IGameSceneCollector _sceneCollector;
+        private readonly IClientProvider _clientProvider;
 
-        private const int _type = 0;
+        private const int Type = 0;
 
         private ushort _counter = 1;
 
@@ -53,8 +56,7 @@ namespace GamePlay.Network.Room.Entities.Factory
             if (_sceneCollector.IsCollected == true)
                 throw new ArgumentException("Entities are already collected");
 
-            var entity = new RagonEntity(_type, _counter);
-
+            var entity = new RagonEntity(Type, _counter);
             _sceneCollector.AddEntity(entity);
 
             _counter++;

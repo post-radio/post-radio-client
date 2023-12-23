@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2906261100337011331}
   - component: {fileID: 2906261100337011328}
-  - component: {fileID: 2906261100337011329}
   m_Layer: 0
   m_Name: SoundsPlayer
   m_TagString: Untagged
@@ -80,22 +79,6 @@ MonoBehaviour:
   - {fileID: 2311202411572716491}
   - {fileID: 2311202412525518355}
   - {fileID: 2311202412787872199}
---- !u!114 &2906261100337011329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2906261100337011358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abbc20c388764d9fafd2ac3b74f7981b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonTouched: {fileID: 8300000, guid: 80710a74c18207f41afe2d69077ba294, type: 3}
-  _buttonClicked: {fileID: 8300000, guid: 0e6d4d48fef8bd34f9a18cc6b7ed156c, type: 3}
-  _ambient: {fileID: 8300000, guid: d25aa7c22d3f8c249822e770549b599a, type: 3}
-  _player: {fileID: 2906261100337011328}
 --- !u!1001 &2906261100044809837
 PrefabInstance:
   m_ObjectHideFlags: 0

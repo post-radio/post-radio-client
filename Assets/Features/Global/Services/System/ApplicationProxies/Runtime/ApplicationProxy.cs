@@ -14,7 +14,9 @@ namespace Global.System.ApplicationProxies.Runtime
                 return ScreenMode.Horizontal;
             }
         }
-        
+
+        public Vector2 Resolution => new(Screen.width, Screen.height);
+
         public void Quit()
         {
             Application.Quit();

@@ -4,11 +4,11 @@ using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using GamePlay.Player.Entity.Setup.Local;
 using GamePlay.Player.Entity.Setup.Remote;
-using GamePlay.Player.Factory.Common;
+using GamePlay.Player.Services.Factory.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Player.Factory.Runtime
+namespace GamePlay.Player.Services.Factory.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = PlayerFactoryRoutes.ServiceName, menuName = PlayerFactoryRoutes.ServicePath)]
@@ -16,7 +16,7 @@ namespace GamePlay.Player.Factory.Runtime
     {
         [SerializeField] private LocalPlayerConfig _localPlayerConfig;
         [SerializeField] private RemotePlayerConfig _remotePlayerConfig;
-        
+
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<PlayerFactory>()

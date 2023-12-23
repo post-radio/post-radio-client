@@ -1,0 +1,13 @@
+﻿{
+  "name": "GamePlay.Audio.Player.Common",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:2c239ae6ea45480193848d01f37ce02b",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:26ab46a8624b4a83abc0d844c3c5866b",
+    "GUID:a8631fea3e34465cb6b7f4ad6b54ba68",
+    "GUID:ee5e6a766cac4620a1f8d6325af03da2",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:35eeb6aa4120423480aa5ee23000685a"
+  ]
+}

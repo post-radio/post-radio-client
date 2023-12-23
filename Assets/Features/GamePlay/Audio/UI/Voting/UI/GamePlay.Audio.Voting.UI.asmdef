@@ -1,0 +1,16 @@
+﻿{
+  "name": "GamePlay.Audio.Voting.UI",
+  "references": [
+    "GUID:2c239ae6ea45480193848d01f37ce02b",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:64fc87719642b7f4b87ac73bc99031fd",
+    "GUID:cfafe5b21f254d478e5d996e14443196",
+    "GUID:029c1c1b674aaae47a6841a0b89ad80e",
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:5b70f83da6937434491f26e0fd0cd099",
+    "GUID:552447fb6cdb3d34b969d73c1b33b7d8",
+    "GUID:d3646cb6c22de2d4e9ab342c87024f8e",
+    "GUID:206bc4df393e4554ac3cfe25af5616d1"
+  ]
+}

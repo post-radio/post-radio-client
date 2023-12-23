@@ -30,7 +30,7 @@ namespace Global.Publisher.Yandex.Purchases
 
             foreach (var product in _productsRegistry.Objects)
             {
-                var internalProduct = new InternalProduct()
+                var internalProduct = new InternalProduct
                 {
                     id = product.Id,
                     price = $"{product.Price.ToString()} YAN",

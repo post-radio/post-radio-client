@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2556c7446f04c3591867d9f293213e3, type: 3}
   m_Name: CellFactoryConfig
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 3831252059731398947, guid: 25ce1136fb9a766498ac072b04e241ce, type: 3}
+  _prefab: {fileID: 6663341057984237785, guid: 25ce1136fb9a766498ac072b04e241ce, type: 3}

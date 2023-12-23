@@ -7,7 +7,7 @@ using Global.System.MessageBrokers.Runtime;
 using Ragon.Client;
 using UnityEngine;
 
-namespace GamePlay.Player.Lists.Runtime
+namespace GamePlay.Player.Services.Lists.Runtime
 {
     public class PlayersList :
         IPlayersList,

@@ -8,14 +8,13 @@ using GamePlay.Player.Entity.Components.Root.Common;
 using GamePlay.Player.Entity.Definition;
 using GamePlay.Player.Entity.Setup.Local;
 using GamePlay.Player.Entity.Setup.Remote;
-using GamePlay.Player.Lists.Runtime;
+using GamePlay.Player.Services.Lists.Runtime;
 using Global.Network.Objects.Factories.Abstract;
 using Ragon.Client;
 using UnityEngine;
 using VContainer.Unity;
-using NetworkPlayer = GamePlay.Player.Entity.Definition.NetworkPlayer;
 
-namespace GamePlay.Player.Factory.Runtime
+namespace GamePlay.Player.Services.Factory.Runtime
 {
     public class PlayerFactory : IPlayerFactory, IEntityFactory, IScopeSwitchListener
     {
@@ -59,15 +58,15 @@ namespace GamePlay.Player.Factory.Runtime
         public async UniTask<INetworkPlayer> CreateLocal()
         {
             var entity = _dynamicEntityFactory.Create(_id);
-            
+
             var view = Object.Instantiate(_localCreator.Config.Prefab);
             var entityComponentFactory = new EntityComponentFactory(entity);
             var root = await _localCreator.Create<IPlayerRoot>(view, new[] { entityComponentFactory });
-            
+
             var player = new NetworkPlayer(entity, root);
             await _dynamicEntityFactory.Send(entity, null);
             _playersList.Add(player);
-            
+
             return player;
         }
 
@@ -76,7 +75,7 @@ namespace GamePlay.Player.Factory.Runtime
             var view = Object.Instantiate(_remoteCreator.Config.Prefab);
             var entityComponentFactory = new EntityComponentFactory(entity);
             var root = await _remoteCreator.Create<IPlayerRoot>(view, new[] { entityComponentFactory });
-            
+
             var player = new NetworkPlayer(entity, root);
             _playersList.Add(player);
         }

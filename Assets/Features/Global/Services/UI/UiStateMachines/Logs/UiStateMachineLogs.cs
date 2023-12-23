@@ -1,4 +1,4 @@
-﻿using Common.Serialization.ReadOnlyDictionaries.Runtime;
+﻿using Common.DataTypes.Collections.ReadOnlyDictionaries.Runtime;
 
 namespace Global.UI.UiStateMachines.Logs
 {

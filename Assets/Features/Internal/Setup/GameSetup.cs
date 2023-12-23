@@ -13,7 +13,8 @@ namespace Internal.Setup
     {
         [SerializeField] private InternalScopeConfig _internal;
         [SerializeField] private GlobalScopeConfig _global;
-        
+        [SerializeField] private GameObject _loading;
+
         private void Awake()
         {
             Setup().Forget();
@@ -30,6 +31,8 @@ namespace Internal.Setup
             
             await scopeLoadResult.Callbacks[CallbackStage.Construct].Run();
             await scopeLoadResult.Callbacks[CallbackStage.SetupComplete].Run();
+
+            _loading.SetActive(false);
         }
     }
 }

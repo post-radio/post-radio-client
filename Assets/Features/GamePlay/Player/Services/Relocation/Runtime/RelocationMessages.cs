@@ -1,8 +1,8 @@
-﻿using Common.Network;
+﻿using Common.DataTypes.Network;
 using GamePlay.Network.Messaging.REST.Runtime;
 using GamePlay.Network.Messaging.REST.Runtime.Abstract;
 
-namespace GamePlay.Player.Relocation.Runtime
+namespace GamePlay.Player.Services.Relocation.Runtime
 {
     public class RelocationRandomRequest : NetworkEvent, IMessage
     {

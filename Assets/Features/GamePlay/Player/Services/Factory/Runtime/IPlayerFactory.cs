@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using GamePlay.Player.Entity.Definition;
 
-namespace GamePlay.Player.Factory.Runtime
+namespace GamePlay.Player.Services.Factory.Runtime
 {
     public interface IPlayerFactory
     {

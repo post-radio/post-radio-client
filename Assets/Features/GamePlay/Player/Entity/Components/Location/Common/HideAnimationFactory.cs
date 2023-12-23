@@ -1,4 +1,4 @@
-﻿using Common.UniversalAnimators.Animations.Implementations.Native;
+﻿using Common.Tools.UniversalAnimators.Animations.Implementations.Native;
 
 namespace GamePlay.Player.Entity.Components.Location.Common
 {

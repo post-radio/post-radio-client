@@ -15,17 +15,17 @@ namespace GamePlay.Network.Room.Entities.Entity
         private readonly ISceneEntityFactory _entityFactory;
 
         private RagonEntity _entity;
-        
+
         public async UniTask Create()
         {
             _entity = await _entityFactory.Create();
         }
-        
+
         public async UniTask Create(params RagonProperty[] properties)
         {
             _entity = await _entityFactory.Create(properties);
         }
-        
+
         public void ListenEvent<TEvent>(Action<RagonPlayer, TEvent> callback) where TEvent : IRagonEvent, new()
         {
             _entity.OnEvent(callback);

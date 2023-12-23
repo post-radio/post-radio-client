@@ -39,24 +39,23 @@ namespace Menu.Settings.UI
 
         public async UniTask Activate(CancellationToken cancellation)
         {
-            _view.Navigation.Enable();
-            
-            _updater.Add(this);
-            
             var save = await _dataStorage.GetEntry<SoundSave>(SoundSave.Key);
-            
-            _view.SetSlidersValue(save.Value.MusicVolume, save.Value.SoundVolume);
-            _view.SetLanguage(_localization.Language);
-            
+
+            _view.Navigation.Enable();
+            _view.OnActivate(save.Value.MusicVolume, save.Value.SoundVolume, _localization.Language);
+
+            _updater.Add(this);
+
             _view.LanguageChanged += OnLanguageChanged;
         }
 
         public void Deactivate()
         {
             _view.Navigation.Disable();
+            _view.OnDeactivate();
 
             _updater.Remove(this);
-            
+
             _volumeSetter.SetVolume(_view.MusicValue, _view.SoundValue);
             _volumeSetter.SaveVolume();
         }

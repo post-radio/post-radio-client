@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Global.Audio.Player.Runtime
 {
-    [CreateAssetMenu(fileName = AudioRoutes.StateName, menuName = AudioRoutes.StatePath)]
+    [CreateAssetMenu(fileName = GlobalAudioRoutes.StateName, menuName = GlobalAudioRoutes.StatePath)]
     public class SoundState : ScriptableObject
     {
         [SerializeField] [ReadOnly] private bool _isMuted;

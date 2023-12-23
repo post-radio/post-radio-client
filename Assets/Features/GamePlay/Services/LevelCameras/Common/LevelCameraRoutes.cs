@@ -6,9 +6,12 @@ namespace GamePlay.Services.LevelCameras.Common
     {
         private const string _paths = GamePlayAssetsPaths.Root + "LevelCamera/";
 
-        public const string ServicePath = _paths + "Service";
-        public const string ServiceName = GamePlayAssetsPrefixes.Service + "CameraUtils";
+        public const string MenuServicePath = _paths + "Service_Menu";
+        public const string MenuServiceName = GamePlayAssetsPrefixes.Service + "Service_Menu";
 
+        public const string LevelServicePath = _paths + "Service_Level";
+        public const string LevelServiceName = GamePlayAssetsPrefixes.Service + "Service_Level";
+        
         public const string ConfigPath = _paths + "Config";
         public const string ConfigName = GamePlayAssetsPrefixes.Config + "LevelCamera";
 

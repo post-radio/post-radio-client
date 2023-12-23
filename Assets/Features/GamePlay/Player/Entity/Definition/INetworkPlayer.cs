@@ -8,5 +8,7 @@ namespace GamePlay.Player.Entity.Definition
         RagonEntity Entity { get; }
         RagonPlayer Player { get; }
         IPlayerRoot Root { get; }
+        
+        string DisplayName { get; }
     }
 }

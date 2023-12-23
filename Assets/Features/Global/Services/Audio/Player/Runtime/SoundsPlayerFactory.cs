@@ -9,8 +9,8 @@ using UnityEngine;
 namespace Global.Audio.Player.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = AudioRoutes.ServiceName,
-        menuName = AudioRoutes.ServicePath)]
+    [CreateAssetMenu(fileName = GlobalAudioRoutes.ServiceName,
+        menuName = GlobalAudioRoutes.ServicePath)]
     public class SoundsPlayerFactory : ScriptableObject, IServiceFactory
     {
         [SerializeField] private SoundState _state;

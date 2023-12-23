@@ -38,7 +38,7 @@ namespace GamePlay.House.Setup
                 cells.Add(cell.Id, cell);
             }
 
-            _houseCompositor.OrderCells(cells.Values.ToList(), _config.RowsCount);
+            _houseCompositor.OrderCells(cells.Values.ToList());
 
             _cells.Construct(cells);
         }

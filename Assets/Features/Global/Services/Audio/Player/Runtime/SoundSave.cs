@@ -17,7 +17,7 @@ namespace Global.Audio.Player.Runtime
 
         public void CreateDefault()
         {
-            Value = new SoundSavePayload()
+            Value = new SoundSavePayload
             {
                 SoundVolume = 0.5f,
                 MusicVolume = 0.5f
@@ -38,7 +38,7 @@ namespace Global.Audio.Player.Runtime
     [Serializable]
     public class SoundSavePayload
     {
-        public float MusicVolume;
-        public float SoundVolume;
+        public float MusicVolume = 0.5f;
+        public float SoundVolume = 0.5f;
     }
 }

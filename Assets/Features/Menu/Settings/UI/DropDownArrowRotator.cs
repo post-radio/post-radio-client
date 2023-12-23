@@ -11,13 +11,13 @@ namespace Menu.Settings.UI
 
         private const float _startAngle = 0f;
         private const float _targetAngle = 90f;
-        
+
         private float _progress;
-        
+
         private void Update()
         {
             var delta = Time.deltaTime * _rotationSpeed;
-            
+
             if (_dropdown.IsExpanded == true)
                 _progress += delta;
             else

@@ -1,6 +1,6 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ObjectsPools.Runtime;
-using Common.Architecture.ObjectsPools.Runtime.Abstract;
+using Common.Tools.ObjectsPools.Runtime;
+using Common.Tools.ObjectsPools.Runtime.Abstract;
 using GamePlay.Services.VfxPools.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;

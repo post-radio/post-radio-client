@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.ImageGallery.Compose",
+  "references":[ "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:a0a45c3ea66345e893d57581428d62ed", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:f673585b26c5468fa47b8f253381be2d", "GUID:2ef144f1edca7a1438d7ed500325c442", "GUID:79bacdb8819a4ef3a5859c436affe060", "GUID:8fe01f2ceeed464da485959da8aa7d19" ]
+}

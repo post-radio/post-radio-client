@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Serialization.ScriptableRegistries;
+using Common.DataTypes.Collections.ScriptableRegistries;
 using Global.Localizations.Common;
 using Global.Localizations.Texts;
 using Sirenix.OdinInspector;

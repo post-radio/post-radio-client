@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.Serialization.ReadOnlyDictionaries.Runtime;
+using Common.DataTypes.Collections.ReadOnlyDictionaries.Runtime;
 
 namespace GamePlay.Loop.Logs
 {

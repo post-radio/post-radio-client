@@ -1,22 +1,22 @@
 ﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using GamePlay.Services.LevelCameras.Runtime;
 
 namespace GamePlay.UI.Runtime
 {
-    public class LevelUiController : ILevelUiController, IScopeSwitchListener
+    public class LevelUiController : ILevelUiController, IScopeAwakeListener
     {
-        public LevelUiController(ILevelUiView view)
+        private readonly ILevelUiScheme _scheme;
+        private readonly ILevelCamera _levelCamera;
+
+        public LevelUiController(ILevelUiScheme scheme, ILevelCamera levelCamera)
         {
-            _view = view;
+            _scheme = scheme;
+            _levelCamera = levelCamera;
         }
 
-        private readonly ILevelUiView _view;
-
-        public void OnEnabled()
+        public void OnAwake()
         {
-        }
-
-        public void OnDisabled()
-        {
+            _scheme.ScreenSpace.TargetCamera = _levelCamera.Camera;
         }
     }
 }

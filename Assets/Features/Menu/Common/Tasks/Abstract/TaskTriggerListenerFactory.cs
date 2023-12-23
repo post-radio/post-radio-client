@@ -7,7 +7,7 @@ namespace Menu.Common.Tasks.Abstract
     {
         public IDisposable Create(Action<T> callback)
         {
-            return Msg.Listen<T>(callback);
+            return Msg.Listen(callback);
         }
     }
 }

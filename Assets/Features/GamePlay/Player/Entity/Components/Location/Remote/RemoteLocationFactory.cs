@@ -1,6 +1,6 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
 using Common.Architecture.EntityCreators.Runtime;
-using Common.Serialization.NestedScriptableObjects.Attributes;
+using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Cysharp.Threading.Tasks;
 using GamePlay.Player.Entity.Components.Common;
 using GamePlay.Player.Entity.Components.Location.Common;

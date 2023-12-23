@@ -23,6 +23,7 @@ namespace Menu.Main.UI
             services.Register<MainController>()
                 .As<IMainController>()
                 .WithParameter(_config)
+                .AsCallbackListener()
                 .AsTab<MainController>(_tabDefinition);
         }
     }

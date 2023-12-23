@@ -24,7 +24,7 @@ namespace Global.Network.Session.Runtime.Join
             
                 _logger.OnJoinAttempt("Random");
 
-                var parameters = new RagonRoomParameters()
+                var parameters = new RagonRoomParameters
                 {
                     Min = 0,
                     Max = 20,

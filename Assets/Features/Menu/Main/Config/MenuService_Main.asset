@@ -15,4 +15,5 @@ MonoBehaviour:
   _tabDefinition: {fileID: 11400000, guid: 41af1f1fdd51cb244b790b0e887429c2, type: 2}
   _config:
     _time: 1
-    _targetCameraScale: 4.2185
+    _targetCameraScale: 40.35
+    _baseCameraScale: 540

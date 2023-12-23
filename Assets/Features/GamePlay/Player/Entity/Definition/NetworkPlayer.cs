@@ -18,5 +18,6 @@ namespace GamePlay.Player.Entity.Definition
         public RagonEntity Entity => _entity;
         public RagonPlayer Player => _entity.Owner;
         public IPlayerRoot Root => _root;
+        public string DisplayName => _root.Identity.DisplayName;
     }
 }

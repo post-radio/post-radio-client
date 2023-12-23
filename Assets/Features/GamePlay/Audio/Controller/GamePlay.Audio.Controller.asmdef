@@ -1,0 +1,16 @@
+﻿{
+  "name": "GamePlay.Audio.Controller",
+  "references": [
+    "GUID:26ab46a8624b4a83abc0d844c3c5866b",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:2c239ae6ea45480193848d01f37ce02b",
+    "GUID:ee5e6a766cac4620a1f8d6325af03da2",
+    "GUID:35eeb6aa4120423480aa5ee23000685a",
+    "GUID:3944dd557e8f416c84ad000a528839e7",
+    "GUID:2dd8320ea6434e0e999334d3f015c0b7",
+    "GUID:9b51a48d04164033bd0ea196e24c1113",
+    "GUID:7b31d05b64884c7eb893a4e9067b8944"
+  ]
+}

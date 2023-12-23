@@ -1,12 +1,12 @@
 ﻿using System.Threading;
 using Common.Architecture.EntityCreators.Runtime.Callbacks;
-using Common.Network;
+using Common.DataTypes.Network;
 using Cysharp.Threading.Tasks;
 using GamePlay.House.Cells.Root;
 using GamePlay.Player.Entity.Components.Animators.Runtime;
 using GamePlay.Player.Entity.Components.Location.Common;
 using GamePlay.Player.Entity.Components.Visual.View;
-using GamePlay.Player.Relocation.Runtime;
+using GamePlay.Player.Services.Relocation.Runtime;
 using Ragon.Client;
 using Ragon.Protocol;
 

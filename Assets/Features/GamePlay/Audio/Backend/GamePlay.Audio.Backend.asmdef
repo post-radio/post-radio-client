@@ -1,0 +1,4 @@
+﻿{
+  "name": "GamePlay.Audio.Backend",
+  "references":[ "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:26ab46a8624b4a83abc0d844c3c5866b", "GUID:2c239ae6ea45480193848d01f37ce02b", "GUID:2ef144f1edca7a1438d7ed500325c442", "GUID:f673585b26c5468fa47b8f253381be2d" ]
+}

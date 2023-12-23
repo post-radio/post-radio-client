@@ -22,7 +22,7 @@ namespace Global.Network.Compose
         [SerializeField] private NetworkEntityListenerFactory _entityListener;
         [SerializeField] private SessionFlowFactory _sessionFlow;
         [SerializeField] private EventsRegistryFactory _eventsRegistry;
-
+        
         public IReadOnlyList<IServiceFactory> Services => new IServiceFactory[]
         {
             _connection,
@@ -30,7 +30,7 @@ namespace Global.Network.Compose
             _sceneCollector,
             _entityListener,
             _sessionFlow,
-            _eventsRegistry
+            _eventsRegistry,
         };
     }
 }

@@ -1,0 +1,16 @@
+﻿{
+  "name": "GamePlay.Audio.Compose",
+  "references": [
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:26ab46a8624b4a83abc0d844c3c5866b",
+    "GUID:e425838849fb409eb05992236d0066da",
+    "GUID:baec91d07c8041c5bb4bcff31717f50a",
+    "GUID:2dd8320ea6434e0e999334d3f015c0b7",
+    "GUID:43fa7a6f951a446782d546db37c14b1d",
+    "GUID:ae100401a21144338e6bf128881190f3",
+    "GUID:35eeb6aa4120423480aa5ee23000685a",
+    "GUID:0a04fbff9e634a12ad6c3a656da3ef82"
+  ]
+}

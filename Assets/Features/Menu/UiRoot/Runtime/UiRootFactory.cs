@@ -1,6 +1,6 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
-using Common.Serialization.NestedScriptableObjects.Attributes;
+using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Cysharp.Threading.Tasks;
 using Internal.Services.Scenes.Data;
 using Menu.Common.Navigation;

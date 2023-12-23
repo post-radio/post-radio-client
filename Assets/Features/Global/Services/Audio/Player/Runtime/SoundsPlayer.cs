@@ -1,4 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using System;
+using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using Global.Publisher.Abstract.DataStorages;
 using UnityEngine;
@@ -23,6 +24,11 @@ namespace Global.Audio.Player.Runtime
         private float _musicVolume;
         private float _soundVolume;
 
+        public float Music => _musicVolume;
+        public float Sound => _soundVolume;
+        
+        public event Action VolumeUpdated;
+
         public async UniTask OnEnabledAsync()
         {
             var save = await _dataStorage.GetEntry<SoundSave>(SoundSave.Key);
@@ -42,9 +48,9 @@ namespace Global.Audio.Player.Runtime
 
         public void SaveVolume()
         {
-            var save = new SoundSave()
+            var save = new SoundSave
             {
-                Value = new SoundSavePayload()
+                Value = new SoundSavePayload
                 {
                     MusicVolume = _musicVolume,
                     SoundVolume = _soundVolume
@@ -60,6 +66,8 @@ namespace Global.Audio.Player.Runtime
             _soundVolume = sound;
 
             ApplyVolume(_musicVolume, _soundVolume);
+            
+            VolumeUpdated?.Invoke();
         }
 
         private void ApplyVolume(float music, float sound)

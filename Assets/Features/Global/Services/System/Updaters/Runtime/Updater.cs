@@ -36,7 +36,7 @@ namespace Global.System.Updaters.Runtime
             if (_isBootstrapped == false)
                 return;
             
-            var delta = Time.deltaTime * Speed;
+            var delta = Time.unscaledDeltaTime * Speed;
             
             _preUpdatables.Fetch();
             _updatables.Fetch();

@@ -33,7 +33,7 @@ namespace Internal.Services.Scenes.Data
         }
 
 #if UNITY_EDITOR
-        public new SceneAsset _editorAsset => (SceneAsset)base.editorAsset;
+        public SceneAsset _editorAsset => (SceneAsset)base.editorAsset;
 #endif
     }
 }

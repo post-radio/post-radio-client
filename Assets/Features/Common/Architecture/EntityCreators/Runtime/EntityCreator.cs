@@ -72,7 +72,7 @@ namespace Common.Architecture.EntityCreators.Runtime
             {
                 using (LifetimeScope.Enqueue(Register))
                 {
-                    await UniTask.RunOnThreadPool(async () => utils.Scope.Build());
+                    await UniTask.Create(async () => utils.Scope.Build());
                 }
             }
 
