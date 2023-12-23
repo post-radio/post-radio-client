@@ -17,7 +17,7 @@ namespace GamePlay.Audio.Sync
         
         public readonly NetworkFloat Time;
         public readonly NetworkInt RandomInt;
-        public bool IsDitry => _isDirty == true || !Mathf.Approximately(Time.Value, 0f);    
+        public bool IsDitry => !(_isDirty == true && Mathf.Approximately(Time.Value, 0f));    
 
         public void SetTime(float time, int randomInt)
         {

@@ -98,7 +98,11 @@ namespace GamePlay.Audio.Sync
             _updater.Remove(this);
             _randomInt++;
             _timer.SetTime(0f, _randomInt);
-            await UniTask.WaitUntil(() => _timer.IsDitry == false);
+            await UniTask.WaitUntil(() =>
+            {
+                Debug.Log($"{_timer.Time.Value} {_timer.IsDitry}");
+                return !_timer.IsDitry;
+            });
             Debug.Log($"Play next audio: {_timer.Time.Value}");
             await _player.Play(_next.Value);
             
