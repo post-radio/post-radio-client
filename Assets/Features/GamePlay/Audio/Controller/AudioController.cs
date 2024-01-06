@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Common;
@@ -40,8 +41,23 @@ namespace GamePlay.Audio.Controller
                 return;
 
             _cancellation = new CancellationTokenSource();
-            var audio = await _voting.ForceRandomSelection();
-            await _setter.PlayFirstAudio(audio);
+
+            var isSuccess = false;
+
+            while (isSuccess == false)
+            {
+                try
+                {
+                    isSuccess = true;
+                    var audio = await _voting.ForceRandomSelection();
+                    await _setter.PlayFirstAudio(audio);
+                }
+                catch (Exception exception)
+                {
+                    isSuccess = false;
+                    Debug.LogError($"Failed to play first audio: {exception.Message}");
+                }
+            }
 
             await Loop();
         }
@@ -59,8 +75,24 @@ namespace GamePlay.Audio.Controller
                 await WaitForVoteEnd(_cancellation.Token);
                 var audio = await _voting.End();
                 await WaitAudioEnd(_cancellation.Token);
-                _setter.SetNextAudio(audio);
-                await _setter.PlayNextAudio();
+                
+                var isSuccess = false;
+
+                while (isSuccess == false)
+                {
+                    try
+                    {
+                        isSuccess = true;
+                        _setter.SetNextAudio(audio);
+                        await _setter.PlayNextAudio();
+                    }
+                    catch (Exception exception)
+                    {
+                        isSuccess = false;
+                        audio = await _voting.ForceRandomSelection();
+                        Debug.LogError($"Failed to play audio: {exception.Message}");
+                    }
+                }
             }
         }
 
@@ -68,7 +100,7 @@ namespace GamePlay.Audio.Controller
         {
             while (_timeProvider.Duration - _timeProvider.CurrentTime > _options.Vote.VoteStartOffset)
             {
-                Debug.Log($"WaitForVoteEnd: {_timeProvider.Duration} - {_timeProvider.CurrentTime}");
+                //Debug.Log($"WaitForVoteEnd: {_timeProvider.Duration} - {_timeProvider.CurrentTime}");
                 await UniTask.Yield(cancellation);
             }
         }
@@ -77,8 +109,7 @@ namespace GamePlay.Audio.Controller
         {
             while (_timeProvider.CurrentTime < _timeProvider.Duration - 0.5f && _timeProvider.ContainsClip == true)
             {
-                Debug.Log($"WaitAudioEnd: {_timeProvider.CurrentTime} > {_timeProvider.Duration - 0.5f} {_timeProvider.ContainsClip}");
-
+                //Debug.Log($"WaitAudioEnd: {_timeProvider.CurrentTime} > {_timeProvider.Duration - 0.5f} {_timeProvider.ContainsClip}");
                 await UniTask.Yield(cancellation);
             }
         }

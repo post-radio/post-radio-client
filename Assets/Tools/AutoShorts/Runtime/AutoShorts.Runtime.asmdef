@@ -1,0 +1,23 @@
+{
+    "name": "AutoShorts.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:04243451437dcfe48b583ab43ef0a8fa",
+        "GUID:552447fb6cdb3d34b969d73c1b33b7d8",
+        "GUID:ae100401a21144338e6bf128881190f3",
+        "GUID:2c239ae6ea45480193848d01f37ce02b",
+        "GUID:832a8ef6e615e9a41a5076e1c9a43782",
+        "GUID:847b179520b009e4c8d15c296b1cbf35"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

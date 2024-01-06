@@ -1,4 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using System;
+using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Definitions;
 using GamePlay.Audio.Player.Abstract;
@@ -81,12 +82,12 @@ namespace GamePlay.Audio.Sync
         {
             if (_roomProvider.IsOwner == false)
                 return;
-            
+
             _updater.Remove(this);
             _randomInt++;
             await _player.Play(audio);
             _updater.Add(this);
-            
+
             _current.SetAudio(audio, _randomInt);
         }
 
@@ -94,21 +95,20 @@ namespace GamePlay.Audio.Sync
         {
             if (_roomProvider.IsOwner == false)
                 return;
-            
+
             _updater.Remove(this);
+            _timeProvider.Reset();
             _randomInt++;
             _timer.SetTime(0f, _randomInt);
             await UniTask.WaitUntil(() =>
             {
-                Debug.Log($"{_timer.Time.Value} {_timer.IsDitry}");
-                return !_timer.IsDitry;
+                _timer.MarkChanged(0f, _randomInt);
+                return Mathf.Approximately(_timer.TimeValue, 0f) && _timer.RandomIntValue == _randomInt;
             });
-            Debug.Log($"Play next audio: {_timer.Time.Value}");
+
             await _player.Play(_next.Value);
-            
-            Debug.Log($"Play completed");
             _updater.Add(this);
-            
+
             _current.SetAudio(_next.Value, _randomInt);
         }
 

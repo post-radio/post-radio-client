@@ -1,7 +1,6 @@
 ﻿using Common.DataTypes.Network;
 using Ragon.Client;
 using Ragon.Protocol;
-using UnityEngine;
 
 namespace GamePlay.Audio.Sync
 {
@@ -13,17 +12,31 @@ namespace GamePlay.Audio.Sync
             RandomInt = new NetworkInt(0, 10000, 0);
         }
 
-        private bool _isDirty;
-        
         public readonly NetworkFloat Time;
         public readonly NetworkInt RandomInt;
-        public bool IsDitry => !(_isDirty == true && Mathf.Approximately(Time.Value, 0f));    
+
+        private float _timeValue;
+        private int _randomIntValue;
+
+        public float TimeValue => _timeValue;
+        public int RandomIntValue => _randomIntValue;
 
         public void SetTime(float time, int randomInt)
         {
             Time.SetValue(time);
             RandomInt.Value = randomInt;
-            _isDirty = true;
+            
+            _timeValue = -1f;
+            _randomIntValue = -1;
+            
+            MarkAsChanged();
+        }
+
+        public void MarkChanged(float time, int randomInt)
+        {
+            Time.SetValue(time);
+            RandomInt.Value = randomInt;
+
             MarkAsChanged();
         }
         
@@ -37,7 +50,8 @@ namespace GamePlay.Audio.Sync
         {
             Time.Deserialize(buffer);
             RandomInt.Deserialize(buffer);
-            _isDirty = false;
+            _timeValue = Time.Value;
+            _randomIntValue = RandomInt.Value;  
         }
     }
 }

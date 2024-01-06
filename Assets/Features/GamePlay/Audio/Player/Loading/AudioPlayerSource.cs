@@ -23,15 +23,18 @@ namespace GamePlay.Audio.Player.Loading
 
         public async UniTask Play(AudioClip clip, float delay)
         {
-            Debug.Log($"Set audio to source: {delay}");
-            
             _source.clip = clip;
             _source.Play();
             
             await UniTask.WaitUntil(() => _source.clip.length > 0.1f);
             
             _source.time = delay;
-            Debug.Log($"Set audio to source 2: {_source.time} {delay}");
+        }
+        
+        public void Reset()
+        {
+            _source.Stop();
+            _source.clip = null;
         }
 
         private float GetTime()

@@ -71,8 +71,6 @@ namespace GamePlay.Audio.Player.Loading
                 next = await LoadAudio(audio);
             }
 
-            Debug.Log($"Play loaded audio: {_timer.Time.Value}");
-
             await _source.Play(next, _timer.Time.Value);
 
             if (_current != null)
@@ -86,8 +84,6 @@ namespace GamePlay.Audio.Player.Loading
             await Resources.UnloadUnusedAssets().ToUniTask();
             
             Msg.Publish(new SongChangeEvent(audio));
-            
-            Debug.Log($"On audio play completed");
         }
 
         private async UniTask<AudioClip> LoadAudio(StoredAudio audio)
