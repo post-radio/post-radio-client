@@ -50,6 +50,17 @@
       const fullscreenButton = document.querySelector("#unity-fullscreen-button");
       const spinner = document.querySelector('.spinner');
 
+      function setupGlobalErrorHandler(unityInstance) {
+        window.onerror = function (message, source, lineno, colno, error) {
+          let errorMsg = `Error: ${message}\nSource: ${source}\nLine: ${lineno}\nColumn: ${colno}`;
+
+          if (error && error.stack) 
+            errorMsg += `\nStacktrace: ${error.stack}`;
+
+          unityInstance.SendMessage('WebCallbacks', 'OnException', errorMsg);
+        };
+      }
+      
       const canFullscreen = (function() {
         for (const key of [
             'exitFullscreen',
@@ -82,6 +93,7 @@
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
         }).then((unityInstance) => {
+          setupGlobalErrorHandler(unityInstance);
           loadingCover.style.display = "none";
           if (canFullscreen) {
             if (!hideFullScreenButton) {

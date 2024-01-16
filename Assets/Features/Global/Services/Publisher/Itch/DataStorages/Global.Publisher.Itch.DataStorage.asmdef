@@ -1,9 +1,0 @@
-﻿{
-  "name": "Global.Publisher.Itch.DataStorage",
-  "references": [
-    "GUID:25f79b9f7aeb42a8af7eb332b6a4ba79",
-    "GUID:f51ebe6a0ceec4240a699833d6309b23",
-    "GUID:da1917f3a79694c539a148addd06d33b",
-    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9"
-  ]
-}

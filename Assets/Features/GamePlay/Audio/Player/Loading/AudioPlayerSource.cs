@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Player.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -27,7 +28,6 @@ namespace GamePlay.Audio.Player.Loading
             _source.Play();
             
             await UniTask.WaitUntil(() => _source.clip.length > 0.1f);
-            
             _source.time = delay;
         }
         

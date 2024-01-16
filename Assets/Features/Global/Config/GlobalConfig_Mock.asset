@@ -37,7 +37,6 @@ MonoBehaviour:
   _cameraUtils: {fileID: 11400000, guid: 68abf8d3e8faf6c4aae3fcd6cdffc314, type: 2}
   _currentCamera: {fileID: 11400000, guid: 9fec9cd81ac4efa4fa81942c6b10c867, type: 2}
   _globalCamera: {fileID: 11400000, guid: 539dc15f36c0ea84ab540841a8ceec0a, type: 2}
-  _debugConsole: {fileID: 11400000, guid: e3ab40223d3185148955ce7add75ce44, type: 2}
   _inputView: {fileID: 11400000, guid: 59f0f3c41ac20364ba23a15c6eeeb5d1, type: 2}
   _publisherSdk: {fileID: 11400000, guid: a7a6608e698f54249907145b756aff63, type: 2}
   _loadedScenesHandler: {fileID: 11400000, guid: 5d5d34fb2bc5e654ab9562f3bb1cd75f, type: 2}
@@ -49,8 +48,8 @@ MonoBehaviour:
   _updater: {fileID: 11400000, guid: 949a43ee6c5ebd44fb23e1cc06711427, type: 2}
   _animatorsUpdater: {fileID: 11400000, guid: 1befadf89c3618649840fc80766674c0, type: 2}
   _destroyHandler: {fileID: 11400000, guid: 7f066b28155a68c4392e22b05375bde4, type: 2}
-  _objects: {fileID: 11400000, guid: 00ed52d065f83784c972bd24f51b9bef, type: 2}
   _entityCreator: {fileID: 11400000, guid: a5c463909bd25bb428685f95eb6726ce, type: 2}
+  _backend: {fileID: 11400000, guid: e78942d14aeb14b4e93daa5d02828353, type: 2}
   _loadingScreen: {fileID: 11400000, guid: eec2ff44ff08d794bbf4de47c3720c13, type: 2}
   _localization: {fileID: 11400000, guid: 024ab526c90be39488815de7d2b2f729, type: 2}
   _globalOverlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}

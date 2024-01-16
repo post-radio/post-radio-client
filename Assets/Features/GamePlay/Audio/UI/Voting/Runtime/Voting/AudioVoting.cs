@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Tools.Backend;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Definitions;
@@ -58,10 +60,16 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 
         public async UniTask<StoredAudio> ForceRandomSelection()
         {
-            var random = await _backend.GetRandomTracks();
-            var metadata = random.Tracks.First();
-            var audio = await _backend.GetAudioLink(metadata);
-            return audio;
+            return await Transactions.Run(Handle);
+
+            async UniTask<StoredAudio> Handle(bool isRetry)
+            {
+                var random = await _backend.GetRandomTracks();
+                var metadata = random.Tracks.First();
+                var audio = await _backend.GetAudioLink(metadata);
+
+                return audio;
+            }
         }
 
         public async UniTask Fill()
@@ -74,8 +82,10 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 
             var random = await _backend.GetRandomTracks();
             entries.AddRange(random.Tracks);
+            var entriesDictionary = new Dictionary<string, AudioMetadata>();
 
-            var entriesDictionary = entries.ToDictionary(t => t.Url);
+            foreach (var entry in entries)
+                entriesDictionary.TryAdd(entry.Url, entry);
 
             _votingSession.Fill(entriesDictionary);
         }
@@ -83,7 +93,26 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
         public async UniTask<StoredAudio> End()
         {
             var winnerMetadata = _votingSession.End();
-            var winner = await _backend.GetAudioLink(winnerMetadata);
+            StoredAudio winner = null;
+            var isSuccess = false;
+
+            while (isSuccess == false)
+            {
+                try
+                {
+                    winner = await _backend.GetAudioLink(winnerMetadata);
+                    isSuccess = true;
+                }
+                catch (Exception exception)
+                {
+                    isSuccess = false;
+                    Debug.LogError($"Exception during audio link request: {exception.Message}");
+                    await UniTask.Delay(3f);
+                    var random = await _backend.GetRandomTracks();
+                    var metadata = random.Tracks.First();
+                    winnerMetadata = metadata;
+                }
+            }
 
             return winner;
         }

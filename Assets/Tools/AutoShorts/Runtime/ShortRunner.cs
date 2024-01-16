@@ -39,10 +39,13 @@ namespace Tools.AutoShorts.Runtime
 
         public async UniTask OnLoadedAsync()
         {
+            Debug.Log("1");
             var audioOptions = _creator.AudioOptions;
             var validation = await _backend.ValidateUrl(audioOptions.AudioURL, new CancellationToken());
             var storedAudio = await _backend.GetAudioLink(validation.Metadata);
+            Debug.Log($"2: {storedAudio.Link}");
             var clip = await LoadAudio(storedAudio);
+            Debug.Log("3");
 
             _player.Play(clip, audioOptions.StartOffset);
             _slideShow.Play(_creator.SlideShowOptions, _creator.Slides);
@@ -58,9 +61,11 @@ namespace Tools.AutoShorts.Runtime
         private async UniTask<AudioClip> LoadAudio(StoredAudio audio)
         {
             var uri = _routes.AudioStorage(audio.Link);
+            Debug.Log(uri);
             var audioType = AudioType.MPEG;
             using var downloadHandlerAudioClip = new DownloadHandlerAudioClip(uri, audioType);
             using var request = new UnityWebRequest(uri, "GET", downloadHandlerAudioClip, null);
+            Debug.Log("Wait response");
             var response = await request.SendWebRequest().ToUniTask();
 
             if (response.result

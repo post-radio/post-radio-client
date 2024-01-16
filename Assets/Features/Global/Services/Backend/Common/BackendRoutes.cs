@@ -6,7 +6,10 @@ namespace Global.Backend.Common
     {
         private const string Paths = GlobalAssetsPaths.Root + "Backend/";
 
-        public const string OptionsPath = Paths + "Options";
-        public const string OptionsName = "BackendOptions";
+        public const string ServicePath = Paths + "Service";
+        public const string ServiceName = GlobalAssetsPrefixes.Service + "Backend";
+        
+        public const string LogsPath = Paths + "Logs";
+        public const string LogsName = GlobalAssetsPrefixes.Logs + "Backend";
     }
 }

@@ -1,5 +1,6 @@
 <linker>
 
+    <assembly fullname="Common.Backend" preserve="all" />
     <assembly fullname="Common.Callbacks" preserve="all" />
     <assembly fullname="Common.DiContainer.Abstract" preserve="all" />
     <assembly fullname="Common.DiContainer.Runtime" preserve="all" />
@@ -155,8 +156,12 @@
     <assembly fullname="Global.Audio.Listener.Runtime" preserve="all" />
     <assembly fullname="Global.Audio.Player.Common" preserve="all" />
     <assembly fullname="Global.Audio.Player.Runtime" preserve="all" />
+    <assembly fullname="Global.Backend.Abstract" preserve="all" />
     <assembly fullname="Global.Backend.Common" preserve="all" />
+    <assembly fullname="Global.Backend.Editor" preserve="all" />
+    <assembly fullname="Global.Backend.Logs" preserve="all" />
     <assembly fullname="Global.Backend.Options" preserve="all" />
+    <assembly fullname="Global.Backend.Runtime" preserve="all" />
     <assembly fullname="Global.CameraUtilities.Common" preserve="all" />
     <assembly fullname="Global.CameraUtilities.Logger" preserve="all" />
     <assembly fullname="Global.Common" preserve="all" />
@@ -242,11 +247,13 @@
     <assembly fullname="Global.Publisher.Abstract.Purchases" preserve="all" />
     <assembly fullname="Global.Publisher.Abstract.Reviews" preserve="all" />
     <assembly fullname="Global.Publisher.Bootstrap" preserve="all" />
+    <assembly fullname="Global.Publisher.Callbacks" preserve="all" />
     <assembly fullname="Global.Publisher.Common" preserve="all" />
-    <assembly fullname="Global.Publisher.Itch.Bootstrap" preserve="all" />
-    <assembly fullname="Global.Publisher.Itch.Common" preserve="all" />
-    <assembly fullname="Global.Publisher.Itch.DataStorage" preserve="all" />
-    <assembly fullname="Global.Publisher.Itch.Language" preserve="all" />
+    <assembly fullname="Global.Publisher.Web.Bootstrap" preserve="all" />
+    <assembly fullname="Global.Publisher.Web.Callbacks" preserve="all" />
+    <assembly fullname="Global.Publisher.Web.Common" preserve="all" />
+    <assembly fullname="Global.Publisher.Web.DataStorage" preserve="all" />
+    <assembly fullname="Global.Publisher.Web.Language" preserve="all" />
     <assembly fullname="Global.Publisher.Yandex.Advertisement" preserve="all" />
     <assembly fullname="Global.Publisher.Yandex.Bootstrap" preserve="all" />
     <assembly fullname="Global.Publisher.Yandex.Common" preserve="all" />

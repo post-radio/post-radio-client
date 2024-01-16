@@ -1,36 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend.Objects;
 using GamePlay.Audio.Definitions;
-using Newtonsoft.Json;
-using UnityEngine.Networking;
+using Global.Services.Backend.Abstract;
+using UnityEngine;
 
 namespace GamePlay.Audio.Backend
 {
     public class AudioBackend : IAudioBackend
     {
-        public AudioBackend(IBackendRoutes routes)
+        public AudioBackend(IBackendClient client, IBackendRoutes routes)
         {
+            _client = client;
             _routes = routes;
         }
 
+        private readonly IBackendClient _client;
         private readonly IBackendRoutes _routes;
 
         public async UniTask<UrlValidationResult> ValidateUrl(string audioUrl, CancellationToken cancellation)
         {
             var uri = $"{_routes.LinkValidation()}?AudioUrl={audioUrl}";
-
-            using var downloadHandlerBuffer = new DownloadHandlerBuffer();
-            using var webRequest = new UnityWebRequest(uri, "GET", downloadHandlerBuffer, null);
-            await webRequest.SendWebRequest().ToUniTask(cancellationToken: cancellation);
-
-            if (webRequest.result != UnityWebRequest.Result.Success)
-                throw new Exception($"Failed to execute url validation with params: {uri}/{audioUrl}");
-
-            var responseContent = downloadHandlerBuffer.text;
-            var result = JsonConvert.DeserializeObject<UrlValidationResponse>(responseContent);
+            var result = await _client.Get<UrlValidationResponse>(uri);
 
             if (result.IsValid == false || result.Metadata == null)
                 return new UrlValidationResult { IsValid = false };
@@ -45,42 +36,31 @@ namespace GamePlay.Audio.Backend
         public async UniTask<StoredAudio> GetAudioLink(AudioMetadata metadata)
         {
             var uri = $"{_routes.GetAudioLink()}?AudioUrl={metadata.Url}";
-            using var downloadHandlerBuffer = new DownloadHandlerBuffer();
-            using var webRequest = new UnityWebRequest(uri, "GET", downloadHandlerBuffer, null);
-            await webRequest.SendWebRequest().ToUniTask();
-
-            if (webRequest.result != UnityWebRequest.Result.Success)
-                throw new Exception($"Failed to get audio link with params: {uri}/{metadata.Url}");
-
-            var responseContent = downloadHandlerBuffer.text;
-            var result = JsonConvert.DeserializeObject<AudioLinkResponse>(responseContent);
+            var result = await _client.Get<AudioLinkResponse>(uri);
 
             return new StoredAudio(result.AudioUrl, metadata);
         }
 
         public async UniTask<RandomTracksResult> GetRandomTracks()
         {
-            var uri = _routes.Playlist();
-            using var downloadHandlerBuffer = new DownloadHandlerBuffer();
-            using var webRequest = new UnityWebRequest(uri, "GET", downloadHandlerBuffer, null);
-
-            await webRequest.SendWebRequest().ToUniTask();
-
-            if (webRequest.result != UnityWebRequest.Result.Success)
-                throw new Exception($"Failed to execute url validation with url: {_routes.Playlist()}");
-
-            var responseContent = downloadHandlerBuffer.text;
-            var result = JsonConvert.DeserializeObject<RandomTracksResponse>(responseContent);
-
-            var results = new List<AudioMetadata>();
-
-            foreach (var rawMetadata in result.Tracks)
-                results.Add(new AudioMetadata(rawMetadata.Url, rawMetadata.Author, rawMetadata.Name));
-                
-            return new RandomTracksResult
+            var body = new RandomTracksRequest
             {
-                Tracks = results
+                IncludedPlaylists = new[] { "alternative", "original" }
             };
+
+            var uri = _routes.Playlist();   
+            var result = await _client.Post<RandomTracksResponse, RandomTracksRequest>(
+                uri,
+                body,
+                RequestHeader.Json());
+
+            return RandomTracksResult.ToResult(result.Tracks);
+        }
+
+        public UniTask<AudioClip> LoadTrack(StoredAudio audio)
+        {
+            var uri = _routes.AudioStorage(audio.Link);
+            return _client.GetAudio(uri);
         }
     }
 }

@@ -69,7 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530eae7749a642f6931189eb041925d8, type: 3}
   m_Name: Options_Release_BackendOptions
   m_EditorClassIdentifier: 
-  _streamingApiUrl: https://streaming.post-radio.io/api/
+  _environment: 1
+  _productionApiUrl: https://streaming.post-radio.io/api/
+  _localApiUrl: http://localhost:5000/api/
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

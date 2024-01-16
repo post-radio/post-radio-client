@@ -30,6 +30,9 @@ namespace Internal.Services.Loggers.Runtime
 
         private string ApplyColor(string log, string color)
         {
+#if !UNITY_EDITOR
+            return log;
+#endif
             return $"<color=#{color}>{log}</color>";
         }
     }

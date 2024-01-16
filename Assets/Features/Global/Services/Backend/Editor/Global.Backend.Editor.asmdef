@@ -1,0 +1,19 @@
+﻿{
+  "name": "Global.Backend.Editor",
+  "rootNamespace": "",
+  "references": [
+    "GUID:d945054fb520ae0408f2ec087ffa5163",
+    "GUID:c78e69931726445f8dba711fff3c5444"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

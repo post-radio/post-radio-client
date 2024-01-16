@@ -13,6 +13,7 @@ using Global.Inputs.View.Runtime;
 using Global.Localizations.Runtime;
 using Global.Network.Compose;
 using Global.Publisher.Abstract.Bootstrap;
+using Global.Services.Backend.Runtime;
 using Global.System.ApplicationProxies.Runtime;
 using Global.System.DestroyHandlers.Runtime;
 using Global.System.LoadedHandler.Runtime;
@@ -54,6 +55,8 @@ namespace Global.Config.Runtime
         [FoldoutGroup("System")] [SerializeField] private AnimatorsUpdaterFactory _animatorsUpdater;
         [FoldoutGroup("System")] [SerializeField] private DestroyHandlerFactory _destroyHandler;
         [FoldoutGroup("System")] [SerializeField] private EntityCreatorServiceFactory _entityCreator;
+        [FoldoutGroup("System")] [SerializeField] private BackendFactory _backend;
+        
         [FoldoutGroup("UI")] [SerializeField] private LoadingScreenFactory _loadingScreen;
         [FoldoutGroup("UI")] [SerializeField] private LocalizationFactory _localization;
         [FoldoutGroup("UI")] [SerializeField] private GlobalOverlayFactory _globalOverlay;
@@ -98,7 +101,8 @@ namespace Global.Config.Runtime
                 _globalOverlay,
                 _gameLoop,
                 _entityCreator,
-                _nova
+                _nova,
+                _backend
             };
 
             services.AddRange(_network.Services);

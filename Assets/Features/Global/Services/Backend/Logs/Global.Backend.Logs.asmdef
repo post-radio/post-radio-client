@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Backend.Logs",
+  "references":[ "GUID:fe4adae493555af4788e53948d7966ca", "GUID:f009d9acd324466c8aeb4c1c92e89ec2", "GUID:94e5ca42c58876942a8ffdd1c63b952f", "GUID:2f9ccc4c2f934f40933102113f0e34cd" ]
+}

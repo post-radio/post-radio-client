@@ -85,6 +85,7 @@ namespace GamePlay.Audio.Sync
 
             _updater.Remove(this);
             _randomInt++;
+
             await _player.Play(audio);
             _updater.Add(this);
 
@@ -100,6 +101,7 @@ namespace GamePlay.Audio.Sync
             _timeProvider.Reset();
             _randomInt++;
             _timer.SetTime(0f, _randomInt);
+            
             await UniTask.WaitUntil(() =>
             {
                 _timer.MarkChanged(0f, _randomInt);

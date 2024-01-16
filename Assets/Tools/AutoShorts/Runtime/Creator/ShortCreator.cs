@@ -31,10 +31,11 @@ namespace Tools.AutoShorts.Runtime
         {
             var blockTransform = _blocks[_imageIndex].transform;
             blockTransform.localPosition = Vector3.zero;
-            blockTransform.localScale = Vector3.one;
+            blockTransform.localScale = Vector3.one * 0.9f;
 
             var image = _images[_imageIndex];
             var slide = new SlideData(image);
+            slide.SetStart(Vector3.zero, 0.9f);
             _slides[_imageIndex] = slide;
 
             foreach (var tmpBlock in _blocks)
@@ -57,7 +58,7 @@ namespace Tools.AutoShorts.Runtime
             {
                 var blockTransform = _blocks[_imageIndex].transform;
                 blockTransform.localPosition = Vector3.zero;
-                blockTransform.localScale = Vector3.one;
+                blockTransform.localScale = Vector3.one * 0.9f;
 
                 var image = _images[_imageIndex];
                 var newSlide = new SlideData(image);
@@ -79,10 +80,10 @@ namespace Tools.AutoShorts.Runtime
         {
             var blockTransform = _blocks[_imageIndex].transform;
             blockTransform.localPosition = Vector3.zero;
-            blockTransform.localScale = Vector3.one;
+            blockTransform.localScale = Vector3.one * 0.9f;
 
             var slide = _slides[_imageIndex];
-            slide.SetStart(Vector3.zero, 1f);
+            slide.SetStart(Vector3.zero, 0.9f);
         }
 
         [Button]
@@ -90,10 +91,10 @@ namespace Tools.AutoShorts.Runtime
         {
             var blockTransform = _blocks[_imageIndex].transform;
             blockTransform.localPosition = Vector3.zero;
-            blockTransform.localScale = Vector3.one;
+            blockTransform.localScale = Vector3.one * 0.94f;
 
             var slide = _slides[_imageIndex];
-            slide.SetEnd(Vector3.zero, 1f);
+            slide.SetEnd(Vector3.zero, 0.94f);
         }
 
         [Button]

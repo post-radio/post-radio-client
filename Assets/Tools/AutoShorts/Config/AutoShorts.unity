@@ -146,8 +146,8 @@ Transform:
   m_GameObject: {fileID: 342991135}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 113, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 62, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -179,7 +179,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 113
+        Raw: 62
         Type: 0
       Y:
         Raw: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 2911f2b9c8a2da744baa445b3942f492, type: 3}
+  texture: {fileID: 2800000, guid: 00a7b92a4519f454eb9401c7c18f4d19, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &342991138
 MonoBehaviour:
@@ -438,8 +438,8 @@ Transform:
   m_GameObject: {fileID: 421127990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -483, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 93, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -471,7 +471,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: -483
+        Raw: 121
         Type: 0
       Y:
         Raw: 0
@@ -689,7 +689,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: edddcbec319679b4790fca1c9811cb15, type: 3}
+  texture: {fileID: 2800000, guid: 91ec42b54e5335d46a106e121b430eed, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &421127993
 MonoBehaviour:
@@ -730,8 +730,8 @@ Transform:
   m_GameObject: {fileID: 530540253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -187, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -763,7 +763,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 0
+        Raw: -187
         Type: 0
       Y:
         Raw: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 4fd8d94b2713eac4cbc8531ab8c6a0fa, type: 3}
+  texture: {fileID: 2800000, guid: a66c07b4c9b30fd40af203ab02e3bdab, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &530540256
 MonoBehaviour:
@@ -1012,7 +1012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &610709003
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,8 +1022,8 @@ Transform:
   m_GameObject: {fileID: 610709002}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 484, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 168, y: -2, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -1055,10 +1055,10 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 484
+        Raw: 168
         Type: 0
       Y:
-        Raw: 0
+        Raw: -2
         Type: 0
       Z:
         Raw: 0
@@ -1273,7 +1273,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 47df2eb3600bc5c4194b2ede65cdc710, type: 3}
+  texture: {fileID: 2800000, guid: f54b946096b3a7f4d8b210bc715ab9dc, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &610709005
 MonoBehaviour:
@@ -1898,8 +1898,8 @@ Transform:
   m_GameObject: {fileID: 1023843008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 393, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 676, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -1931,7 +1931,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 393
+        Raw: 676
         Type: 0
       Y:
         Raw: 0
@@ -2149,7 +2149,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 498bf3ea68946634a9888c5ceadc53b7, type: 3}
+  texture: {fileID: 2800000, guid: 5644109b0c33ade42a56bc7141dd3f6d, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1023843011
 MonoBehaviour:
@@ -2190,8 +2190,8 @@ Transform:
   m_GameObject: {fileID: 1092695838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -600, y: 0, z: 0}
+  m_LocalScale: {x: 0.92161095, y: 0.92161095, z: 0.92161095}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -2223,7 +2223,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 0
+        Raw: -600
         Type: 0
       Y:
         Raw: 0
@@ -2441,7 +2441,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: ba7e2f1cb7f0f0e4aa5ead4a5668ee5d, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1092695841
 MonoBehaviour:
@@ -2483,7 +2483,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -2733,7 +2733,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 0}
+  texture: {fileID: 2800000, guid: f52ffb280ed6df248ab3aeac0bb7f8c9, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1097433497
 MonoBehaviour:
@@ -3396,8 +3396,8 @@ Transform:
   m_GameObject: {fileID: 1372105420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 403, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -33, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -3429,7 +3429,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: 336
+        Raw: -81
         Type: 0
       Y:
         Raw: 0
@@ -3647,7 +3647,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 763d2ba0469e18542b8646ccb8572220, type: 3}
+  texture: {fileID: 2800000, guid: c7311a08b7c19ca49bdc9be8fadd9b93, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1372105423
 MonoBehaviour:
@@ -4846,7 +4846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1701975355
 Transform:
   m_ObjectHideFlags: 0
@@ -4856,8 +4856,8 @@ Transform:
   m_GameObject: {fileID: 1701975354}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -867, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7599235840151748705}
@@ -4889,7 +4889,7 @@ MonoBehaviour:
         Type: 0
     Position:
       X:
-        Raw: -17
+        Raw: -867
         Type: 0
       Y:
         Raw: 0
@@ -5107,7 +5107,7 @@ MonoBehaviour:
       Mode: 1
     SoftenEdges: 1
     FillEnabled: 1
-  texture: {fileID: 2800000, guid: 4fd843eced5be30498959c0ef32866a5, type: 3}
+  texture: {fileID: 2800000, guid: fcb98afc6e9e462418be588a1d7a3470, type: 3}
   sprite: {fileID: 0}
 --- !u!114 &1701975357
 MonoBehaviour:
@@ -6684,18 +6684,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecaddaaf6fa4444fa217075c4ef0a9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioURL: https://soundcloud.com/lanesraaa/teleekran-tysyacha-deshyovykh-zazhigalok-kissvkcom?in=ivan-fedorchenko-853510832/sets/post-radio
-  _startOffset: 24
+  _audioURL: https://soundcloud.com/uvulauvula/uvula-ty-i-tvoya-ten
+  _startOffset: 34
   _audioLength: 70
-  _imageTransitionPercent: 30
+  _imageTransitionPercent: 25
   _images:
-  - {fileID: 2800000, guid: 4fd8d94b2713eac4cbc8531ab8c6a0fa, type: 3}
-  - {fileID: 2800000, guid: 498bf3ea68946634a9888c5ceadc53b7, type: 3}
-  - {fileID: 2800000, guid: 47df2eb3600bc5c4194b2ede65cdc710, type: 3}
-  - {fileID: 2800000, guid: 763d2ba0469e18542b8646ccb8572220, type: 3}
-  - {fileID: 2800000, guid: edddcbec319679b4790fca1c9811cb15, type: 3}
-  - {fileID: 2800000, guid: 2911f2b9c8a2da744baa445b3942f492, type: 3}
-  - {fileID: 2800000, guid: 4fd843eced5be30498959c0ef32866a5, type: 3}
+  - {fileID: 2800000, guid: a66c07b4c9b30fd40af203ab02e3bdab, type: 3}
+  - {fileID: 2800000, guid: 5644109b0c33ade42a56bc7141dd3f6d, type: 3}
+  - {fileID: 2800000, guid: f54b946096b3a7f4d8b210bc715ab9dc, type: 3}
+  - {fileID: 2800000, guid: c7311a08b7c19ca49bdc9be8fadd9b93, type: 3}
+  - {fileID: 2800000, guid: 91ec42b54e5335d46a106e121b430eed, type: 3}
+  - {fileID: 2800000, guid: 00a7b92a4519f454eb9401c7c18f4d19, type: 3}
+  - {fileID: 2800000, guid: fcb98afc6e9e462418be588a1d7a3470, type: 3}
+  - {fileID: 2800000, guid: ba7e2f1cb7f0f0e4aa5ead4a5668ee5d, type: 3}
+  - {fileID: 2800000, guid: f52ffb280ed6df248ab3aeac0bb7f8c9, type: 3}
   _blocks:
   - {fileID: 530540255}
   - {fileID: 1023843010}
@@ -6718,45 +6720,55 @@ MonoBehaviour:
   - {fileID: 1485307202}
   - {fileID: 730744255}
   _slideShowOptions:
-    _imageTime: 10
-    _transitionTime: 3
+    _imageTime: 7.7777777
+    _transitionTime: 1.9444444
   _slides:
-  - _texture: {fileID: 2800000, guid: 4fd8d94b2713eac4cbc8531ab8c6a0fa, type: 3}
+  - _texture: {fileID: 2800000, guid: a66c07b4c9b30fd40af203ab02e3bdab, type: 3}
+    _startPosition: {x: -125, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: -187, y: 0}
+    _endScale: 0.9
+  - _texture: {fileID: 2800000, guid: 5644109b0c33ade42a56bc7141dd3f6d, type: 3}
+    _startPosition: {x: 676, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: 676, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: f54b946096b3a7f4d8b210bc715ab9dc, type: 3}
+    _startPosition: {x: 168, y: -2}
+    _startScale: 0.9
+    _endPosition: {x: 168, y: -2}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: c7311a08b7c19ca49bdc9be8fadd9b93, type: 3}
+    _startPosition: {x: -81, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: 0, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: 91ec42b54e5335d46a106e121b430eed, type: 3}
+    _startPosition: {x: 121, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: 0, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: 00a7b92a4519f454eb9401c7c18f4d19, type: 3}
+    _startPosition: {x: 62, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: 0, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: fcb98afc6e9e462418be588a1d7a3470, type: 3}
+    _startPosition: {x: -836, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: -867, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: ba7e2f1cb7f0f0e4aa5ead4a5668ee5d, type: 3}
+    _startPosition: {x: -600, y: 0}
+    _startScale: 0.9
+    _endPosition: {x: -600, y: 0}
+    _endScale: 0.94
+  - _texture: {fileID: 2800000, guid: f52ffb280ed6df248ab3aeac0bb7f8c9, type: 3}
     _startPosition: {x: 0, y: 0}
     _startScale: 0.9
-    _endPosition: {x: 10, y: 0}
+    _endPosition: {x: 0, y: 0}
     _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: 498bf3ea68946634a9888c5ceadc53b7, type: 3}
-    _startPosition: {x: 0, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: 20, y: 0}
-    _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: 47df2eb3600bc5c4194b2ede65cdc710, type: 3}
-    _startPosition: {x: 0, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: -20, y: 0}
-    _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: 763d2ba0469e18542b8646ccb8572220, type: 3}
-    _startPosition: {x: 0, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: 20, y: 0}
-    _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: edddcbec319679b4790fca1c9811cb15, type: 3}
-    _startPosition: {x: 0, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: 20, y: 0}
-    _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: 2911f2b9c8a2da744baa445b3942f492, type: 3}
-    _startPosition: {x: 0, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: -20, y: 0}
-    _endScale: 0.94
-  - _texture: {fileID: 2800000, guid: 4fd843eced5be30498959c0ef32866a5, type: 3}
-    _startPosition: {x: 5, y: 0}
-    _startScale: 0.9
-    _endPosition: {x: 20, y: 0}
-    _endScale: 0.94
-  _imageIndex: 6
+  _imageIndex: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
