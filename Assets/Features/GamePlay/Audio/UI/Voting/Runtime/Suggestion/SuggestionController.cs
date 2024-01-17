@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using GamePlay.Audio.UI.Voting.UI.Suggestion.Abstract;
 using GamePlay.Audio.UI.Voting.UI.Voting.Abstract;
 using Global.UI.Nova.Components;
-using NovaSamples.UIControls;
 
 namespace GamePlay.Audio.UI.Voting.Runtime.Suggestion
 {

@@ -1,7 +1,7 @@
 ﻿using Global.Localizations.Definition;
 using Global.Publisher.Abstract.Languages;
 
-namespace Global.Publisher.Itch.Languages
+namespace Global.Publisher.Web.Languages
 {
     public class WebSystemLanguageProvider : ISystemLanguageProvider
     {

@@ -1,4 +1,4 @@
-﻿namespace Global.Services.Backend.Logs
+﻿namespace Global.Backend.Logs
 {
     public enum BackendLogType
     {

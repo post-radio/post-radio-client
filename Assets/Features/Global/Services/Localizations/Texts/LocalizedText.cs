@@ -1,5 +1,4 @@
-﻿using System;
-using Nova;
+﻿using Nova;
 using UnityEngine;
 
 namespace Global.Localizations.Texts

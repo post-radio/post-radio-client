@@ -1,4 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using System.Threading;
+using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Definitions;
@@ -46,13 +47,13 @@ namespace GamePlay.Audio.Player.Loading
             _volumeSetter.VolumeUpdated -= OnVolumeUpdated;
         }
 
-        public async UniTask Preload(StoredAudio audio)
+        public async UniTask Preload(StoredAudio audio, CancellationToken cancellation)
         {
-            _preloaded = await _backend.LoadTrack(audio);
+            _preloaded = await _backend.LoadTrack(audio, cancellation);
             _preloadedData = audio;
         }
 
-        public async UniTask Play(StoredAudio audio)
+        public async UniTask Play(StoredAudio audio, CancellationToken cancellation)
         {
             AudioClip next;
 
@@ -63,7 +64,7 @@ namespace GamePlay.Audio.Player.Loading
             }
             else
             {
-                next = await _backend.LoadTrack(audio);
+                next = await _backend.LoadTrack(audio, cancellation);
             }
 
             await _source.Play(next, _timer.Time.Value);

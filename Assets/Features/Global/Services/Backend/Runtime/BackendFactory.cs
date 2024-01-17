@@ -2,13 +2,13 @@
 using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
+using Global.Backend.Abstract;
 using Global.Backend.Common;
-using Global.Services.Backend.Abstract;
-using Global.Services.Backend.Logs;
+using Global.Backend.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Backend.Runtime
+namespace Global.Backend.Runtime
 {
 
     [InlineEditor]

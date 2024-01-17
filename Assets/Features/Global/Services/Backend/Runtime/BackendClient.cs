@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Text;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using Global.Services.Backend.Abstract;
-using Global.Services.Backend.Logs;
+using Global.Backend.Abstract;
+using Global.Backend.Logs;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Global.Services.Backend.Runtime
+namespace Global.Backend.Runtime
 {
     public class BackendClient : IBackendClient
     {
@@ -17,15 +19,15 @@ namespace Global.Services.Backend.Runtime
 
         private readonly BackendLogger _logger;
 
-        public async UniTask<T> Get<T>(IGetRequest request)
+        public async UniTask<T> Get<T>(IGetRequest request, CancellationToken cancellation)
         {
-            var responseContent = await GetRaw(request);
+            var responseContent = await GetRaw(request, cancellation);
             var result = JsonConvert.DeserializeObject<T>(responseContent);
 
             return result;
         }
 
-        public async UniTask<string> GetRaw(IGetRequest request)
+        public async UniTask<string> GetRaw(IGetRequest request, CancellationToken cancellation)
         {
             _logger.OnGetRequest(request);
             using var downloadHandlerBuffer = new DownloadHandlerBuffer();
@@ -34,7 +36,7 @@ namespace Global.Services.Backend.Runtime
             foreach (var header in request.Headers)
                 webRequest.SetRequestHeader(header.Type, header.Value);
 
-            await webRequest.SendWebRequest().ToUniTask();
+            await webRequest.SendWebRequest().ToUniTask(cancellationToken: cancellation);
 
             if (webRequest.result != UnityWebRequest.Result.Success)
             {
@@ -48,7 +50,7 @@ namespace Global.Services.Backend.Runtime
             return responseContent;
         }
 
-        public async UniTask<T> Post<T>(IPostRequest request)
+        public async UniTask<T> Post<T>(IPostRequest request, CancellationToken cancellation)
         {
             _logger.OnPostRequest(request);
 
@@ -56,14 +58,14 @@ namespace Global.Services.Backend.Runtime
             UploadHandlerRaw uploadHandler = null;
 
             if (request.Body != null)
-                uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(request.Body));
+                uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(request.Body));
 
             using var webRequest = new UnityWebRequest(request.Uri, "POST", downloadHandlerBuffer, uploadHandler);
 
             foreach (var header in request.Headers)
                 webRequest.SetRequestHeader(header.Type, header.Value);
 
-            await webRequest.SendWebRequest().ToUniTask();
+            await webRequest.SendWebRequest().ToUniTask(cancellationToken: cancellation);
 
             if (webRequest.result != UnityWebRequest.Result.Success)
             {
@@ -80,7 +82,7 @@ namespace Global.Services.Backend.Runtime
             return result;
         }
 
-        public async UniTask<AudioClip> GetAudio(IGetRequest request, AudioType audioType)
+        public async UniTask<AudioClip> GetAudio(IGetRequest request, AudioType audioType, CancellationToken cancellation)
         {
             _logger.OnGetRequest(request);
 
@@ -90,7 +92,7 @@ namespace Global.Services.Backend.Runtime
             foreach (var header in request.Headers)
                 webRequest.SetRequestHeader(header.Type, header.Value);
 
-            await webRequest.SendWebRequest().ToUniTask();
+            await webRequest.SendWebRequest().ToUniTask(cancellationToken: cancellation);
 
             if (webRequest.result != UnityWebRequest.Result.Success)
             {
@@ -103,13 +105,13 @@ namespace Global.Services.Backend.Runtime
             return downloadHandlerAudioClip.audioClip;
         }
 
-        public async UniTask<Texture2D> GetImage(IGetRequest request)
+        public async UniTask<Texture2D> GetImage(IGetRequest request, CancellationToken cancellation)
         {
             _logger.OnGetRequest(request);
 
             using var downloadHandler = new DownloadHandlerTexture(true);
             using var webRequest = new UnityWebRequest(request.Uri, "GET",  downloadHandler, null);
-            await webRequest.SendWebRequest().ToUniTask();
+            await webRequest.SendWebRequest().ToUniTask(cancellationToken: cancellation);
 
             if (webRequest.result != UnityWebRequest.Result.Success)
             {

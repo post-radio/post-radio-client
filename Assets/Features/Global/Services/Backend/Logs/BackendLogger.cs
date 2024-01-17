@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Global.Services.Backend.Abstract;
+using Global.Backend.Abstract;
 using ILogger = Internal.Services.Loggers.Runtime.ILogger;
 
-namespace Global.Services.Backend.Logs
+namespace Global.Backend.Logs
 {
     public class BackendLogger
     {

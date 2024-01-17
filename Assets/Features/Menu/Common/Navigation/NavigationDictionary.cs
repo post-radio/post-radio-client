@@ -2,7 +2,6 @@
 using Common.DataTypes.Collections.SerializableDictionaries;
 using Global.UI.Nova.Components;
 using Menu.StateMachine.Definitions;
-using NovaSamples.UIControls;
 
 namespace Menu.Common.Navigation
 {

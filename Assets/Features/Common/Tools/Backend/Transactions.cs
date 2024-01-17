@@ -1,18 +1,25 @@
 ﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 
 namespace Common.Tools.Backend
 {
     public static class Transactions
     {
-        public static UniTask<T> Run<T>(Func<bool, UniTask<T>> action, float retryDelay = 0.5f) where T : class
+        public static UniTask<T> Run<T>(
+            Func<bool, CancellationToken, UniTask<T>> action,
+            float timeout = 15f,
+            float retryDelay = 0.5f) where T : class
         {
-            return new ResultTransactionalOperation<T>(action, retryDelay).Run();
+            return new ResultTransactionalOperation<T>(action, timeout, retryDelay).Run();
         }
-        
-        public static UniTask Run(Func<bool, UniTask> action, float retryDelay = 0.5f)
+
+        public static UniTask Run(
+            Func<bool, CancellationToken, UniTask> action,
+            float timeout = 15f,
+            float retryDelay = 0.5f)
         {
-            return new EmptyTransactionalOperation(action, retryDelay).Run();
+            return new EmptyTransactionalOperation(action, timeout, retryDelay).Run();
         }
     }
 }

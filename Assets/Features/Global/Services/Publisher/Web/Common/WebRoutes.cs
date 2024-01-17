@@ -1,6 +1,6 @@
 ﻿using Global.Common;
 
-namespace Global.Publisher.Itch.Common
+namespace Global.Publisher.Web.Common
 {
     public class WebRoutes
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Tools.Backend;
 using Cysharp.Threading.Tasks;
@@ -62,11 +63,11 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
         {
             return await Transactions.Run(Handle);
 
-            async UniTask<StoredAudio> Handle(bool isRetry)
+            async UniTask<StoredAudio> Handle(bool isRetry, CancellationToken cancellation)
             {
-                var random = await _backend.GetRandomTracks();
+                var random = await _backend.GetRandomTracks(cancellation);
                 var metadata = random.Tracks.First();
-                var audio = await _backend.GetAudioLink(metadata);
+                var audio = await _backend.GetAudioLink(metadata, cancellation);
 
                 return audio;
             }
@@ -80,7 +81,8 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             _suggestions.Clear();
             entries.AddRange(suggestions);
 
-            var random = await _backend.GetRandomTracks();
+            var cancellation = new CancellationTokenSource();
+            var random = await _backend.GetRandomTracks(cancellation.Token);
             entries.AddRange(random.Tracks);
             var entriesDictionary = new Dictionary<string, AudioMetadata>();
 
@@ -95,12 +97,13 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             var winnerMetadata = _votingSession.End();
             StoredAudio winner = null;
             var isSuccess = false;
+            var cancellation = new CancellationTokenSource();
 
             while (isSuccess == false)
             {
                 try
                 {
-                    winner = await _backend.GetAudioLink(winnerMetadata);
+                    winner = await _backend.GetAudioLink(winnerMetadata, cancellation.Token);
                     isSuccess = true;
                 }
                 catch (Exception exception)
@@ -108,7 +111,7 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
                     isSuccess = false;
                     Debug.LogError($"Exception during audio link request: {exception.Message}");
                     await UniTask.Delay(3f);
-                    var random = await _backend.GetRandomTracks();
+                    var random = await _backend.GetRandomTracks(cancellation.Token);
                     var metadata = random.Tracks.First();
                     winnerMetadata = metadata;
                 }

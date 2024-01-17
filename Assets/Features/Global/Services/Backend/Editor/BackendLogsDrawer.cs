@@ -1,8 +1,8 @@
 ﻿using Common.DataTypes.Collections.ReadOnlyDictionaries.Editor;
-using Global.Services.Backend.Logs;
+using Global.Backend.Logs;
 using UnityEditor;
 
-namespace Global.Services.Backend.Editor
+namespace Global.Backend.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(BackendLogs))]

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Global.Publisher.Itch.Languages
+namespace Global.Publisher.Web.Languages
 {
     public class WebLanguageExternAPI : IWebLanguageAPI
     {

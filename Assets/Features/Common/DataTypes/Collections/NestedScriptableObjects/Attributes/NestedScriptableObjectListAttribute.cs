@@ -1,13 +1,13 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using Sirenix.OdinInspector.Editor;
+using UnityEditor;
+#endif
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Sirenix.OdinInspector;
-#if UNITY_EDITOR
-using Sirenix.OdinInspector.Editor;
-using UnityEditor;
-#endif
 using UnityEngine;
 using Object = UnityEngine.Object;
 

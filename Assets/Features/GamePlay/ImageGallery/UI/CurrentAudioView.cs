@@ -1,5 +1,4 @@
-﻿using GamePlay.Audio.Definitions;
-using Nova;
+﻿using Nova;
 using UnityEngine;
 
 namespace GamePlay.ImageGallery.UI

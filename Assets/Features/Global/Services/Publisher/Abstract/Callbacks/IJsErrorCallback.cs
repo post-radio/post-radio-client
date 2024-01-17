@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Features.Global.Services.Publisher.Abstract.Callbacks
+namespace Global.Publisher.Abstract.Callbacks
 {
     public interface IJsErrorCallback
     {

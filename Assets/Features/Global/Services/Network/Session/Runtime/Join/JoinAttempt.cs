@@ -1,8 +1,8 @@
-﻿    using Cysharp.Threading.Tasks;
-    using Global.Network.Session.Logs;
-    using Ragon.Client;
+﻿using Cysharp.Threading.Tasks;
+using Global.Network.Session.Logs;
+using Ragon.Client;
 
-    namespace Global.Network.Session.Runtime.Join
+namespace Global.Network.Session.Runtime.Join
     {
         public class JoinAttempt : IRagonFailedListener, IRagonSceneRequestListener
         {

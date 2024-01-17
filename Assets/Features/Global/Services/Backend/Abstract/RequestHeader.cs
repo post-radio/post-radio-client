@@ -1,4 +1,4 @@
-﻿namespace Global.Services.Backend.Abstract
+﻿namespace Global.Backend.Abstract
 {
     public class RequestHeader : IRequestHeader
     {

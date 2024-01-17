@@ -9,8 +9,8 @@ namespace GamePlay.Audio.Backend
     public interface IAudioBackend
     {
         UniTask<UrlValidationResult> ValidateUrl(string audioUrl, CancellationToken cancellation);
-        UniTask<StoredAudio> GetAudioLink(AudioMetadata metadata);
-        UniTask<RandomTracksResult> GetRandomTracks();
-        UniTask<AudioClip> LoadTrack(StoredAudio audio);
+        UniTask<StoredAudio> GetAudioLink(AudioMetadata metadata, CancellationToken cancellation);
+        UniTask<RandomTracksResult> GetRandomTracks(CancellationToken cancellation);
+        UniTask<AudioClip> LoadTrack(StoredAudio audio, CancellationToken cancellation);
     }
 }

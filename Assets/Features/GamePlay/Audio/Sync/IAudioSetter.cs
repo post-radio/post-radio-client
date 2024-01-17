@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Definitions;
 
 namespace GamePlay.Audio.Sync
@@ -9,7 +10,7 @@ namespace GamePlay.Audio.Sync
         float Time { get; }
 
         void SetNextAudio(StoredAudio audio);
-        UniTask PlayFirstAudio(StoredAudio audio);
-        UniTask PlayNextAudio();
+        UniTask PlayFirstAudio(StoredAudio audio, CancellationToken cancellation);
+        UniTask PlayNextAudio(CancellationToken cancellation);
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 
 namespace Common.Architecture.EntityCreators.Runtime

@@ -1,4 +1,4 @@
-﻿namespace Global.Publisher.Itch.Languages
+﻿namespace Global.Publisher.Web.Languages
 {
     public interface IWebLanguageAPI
     {

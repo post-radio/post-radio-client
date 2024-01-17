@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using GamePlay.Chat.Events;
-using Global.System.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 

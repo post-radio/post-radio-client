@@ -1,8 +1,8 @@
 ﻿using System;
-using Features.Global.Services.Publisher.Abstract.Callbacks;
+using Global.Publisher.Abstract.Callbacks;
 using UnityEngine;
 
-namespace Global.Publisher.Itch.Common
+namespace Global.Publisher.Web.Common
 {
     [DisallowMultipleComponent]
     public class WebCallbacks : MonoBehaviour, IJsErrorCallback

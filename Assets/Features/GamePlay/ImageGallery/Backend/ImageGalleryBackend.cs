@@ -1,6 +1,7 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
+using Global.Backend.Abstract;
 using Global.Backend.Options;
-using Global.Services.Backend.Abstract;
 using UnityEngine;
 
 namespace GamePlay.ImageGallery.Backend
@@ -23,7 +24,7 @@ namespace GamePlay.ImageGallery.Backend
             if (uri == string.Empty)
                 return null;
 
-            var image = await _client.GetImage(uri);
+            var image = await _client.GetImage(uri, new CancellationTokenSource().Token);
 
             return image;
         }
@@ -31,7 +32,7 @@ namespace GamePlay.ImageGallery.Backend
         private async UniTask<string> GetLink()
         {
             var uri = _backendOptions.StreamingApiUrl + "images/random";
-            var result = await _client.GetRaw(uri);
+            var result = await _client.GetRaw(uri, new CancellationTokenSource().Token);
 
             return result;
         }

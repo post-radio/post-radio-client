@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Definitions;
@@ -78,7 +78,7 @@ namespace GamePlay.Audio.Sync
             _next.SetAudio(audio);
         }
 
-        public async UniTask PlayFirstAudio(StoredAudio audio)
+        public async UniTask PlayFirstAudio(StoredAudio audio, CancellationToken cancellation)
         {
             if (_roomProvider.IsOwner == false)
                 return;
@@ -86,13 +86,13 @@ namespace GamePlay.Audio.Sync
             _updater.Remove(this);
             _randomInt++;
 
-            await _player.Play(audio);
+            await _player.Play(audio, cancellation);
             _updater.Add(this);
 
             _current.SetAudio(audio, _randomInt);
         }
 
-        public async UniTask PlayNextAudio()
+        public async UniTask PlayNextAudio(CancellationToken cancellation)
         {
             if (_roomProvider.IsOwner == false)
                 return;
@@ -108,7 +108,7 @@ namespace GamePlay.Audio.Sync
                 return Mathf.Approximately(_timer.TimeValue, 0f) && _timer.RandomIntValue == _randomInt;
             });
 
-            await _player.Play(_next.Value);
+            await _player.Play(_next.Value, cancellation);
             _updater.Add(this);
 
             _current.SetAudio(_next.Value, _randomInt);
@@ -126,7 +126,7 @@ namespace GamePlay.Audio.Sync
 
         private void OnNextChanged()
         {
-            _player.Preload(_next.Value).Forget();
+            _player.Preload(_next.Value, new CancellationTokenSource().Token).Forget();
         }
 
         private async UniTask SetCurrent()
@@ -138,7 +138,7 @@ namespace GamePlay.Audio.Sync
 
             await UniTask.WaitUntil(() => _current.RandomInt.Value == _timer.RandomInt.Value);
 
-            await _player.Play(_current.Value);
+            await _player.Play(_current.Value, new CancellationTokenSource().Token);
         }
     }
 }

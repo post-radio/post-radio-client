@@ -3,12 +3,12 @@ using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Common.Tools.Backend;
 using Cysharp.Threading.Tasks;
-using Features.Global.Services.Publisher.Abstract.Callbacks;
 using GamePlay.Audio.Common;
 using GamePlay.Audio.Player.Abstract;
 using GamePlay.Audio.Sync;
 using GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract;
 using Global.Network.Handlers.ClientHandler.Runtime;
+using Global.Publisher.Abstract.Callbacks;
 using UnityEngine;
 
 namespace GamePlay.Audio.Controller
@@ -53,10 +53,10 @@ namespace GamePlay.Audio.Controller
             
             return;
 
-            async UniTask Handle(bool isRetry)
+            async UniTask Handle(bool isRetry, CancellationToken cancellation)
             {
                 var audio = await _voting.ForceRandomSelection();
-                await _setter.PlayFirstAudio(audio);
+                await _setter.PlayFirstAudio(audio, cancellation);
             }
         }
 
@@ -77,7 +77,7 @@ namespace GamePlay.Audio.Controller
 
                 continue;
 
-                async UniTask Handle(bool isRetry)
+                async UniTask Handle(bool isRetry, CancellationToken cancellation)
                 {
                     if (isRetry == true)
                         audio = await _voting.ForceRandomSelection();
@@ -85,7 +85,7 @@ namespace GamePlay.Audio.Controller
                     _errorCallback.Exception += OnException;
 
                     _setter.SetNextAudio(audio);
-                    await _setter.PlayNextAudio();
+                    await _setter.PlayNextAudio(cancellation);
 
                     _errorCallback.Exception -= OnException;
 

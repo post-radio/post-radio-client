@@ -1,21 +1,21 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
-using Features.Global.Services.Publisher.Abstract.Callbacks;
 using Global.Audio.Player.Runtime;
 using Global.Localizations.Runtime;
 using Global.Publisher.Abstract.Bootstrap;
+using Global.Publisher.Abstract.Callbacks;
 using Global.Publisher.Abstract.DataStorages;
 using Global.Publisher.Abstract.Languages;
 using Global.Publisher.Abstract.Purchases;
-using Global.Publisher.Itch.Common;
-using Global.Publisher.Itch.DataStorages;
-using Global.Publisher.Itch.Languages;
+using Global.Publisher.Web.Common;
+using Global.Publisher.Web.DataStorages;
+using Global.Publisher.Web.Languages;
 using Internal.Services.Options.Implementations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Publisher.Itch.Bootstrap
+namespace Global.Publisher.Web.Bootstrap
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = WebRoutes.ServiceName, menuName = WebRoutes.ServicePath)]

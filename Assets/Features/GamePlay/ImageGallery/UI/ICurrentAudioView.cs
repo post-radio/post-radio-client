@@ -1,6 +1,4 @@
-﻿using GamePlay.Audio.Definitions;
-
-namespace GamePlay.ImageGallery.UI
+﻿namespace GamePlay.ImageGallery.UI
 {
     public interface ICurrentAudioView
     {

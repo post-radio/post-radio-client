@@ -5,7 +5,6 @@ using Global.UI.Nova.InputManagers.Logs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Global.UI.Nova.InputManagers.Runtime
 {

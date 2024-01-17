@@ -3,7 +3,7 @@ using Internal.Services.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Backend.Logs
+namespace Global.Backend.Logs
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = BackendRoutes.LogsName,

@@ -5,7 +5,7 @@ using Global.Publisher.Abstract.DataStorages;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Global.Publisher.Itch.DataStorages
+namespace Global.Publisher.Web.DataStorages
 {
     public class WebDataStorage : IDataStorage, IScopeAwakeAsyncListener
     {

@@ -42,7 +42,7 @@ namespace Tools.AutoShorts.Runtime
             Debug.Log("1");
             var audioOptions = _creator.AudioOptions;
             var validation = await _backend.ValidateUrl(audioOptions.AudioURL, new CancellationToken());
-            var storedAudio = await _backend.GetAudioLink(validation.Metadata);
+            var storedAudio = await _backend.GetAudioLink(validation.Metadata, new CancellationTokenSource().Token);
             Debug.Log($"2: {storedAudio.Link}");
             var clip = await LoadAudio(storedAudio);
             Debug.Log("3");
