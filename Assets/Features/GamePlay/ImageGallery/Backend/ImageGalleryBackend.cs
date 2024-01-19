@@ -24,7 +24,7 @@ namespace GamePlay.ImageGallery.Backend
             if (uri == string.Empty)
                 return null;
 
-            var image = await _client.GetImage(uri, new CancellationTokenSource().Token);
+            var image = await _client.GetImage(uri, false, new CancellationTokenSource().Token);
 
             return image;
         }
@@ -32,7 +32,7 @@ namespace GamePlay.ImageGallery.Backend
         private async UniTask<string> GetLink()
         {
             var uri = _backendOptions.StreamingApiUrl + "images/random";
-            var result = await _client.GetRaw(uri, new CancellationTokenSource().Token);
+            var result = await _client.GetRaw(uri, false, new CancellationTokenSource().Token);
 
             return result;
         }

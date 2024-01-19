@@ -31,21 +31,14 @@ namespace Common.Tools.Backend
             {
                 var cancellation = new CancellationTokenSource();
 
+                if (isRetry == true)
+                    Debug.Log("Start transaction retry");
+                
                 try
                 {
                     isSuccess = true;
                     WaitTimeout(cancellation.Token).Forget();
                     result = await _action.Invoke(isRetry, cancellation.Token);
-
-                    async UniTask WaitTimeout(CancellationToken timeoutCancellation)
-                    {
-                        await UniTask.Delay(_timeout, timeoutCancellation);
-
-                        isSuccess = false;
-                        isRetry = true;
-
-                        Debug.Log("On timeout");
-                    }
                 }
                 catch (Exception exception)
                 {
@@ -61,11 +54,31 @@ namespace Common.Tools.Backend
                     await UniTask.Delay(_retryDelay);
                 }
 
+                if (isRetry == true)
+                    Debug.Log("Transaction completed with retry");
+
                 cancellation?.Cancel();
                 cancellation?.Dispose();
             }
 
             return result;
+            
+            async UniTask WaitTimeout(CancellationToken timeoutCancellation)
+            {
+                var timer = 0f;
+
+                while (timer < _timeout)
+                {
+                    timer += Time.deltaTime;
+                    Debug.Log($"Timer: {timer}");
+                    await UniTask.Yield(timeoutCancellation);
+                }
+                
+                isSuccess = false;
+                isRetry = true;
+
+                Debug.Log("On timeout");
+            }
         }
     }
 }

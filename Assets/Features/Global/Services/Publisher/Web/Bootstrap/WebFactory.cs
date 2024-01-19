@@ -8,6 +8,7 @@ using Global.Publisher.Abstract.Callbacks;
 using Global.Publisher.Abstract.DataStorages;
 using Global.Publisher.Abstract.Languages;
 using Global.Publisher.Abstract.Purchases;
+using Global.Publisher.Common;
 using Global.Publisher.Web.Common;
 using Global.Publisher.Web.DataStorages;
 using Global.Publisher.Web.Languages;
@@ -41,7 +42,7 @@ namespace Global.Publisher.Web.Bootstrap
                 .As<ISystemLanguageProvider>()
                 .AsCallbackListener();
 
-            if (options.IsEditor == true)
+            if (options.IsEditor == true || options.Platform == TargetPlatform.Standalone_Win)
             {
                 services.Register<WebLanguageDebugAPI>()
                     .As<IWebLanguageAPI>();

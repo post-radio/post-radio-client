@@ -21,7 +21,7 @@ namespace GamePlay.Audio.Backend
         public async UniTask<UrlValidationResult> ValidateUrl(string audioUrl, CancellationToken cancellation)
         {
             var uri = $"{_routes.LinkValidation()}?AudioUrl={audioUrl}";
-            var result = await _client.Get<UrlValidationResponse>(uri, cancellation);
+            var result = await _client.Get<UrlValidationResponse>(uri, false, cancellation);
 
             if (result.IsValid == false || result.Metadata == null)
                 return new UrlValidationResult { IsValid = false };
@@ -36,7 +36,7 @@ namespace GamePlay.Audio.Backend
         public async UniTask<StoredAudio> GetAudioLink(AudioMetadata metadata, CancellationToken cancellation)
         {
             var uri = $"{_routes.GetAudioLink()}?AudioUrl={metadata.Url}";
-            var result = await _client.Get<AudioLinkResponse>(uri, cancellation);
+            var result = await _client.Get<AudioLinkResponse>(uri, true, cancellation);
 
             return new StoredAudio(result.AudioUrl, metadata);
         }
@@ -52,6 +52,7 @@ namespace GamePlay.Audio.Backend
             var result = await _client.Post<RandomTracksResponse, RandomTracksRequest>(
                 uri,
                 body,
+                false,
                 cancellation,
                 RequestHeader.Json());
 
@@ -61,7 +62,7 @@ namespace GamePlay.Audio.Backend
         public UniTask<AudioClip> LoadTrack(StoredAudio audio, CancellationToken cancellation)
         {
             var uri = _routes.AudioStorage(audio.Link);
-            return _client.GetAudio(uri, cancellation);
+            return _client.GetAudio(uri, true, cancellation);
         }
     }
 }

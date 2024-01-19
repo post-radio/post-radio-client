@@ -67,8 +67,6 @@ namespace GamePlay.Audio.UI.Voting.UI.Voting
 
             if (_views.TryGetValue(winner.Url, out var winnerView) == true)
                 winnerView.MarkAsWinner();
-            else
-                Debug.Log($"No winner for: {winner.Url} found.");
         }
 
         public void UpdateVotes(IReadOnlyDictionary<string, int> entriesVotes)
@@ -84,8 +82,6 @@ namespace GamePlay.Audio.UI.Voting.UI.Voting
 
                 if (_views.TryGetValue(url, out var view) == true)
                     view.UpdateVotePercent(percent);
-                else
-                    Debug.Log($"No winner for: {url} found.");
             }
         }
 

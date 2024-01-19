@@ -6,6 +6,7 @@ namespace Global.Backend.Abstract
     {
         string Uri { get; }
         string Body { get; }
+        bool WithLogs { get; }
         IReadOnlyList<IRequestHeader> Headers { get; }
     }
 }

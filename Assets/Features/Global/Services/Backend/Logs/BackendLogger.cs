@@ -17,7 +17,7 @@ namespace Global.Backend.Logs
 
         public void OnGetRequest(IGetRequest request)
         {
-            if (_settings.IsAvailable(BackendLogType.Get_Send) == false)
+            if (_settings.IsAvailable(BackendLogType.Get_Send) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("GET", _settings.GETColor)} " +
@@ -26,7 +26,7 @@ namespace Global.Backend.Logs
 
         public void OnPostRequest(IPostRequest request)
         {
-            if (_settings.IsAvailable(BackendLogType.Post_Send) == false)
+            if (_settings.IsAvailable(BackendLogType.Post_Send) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("POST", _settings.POSTColor)} " +
@@ -36,7 +36,7 @@ namespace Global.Backend.Logs
 
         public void OnGetError(IGetRequest request, string exception)
         {
-            if (_settings.IsAvailable(BackendLogType.Get_Error) == false)
+            if (_settings.IsAvailable(BackendLogType.Get_Error) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("GET", _settings.GETColor)} sent to {LogUrl(request.Uri)} " +
@@ -46,7 +46,7 @@ namespace Global.Backend.Logs
 
         public void OnPostError(IPostRequest request, string exception)
         {
-            if (_settings.IsAvailable(BackendLogType.Post_Error) == false)
+            if (_settings.IsAvailable(BackendLogType.Post_Error) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("POST", _settings.POSTColor)} sent to {LogUrl(request.Uri)} " +
@@ -56,7 +56,7 @@ namespace Global.Backend.Logs
 
         public void OnGetResponse(IGetRequest request, string response)
         {
-            if (_settings.IsAvailable(BackendLogType.Get_Response) == false)
+            if (_settings.IsAvailable(BackendLogType.Get_Response) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("GET", _settings.GETColor)} response from {LogUrl(request.Uri)} " +
@@ -66,7 +66,7 @@ namespace Global.Backend.Logs
 
         public void OnPostResponse(IPostRequest request, string response)
         {
-            if (_settings.IsAvailable(BackendLogType.Post_Response) == false)
+            if (_settings.IsAvailable(BackendLogType.Post_Response) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("POST", _settings.POSTColor)} response from {LogUrl(request.Uri)} " +
@@ -76,7 +76,7 @@ namespace Global.Backend.Logs
 
         public void OnAudioResponse(IGetRequest request)
         {
-            if (_settings.IsAvailable(BackendLogType.Audio_Response) == false)
+            if (_settings.IsAvailable(BackendLogType.Audio_Response) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("GET/Audio", _settings.GETColor)} response from {LogUrl(request.Uri)} " +
@@ -85,7 +85,7 @@ namespace Global.Backend.Logs
 
         public void OnImageResponse(IGetRequest request)
         {
-            if (_settings.IsAvailable(BackendLogType.Image_Response) == false)
+            if (_settings.IsAvailable(BackendLogType.Image_Response) == false || request.WithLogs == false)
                 return;
 
             _logger.Log($"On {ApplyColor("GET/Image", _settings.GETColor)} sent to {LogUrl(request.Uri)} " +

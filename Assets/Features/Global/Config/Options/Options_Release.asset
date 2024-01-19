@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a28d8043c68a6d4e85991404e2deccb, type: 3}
   m_Name: Options_Release_PlatformOptions
   m_EditorClassIdentifier: 
-  _platform: 10
+  _platform: 7
 --- !u!114 &7391102754513568748
 MonoBehaviour:
   m_ObjectHideFlags: 0
