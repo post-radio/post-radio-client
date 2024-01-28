@@ -2,25 +2,25 @@
 using GamePlay.Network.Room.EventLoops.Runtime;
 using Global.Network.Handlers.ClientHandler.Runtime;
 
-namespace GamePlay.Network.Room.Starter.Runtime
+namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
 {
     public class MockRoomStarter : INetworkDestroyListener
     {
-        public MockRoomStarter(IRoomProvider roomProvider, IClientProvider clientProvider)
+        public MockRoomStarter(IRoomLifecycle lifecycle, IClientProvider clientProvider)
         {
-            _roomProvider = roomProvider;
+            _lifecycle = lifecycle;
             _clientProvider = clientProvider;
         }
-        
-        private readonly IRoomProvider _roomProvider;
+
+        private readonly IRoomLifecycle _lifecycle;
         private readonly IClientProvider _clientProvider;
 
         public async UniTask OnNetworkDestroy()
         {
-            var joinHandler = new JoinHandler(_roomProvider, _clientProvider);
+            var joinHandler = new JoinHandler(_clientProvider);
             var joinTask = joinHandler.ProcessJoin();
             
-            _roomProvider.SceneLoaded();
+            _lifecycle.SceneLoaded();
 
             await joinTask;
         }

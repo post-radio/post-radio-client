@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Player.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -8,7 +9,12 @@ namespace GamePlay.Audio.Player.Loading
     [DisallowMultipleComponent]
     public class AudioPlayerSource : MonoBehaviour, IAudioPlayerSource, IAudioTimeProvider
     {
+        private const float PlayTimeout = 3f;
+        private const float PlayEpsilon = 0.01f;
+
         [SerializeField] private AudioSource _source;
+
+        private bool _isTimeoutActive;
 
         public float CurrentTime => GetTime();
 
@@ -21,15 +27,47 @@ namespace GamePlay.Audio.Player.Loading
             _source.volume = volume;
         }
 
-        public async UniTask Play(AudioClip clip, float delay)
+        public async UniTask<UniTask> Play(AudioClip clip, float delay, CancellationToken cancellation)
         {
+            _isTimeoutActive = true;
             _source.clip = clip;
             _source.Play();
-            
-            await UniTask.WaitUntil(() => _source.clip.length > 0.1f);
-            _source.time = delay;
+
+            await HandleTimout();
+
+            if (_isTimeoutActive == true)
+            {
+                _isTimeoutActive = false;
+                return UniTask.CompletedTask;
+            }
+
+            return WaitAudioEnd();
+
+            async UniTask HandleTimout()
+            {
+                var timer = 0f;
+
+                while (timer < PlayTimeout)
+                {
+                    if (_source.clip != null && _source.clip.length > PlayEpsilon)
+                    {
+                        _source.time = delay;
+                        _isTimeoutActive = false;
+                        return;
+                    }
+
+                    timer += Time.deltaTime;
+                    await UniTask.Yield(cancellation);
+                }
+            }
+
+            async UniTask WaitAudioEnd()
+            {
+                while (_source.time < _source.clip.length - 0.1f)
+                    await UniTask.Yield(cancellation);
+            }
         }
-        
+
         public void Reset()
         {
             _source.Stop();
@@ -43,11 +81,11 @@ namespace GamePlay.Audio.Player.Loading
 
         private float GetDuration()
         {
-            if (_source.clip == null)
+            if (_isTimeoutActive == true)
                 return float.MaxValue;
 
-            if (Mathf.Approximately(_source.clip.length, 0f) == true)
-                return float.MaxValue;
+            if (_source.clip == null)
+                return 0f;
 
             return _source.clip.length;
         }

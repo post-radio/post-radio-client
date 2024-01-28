@@ -1,10 +1,10 @@
 ﻿using Common.Architecture.DiContainer.Abstract;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
-using GamePlay.Network.Room.Starter.Common;
+using Features.GamePlay.Network.Room.Lifecycle.Common;
 using UnityEngine;
 
-namespace GamePlay.Network.Room.Starter.Runtime
+namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
 {
     [CreateAssetMenu(fileName = RoomStarterRoutes.ServiceName,
         menuName = RoomStarterRoutes.ServicePath)]
@@ -13,7 +13,9 @@ namespace GamePlay.Network.Room.Starter.Runtime
         public override async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
             services.Register<RoomLifecycle>()
-                .AsCallbackListener();
+                .AsCallbackListener()
+                .As<IRoomLifecycle>()
+                .As<IRoomProvider>();
         }
     }
 }

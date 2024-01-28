@@ -6,7 +6,7 @@ namespace GamePlay.Audio.Player.Abstract
 {
     public interface IAudioPlayer
     {
-        UniTask Preload(StoredAudio audioMetadata, CancellationToken cancellation);
-        UniTask Play(StoredAudio audioMetadata, CancellationToken cancellation);
+        UniTask Preload(AudioData audioDataMetadata, CancellationToken cancellation);
+        UniTask<UniTask> Play(AudioData audioDataMetadata, float time, CancellationToken cancellation);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using GamePlay.Network.Common.Paths;
 
-namespace GamePlay.Network.Room.Starter.Common
+namespace Features.GamePlay.Network.Room.Lifecycle.Common
 {
     public class RoomStarterRoutes
     {

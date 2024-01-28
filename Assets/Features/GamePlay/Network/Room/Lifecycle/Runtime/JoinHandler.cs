@@ -2,22 +2,18 @@
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
 
-namespace GamePlay.Network.Room.Starter.Runtime
+namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
 {
     public class JoinHandler : IRagonJoinListener
     {
-        public JoinHandler(
-            IRoomProvider roomProvider,
-            IClientProvider clientProvider)
+        public JoinHandler(IClientProvider clientProvider)
         {
-            _roomProvider = roomProvider;
             _clientProvider = clientProvider;
 
             _completion = new UniTaskCompletionSource();
         }
 
         private readonly UniTaskCompletionSource _completion;
-        private readonly IRoomProvider _roomProvider;
         private readonly IClientProvider _clientProvider;
 
         public async UniTask ProcessJoin()

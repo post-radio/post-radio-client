@@ -59,14 +59,14 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             _isActive = !_isActive;
         }
 
-        public async UniTask<StoredAudio> ForceRandomSelection()
+        public async UniTask<AudioData> ForceRandomSelection()
         {
             return await Transactions.Run(Handle);
 
-            async UniTask<StoredAudio> Handle(bool isRetry, CancellationToken cancellation)
+            async UniTask<AudioData> Handle(bool isRetry, CancellationToken cancellation)
             {
                 var random = await _backend.GetRandomTracks(cancellation);
-                var metadata = random.Tracks.First();
+                var metadata = random.Tracks.Last();
                 var audio = await _backend.GetAudioLink(metadata, cancellation);
 
                 return audio;
@@ -92,10 +92,13 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             _votingSession.Fill(entriesDictionary);
         }
 
-        public async UniTask<StoredAudio> End()
+        public async UniTask<AudioData> End()
         {
+            if (_votingSession.IsFilled == false)
+                await Fill();
+            
             var winnerMetadata = _votingSession.End();
-            StoredAudio winner = null;
+            AudioData winner = null;
             var isSuccess = false;
             var cancellation = new CancellationTokenSource();
 

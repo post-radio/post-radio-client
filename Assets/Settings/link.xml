@@ -92,6 +92,8 @@
     <assembly fullname="GamePlay.Network.Events.Editor" preserve="all" />
     <assembly fullname="GamePlay.Network.Events.Logs" preserve="all" />
     <assembly fullname="GamePlay.Network.Events.Runtime" preserve="all" />
+    <assembly fullname="GamePlay.Network.Lifecycle.Common" preserve="all" />
+    <assembly fullname="GamePlay.Network.Lifecycle.Runtime" preserve="all" />
     <assembly fullname="GamePlay.Network.Objects.Definition" preserve="all" />
     <assembly fullname="GamePlay.Network.Objects.Destroyer.Common" preserve="all" />
     <assembly fullname="GamePlay.Network.Objects.Destroyer.Runtime" preserve="all" />
@@ -104,8 +106,6 @@
     <assembly fullname="GamePlay.Network.REST.Logs" preserve="all" />
     <assembly fullname="GamePlay.Network.REST.Runtime" preserve="all" />
     <assembly fullname="GamePlay.Network.REST.Tests" preserve="all" />
-    <assembly fullname="GamePlay.Network.RoomStarter.Common" preserve="all" />
-    <assembly fullname="GamePlay.Network.RoomStarter.Runtime" preserve="all" />
     <assembly fullname="GamePlay.Network.SceneCollector.Common" preserve="all" />
     <assembly fullname="GamePlay.Network.SceneCollector.Runtime" preserve="all" />
     <assembly fullname="GamePlay.Paths" preserve="all" />

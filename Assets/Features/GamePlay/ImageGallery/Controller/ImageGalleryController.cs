@@ -105,7 +105,7 @@ namespace GamePlay.ImageGallery.Controller
         
         private void OnSongChanged(SongChangeEvent payload)
         {
-            _currentAudio.Construct(payload.Audio.Author, payload.Audio.Title);
+            _currentAudio.Construct(payload.AudioData.Author, payload.AudioData.Title);
         }
     }
 }

@@ -1,24 +1,25 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
+using Features.GamePlay.Network.Room.Lifecycle.Runtime;
 using GamePlay.Audio.Definitions;
 using GamePlay.Audio.Player.Abstract;
 using GamePlay.Network.Room.Entities.Factory;
 using GamePlay.Network.Room.EventLoops.Runtime;
-using Global.Network.Handlers.ClientHandler.Runtime;
 using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Audio.Sync
 {
-    public class AudioSetter :
+    public class AudioSync :
         INetworkSceneEntityCreationListener,
-        IAudioSetter,
+        IAudioSync,
         IUpdatable,
         IScopeSwitchListener,
         INetworkAwakeListener
     {
-        public AudioSetter(
+        public AudioSync(
             IAudioTimeProvider timeProvider,
             IUpdater updater,
             IAudioPlayer player,
@@ -42,10 +43,11 @@ namespace GamePlay.Audio.Sync
         private readonly NextAudioDataSync _next = new();
 
         private int _randomInt = 1;
+        
+        public event Action<AudioData> AudioChanged;
 
-        public StoredAudio Current => _current.Value;
-
-        public float Time => _timer.Time.Value;
+        public float Time => _timeProvider.CurrentTime;
+        public AudioData CurrentAudioData => _current.Value;
 
         public void OnEnabled()
         {
@@ -73,32 +75,14 @@ namespace GamePlay.Audio.Sync
             await factory.Create(_timer, _next, _current);
         }
 
-        public void SetNextAudio(StoredAudio audio)
+        public void SetNextAudio(AudioData audioData)
         {
-            _next.SetAudio(audio);
+            _next.SetAudio(audioData);
         }
 
-        public async UniTask PlayFirstAudio(StoredAudio audio, CancellationToken cancellation)
+        public async UniTask SetCurrentAudio(CancellationToken cancellation)
         {
-            if (_roomProvider.IsOwner == false)
-                return;
-
             _updater.Remove(this);
-            _randomInt++;
-
-            await _player.Play(audio, cancellation);
-            _updater.Add(this);
-
-            _current.SetAudio(audio, _randomInt);
-        }
-
-        public async UniTask PlayNextAudio(CancellationToken cancellation)
-        {
-            if (_roomProvider.IsOwner == false)
-                return;
-
-            _updater.Remove(this);
-            _timeProvider.Reset();
             _randomInt++;
             _timer.SetTime(0f, _randomInt);
             
@@ -106,9 +90,8 @@ namespace GamePlay.Audio.Sync
             {
                 _timer.MarkChanged(0f, _randomInt);
                 return Mathf.Approximately(_timer.TimeValue, 0f) && _timer.RandomIntValue == _randomInt;
-            });
-
-            await _player.Play(_next.Value, cancellation);
+            }, cancellationToken: cancellation);
+            
             _updater.Add(this);
 
             _current.SetAudio(_next.Value, _randomInt);
@@ -119,14 +102,14 @@ namespace GamePlay.Audio.Sync
             _timer.SetTime(_timeProvider.CurrentTime, _randomInt);
         }
 
-        private void OnCurrentChanged()
-        {
-            SetCurrent().Forget();
-        }
-
         private void OnNextChanged()
         {
             _player.Preload(_next.Value, new CancellationTokenSource().Token).Forget();
+        }
+        
+        private void OnCurrentChanged() 
+        {
+            SetCurrent().Forget();
         }
 
         private async UniTask SetCurrent()
@@ -134,11 +117,9 @@ namespace GamePlay.Audio.Sync
             if (_roomProvider.IsOwner == true)
                 return;
 
-            _timer.SetTime(0f, _randomInt);
-
             await UniTask.WaitUntil(() => _current.RandomInt.Value == _timer.RandomInt.Value);
-
-            await _player.Play(_current.Value, new CancellationTokenSource().Token);
+            
+            AudioChanged?.Invoke(_current.Value);
         }
     }
 }

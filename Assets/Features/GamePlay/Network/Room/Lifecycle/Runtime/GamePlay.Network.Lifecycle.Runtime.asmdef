@@ -1,0 +1,13 @@
+﻿{
+  "name": "GamePlay.Network.Lifecycle.Runtime",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:3944dd557e8f416c84ad000a528839e7",
+    "GUID:5043370538444f50a1522eabfd23c0d4",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:ad14d18655924e768ccb5dfe8ec105cc",
+    "GUID:dec28d2fc9064a05abcbf9e3264fa16a",
+    "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+    "GUID:04243451437dcfe48b583ab43ef0a8fa"
+  ]
+}

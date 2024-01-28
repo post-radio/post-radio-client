@@ -36,9 +36,9 @@ namespace Common.Tools.Backend
                 
                 try
                 {
-                    isSuccess = true;
                     WaitTimeout(cancellation.Token).Forget();
                     result = await _action.Invoke(isRetry, cancellation.Token);
+                    isSuccess = true;
                 }
                 catch (Exception exception)
                 {
@@ -70,7 +70,6 @@ namespace Common.Tools.Backend
                 while (timer < _timeout)
                 {
                     timer += Time.deltaTime;
-                    Debug.Log($"Timer: {timer}");
                     await UniTask.Yield(timeoutCancellation);
                 }
                 

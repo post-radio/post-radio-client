@@ -1,4 +1,4 @@
 ﻿{
-  "name": "GamePlay.Network.RoomStarter.Common",
+  "name": "GamePlay.Network.Lifecycle.Common",
   "references":[ "GUID:ab8fcff7ea894a14a4e8393a6ba0191c" ]
 }

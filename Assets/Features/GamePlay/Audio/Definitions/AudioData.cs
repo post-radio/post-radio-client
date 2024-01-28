@@ -2,16 +2,17 @@
 
 namespace GamePlay.Audio.Definitions
 {
-    public class StoredAudio
+    public class AudioData
     {
-        public StoredAudio(string link, AudioMetadata metadata)
+        public AudioData(string link, AudioMetadata metadata)
         {
+            
             Link = link;
             Author = metadata.Author;
             Title = metadata.Title;
         }
         
-        public StoredAudio(string link, string author, string title)
+        public AudioData(string link, string author, string title)
         {
             Link = link;
             Author = author;
@@ -29,13 +30,13 @@ namespace GamePlay.Audio.Definitions
             buffer.WriteString(Title);
         }
 
-        public static StoredAudio Deserialize(RagonBuffer buffer)
+        public static AudioData Deserialize(RagonBuffer buffer)
         {
             var link = buffer.ReadString();
             var author = buffer.ReadString();
             var title = buffer.ReadString();
 
-            return new StoredAudio(link, author, title);
+            return new AudioData(link, author, title);
         }
     }
 }

@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Network.Room.Starter.Runtime
+namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
 {
     [InlineEditor]
     public abstract class RoomStarterBaseFactory : ScriptableObject, IServiceFactory

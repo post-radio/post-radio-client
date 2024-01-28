@@ -4,11 +4,11 @@ namespace GamePlay.Audio.Events
 {
     public class SongChangeEvent
     {
-        public SongChangeEvent(StoredAudio audio)
+        public SongChangeEvent(AudioData audioData)
         {
-            Audio = audio;
+            AudioData = audioData;
         }
         
-        public readonly StoredAudio Audio;
+        public readonly AudioData AudioData;
     }
 }

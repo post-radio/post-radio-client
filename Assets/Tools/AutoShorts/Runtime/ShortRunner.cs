@@ -58,9 +58,9 @@ namespace Tools.AutoShorts.Runtime
             #endif
         }
 
-        private async UniTask<AudioClip> LoadAudio(StoredAudio audio)
+        private async UniTask<AudioClip> LoadAudio(AudioData audioData)
         {
-            var uri = _routes.AudioStorage(audio.Link);
+            var uri = _routes.AudioStorage(audioData.Link);
             Debug.Log(uri);
             var audioType = AudioType.MPEG;
             using var downloadHandlerAudioClip = new DownloadHandlerAudioClip(uri, audioType);

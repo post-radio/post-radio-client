@@ -117,7 +117,7 @@ namespace GamePlay.Audio.UI.Overlay
 
         private void OnSongChanged(SongChangeEvent data)
         {
-            _songDataText.Text = $"{data.Audio.Author} - {data.Audio.Title}";
+            _songDataText.Text = $"{data.AudioData.Author} - {data.AudioData.Title}";
         }
     }
 }

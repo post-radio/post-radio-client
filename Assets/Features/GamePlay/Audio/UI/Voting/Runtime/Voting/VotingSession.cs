@@ -32,8 +32,10 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 
         private IDisposable _voteListener;
         private CancellationTokenSource _cancellation;
-        private IReadOnlyDictionary<string, AudioMetadata> _entries;
+        private Dictionary<string, AudioMetadata> _entries;
 
+        public bool IsFilled => _entries.Any();
+        
         public void OnEnabled()
         {
             _events.AddRoute<VoteEntriesUpdate>(OnEntriesUpdate);
@@ -65,6 +67,8 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
         {
             var winner = CalculateWinner(_votes, _entries);
             _eventsDistributor.SendAll(new EndVoteEvent(winner));
+            _votes.Clear();
+            _entries.Clear();
             return winner;
         }
 

@@ -33,12 +33,12 @@ namespace GamePlay.Audio.Backend
             };
         }
 
-        public async UniTask<StoredAudio> GetAudioLink(AudioMetadata metadata, CancellationToken cancellation)
+        public async UniTask<AudioData> GetAudioLink(AudioMetadata metadata, CancellationToken cancellation)
         {
             var uri = $"{_routes.GetAudioLink()}?AudioUrl={metadata.Url}";
             var result = await _client.Get<AudioLinkResponse>(uri, true, cancellation);
 
-            return new StoredAudio(result.AudioUrl, metadata);
+            return new AudioData(result.AudioUrl, metadata);
         }
 
         public async UniTask<RandomTracksResult> GetRandomTracks(CancellationToken cancellation)
@@ -59,9 +59,9 @@ namespace GamePlay.Audio.Backend
             return RandomTracksResult.ToResult(result.Tracks);
         }
 
-        public UniTask<AudioClip> LoadTrack(StoredAudio audio, CancellationToken cancellation)
+        public UniTask<AudioClip> LoadTrack(AudioData audioData, CancellationToken cancellation)
         {
-            var uri = _routes.AudioStorage(audio.Link);
+            var uri = _routes.AudioStorage(audioData.Link);
             return _client.GetAudio(uri, true, cancellation);
         }
     }

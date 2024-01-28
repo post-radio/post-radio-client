@@ -1,17 +1,17 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Network.Handlers.ClientHandler.Runtime;
+using Features.GamePlay.Network.Room.Lifecycle.Runtime;
 using Ragon.Client;
 
 namespace GamePlay.Network.Objects.Factories.Runtime
 {
     public class DynamicEntityFactory : IDynamicEntityFactory
     {
-        public DynamicEntityFactory(IRoomProvider roomProvider)
+        public DynamicEntityFactory(IRoomLifecycle roomProvider)
         {
             _roomProvider = roomProvider;
         }
         
-        private readonly IRoomProvider _roomProvider;
+        private readonly IRoomLifecycle _roomProvider;
 
         public RagonEntity Create(ushort type)
         {

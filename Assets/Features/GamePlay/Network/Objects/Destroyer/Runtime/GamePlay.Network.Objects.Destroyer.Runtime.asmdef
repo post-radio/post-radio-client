@@ -1,4 +1,22 @@
-﻿{
-  "name": "GamePlay.Network.Objects.Destroyer.Runtime",
-  "references":[ "GUID:df78a595a22a4bf88a8d58ce6cb42746", "GUID:3944dd557e8f416c84ad000a528839e7", "GUID:72a74364ef2c452fba2c739c6a14e831", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:67f67dcce9d9e8a43a8e45bc1fe5534c", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:f51ebe6a0ceec4240a699833d6309b23" ]
+{
+    "name": "GamePlay.Network.Objects.Destroyer.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:df78a595a22a4bf88a8d58ce6cb42746",
+        "GUID:3944dd557e8f416c84ad000a528839e7",
+        "GUID:72a74364ef2c452fba2c739c6a14e831",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:c50bcf42e5334355b142951d2473d15a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

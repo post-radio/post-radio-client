@@ -1,120 +1,144 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using Common.Tools.Backend;
 using Cysharp.Threading.Tasks;
+using Features.GamePlay.Network.Room.Lifecycle.Runtime;
 using GamePlay.Audio.Common;
+using GamePlay.Audio.Definitions;
 using GamePlay.Audio.Player.Abstract;
 using GamePlay.Audio.Sync;
 using GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract;
-using Global.Network.Handlers.ClientHandler.Runtime;
-using Global.Publisher.Abstract.Callbacks;
-using UnityEngine;
 
 namespace GamePlay.Audio.Controller
 {
     public class AudioController : IAudioController, IScopeLoadAsyncListener, IScopeDisableListener
     {
         public AudioController(
-            IAudioSetter setter,
+            IAudioSync sync,
             IAudioTimeProvider timeProvider,
             IRoomProvider roomProvider,
             IAudioVoting voting,
-            IJsErrorCallback errorCallback,
+            IAudioPlayer player,
             AudioOptions options)
         {
-            _setter = setter;
+            _sync = sync;
             _timeProvider = timeProvider;
             _roomProvider = roomProvider;
             _voting = voting;
-            _errorCallback = errorCallback;
+            _player = player;
             _options = options;
         }
 
-        private readonly IAudioSetter _setter;
+        private readonly IAudioSync _sync;
         private readonly IAudioTimeProvider _timeProvider;
         private readonly IRoomProvider _roomProvider;
         private readonly IAudioVoting _voting;
-        private readonly IJsErrorCallback _errorCallback;
+        private readonly IAudioPlayer _player;
         private readonly AudioOptions _options;
 
         private CancellationTokenSource _cancellation;
 
         public async UniTask OnLoadedAsync()
         {
-            if (_roomProvider.IsOwner == false)
-                return;
-
             _cancellation = new CancellationTokenSource();
-
-            await Transactions.Run(Handle);
-
-            await Loop();
+            _sync.AudioChanged += OnAudioChanged;
             
-            return;
-
-            async UniTask Handle(bool isRetry, CancellationToken cancellation)
+            if (_roomProvider.IsOwner == true)
             {
                 var audio = await _voting.ForceRandomSelection();
-                await _setter.PlayFirstAudio(audio, cancellation);
+                _sync.SetNextAudio(audio);
+                await _voting.Fill();
+
+                RunLoop(audio).Forget();
+            }
+            else
+            {
+                var audio = _sync.CurrentAudioData ?? await WaitNextAudio();
+                RunLoop(audio).Forget();
             }
         }
 
         public void OnDisabled()
         {
             _cancellation.Cancel();
+            _sync.AudioChanged -= OnAudioChanged;
         }
 
-        private async UniTask Loop()
+        private async UniTask RunLoop(AudioData nextAudio)
         {
             while (true)
             {
-                await _voting.Fill();
-                await WaitForVoteEnd(_cancellation.Token);
-                var audio = await _voting.End();
-                await WaitAudioEnd(_cancellation.Token);
-                await Transactions.Run(Handle);
+                if (_roomProvider.IsOwner == true)
+                    nextAudio = await HandleOwnerLoop(nextAudio);
+                else
+                    nextAudio = await HandleRemoteLoop(nextAudio);
+            }
+        }
 
-                continue;
+        private async UniTask<AudioData> HandleOwnerLoop(AudioData nextAudio)
+        {
+            var playTask = await  _player.Play(nextAudio, 0f, _cancellation.Token);
+            await _sync.SetCurrentAudio(_cancellation.Token);
+            await WaitForVoteEnd(_cancellation.Token);
+            nextAudio = await _voting.End();
+            await _voting.Fill();
+            _sync.SetNextAudio(nextAudio);
+            await playTask;
 
-                async UniTask Handle(bool isRetry, CancellationToken cancellation)
-                {
-                    if (isRetry == true)
-                        audio = await _voting.ForceRandomSelection();
+            return nextAudio;
+        }
 
-                    _errorCallback.Exception += OnException;
+        private async UniTask<AudioData> HandleRemoteLoop(AudioData nextAudio)
+        {
+            var time = _sync.Time;
+            var playTask = await _player.Play(nextAudio, time, _cancellation.Token);
+            await playTask;
+            nextAudio = await WaitNextAudio();
 
-                    _setter.SetNextAudio(audio);
-                    await _setter.PlayNextAudio(cancellation);
+            return nextAudio;
+        }
 
-                    _errorCallback.Exception -= OnException;
+        private async UniTask<AudioData> WaitNextAudio()
+        {
+            var completion = new UniTaskCompletionSource<AudioData>();
 
-                    return;
+            _sync.AudioChanged += OnAudioChangedWhileWait;
+            _roomProvider.BecameOwner += OnOwnershipGranted;
+            var audio = await completion.Task;
+            _sync.AudioChanged -= OnAudioChangedWhileWait;
+            _roomProvider.BecameOwner -= OnOwnershipGranted;
 
-                    void OnException(string error)
-                    {
-                        Debug.Log($"Exception in controller: {error}");
-                        _errorCallback.Exception -= OnException;
-                        throw new Exception(error);
-                    }
-                }
+            return audio;
+
+            void OnAudioChangedWhileWait(AudioData nextAudio)
+            {
+                completion.TrySetResult(nextAudio);
+            }
+
+            void OnOwnershipGranted()
+            {
+                SelectAudioAsOwner().Forget();
+            }
+
+            async UniTask SelectAudioAsOwner()
+            {
+                var nextAudio = await _voting.ForceRandomSelection();
+                completion.TrySetResult(nextAudio);
             }
         }
 
         private async UniTask WaitForVoteEnd(CancellationToken cancellation)
         {
             while (_timeProvider.Duration - _timeProvider.CurrentTime > _options.Vote.VoteStartOffset)
-            {
                 await UniTask.Yield(cancellation);
-            }
         }
-
-        private async UniTask WaitAudioEnd(CancellationToken cancellation)
+        
+        private void OnAudioChanged(AudioData audio)
         {
-            while (_timeProvider.CurrentTime < _timeProvider.Duration - 0.5f && _timeProvider.ContainsClip == true)
-            {
-                await UniTask.Yield(cancellation);
-            }
+            if (_roomProvider.IsOwner == true)
+                return;
+
+            _cancellation.Cancel();
+            RunLoop(audio).Forget();
         }
     }
 }

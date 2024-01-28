@@ -13,10 +13,10 @@ namespace GamePlay.Audio.Sync
             RandomInt = new NetworkInt(0, 10000, 0);
         }
         
-        private StoredAudio _value;
+        private AudioData _value;
         public readonly NetworkInt RandomInt;
 
-        public StoredAudio Value => _value;
+        public AudioData Value => _value;
 
         public event Action Received;
 
@@ -28,15 +28,15 @@ namespace GamePlay.Audio.Sync
 
         public override void Deserialize(RagonBuffer buffer)
         {
-            _value = StoredAudio.Deserialize(buffer);
+            _value = AudioData.Deserialize(buffer);
             RandomInt.Deserialize(buffer);
             
             Received?.Invoke();
         }
 
-        public void SetAudio(StoredAudio audio, int randomInt)
+        public void SetAudio(AudioData audioData, int randomInt)
         {
-            _value = audio;
+            _value = audioData;
             RandomInt.Value = randomInt;
             
             MarkAsChanged();
@@ -49,9 +49,9 @@ namespace GamePlay.Audio.Sync
         {
         }
         
-        private StoredAudio _value;
+        private AudioData _value;
 
-        public StoredAudio Value => _value;
+        public AudioData Value => _value;
         public event Action Received;
 
         public override void Serialize(RagonBuffer buffer)
@@ -61,13 +61,13 @@ namespace GamePlay.Audio.Sync
 
         public override void Deserialize(RagonBuffer buffer)
         {
-            _value = StoredAudio.Deserialize(buffer);
+            _value = AudioData.Deserialize(buffer);
             Received?.Invoke();
         }
 
-        public void SetAudio(StoredAudio audio)
+        public void SetAudio(AudioData audioData)
         {
-            _value = audio;
+            _value = audioData;
             MarkAsChanged();
         }
     }

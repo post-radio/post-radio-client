@@ -5,8 +5,8 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract
 {
     public interface IAudioVoting
     {
-        UniTask<StoredAudio> ForceRandomSelection();
+        UniTask<AudioData> ForceRandomSelection();
         UniTask Fill();
-        UniTask<StoredAudio> End();
+        UniTask<AudioData> End();
     }
 }

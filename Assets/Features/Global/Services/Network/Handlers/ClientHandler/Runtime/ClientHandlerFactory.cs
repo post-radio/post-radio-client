@@ -20,9 +20,6 @@ namespace Global.Network.Handlers.ClientHandler.Runtime
             services.Register<ClientHandler>()
                 .As<IClientProvider>()
                 .AsCallbackListener();
-
-            services.Register<RoomProvider>()
-                .As<IRoomProvider>();
         }
     }
 }

@@ -14,8 +14,8 @@ namespace GamePlay.Audio.Sync
     {
         public async UniTask Create(IServiceCollection services, IScopeUtils utils)
         {
-            services.Register<AudioSetter>()
-                .As<IAudioSetter>()
+            services.Register<AudioSync>()
+                .As<IAudioSync>()
                 .AsCallbackListener();
 
             services.Register<TimerSync>();
