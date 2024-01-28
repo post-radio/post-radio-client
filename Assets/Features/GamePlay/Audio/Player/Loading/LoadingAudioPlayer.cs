@@ -45,7 +45,6 @@ namespace GamePlay.Audio.Player.Loading
 
         public async UniTask Preload(AudioData audioData, CancellationToken cancellation)
         {
-            // TODO: error with preload !!! REWORK
             _preloaded = await _backend.LoadTrack(audioData, cancellation);
             _preloadedData = audioData;
         }
@@ -75,7 +74,7 @@ namespace GamePlay.Audio.Player.Loading
             }
 
             _current = next;
-            
+
             Msg.Publish(new SongChangeEvent(audioData));
 
             return playTask;

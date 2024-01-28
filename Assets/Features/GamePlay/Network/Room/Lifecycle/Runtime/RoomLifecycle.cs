@@ -8,7 +8,7 @@ using Global.System.Updaters.Runtime.Abstract;
 using Ragon.Client;
 using Ragon.Protocol;
 
-namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
+namespace GamePlay.Network.Room.Lifecycle.Runtime
 {   
     public class RoomLifecycle :
         IScopeAwakeAsyncListener,

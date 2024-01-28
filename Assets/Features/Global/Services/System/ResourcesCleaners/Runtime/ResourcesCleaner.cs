@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Global.System.ResourcesCleaners.Logs;
+using UnityEngine;
 
 namespace Global.System.ResourcesCleaners.Runtime
 {
@@ -17,7 +18,7 @@ namespace Global.System.ResourcesCleaners.Runtime
         {
             GC.Collect();
 
-            //await Resources.UnloadUnusedAssets();
+            await Resources.UnloadUnusedAssets().ToUniTask();
 
             _logger.OnCleaned();
         }

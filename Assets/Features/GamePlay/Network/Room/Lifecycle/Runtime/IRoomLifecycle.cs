@@ -1,6 +1,6 @@
 ﻿using Ragon.Client;
 
-namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
+namespace GamePlay.Network.Room.Lifecycle.Runtime
 {
     public interface IRoomLifecycle
     {

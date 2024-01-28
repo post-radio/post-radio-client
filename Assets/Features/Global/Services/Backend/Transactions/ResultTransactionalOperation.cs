@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Global.System.Updaters.Delays;
 using UnityEngine;
 
-namespace Common.Tools.Backend
+namespace Global.Backend.Transactions
 {
     public class ResultTransactionalOperation<T> where T : class
     {
         public ResultTransactionalOperation(
+            IDelayRunner delayRunner,
             Func<bool, CancellationToken, UniTask<T>> action,
             float timeout,
             float retryDelay)
         {
+            _delayRunner = delayRunner;
             _action = action;
             _timeout = timeout;
             _retryDelay = retryDelay;
         }
 
+        private readonly IDelayRunner _delayRunner;
         private readonly Func<bool, CancellationToken, UniTask<T>> _action;
         private readonly float _timeout;
         private readonly float _retryDelay;
+
+        private float _timer;
 
         public async UniTask<T> Run()
         {
@@ -33,10 +39,10 @@ namespace Common.Tools.Backend
 
                 if (isRetry == true)
                     Debug.Log("Start transaction retry");
-                
+
                 try
                 {
-                    WaitTimeout(cancellation.Token).Forget();
+                    _delayRunner.RunDelay(_timeout, OnTimeout, cancellation.Token).Forget();
                     result = await _action.Invoke(isRetry, cancellation.Token);
                     isSuccess = true;
                 }
@@ -51,7 +57,7 @@ namespace Common.Tools.Backend
                     isSuccess = false;
                     isRetry = true;
 
-                    await UniTask.Delay(_retryDelay);
+                    await _delayRunner.RunDelay(_retryDelay);
                 }
 
                 if (isRetry == true)
@@ -62,21 +68,11 @@ namespace Common.Tools.Backend
             }
 
             return result;
-            
-            async UniTask WaitTimeout(CancellationToken timeoutCancellation)
-            {
-                var timer = 0f;
 
-                while (timer < _timeout)
-                {
-                    timer += Time.deltaTime;
-                    await UniTask.Yield(timeoutCancellation);
-                }
-                
+            void OnTimeout()
+            {
                 isSuccess = false;
                 isRetry = true;
-
-                Debug.Log("On timeout");
             }
         }
     }

@@ -1,6 +1,8 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Player.Abstract;
+using Global.System.Updaters.Delays;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,6 +17,7 @@ namespace GamePlay.Audio.Player.Loading
         [SerializeField] private AudioSource _source;
 
         private bool _isTimeoutActive;
+        private IDelayRunner _delayRunner;
 
         public float CurrentTime => GetTime();
 
@@ -30,18 +33,29 @@ namespace GamePlay.Audio.Player.Loading
         public async UniTask<UniTask> Play(AudioClip clip, float delay, CancellationToken cancellation)
         {
             _isTimeoutActive = true;
-            _source.clip = clip;
-            _source.Play();
+            _source.clip = null;
+            var timeoutTask = HandleTimout();
 
-            await HandleTimout();
-
-            if (_isTimeoutActive == true)
+            try
+            {
+                _source.clip = clip;
+                _source.Play();
+            }
+            catch
             {
                 _isTimeoutActive = false;
+                _source.clip = null;
                 return UniTask.CompletedTask;
             }
 
-            return WaitAudioEnd();
+            await timeoutTask;
+
+            if (_isTimeoutActive == false)
+                return WaitAudioEnd();
+            
+            _isTimeoutActive = false;
+            _source.clip = null;
+            return UniTask.CompletedTask;
 
             async UniTask HandleTimout()
             {
@@ -49,7 +63,10 @@ namespace GamePlay.Audio.Player.Loading
 
                 while (timer < PlayTimeout)
                 {
-                    if (_source.clip != null && _source.clip.length > PlayEpsilon)
+                    if (_isTimeoutActive == false)
+                        return;
+                    
+                    if (_source.clip != null && _source.time > PlayEpsilon)
                     {
                         _source.time = delay;
                         _isTimeoutActive = false;

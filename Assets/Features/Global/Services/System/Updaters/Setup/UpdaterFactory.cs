@@ -3,12 +3,14 @@ using Common.Architecture.ScopeLoaders.Runtime.Services;
 using Common.Architecture.ScopeLoaders.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using Global.System.Updaters.Common;
+using Global.System.Updaters.Delays;
 using Global.System.Updaters.Logs;
+using Global.System.Updaters.Runtime;
 using Global.System.Updaters.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.System.Updaters.Runtime
+namespace Global.System.Updaters.Setup
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = UpdaterRouter.ServiceName,
@@ -32,6 +34,9 @@ namespace Global.System.Updaters.Runtime
                 .As<IUpdateSpeedSetter>()
                 .AsSelfResolvable()
                 .AsCallbackListener();
+
+            services.Register<DelayRunner>()
+                .As<IDelayRunner>();
 
             utils.Binder.MoveToModules(updater);
         }

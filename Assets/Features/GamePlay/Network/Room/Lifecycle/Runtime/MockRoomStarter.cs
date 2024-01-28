@@ -2,7 +2,7 @@
 using GamePlay.Network.Room.EventLoops.Runtime;
 using Global.Network.Handlers.ClientHandler.Runtime;
 
-namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
+namespace GamePlay.Network.Room.Lifecycle.Runtime
 {
     public class MockRoomStarter : INetworkDestroyListener
     {

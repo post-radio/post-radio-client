@@ -2,7 +2,7 @@
 using Global.Network.Handlers.ClientHandler.Runtime;
 using Ragon.Client;
 
-namespace Features.GamePlay.Network.Room.Lifecycle.Runtime
+namespace GamePlay.Network.Room.Lifecycle.Runtime
 {
     public class JoinHandler : IRagonJoinListener
     {

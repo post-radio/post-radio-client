@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using Common.Tools.Backend;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Definitions;
 using GamePlay.Audio.UI.Voting.Runtime.Suggestion;
 using GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract;
 using GamePlay.Audio.UI.Voting.UI.Voting.Abstract;
+using Global.Backend.Transactions;
 using Global.UI.Nova.Components;
-using UnityEngine;
 
 namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 {
     public class AudioVoting : IAudioVoting, IScopeSwitchListener
     {
         public AudioVoting(
+            ITransactionRunner transactionRunner,
             ISuggestions suggestions,
             IAudioBackend backend,
             IVotingSession votingSession,
             IVotingUIScheme scheme)
         {
+            _transactionRunner = transactionRunner;
             _suggestions = suggestions;
             _backend = backend;
             _votingSession = votingSession;
@@ -30,6 +30,7 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             _view = scheme.VotingView;
         }
 
+        private readonly ITransactionRunner _transactionRunner;
         private readonly ISuggestions _suggestions;
         private readonly IAudioBackend _backend;
         private readonly IVotingSession _votingSession;
@@ -61,7 +62,7 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 
         public async UniTask<AudioData> ForceRandomSelection()
         {
-            return await Transactions.Run(Handle);
+            return await _transactionRunner.Run(Handle);
 
             async UniTask<AudioData> Handle(bool isRetry, CancellationToken cancellation)
             {
@@ -81,15 +82,22 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             _suggestions.Clear();
             entries.AddRange(suggestions);
 
-            var cancellation = new CancellationTokenSource();
-            var random = await _backend.GetRandomTracks(cancellation.Token);
-            entries.AddRange(random.Tracks);
+            await _transactionRunner.Run(GetRandomTracks);
+
             var entriesDictionary = new Dictionary<string, AudioMetadata>();
 
             foreach (var entry in entries)
                 entriesDictionary.TryAdd(entry.Url, entry);
 
             _votingSession.Fill(entriesDictionary);
+            
+            return;
+
+            async UniTask GetRandomTracks(bool isRetry, CancellationToken cancellation)
+            {
+                var random = await _backend.GetRandomTracks(cancellation);
+                entries.AddRange(random.Tracks);
+            }
         }
 
         public async UniTask<AudioData> End()
@@ -99,28 +107,22 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             
             var winnerMetadata = _votingSession.End();
             AudioData winner = null;
-            var isSuccess = false;
-            var cancellation = new CancellationTokenSource();
 
-            while (isSuccess == false)
+            await _transactionRunner.Run(GetWinner);
+
+            return winner;
+
+            async UniTask GetWinner(bool isRetry, CancellationToken cancellation)
             {
-                try
+                if (isRetry == true)
                 {
-                    winner = await _backend.GetAudioLink(winnerMetadata, cancellation.Token);
-                    isSuccess = true;
-                }
-                catch (Exception exception)
-                {
-                    isSuccess = false;
-                    Debug.LogError($"Exception during audio link request: {exception.Message}");
-                    await UniTask.Delay(3f);
-                    var random = await _backend.GetRandomTracks(cancellation.Token);
+                    var random = await _backend.GetRandomTracks(cancellation);
                     var metadata = random.Tracks.First();
                     winnerMetadata = metadata;
                 }
+                
+                winner = await _backend.GetAudioLink(winnerMetadata, cancellation);
             }
-
-            return winner;
         }
     }
 }

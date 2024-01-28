@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.Backend.Runtime",
-  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:2f9ccc4c2f934f40933102113f0e34cd", "GUID:c78e69931726445f8dba711fff3c5444", "GUID:f009d9acd324466c8aeb4c1c92e89ec2", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:e07e6ccd9241474dbca4e70862df2bc2" ]
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:2f9ccc4c2f934f40933102113f0e34cd", "GUID:c78e69931726445f8dba711fff3c5444", "GUID:f009d9acd324466c8aeb4c1c92e89ec2", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:849df766959e4a8fb4a3b6044f324f7c" ]
 }

@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Updater.Delays",
+  "references":[ "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:04243451437dcfe48b583ab43ef0a8fa" ]
+}

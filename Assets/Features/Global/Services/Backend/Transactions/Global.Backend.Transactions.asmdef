@@ -1,0 +1,8 @@
+﻿{
+  "name": "Global.Backend.Transactions",
+  "references": [
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:04243451437dcfe48b583ab43ef0a8fa",
+    "GUID:b0a02ee4c56948508f9587983a10b708"
+  ]
+}

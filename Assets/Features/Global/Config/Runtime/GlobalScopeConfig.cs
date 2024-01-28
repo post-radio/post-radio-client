@@ -20,7 +20,7 @@ using Global.System.LoadedHandler.Runtime;
 using Global.System.MessageBrokers.Runtime;
 using Global.System.Pauses.Runtime;
 using Global.System.ResourcesCleaners.Runtime;
-using Global.System.Updaters.Runtime;
+using Global.System.Updaters.Setup;
 using Global.UI.EventSystems.Runtime;
 using Global.UI.LoadingScreens.Runtime;
 using Global.UI.Nova.Compose;
