@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Services.LevelCameras.Runtime;
-using Global.Cameras.GlobalCameras.Runtime;
+using Global.Cameras.Persistent.Runtime;
 using Global.GameLoops.Events;
 using Global.Network.Session.Runtime.Create;
 using Global.Network.Session.Runtime.Join;

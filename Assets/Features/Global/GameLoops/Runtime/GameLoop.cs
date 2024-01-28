@@ -1,15 +1,16 @@
 ﻿using System;
-using Common.Architecture.ScopeLoaders.Factory;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
+using Common.Architecture.Scopes.Factory;
+using Common.Architecture.Scopes.Runtime;
+using Common.Architecture.Scopes.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Services;
 using Cysharp.Threading.Tasks;
 using GamePlay.Config.Runtime;
-using Global.Cameras.CurrentCameras.Runtime;
-using Global.Cameras.GlobalCameras.Runtime;
+using Global.Cameras.CurrentProvider.Runtime;
+using Global.Cameras.Persistent.Runtime;
 using Global.GameLoops.Events;
 using Global.Network.Connection.Runtime;
-using Global.System.LoadedHandler.Runtime;
 using Global.System.MessageBrokers.Runtime;
+using Global.System.ScopeDisposer.Runtime;
 using Global.UI.LoadingScreens.Runtime;
 using Global.UI.Overlays.Runtime;
 using Internal.Services.Options.Runtime;
@@ -26,8 +27,8 @@ namespace Global.GameLoops.Runtime
             IScopeLoaderFactory scopeLoaderFactory,
             ILoadingScreen loadingScreen,
             IGlobalCamera globalCamera,
-            ILoadedScenesHandler loadedScenesHandler,
-            ICurrentCamera currentCamera,
+            IScopeDisposer scopeDisposer,
+            ICurrentCameraProvider currentCameraProvider,
             IOptions options,
             IConnection connection,
             IGlobalExceptionController globalException,
@@ -40,18 +41,18 @@ namespace Global.GameLoops.Runtime
             _scopeLoaderFactory = scopeLoaderFactory;
             _loadingScreen = loadingScreen;
             _globalCamera = globalCamera;
-            _loadedScenesHandler = loadedScenesHandler;
-            _currentCamera = currentCamera;
+            _scopeDisposer = scopeDisposer;
+            _currentCameraProvider = currentCameraProvider;
             _options = options;
             _connection = connection;
             _globalException = globalException;
         }
 
-        private readonly ICurrentCamera _currentCamera;
+        private readonly ICurrentCameraProvider _currentCameraProvider;
         private readonly IOptions _options;
         private readonly IConnection _connection;
         private readonly IGlobalExceptionController _globalException;
-        private readonly ILoadedScenesHandler _loadedScenesHandler;
+        private readonly IScopeDisposer _scopeDisposer;
         private readonly IGlobalCamera _globalCamera;
 
         private readonly ISceneLoader _loader;
@@ -66,6 +67,7 @@ namespace Global.GameLoops.Runtime
         private IDisposable _restartListener;
         private IDisposable _enterGameListener;
         private IDisposable _enterMenuListener;
+        private IScopeLoadResult _currentScope;
 
         public void OnEnabled()
         {
@@ -80,7 +82,7 @@ namespace Global.GameLoops.Runtime
             _enterGameListener.Dispose();
             _enterMenuListener.Dispose();
         }
-        
+
         public async UniTask OnLoadedAsync()
         {
             ProcessGameStart().Forget();
@@ -95,12 +97,12 @@ namespace Global.GameLoops.Runtime
         {
             LoadScene(_levelScope).Forget();
         }
-        
+
         private void OnMenuRequest(MenuRequest request)
         {
             LoadScene(_menuScope).Forget();
         }
-        
+
         private async UniTask ProcessGameStart()
         {
             var connectionResult = await _connection.Connect();
@@ -110,7 +112,7 @@ namespace Global.GameLoops.Runtime
                 _globalException.Show();
                 return;
             }
-            
+
             await LoadScene(_menuScope);
             _loadingScreen.HideGameLoading();
         }
@@ -118,20 +120,21 @@ namespace Global.GameLoops.Runtime
         private async UniTask LoadScene(IScopeConfig config)
         {
             _globalCamera.Enable();
-            _currentCamera.SetCamera(_globalCamera.Camera);
+            _currentCameraProvider.SetCamera(_globalCamera.Camera);
+
+            var unloadTask = UniTask.CompletedTask;
+
+            if (_currentScope != null)
+                unloadTask = _scopeDisposer.Unload(_currentScope);
 
             var scopeLoader = _scopeLoaderFactory.Create(config, _scope);
             var scopeLoadResult = await scopeLoader.Load();
-            await scopeLoadResult.Callbacks[CallbackStage.Construct].Run();
-            
-            var unload = _loadedScenesHandler.Unload();
+            _currentScope = scopeLoadResult;
+            await _currentScope.Callbacks[CallbackStage.Construct].Run();
 
-            await unload;
-            await _loadedScenesHandler.FinalizeUnloading();
+            await unloadTask;
 
-            _loadedScenesHandler.OnLoaded(scopeLoadResult);
-            
-            await scopeLoadResult.Callbacks[CallbackStage.SetupComplete].Run();
+            await _currentScope.Callbacks[CallbackStage.SetupComplete].Run();
         }
     }
 }

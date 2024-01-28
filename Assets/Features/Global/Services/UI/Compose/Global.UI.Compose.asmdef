@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.UI.Compose",
+  "references":[ "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:fb9b00a9a42c4c1459774b1ef88fcd74", "GUID:9a34842b183a1fb4797341ba693aa70c", "GUID:5423649eb0b944b2bd9c4b76a724721c", "GUID:c0a9cc90bab84c6595014a6d8aef0d8a", "GUID:3165858da54f4f7eb965695cee94ecc6", "GUID:831051450570446b80b02184e132e3d2", "GUID:7c7e7b43b44e4c3abb03d38f8aecf54b" ]
+}

@@ -1,4 +1,4 @@
-﻿using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.Container.Abstract;
 using GamePlay.Common.SceneBootstrappers.Runtime;
 using GamePlay.Common.SceneObjects.Logs;
 using UnityEngine;

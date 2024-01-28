@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
+using Common.Architecture.Scopes.Runtime.Services;
 using GamePlay.Chat.Common;
 using GamePlay.Chat.Controller;
 using GamePlay.Chat.InGame;
@@ -11,13 +11,13 @@ namespace GamePlay.Chat.Compose
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = ChatRoutes.ComposeName, menuName = ChatRoutes.ComposePath)]
-    public class ChatCompose : ScriptableObject
+    public class ChatCompose : ScriptableObject, IServicesCompose
     {
         [SerializeField] private ChatControllerFactory _controller;
         [SerializeField] private ChatInGameFactory _inGame;
         [SerializeField] private ChatUIFactory _ui;
 
-        public IReadOnlyList<IServiceFactory> Services => new IServiceFactory[]
+        public IReadOnlyList<IServiceFactory> Factories => new IServiceFactory[]
         {
             _controller,
             _inGame,

@@ -1,6 +1,6 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
-using Common.Architecture.ScopeLoaders.Runtime.Utils;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Scopes.Runtime.Services;
+using Common.Architecture.Scopes.Runtime.Utils;
 using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
 using Cysharp.Threading.Tasks;
 using GamePlay.UI.Common;

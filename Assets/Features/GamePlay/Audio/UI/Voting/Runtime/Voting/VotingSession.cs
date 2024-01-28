@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using GamePlay.Audio.Definitions;
 using GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract;
 using GamePlay.Audio.UI.Voting.UI.Voting.Abstract;

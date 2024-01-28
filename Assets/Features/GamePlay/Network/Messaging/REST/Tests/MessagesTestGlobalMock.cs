@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common.Architecture.Mocks.Runtime;
-using Common.Architecture.ScopeLoaders.Factory;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
+using Common.Architecture.Scopes.Common.DefaultCallbacks;
+using Common.Architecture.Scopes.Factory;
+using Common.Architecture.Scopes.Runtime.Services;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Compose;
 using GamePlay.Services.Common.Scope;
@@ -23,32 +23,21 @@ namespace GamePlay.Network.Messaging.REST.Tests
 
         [SerializeField] private LevelScope _scopePrefab;
         [SerializeField] private SceneData _servicesScene;
+        [SerializeField] private DefaultCallbacksServiceFactory _defaultCallbacks;
 
         public LifetimeScope ScopePrefab => _scopePrefab;
         public ISceneAsset ServicesScene => _servicesScene;
-        public IReadOnlyList<IServiceFactory> Services => GetFactories();
-        public IReadOnlyList<ICallbacksFactory> Callbacks => GetCallbacks();
-        
-        protected IServiceFactory[] GetFactories()
-        {
-            var services = new List<IServiceFactory>
-            {
-                new MessagesTestFactory()
-            };
-            
-            services.AddRange(_network.Services);
 
-            return services.ToArray();
-        }
-        
-        private ICallbacksFactory[] GetCallbacks()
+        public IReadOnlyList<IServiceFactory> Services => new IServiceFactory[]
         {
-            return new[]
-            {
-                new DefaultCallbacksFactory()
-            };
-        }
-        
+            _defaultCallbacks
+        };
+
+        public IReadOnlyList<IServicesCompose> Composes => new IServicesCompose[]
+        {
+            _network
+        };
+
         public override async UniTaskVoid Process()
         {
             var result = await _global.BootstrapGlobal();
@@ -58,9 +47,9 @@ namespace GamePlay.Network.Messaging.REST.Tests
             await connection.Connect();
 
             var sessionName = "message-test";
-            
+
             var sessionJoin = resolver.Resolve<ISessionJoin>();
-            var joinResult =  await sessionJoin.Join(sessionName);
+            var joinResult = await sessionJoin.Join(sessionName);
 
             if (joinResult.Type == SessionJoinResultType.Fail)
             {

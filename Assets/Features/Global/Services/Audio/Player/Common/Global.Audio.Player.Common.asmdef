@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.Audio.Player.Common",
-  "references":[ "GUID:fb9b00a9a42c4c1459774b1ef88fcd74" ]
+  "references":[ "GUID:fb9b00a9a42c4c1459774b1ef88fcd74", "GUID:17156dd46d1d4e5a9bd8d7bc2e0cafc1" ]
 }

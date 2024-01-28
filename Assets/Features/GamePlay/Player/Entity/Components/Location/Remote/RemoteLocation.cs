@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using Common.Architecture.EntityCreators.Runtime.Callbacks;
+using Common.Architecture.Entities.Runtime.Callbacks;
 using Common.DataTypes.Network;
 using Cysharp.Threading.Tasks;
 using GamePlay.House.Cells.Root;

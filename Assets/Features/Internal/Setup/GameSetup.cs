@@ -1,5 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Factory;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Factory;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using Global.Config.Runtime;
 using Internal.Scope;

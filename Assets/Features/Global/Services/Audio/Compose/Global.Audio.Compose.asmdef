@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Audio.Compose",
+  "references":[ "GUID:17156dd46d1d4e5a9bd8d7bc2e0cafc1", "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:c3083ecc50584e84882a608a6fd10428", "GUID:47b5752185ff436fa116dfaa3b0957be" ]
+}

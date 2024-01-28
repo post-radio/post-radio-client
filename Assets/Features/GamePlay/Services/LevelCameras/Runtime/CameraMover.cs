@@ -1,5 +1,5 @@
 ﻿using Common.DataTypes.Structs;
-using Global.Inputs.View.Runtime.Mouses;
+using Global.Inputs.View.Implementations.Mouses;
 using Global.System.ApplicationProxies.Runtime;
 using Global.System.Updaters.Runtime.Abstract;
 using Global.UI.Nova.InputManagers.Abstract;

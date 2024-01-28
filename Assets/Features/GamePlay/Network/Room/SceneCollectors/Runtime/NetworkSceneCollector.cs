@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Global.Network.Handlers.SceneCollectors.Runtime;
 using Ragon.Client;
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using GamePlay.Player.Entity.Definition;
 using GamePlay.Player.Services.Lists.Events;
 using Global.Network.Handlers.ClientHandler.Runtime;

@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using Global.Audio.Player.Runtime;
-using Global.Localizations.Definition;
-using Global.Localizations.Runtime;
 using Global.Publisher.Abstract.DataStorages;
 using Global.System.Updaters.Runtime.Abstract;
+using Global.UI.Localizations.Definition;
+using Global.UI.Localizations.Runtime;
 using Menu.StateMachine.Definitions;
 using UnityEngine;
 
@@ -14,14 +14,14 @@ namespace Menu.Settings.UI
     {
         public SettingsController(
             ISettingsView view,
-            IVolumeSetter volumeSetter,
+            IGlobalVolume globalVolume,
             ILanguageConverter languageConverter,
             ILocalization localization,
             IDataStorage dataStorage,
             IUpdater updater)
         {
             _view = view;
-            _volumeSetter = volumeSetter;
+            _globalVolume = globalVolume;
             _languageConverter = languageConverter;
             _localization = localization;
             _dataStorage = dataStorage;
@@ -29,7 +29,7 @@ namespace Menu.Settings.UI
         }
 
         private readonly ISettingsView _view;
-        private readonly IVolumeSetter _volumeSetter;
+        private readonly IGlobalVolume _globalVolume;
         private readonly ILanguageConverter _languageConverter;
         private readonly ILocalization _localization;
         private readonly IDataStorage _dataStorage;
@@ -39,7 +39,7 @@ namespace Menu.Settings.UI
 
         public async UniTask Activate(CancellationToken cancellation)
         {
-            var save = await _dataStorage.GetEntry<SoundSave>(SoundSave.Key);
+            var save = await _dataStorage.GetEntry<VolumeSave>(VolumeSave.Key);
 
             _view.Navigation.Enable();
             _view.OnActivate(save.Value.MusicVolume, save.Value.SoundVolume, _localization.Language);
@@ -56,8 +56,8 @@ namespace Menu.Settings.UI
 
             _updater.Remove(this);
 
-            _volumeSetter.SetVolume(_view.MusicValue, _view.SoundValue);
-            _volumeSetter.SaveVolume();
+            _globalVolume.SetVolume(_view.MusicValue, _view.SoundValue);
+            _globalVolume.SaveVolume();
         }
 
         private void OnLanguageChanged(Language language)
@@ -67,7 +67,7 @@ namespace Menu.Settings.UI
 
         public void OnUpdate(float delta)
         {
-            _volumeSetter.SetVolume(_view.MusicValue, _view.SoundValue);
+            _globalVolume.SetVolume(_view.MusicValue, _view.SoundValue);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Factory;
+﻿using Common.Architecture.Scopes.Factory;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;

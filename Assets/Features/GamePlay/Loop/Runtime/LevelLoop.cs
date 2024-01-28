@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.House.Setup;
 using GamePlay.Loop.Logs;
@@ -6,7 +6,7 @@ using GamePlay.Player.Services.Factory.Runtime;
 using GamePlay.Player.Services.Relocation.Runtime;
 using GamePlay.Services.LevelCameras.Runtime;
 using GamePlay.UI.Runtime;
-using Global.Cameras.GlobalCameras.Runtime;
+using Global.Cameras.Persistent.Runtime;
 using Global.UI.LoadingScreens.Runtime;
 using Global.UI.Nova.InputManagers.Abstract;
 using UnityEngine;

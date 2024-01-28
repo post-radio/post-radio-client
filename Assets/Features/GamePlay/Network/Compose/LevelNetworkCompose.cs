@@ -1,4 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Services;
+﻿using System.Collections.Generic;
+using Common.Architecture.Scopes.Runtime.Services;
 using GamePlay.Network.Common.Paths;
 using GamePlay.Network.Messaging.Events.Runtime;
 using GamePlay.Network.Messaging.REST.Runtime;
@@ -16,7 +17,7 @@ namespace GamePlay.Network.Compose
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "LevelNetworkCompose", menuName = GamePlayNetworkAssetsPaths.Root + "Compose")]
-    public class LevelNetworkCompose : ScriptableObject
+    public class LevelNetworkCompose : ScriptableObject, IServicesCompose
     {
         [SerializeField] private RoomStarterBaseFactory _roomStarter;
         [SerializeField] private NetworkEntityDestroyerFactory _entityDestroyer;
@@ -28,7 +29,7 @@ namespace GamePlay.Network.Compose
         [SerializeField] private MessengerFactory _messenger;
         [SerializeField] private NetworkEventsFactory _events;
         
-        public IServiceFactory[] Services => new IServiceFactory[]
+        public IReadOnlyList<IServiceFactory> Factories => new IServiceFactory[]
         {
             _roomStarter,
             _entityDestroyer,

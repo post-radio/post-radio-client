@@ -1,5 +1,5 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ScopeLoaders.Runtime.Utils;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Scopes.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using Menu.Common.Navigation;
 using Menu.UiRoot.Common;

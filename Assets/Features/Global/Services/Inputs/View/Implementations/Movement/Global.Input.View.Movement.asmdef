@@ -1,0 +1,19 @@
+﻿{
+  "name": "Global.Input.View.Movement",
+  "rootNamespace": "",
+  "references": [
+    "GUID:75469ad4d38634e559750d17036d5f7c",
+    "GUID:04343f4367ad4da9b66140fa53510cb5",
+    "GUID:c713b254602614c43a1d94a2a13ba844",
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

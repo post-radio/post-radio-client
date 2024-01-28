@@ -1,0 +1,19 @@
+{
+    "name": "Common.Scopes.DefaultCallbacks",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ab064769ea004db79fd01958f5737680",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

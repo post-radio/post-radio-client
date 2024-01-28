@@ -1,4 +1,4 @@
-﻿using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.Container.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Common.SceneBootstrappers.Runtime

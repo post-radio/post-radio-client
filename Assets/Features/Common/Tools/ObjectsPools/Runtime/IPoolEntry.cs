@@ -1,4 +1,4 @@
-﻿using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.Container.Abstract;
 using Common.Tools.ObjectsPools.Runtime.Abstract;
 using UnityEngine;
 

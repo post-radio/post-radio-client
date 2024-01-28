@@ -1,4 +1,4 @@
-﻿using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.Container.Abstract;
 using Menu.StateMachine.Definitions;
 using Menu.StateMachine.Registry;
 

@@ -1,6 +1,6 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using GamePlay.Services.LevelCameras.Logs;
-using Global.Cameras.CurrentCameras.Runtime;
+using Global.Cameras.CurrentProvider.Runtime;
 using Global.System.ApplicationProxies.Runtime;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -13,21 +13,21 @@ namespace GamePlay.Services.LevelCameras.Runtime
     {
         public LevelCamera(
             Camera camera,
-            ICurrentCamera currentCamera,
+            ICurrentCameraProvider currentCameraProvider,
             IScreen screen,
             LevelCameraLogger logger)
         {
             _camera = camera;
             _screen = screen;
             _logger = logger;
-            _currentCamera = currentCamera;
+            _currentCameraProvider = currentCameraProvider;
 
             _transform = camera.transform;
         }
 
         private const float _offsetZ = -10f;
         
-        private readonly ICurrentCamera _currentCamera;
+        private readonly ICurrentCameraProvider _currentCameraProvider;
         private readonly LevelCameraLogger _logger;
         
         private readonly Transform _transform;
@@ -41,7 +41,7 @@ namespace GamePlay.Services.LevelCameras.Runtime
 
         public void OnAwake()
         {
-            _currentCamera.SetCamera(Camera);
+            _currentCameraProvider.SetCamera(Camera);
         }
 
         public void SetPosition(Vector2 position)

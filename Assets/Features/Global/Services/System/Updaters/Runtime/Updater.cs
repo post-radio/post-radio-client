@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using Global.System.Updaters.Logs;
 using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;

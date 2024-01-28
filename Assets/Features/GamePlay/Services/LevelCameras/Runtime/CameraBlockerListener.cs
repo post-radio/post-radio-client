@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Global.System.MessageBrokers.Runtime;
 
 namespace GamePlay.Services.LevelCameras.Runtime

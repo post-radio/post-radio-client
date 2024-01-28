@@ -1,0 +1,26 @@
+{
+    "name": "Global.Input.View.Mouse",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:9dbe345fbe8e47cb8a0d24c890f0feff",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:5a6ca98db01d77741890b42e259b7291",
+        "GUID:b03721a1eeb8491da187242f7870dca2",
+        "GUID:04243451437dcfe48b583ab43ef0a8fa",
+        "GUID:938901adc7271b64987191612dbe8e7d",
+        "GUID:bbe6b1b7444754c4e943bc85a35f6d65",
+        "GUID:c713b254602614c43a1d94a2a13ba844",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+        "GUID:04343f4367ad4da9b66140fa53510cb5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

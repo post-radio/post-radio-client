@@ -1,5 +1,5 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer.Unity;

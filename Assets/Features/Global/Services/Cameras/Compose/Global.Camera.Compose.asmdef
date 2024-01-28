@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Camera.Compose",
+  "references":[ "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9", "GUID:e07e6ccd9241474dbca4e70862df2bc2", "GUID:f51ebe6a0ceec4240a699833d6309b23", "GUID:56ae5af76bfc47eeb8c327c8eff4b92f", "GUID:53d4551bcbb91394fbaf6bc9f0348986", "GUID:dff0e3ab6f2dfa94a84e389d53b01d00", "GUID:938901adc7271b64987191612dbe8e7d" ]
+}

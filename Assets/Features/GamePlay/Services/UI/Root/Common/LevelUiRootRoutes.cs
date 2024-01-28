@@ -4,9 +4,9 @@ namespace GamePlay.Services.UI.Root.Common
 {
     public static class LevelUiRootRoutes
     {
-        private const string _paths = GamePlayAssetsPaths.Root + "LevelUiRoot/";
+        private const string Paths = GamePlayAssetsPaths.Root + "LevelUiRoot/";
 
-        public const string ServicePath = _paths + "Service";
+        public const string ServicePath = Paths + "Service";
         public const string ServiceName = GamePlayAssetsPrefixes.Service + "LevelUiRoot";
     }
 }

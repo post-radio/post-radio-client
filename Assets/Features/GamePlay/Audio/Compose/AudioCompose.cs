@@ -1,4 +1,5 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Services;
+﻿using System.Collections.Generic;
+using Common.Architecture.Scopes.Runtime.Services;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Common;
 using GamePlay.Audio.Controller;
@@ -12,7 +13,7 @@ namespace GamePlay.Audio.Compose
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = AudioRoutes.ComposeName, menuName = AudioRoutes.ComposePath)]
-    public class AudioCompose : ScriptableObject
+    public class AudioCompose : ScriptableObject, IServicesCompose
     {
         [SerializeField] private AudioControllerFactory _controller;
         [SerializeField] private AudioUIFactory _ui;
@@ -20,7 +21,7 @@ namespace GamePlay.Audio.Compose
         [SerializeField] private AudioBackendFactory _backend;
         [SerializeField] private AudioSyncFactory _sync;
         
-        public IServiceFactory[] Services => new IServiceFactory[]
+        public IReadOnlyList<IServiceFactory> Factories => new IServiceFactory[]
         {
             _controller,
             _ui,

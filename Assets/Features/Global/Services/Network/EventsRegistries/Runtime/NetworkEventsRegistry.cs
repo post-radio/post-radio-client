@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using Global.Network.Handlers.ClientHandler.Runtime;
 
 namespace Global.Network.EventsRegistries.Runtime

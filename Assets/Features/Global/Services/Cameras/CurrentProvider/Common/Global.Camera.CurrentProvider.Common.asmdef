@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Camera.CurrentProvider.Common",
+  "references":[ "GUID:fb9b00a9a42c4c1459774b1ef88fcd74", "GUID:56ae5af76bfc47eeb8c327c8eff4b92f" ]
+}

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Definitions;

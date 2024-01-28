@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.EntityCreators.Runtime;
-using Common.Architecture.EntityCreators.Runtime.Callbacks;
+using Common.Architecture.Entities.Runtime;
+using Common.Architecture.Entities.Runtime.Callbacks;
 using GamePlay.Player.Entity.Components.Animators.Runtime;
 using GamePlay.Player.Entity.Components.Identity.Local;
 using GamePlay.Player.Entity.Components.Location.Local;

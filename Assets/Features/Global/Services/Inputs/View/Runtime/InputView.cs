@@ -1,8 +1,8 @@
 ﻿using System;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Global.Inputs.View.Logs;
 using Global.Inputs.View.Runtime.Actions;
-using Global.Inputs.View.Runtime.Listeners;
+using Global.Inputs.View.Runtime.Sources;
 using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine.InputSystem;
 
@@ -14,13 +14,13 @@ namespace Global.Inputs.View.Runtime
         IScopeAwakeListener
     {
         public InputView(
-            IInputListenersHandler inputListenersHandler,
+            IInputSourcesHandler inputSourcesHandler,
             IUpdater updater,
             InputActions inputActions,
             Controls controls,
             InputViewLogger logger)
         {
-            _inputListenersHandler = inputListenersHandler;
+            _inputSourcesHandler = inputSourcesHandler;
             _updater = updater;
             _inputActions = inputActions;
             _controls = controls;
@@ -29,7 +29,7 @@ namespace Global.Inputs.View.Runtime
 
         private readonly InputViewLogger _logger;
 
-        private readonly IInputListenersHandler _inputListenersHandler;
+        private readonly IInputSourcesHandler _inputSourcesHandler;
         private readonly IUpdater _updater;
         private readonly InputActions _inputActions;
         private readonly Controls _controls;
@@ -39,20 +39,20 @@ namespace Global.Inputs.View.Runtime
         public void OnAwake()
         {
             _controls.Enable();
-            _inputListenersHandler.InvokeListen();
+            _inputSourcesHandler.InvokeListen();
             _updater.Add(_inputActions);
         }
 
         public void OnBeforeRebind()
         {
-            _inputListenersHandler.InvokeUnlisten();
+            _inputSourcesHandler.Dispose();
 
             _logger.OnBeforeRebind();
         }
 
         public void OnAfterRebind()
         {
-            _inputListenersHandler.InvokeListen();
+            _inputSourcesHandler.InvokeListen();
 
             _logger.OnAfterRebind();
         }

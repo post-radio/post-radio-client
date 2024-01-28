@@ -1,4 +1,4 @@
-﻿using Common.Architecture.DiContainer.Abstract;
+﻿using Common.Architecture.Container.Abstract;
 using GamePlay.Player.Entity.Components.PropertiesBinders.Runtime;
 using Ragon.Client;
 

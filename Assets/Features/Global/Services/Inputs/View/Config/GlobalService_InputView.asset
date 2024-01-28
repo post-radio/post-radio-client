@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: GlobalService_InputView
   m_EditorClassIdentifier: 
   _logSettings: {fileID: 11400000, guid: 39996899f32e07342bc857aa456bdd59, type: 2}
-  _prefab: {fileID: 8745581196444272519, guid: f7fd594198df8e8489437e8fdb03386e, type: 3}
+  _sourceFactories:
+  - {fileID: 11400000, guid: bf3f7c89b45d7344eb6915029d763428, type: 2}
+  - {fileID: 11400000, guid: b3eaf1fdce1af6c49a560279a8b5b8f5, type: 2}

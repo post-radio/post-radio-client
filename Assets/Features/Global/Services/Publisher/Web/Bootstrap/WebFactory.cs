@@ -1,8 +1,7 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ScopeLoaders.Runtime.Utils;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Scopes.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using Global.Audio.Player.Runtime;
-using Global.Localizations.Runtime;
 using Global.Publisher.Abstract.Bootstrap;
 using Global.Publisher.Abstract.Callbacks;
 using Global.Publisher.Abstract.DataStorages;
@@ -12,6 +11,7 @@ using Global.Publisher.Common;
 using Global.Publisher.Web.Common;
 using Global.Publisher.Web.DataStorages;
 using Global.Publisher.Web.Languages;
+using Global.UI.Localizations.Runtime;
 using Internal.Services.Options.Implementations;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -58,7 +58,7 @@ namespace Global.Publisher.Web.Bootstrap
         {
             return new IStorageEntry[]
             {
-                new SoundSave(),
+                new VolumeSave(),
                 new LanguageSave(),
                 new PurchasesSave(),
             };

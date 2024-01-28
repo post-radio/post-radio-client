@@ -1,4 +1,4 @@
-﻿using Global.Localizations.Texts;
+﻿using Global.UI.Localizations.Texts;
 using UnityEngine;
 
 namespace Global.Publisher.Abstract.Purchases

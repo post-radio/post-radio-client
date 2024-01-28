@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Common.Architecture.Mocks.Runtime;
-using Common.Architecture.ScopeLoaders.Factory;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
+using Common.Architecture.Scopes.Common.DefaultCallbacks;
+using Common.Architecture.Scopes.Factory;
+using Common.Architecture.Scopes.Runtime.Services;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Compose;
 using GamePlay.Services.Common.Scope;
@@ -26,29 +26,22 @@ namespace GamePlay.Audio.Test
         [SerializeField] private LevelScope _scopePrefab;
         [SerializeField] private SceneData _servicesScene;
         [SerializeField] private AudioTest _test;
+        [SerializeField] private DefaultCallbacksServiceFactory _defaultCallbacks;
 
         public LifetimeScope ScopePrefab => _scopePrefab;
         public ISceneAsset ServicesScene => _servicesScene;
-        public IReadOnlyList<IServiceFactory> Services => GetFactories();
-        public IReadOnlyList<ICallbacksFactory> Callbacks => GetCallbacks();
-        
-        protected IServiceFactory[] GetFactories()
+
+        public IReadOnlyList<IServiceFactory> Services => new IServiceFactory[]
         {
-            var services = new List<IServiceFactory>();
-            
-            services.AddRange(_network.Services);
-            services.Add(_entity);
-            return services.ToArray();
-        }
-        
-        private ICallbacksFactory[] GetCallbacks()
+            _entity,
+            _defaultCallbacks
+        };
+
+        public IReadOnlyList<IServicesCompose> Composes => new IServicesCompose[]
         {
-            return new[]
-            {
-                new DefaultCallbacksFactory()
-            };
-        }
-        
+            _network
+        };
+
         public override async UniTaskVoid Process()
         {
             var result = await _global.BootstrapGlobal();

@@ -1,11 +1,10 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using Global.Publisher.Abstract.Advertisment;
 using Global.Publisher.Abstract.DataStorages;
 using Global.Publisher.Abstract.Purchases;
 using Global.Publisher.Yandex.Common;
 using Global.System.MessageBrokers.Runtime;
-using Global.System.Pauses.Runtime;
 
 namespace Global.Publisher.Yandex.Advertisement
 {
@@ -14,13 +13,13 @@ namespace Global.Publisher.Yandex.Advertisement
         private Ads(
             YandexCallbacks callbacks,
             IDataStorage dataStorage,
-            IPause pause,
+         //   IPause pause,
             IAdsAPI api,
             IProductLink adsProduct)
         {
             _callbacks = callbacks;
             _dataStorage = dataStorage;
-            _pause = pause;
+        //    _pause = pause;
             _api = api;
             _adsProduct = adsProduct;
         }
@@ -30,7 +29,7 @@ namespace Global.Publisher.Yandex.Advertisement
         private readonly IDataStorage _dataStorage;
         private readonly YandexCallbacks _callbacks;
 
-        private readonly IPause _pause;
+      //  private readonly IPause _pause;
         
         private AdsSave _save;
 
@@ -48,12 +47,12 @@ namespace Global.Publisher.Yandex.Advertisement
 
         public async UniTask<RewardAdResult> ShowRewarded()
         {
-            _pause.Pause();
+            //_pause.Pause();
 
             var handler = new RewardedHandler(_callbacks, _api);
             var result = await handler.Show();
 
-            _pause.Continue();
+         //   _pause.Continue();
 
             return result;
         }
@@ -63,12 +62,12 @@ namespace Global.Publisher.Yandex.Advertisement
             if (_save.IsDisabled == true)
                 return;
             
-            _pause.Pause();
+            //_pause.Pause();
 
             var handler = new InterstitialHandler(_callbacks, _api);
             await handler.Show();
 
-            _pause.Continue();
+           // _pause.Continue();
         }
         
         private void OnProductUnlocked(PurchaseEvent purchase)

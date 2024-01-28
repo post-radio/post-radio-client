@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using GamePlay.Audio.Events;
 using GamePlay.Audio.Player.Abstract;
 using Global.Audio.Player.Runtime;
@@ -17,12 +17,12 @@ namespace GamePlay.Audio.UI.Overlay
             IUpdater updater,
             IAudioTimeProvider timeProvider,
             IAudioOverlayScheme scheme,
-            IVolumeSetter volumeSetter,
+            IGlobalVolume globalVolume,
             AudioOverlayConfig config)
         {
             _updater = updater;
             _timeProvider = timeProvider;
-            _volumeSetter = volumeSetter;
+            _globalVolume = globalVolume;
             _config = config;
             _progressBar = scheme.ProgressBar;
             _audioSlider = scheme.AudioSlider;
@@ -33,7 +33,7 @@ namespace GamePlay.Audio.UI.Overlay
 
         private readonly IUpdater _updater;
         private readonly IAudioTimeProvider _timeProvider;
-        private readonly IVolumeSetter _volumeSetter;
+        private readonly IGlobalVolume _globalVolume;
         private readonly AudioOverlayConfig _config;
         private readonly ProgressBar _progressBar;
         private readonly Slider _audioSlider;
@@ -51,12 +51,12 @@ namespace GamePlay.Audio.UI.Overlay
         public void OnEnabled()
         {
             _updater.Add(this);
-            _audioSlider.Value = _volumeSetter.Music * 100f;
-            _savedMusicVolume = _volumeSetter.Music;
+            _audioSlider.Value = _globalVolume.Music * 100f;
+            _savedMusicVolume = _globalVolume.Music;
             _audioSlider.OnValueChanged.AddListener(OnSliderValueChanged);
             _volumeButton.OnClicked.AddListener(OnVolumeButtonClicked);
 
-            if (_volumeSetter.Music > 0f)
+            if (_globalVolume.Music > 0f)
                 _volumeImage.SetImage(_config.EnabledVolumeSprite);
             else
                 _volumeImage.SetImage(_config.DisabledVolumeSprite);
@@ -80,14 +80,14 @@ namespace GamePlay.Audio.UI.Overlay
             if (_volumeSaveTimer > VolumeSaveDelay)
             {
                 _volumeSaveTimer = 0f;
-                _volumeSetter.SaveVolume();
+                _globalVolume.SaveVolume();
             }
 
             var progress = _timeProvider.CurrentTime / _timeProvider.Duration;
 
             _progressBar.Percent = progress;
 
-            if (_volumeSetter.Music > 0f)
+            if (_globalVolume.Music > 0f)
                 _volumeImage.SetImage(_config.EnabledVolumeSprite);
             else
                 _volumeImage.SetImage(_config.DisabledVolumeSprite);
@@ -95,21 +95,21 @@ namespace GamePlay.Audio.UI.Overlay
 
         private void OnSliderValueChanged(float value)
         {
-            _volumeSetter.SetVolume(value / 100f, _volumeSetter.Sound);
+            _globalVolume.SetVolume(value / 100f, _globalVolume.Sound);
         }
 
         private void OnVolumeButtonClicked()
         {
-            if (_volumeSetter.Music > 0f)
+            if (_globalVolume.Music > 0f)
             {
-                _savedMusicVolume = _volumeSetter.Music;
-                _volumeSetter.SetVolume(0f, _volumeSetter.Sound);
+                _savedMusicVolume = _globalVolume.Music;
+                _globalVolume.SetVolume(0f, _globalVolume.Sound);
                 _volumeImage.SetImage(_config.DisabledVolumeSprite);
                 _audioSlider.Value = 0f;
             }
-            else if (Mathf.Approximately(_volumeSetter.Music, 0f) == true)
+            else if (Mathf.Approximately(_globalVolume.Music, 0f) == true)
             {
-                _volumeSetter.SetVolume(_savedMusicVolume, _volumeSetter.Sound);
+                _globalVolume.SetVolume(_savedMusicVolume, _globalVolume.Sound);
                 _volumeImage.SetImage(_config.EnabledVolumeSprite);
                 _audioSlider.Value = _savedMusicVolume * 100f;
             }

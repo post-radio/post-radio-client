@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Room.Entities.Factory;
 using GamePlay.Network.Room.EventLoops.Runtime;

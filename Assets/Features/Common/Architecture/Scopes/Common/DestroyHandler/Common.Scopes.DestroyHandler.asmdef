@@ -1,0 +1,21 @@
+{
+    "name": "Common.Scopes.DestroyHandler",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:ec5b6d8ef8dcd8e41ae147a872c1f8b9",
+        "GUID:494516fb123a4f7aa28997e4d847ac0e",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:ab064769ea004db79fd01958f5737680",
+        "GUID:e07e6ccd9241474dbca4e70862df2bc2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

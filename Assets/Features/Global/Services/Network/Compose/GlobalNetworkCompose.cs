@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Services;
+using Common.Architecture.Scopes.Runtime.Services;
 using Global.Network.Common;
 using Global.Network.Connection.Runtime;
 using Global.Network.EventsRegistries.Runtime;
@@ -14,7 +14,7 @@ namespace Global.Network.Compose
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "GlobalNetworkCompose", menuName = GlobalNetworkAssetsPaths.Root + "Compose")]
-    public class GlobalNetworkCompose : ScriptableObject
+    public class GlobalNetworkCompose : ScriptableObject, IServicesCompose
     {
         [SerializeField] private ConnectionFactory _connection;
         [SerializeField] private ClientHandlerFactory _client;
@@ -22,8 +22,8 @@ namespace Global.Network.Compose
         [SerializeField] private NetworkEntityListenerFactory _entityListener;
         [SerializeField] private SessionFlowFactory _sessionFlow;
         [SerializeField] private EventsRegistryFactory _eventsRegistry;
-        
-        public IReadOnlyList<IServiceFactory> Services => new IServiceFactory[]
+
+        public IReadOnlyList<IServiceFactory> Factories => new IServiceFactory[]
         {
             _connection,
             _client,

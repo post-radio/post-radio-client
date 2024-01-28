@@ -15,6 +15,7 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: fee95e69b39f22e48a3503ee68df5a0c, type: 2}
   _main: {fileID: 11400000, guid: e6fa85d282268aa45a1e70ce366ab872, type: 2}
   _about: {fileID: 11400000, guid: a10e2b7e452e5114b890880d1e1c35b1, type: 2}
+  _defaultCallbacks: {fileID: 11400000, guid: 52a269503aa4bb54d9967845c5229de3, type: 2}
   _uiRoot: {fileID: 11400000, guid: 4b39bbf4c8fc22a4cab2aa05717f4be7, type: 2}
   _stateMachine: {fileID: 11400000, guid: 01f99b4157fa56b459476968d9b2e243, type: 2}
   _loop: {fileID: 11400000, guid: 20362fed774451b45b81ffdb6bbee266, type: 2}

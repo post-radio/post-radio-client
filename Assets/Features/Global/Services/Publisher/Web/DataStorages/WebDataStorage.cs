@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using Global.Publisher.Abstract.DataStorages;
 using Newtonsoft.Json;

@@ -4,12 +4,12 @@ namespace GamePlay.Common.SceneObjects.Common
 {
     public class SceneObjectsRoutes
     {
-        private const string _paths = GamePlayAssetsPaths.Root + "SceneObjects/";
+        private const string Paths = GamePlayAssetsPaths.Root + "SceneObjects/";
 
-        public const string ServicePath = _paths + "Service";
+        public const string ServicePath = Paths + "Service";
         public const string ServiceName = GamePlayAssetsPrefixes.Service + "SceneObjects";
 
-        public const string LogsPath = _paths + "Logs";
+        public const string LogsPath = Paths + "Logs";
         public const string LogsName = GamePlayAssetsPrefixes.Logs + "SceneObjects";
     }
 }

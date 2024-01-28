@@ -1,8 +1,7 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.ScopeLoaders.Runtime.Utils;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Scopes.Runtime.Utils;
 using Cysharp.Threading.Tasks;
 using Global.Audio.Player.Runtime;
-using Global.Localizations.Runtime;
 using Global.Publisher.Abstract.Advertisment;
 using Global.Publisher.Abstract.Bootstrap;
 using Global.Publisher.Abstract.DataStorages;
@@ -21,6 +20,7 @@ using Global.Publisher.Yandex.Languages;
 using Global.Publisher.Yandex.Leaderboard;
 using Global.Publisher.Yandex.Purchases;
 using Global.Publisher.Yandex.Review;
+using Global.UI.Localizations.Runtime;
 using Internal.Services.Options.Implementations;
 using Internal.Services.Scenes.Abstract;
 using Internal.Services.Scenes.Data;
@@ -143,7 +143,7 @@ namespace Global.Publisher.Yandex.Bootstrap
         {
             return new IStorageEntry[]
             {
-                new SoundSave(),
+                new VolumeSave(),
                 new LanguageSave(),
                 new PurchasesSave(),
             };

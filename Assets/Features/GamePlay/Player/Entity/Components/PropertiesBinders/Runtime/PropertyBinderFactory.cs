@@ -1,5 +1,5 @@
-﻿using Common.Architecture.DiContainer.Abstract;
-using Common.Architecture.EntityCreators.Runtime;
+﻿using Common.Architecture.Container.Abstract;
+using Common.Architecture.Entities.Runtime;
 using Cysharp.Threading.Tasks;
 using GamePlay.Player.Entity.Components.PropertiesBinders.Common;
 using Sirenix.OdinInspector;

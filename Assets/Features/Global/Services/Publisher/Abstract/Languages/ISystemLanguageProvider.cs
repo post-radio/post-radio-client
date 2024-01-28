@@ -1,4 +1,4 @@
-﻿using Global.Localizations.Definition;
+﻿using Global.UI.Localizations.Definition;
 
 namespace Global.Publisher.Abstract.Languages
 {

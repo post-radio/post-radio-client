@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Global.Inputs.Constranits.Definition;
-using Global.Inputs.Constranits.Storage;
+using Global.Inputs.Constranits.Runtime;
 using Global.UI.UiStateMachines.Common;
 using UnityEngine;
 

@@ -1,6 +1,6 @@
-﻿using Common.Architecture.EntityCreators.Factory;
-using Common.Architecture.EntityCreators.Runtime;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Entities.Factory;
+using Common.Architecture.Entities.Runtime;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Network.Objects.Factories.Registry;
 using GamePlay.Network.Objects.Factories.Runtime;

@@ -1,5 +1,5 @@
-﻿using Global.Localizations.Definition;
-using Global.Publisher.Abstract.Languages;
+﻿using Global.Publisher.Abstract.Languages;
+using Global.UI.Localizations.Definition;
 
 namespace Global.Publisher.Web.Languages
 {

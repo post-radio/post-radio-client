@@ -1,6 +1,6 @@
 ﻿using Common.DataTypes.Collections.NestedScriptableObjects.Attributes;
-using Global.Localizations.Texts;
 using Global.Publisher.Common;
+using Global.UI.Localizations.Texts;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

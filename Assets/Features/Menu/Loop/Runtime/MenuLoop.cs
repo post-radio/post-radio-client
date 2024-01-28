@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Services.LevelCameras.Runtime;
 using Global.UI.Nova.InputManagers.Abstract;

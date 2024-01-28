@@ -1,4 +1,4 @@
 ﻿{
   "name": "Global.Options.Common",
-  "references":[ "GUID:fb9b00a9a42c4c1459774b1ef88fcd74" ]
+  "references":[ "GUID:fb9b00a9a42c4c1459774b1ef88fcd74", "GUID:1af919ad20217be41b61d5c0bb458967" ]
 }

@@ -32,31 +32,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea80077ce545cf749a170808f9c1a1ff, type: 3}
   m_Name: GlobalConfig
   m_EditorClassIdentifier: 
-  _soundsPlayer: {fileID: 11400000, guid: 4a6a716ae9c4454418344f45046c1fad, type: 2}
-  _audioSwitcher: {fileID: 11400000, guid: 878184c44b6c3b844bf50430e7702fb5, type: 2}
-  _cameraUtils: {fileID: 11400000, guid: 68abf8d3e8faf6c4aae3fcd6cdffc314, type: 2}
-  _currentCamera: {fileID: 11400000, guid: 9fec9cd81ac4efa4fa81942c6b10c867, type: 2}
-  _globalCamera: {fileID: 11400000, guid: 539dc15f36c0ea84ab540841a8ceec0a, type: 2}
-  _inputView: {fileID: 11400000, guid: 59f0f3c41ac20364ba23a15c6eeeb5d1, type: 2}
-  _publisherSdk: {fileID: 11400000, guid: a7a6608e698f54249907145b756aff63, type: 2}
-  _loadedScenesHandler: {fileID: 11400000, guid: 5d5d34fb2bc5e654ab9562f3bb1cd75f, type: 2}
-  _gameLoop: {fileID: 11400000, guid: 24bc63408099b334f8050f4463f479ab, type: 2}
-  _applicationProxy: {fileID: 11400000, guid: f8225ff56a4a96a4e80b0602b4cd3656, type: 2}
-  _messageBroker: {fileID: 11400000, guid: 07dfa12cb179a93488ef8a94dd145d98, type: 2}
-  _pause: {fileID: 11400000, guid: 5ea1a97ef8482ae4bb86c669f4bb711d, type: 2}
-  _resourcesCleaner: {fileID: 11400000, guid: f475d7d9f2c92ec479a665c9ac905fbc, type: 2}
-  _updater: {fileID: 11400000, guid: 949a43ee6c5ebd44fb23e1cc06711427, type: 2}
-  _animatorsUpdater: {fileID: 11400000, guid: 1befadf89c3618649840fc80766674c0, type: 2}
-  _destroyHandler: {fileID: 11400000, guid: 7f066b28155a68c4392e22b05375bde4, type: 2}
-  _entityCreator: {fileID: 11400000, guid: a5c463909bd25bb428685f95eb6726ce, type: 2}
-  _backend: {fileID: 11400000, guid: e78942d14aeb14b4e93daa5d02828353, type: 2}
-  _loadingScreen: {fileID: 11400000, guid: eec2ff44ff08d794bbf4de47c3720c13, type: 2}
-  _localization: {fileID: 11400000, guid: 024ab526c90be39488815de7d2b2f729, type: 2}
-  _globalOverlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}
-  _uiStateMachine: {fileID: 11400000, guid: 2690e14f4af6ab843bac352463df3ee6, type: 2}
-  _eventSystem: {fileID: 11400000, guid: 491d8430bcb9a374bad4c693194a48d6, type: 2}
-  _nova: {fileID: 11400000, guid: 54764956bf8cd674ebbbc5841cd7390b, type: 2}
-  _settings: {fileID: 11400000, guid: f619e9043e5db8e4485bd99397fc6c79, type: 2}
+  _audio: {fileID: 11400000, guid: a31106a227296924abca8468c1dd7d6c, type: 2}
+  _camera: {fileID: 11400000, guid: 548182730858bee42925b0b2f19e48dc, type: 2}
+  _input: {fileID: 11400000, guid: f2d99df2725cdbe40b484cabbe33f9b5, type: 2}
+  _system: {fileID: 11400000, guid: 234a30f9a9563ba4695033a8b17cae64, type: 2}
   _network: {fileID: 11400000, guid: 649d534f012d93848a5d2d1dc76defcc, type: 2}
+  _ui: {fileID: 11400000, guid: 87b0be3b60ebed6449a2a25fe3fbf67b, type: 2}
+  _gameLoop: {fileID: 11400000, guid: 24bc63408099b334f8050f4463f479ab, type: 2}
+  _publisherSdk: {fileID: 11400000, guid: a7a6608e698f54249907145b756aff63, type: 2}
+  _backend: {fileID: 11400000, guid: e78942d14aeb14b4e93daa5d02828353, type: 2}
+  _settings: {fileID: 11400000, guid: f619e9043e5db8e4485bd99397fc6c79, type: 2}
+  _defaultCallbacks: {fileID: 11400000, guid: 52a269503aa4bb54d9967845c5229de3, type: 2}
+  _scopeDestroyHandler: {fileID: 11400000, guid: 02e2e7d47289c7246bfdc5d97a5e0b5a, type: 2}
   _scope: {fileID: 4425232438733536047, guid: 6dff990b64ff40b4980ef90789bf70a4, type: 3}
   _servicesScene: {fileID: -101793589594642012}

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Common.Architecture.ScopeLoaders.Runtime;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
-using Global.System.LoadedHandler.Runtime;
 using Internal.Services.Scenes.Abstract;
 using Internal.Services.Scenes.Native;
 using UnityEngine.SceneManagement;
@@ -26,11 +25,6 @@ namespace Common.Architecture.Mocks.Runtime
         {
             var scenes = new List<ISceneLoadResult>(loadResult.Scenes);
             scenes.Add(new NativeSceneLoadResult(SceneManager.GetActiveScene()));
-
-            var newResult = new ScopeLoadResult(loadResult.Scope, loadResult.Callbacks, scenes);
-            
-            var sceneHandler = Resolver.Resolve<ILoadedScenesHandler>();
-            sceneHandler.OnLoaded(newResult);
 
             await loadResult.Callbacks[CallbackStage.Construct].Run();
             await loadResult.Callbacks[CallbackStage.SetupComplete].Run();

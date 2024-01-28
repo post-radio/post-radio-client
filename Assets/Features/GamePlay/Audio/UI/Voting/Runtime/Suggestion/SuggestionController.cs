@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.UI.Voting.UI.Suggestion.Abstract;
 using GamePlay.Audio.UI.Voting.UI.Voting.Abstract;

@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
 using GamePlay.Audio.Definitions;
@@ -17,16 +17,16 @@ namespace GamePlay.Audio.Player.Loading
         public LoadingAudioPlayer(
             IAudioBackend backend,
             IAudioPlayerSource source,
-            IVolumeSetter volumeSetter)
+            IGlobalVolume globalVolume)
         {
             _backend = backend;
             _source = source;
-            _volumeSetter = volumeSetter;
+            _globalVolume = globalVolume;
         }
 
         private readonly IAudioBackend _backend;
         private readonly IAudioPlayerSource _source;
-        private readonly IVolumeSetter _volumeSetter;
+        private readonly IGlobalVolume _globalVolume;
 
         private AudioClip _preloaded;
         private AudioClip _current;
@@ -34,13 +34,13 @@ namespace GamePlay.Audio.Player.Loading
 
         public void OnEnabled()
         {
-            _volumeSetter.VolumeUpdated += OnVolumeUpdated;
-            _source.SetVolume(_volumeSetter.Music);
+            _globalVolume.VolumeUpdated += OnGlobalVolumeUpdated;
+            _source.SetVolume(_globalVolume.Music);
         }
 
         public void OnDisabled()
         {
-            _volumeSetter.VolumeUpdated -= OnVolumeUpdated;
+            _globalVolume.VolumeUpdated -= OnGlobalVolumeUpdated;
         }
 
         public async UniTask Preload(AudioData audioData, CancellationToken cancellation)
@@ -80,9 +80,9 @@ namespace GamePlay.Audio.Player.Loading
             return playTask;
         }
 
-        private void OnVolumeUpdated()
+        private void OnGlobalVolumeUpdated()
         {
-            _source.SetVolume(_volumeSetter.Music);
+            _source.SetVolume(_globalVolume.Music);
         }
     }
 }

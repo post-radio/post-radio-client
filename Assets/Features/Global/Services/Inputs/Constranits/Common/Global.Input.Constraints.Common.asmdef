@@ -1,0 +1,4 @@
+﻿{
+  "name": "Global.Input.Constraints.Common",
+  "references":[ "GUID:9a30e5b105be423994f0ee27d935f22f", "GUID:fb9b00a9a42c4c1459774b1ef88fcd74" ]
+}

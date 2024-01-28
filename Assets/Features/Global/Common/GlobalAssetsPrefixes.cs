@@ -2,10 +2,10 @@
 {
     public static class GlobalAssetsPrefixes
     {
-        private const string _root = "Global";
+        private const string Root = "Global";
 
         public const string Service = "GlobalService_";
-        public const string Logs = _root + "LogSettings_";
-        public const string Config = _root + "Config_";
+        public const string Logs = Root + "LogSettings_";
+        public const string Config = Root + "Config_";
     }
 }

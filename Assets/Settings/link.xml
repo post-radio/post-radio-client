@@ -1,6 +1,5 @@
 <linker>
 
-    <assembly fullname="Common.Backend" preserve="all" />
     <assembly fullname="Common.Callbacks" preserve="all" />
     <assembly fullname="Common.DiContainer.Abstract" preserve="all" />
     <assembly fullname="Common.DiContainer.Runtime" preserve="all" />
@@ -162,6 +161,7 @@
     <assembly fullname="Global.Backend.Logs" preserve="all" />
     <assembly fullname="Global.Backend.Options" preserve="all" />
     <assembly fullname="Global.Backend.Runtime" preserve="all" />
+    <assembly fullname="Global.Backend.Transactions" preserve="all" />
     <assembly fullname="Global.CameraUtilities.Common" preserve="all" />
     <assembly fullname="Global.CameraUtilities.Logger" preserve="all" />
     <assembly fullname="Global.Common" preserve="all" />
@@ -286,10 +286,12 @@
     <assembly fullname="Global.UiStateMachine.Editor" preserve="all" />
     <assembly fullname="Global.UiStateMachine.Logs" preserve="all" />
     <assembly fullname="Global.UiStateMachine.Runtime" preserve="all" />
-    <assembly fullname="Global.Updaters.Common" preserve="all" />
-    <assembly fullname="Global.Updaters.Editor" preserve="all" />
-    <assembly fullname="Global.Updaters.Logs" preserve="all" />
-    <assembly fullname="Global.Updaters.Runtime" preserve="all" />
+    <assembly fullname="Global.Updater.Common" preserve="all" />
+    <assembly fullname="Global.Updater.Delays" preserve="all" />
+    <assembly fullname="Global.Updater.Editor" preserve="all" />
+    <assembly fullname="Global.Updater.Logs" preserve="all" />
+    <assembly fullname="Global.Updater.Runtime" preserve="all" />
+    <assembly fullname="Global.Updater.Setup" preserve="all" />
     <assembly fullname="Internal.Abstract" preserve="all" />
     <assembly fullname="Internal.Common" preserve="all" />
     <assembly fullname="Internal.Runtime" preserve="all" />

@@ -1,5 +1,5 @@
 ﻿using System;
-using Global.Localizations.Definition;
+using Global.UI.Localizations.Definition;
 using Menu.Common.Navigation;
 using UnityEngine;
 

@@ -1,4 +1,4 @@
-﻿using Common.Architecture.ScopeLoaders.Runtime.Callbacks;
+﻿using Common.Architecture.Scopes.Runtime.Callbacks;
 using GamePlay.Services.LevelCameras.Runtime;
 
 namespace GamePlay.UI.Runtime

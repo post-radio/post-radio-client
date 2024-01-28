@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level_Mock
   m_EditorClassIdentifier: 
   _ui: {fileID: 11400000, guid: e2dba7c6c41e62643b1487868972b5d6, type: 2}
+  _defaultCallbacks: {fileID: 11400000, guid: 52a269503aa4bb54d9967845c5229de3, type: 2}
   _levelLoop: {fileID: 11400000, guid: d062479df73f1744e9fcf2226501a5b7, type: 2}
   _vfxPool: {fileID: 11400000, guid: cea96a53738615f49857ce3c96a9ffd1, type: 2}
   _menuCamera: {fileID: 11400000, guid: ca5df30642d669e4fb83d19b3088462f, type: 2}
