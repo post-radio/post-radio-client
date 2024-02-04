@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Common.Architecture.Scopes.Runtime.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Audio.Backend;
@@ -51,21 +52,41 @@ namespace GamePlay.Audio.Player.Loading
 
         public async UniTask<UniTask> Play(AudioData audioData, float time, CancellationToken cancellation)
         {
+            Debug.Log($"[Audio] 1 Play start");
+
             await Resources.UnloadUnusedAssets().ToUniTask(cancellationToken: cancellation);
+            Debug.Log($"[Audio] 2");
 
             AudioClip next;
 
             if (_preloaded != null && _preloadedData.Link == audioData.Link)
             {
+                Debug.Log($"[Audio] 3.1 select preloaded: {audioData.Title}");
                 next = _preloaded;
                 _preloaded = null;
             }
             else
             {
-                next = await _backend.LoadTrack(audioData, cancellation);
+                Debug.Log($"[Audio] 3.2.1 load new: {audioData.Title}");
+                try
+                {
+                    next = await _backend.LoadTrack(audioData, cancellation);
+                }
+                catch (Exception exception)
+                {
+                    Debug.Log($"[Audio] 3.2.1 exception: {exception.Message}");
+                    _source.Clear();
+                    return UniTask.CompletedTask;
+                }
+
+                Debug.Log($"[Audio] 3.2.2 track loaded: {audioData.Title}");
             }
 
+            Debug.Log($"[Audio] 4 play audio: {audioData.Title}");
+
             var playTask = await _source.Play(next, time, cancellation);
+
+            Debug.Log($"[Audio] 11 audio started");
 
             if (_current != null)
             {
@@ -76,6 +97,8 @@ namespace GamePlay.Audio.Player.Loading
             _current = next;
 
             Msg.Publish(new SongChangeEvent(audioData));
+
+            Debug.Log($"[Audio] 12 Play completed");
 
             return playTask;
         }

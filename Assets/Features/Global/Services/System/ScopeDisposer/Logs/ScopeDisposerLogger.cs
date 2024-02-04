@@ -1,4 +1,5 @@
-﻿using Internal.Services.Loggers.Runtime;
+﻿using UnityEngine;
+using ILogger = Internal.Services.Loggers.Runtime.ILogger;
 
 namespace Global.System.ScopeDisposer.Logs
 {
@@ -12,7 +13,6 @@ namespace Global.System.ScopeDisposer.Logs
 
         private readonly ILogger _logger;
         private readonly ScopeDisposerLogSettings _settings;
-
 
         public void OnUnload(int scenesCount)
         {

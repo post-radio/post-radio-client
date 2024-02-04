@@ -82,19 +82,29 @@ namespace GamePlay.Audio.Sync
 
         public async UniTask SetCurrentAudio(CancellationToken cancellation)
         {
+            Debug.Log($"[Audio] 13.1 SetCurrentAudio start");
+
             _updater.Remove(this);
             _randomInt++;
+            Debug.Log($"[Audio] 13.2 SetCurrentAudio set time: {_randomInt}");
             _timer.SetTime(0f, _randomInt);
             
+            Debug.Log($"[Audio] 13.3 SetCurrentAudio wait until property changed");
             await UniTask.WaitUntil(() =>
             {
-                _timer.MarkChanged(0f, _randomInt);
+                _timer.MarkChanged(0f, _randomInt);  
+                Debug.Log($"[Audio] 13.4 SetCurrentAudio result: " +
+                          $"{_timer.TimeValue} - {Mathf.Approximately(_timer.TimeValue, 0f)} " +
+                          $"&& {_timer.RandomIntValue == _randomInt} {_timer.RandomIntValue} == {_randomInt}");
+
                 return Mathf.Approximately(_timer.TimeValue, 0f) && _timer.RandomIntValue == _randomInt;
             }, cancellationToken: cancellation);
             
+            Debug.Log($"[Audio] 13.5 SetCurrentAudio wait until completed");
             _updater.Add(this);
 
             _current.SetAudio(_next.Value, _randomInt);
+            Debug.Log($"[Audio] 13.5 SetCurrentAudio audio setted");
         }
 
         public void OnUpdate(float delta)

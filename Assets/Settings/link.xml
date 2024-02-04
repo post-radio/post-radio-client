@@ -4,8 +4,8 @@
     <assembly fullname="Common.DiContainer.Abstract" preserve="all" />
     <assembly fullname="Common.DiContainer.Runtime" preserve="all" />
     <assembly fullname="Common.EditorTools" preserve="all" />
-    <assembly fullname="Common.EntityCreator.Factory" preserve="all" />
-    <assembly fullname="Common.EntityCreator.Runtime" preserve="all" />
+    <assembly fullname="Common.Entities.Factory" preserve="all" />
+    <assembly fullname="Common.Entities.Runtime" preserve="all" />
     <assembly fullname="Common.Mocks.Editor" preserve="all" />
     <assembly fullname="Common.Mocks.Runtime" preserve="all" />
     <assembly fullname="Common.NestedScriptableObjects.Attributes" preserve="all" />
@@ -15,8 +15,11 @@
     <assembly fullname="Common.ObjectsPool.Logs" preserve="all" />
     <assembly fullname="Common.ObjectsPool.Runtime" preserve="all" />
     <assembly fullname="Common.ObjectsPools.Editor" preserve="all" />
-    <assembly fullname="Common.ScopeLoader" preserve="all" />
-    <assembly fullname="Common.ScopeLoader.Factory" preserve="all" />
+    <assembly fullname="Common.Scopes.DefaultCallbacks" preserve="all" />
+    <assembly fullname="Common.Scopes.DestroyHandler" preserve="all" />
+    <assembly fullname="Common.Scopes.Factory" preserve="all" />
+    <assembly fullname="Common.Scopes.Routes" preserve="all" />
+    <assembly fullname="Common.Scopes.Runtime" preserve="all" />
     <assembly fullname="Common.ScriptableRegistries" preserve="all" />
     <assembly fullname="Common.SerializableDictionaries" preserve="all" />
     <assembly fullname="Common.UI.Common" preserve="all" />
@@ -151,6 +154,8 @@
     <assembly fullname="Global.ApplicationProxy.Editor" preserve="all" />
     <assembly fullname="Global.ApplicationProxy.Logs" preserve="all" />
     <assembly fullname="Global.ApplicationProxy.Runtime" preserve="all" />
+    <assembly fullname="Global.Audio.Common" preserve="all" />
+    <assembly fullname="Global.Audio.Compose" preserve="all" />
     <assembly fullname="Global.Audio.Listener.Common" preserve="all" />
     <assembly fullname="Global.Audio.Listener.Runtime" preserve="all" />
     <assembly fullname="Global.Audio.Player.Common" preserve="all" />
@@ -162,16 +167,22 @@
     <assembly fullname="Global.Backend.Options" preserve="all" />
     <assembly fullname="Global.Backend.Runtime" preserve="all" />
     <assembly fullname="Global.Backend.Transactions" preserve="all" />
-    <assembly fullname="Global.CameraUtilities.Common" preserve="all" />
-    <assembly fullname="Global.CameraUtilities.Logger" preserve="all" />
+    <assembly fullname="Global.Camera.Common" preserve="all" />
+    <assembly fullname="Global.Camera.Compose" preserve="all" />
+    <assembly fullname="Global.Camera.CurrentProvider.Common" preserve="all" />
+    <assembly fullname="Global.Camera.CurrentProvider.Editor" preserve="all" />
+    <assembly fullname="Global.Camera.CurrentProvider.Logs" preserve="all" />
+    <assembly fullname="Global.Camera.CurrentProvider.Runtime" preserve="all" />
+    <assembly fullname="Global.Camera.Persistent.Common" preserve="all" />
+    <assembly fullname="Global.Camera.Persistent.Editor" preserve="all" />
+    <assembly fullname="Global.Camera.Persistent.Logs" preserve="all" />
+    <assembly fullname="Global.Camera.Persistent.Runtime" preserve="all" />
+    <assembly fullname="Global.Camera.Utils.Common" preserve="all" />
+    <assembly fullname="Global.Camera.Utils.Editor" preserve="all" />
+    <assembly fullname="Global.Camera.Utils.Logger" preserve="all" />
+    <assembly fullname="Global.Camera.Utils.Runtime" preserve="all" />
     <assembly fullname="Global.Common" preserve="all" />
     <assembly fullname="Global.Config.Runtime" preserve="all" />
-    <assembly fullname="Global.CurrentCamera.Common" preserve="all" />
-    <assembly fullname="Global.CurrentCamera.Editor" preserve="all" />
-    <assembly fullname="Global.CurrentCamera.Logs" preserve="all" />
-    <assembly fullname="Global.CurrentCamera.Runtime" preserve="all" />
-    <assembly fullname="Global.DestroyHandler.Common" preserve="all" />
-    <assembly fullname="Global.DestroyHandler.Runtime" preserve="all" />
     <assembly fullname="Global.EventSystem.Common" preserve="all" />
     <assembly fullname="Global.EventSystem.Runtime" preserve="all" />
     <assembly fullname="Global.GameLoops.Common" preserve="all" />
@@ -179,15 +190,19 @@
     <assembly fullname="Global.GameLoops.Events" preserve="all" />
     <assembly fullname="Global.GameLoops.Logs" preserve="all" />
     <assembly fullname="Global.GameLoops.Runtime" preserve="all" />
-    <assembly fullname="Global.GlobalCameras.Common" preserve="all" />
-    <assembly fullname="Global.GlobalCameras.Editor" preserve="all" />
-    <assembly fullname="Global.GlobalCameras.Logs" preserve="all" />
-    <assembly fullname="Global.GlobalCameras.Runtime" preserve="all" />
     <assembly fullname="Global.Input.Common" preserve="all" />
+    <assembly fullname="Global.Input.Compose" preserve="all" />
+    <assembly fullname="Global.Input.Constraints.Common" preserve="all" />
     <assembly fullname="Global.Input.Constraints.Definition" preserve="all" />
-    <assembly fullname="Global.Input.Constraints.Storage" preserve="all" />
+    <assembly fullname="Global.Input.Constraints.Editor" preserve="all" />
+    <assembly fullname="Global.Input.Constraints.Runtime" preserve="all" />
+    <assembly fullname="Global.Input.Utils.Common" preserve="all" />
+    <assembly fullname="Global.Input.Utils.Runtime" preserve="all" />
+    <assembly fullname="Global.Input.View.Common" preserve="all" />
     <assembly fullname="Global.Input.View.Editor" preserve="all" />
     <assembly fullname="Global.Input.View.Logs" preserve="all" />
+    <assembly fullname="Global.Input.View.Mouse" preserve="all" />
+    <assembly fullname="Global.Input.View.Movement" preserve="all" />
     <assembly fullname="Global.Input.View.Runtime" preserve="all" />
     <assembly fullname="Global.LoadingScreens.Common" preserve="all" />
     <assembly fullname="Global.LoadingScreens.Editor" preserve="all" />
@@ -237,8 +252,6 @@
     <assembly fullname="Global.Options.Runtime" preserve="all" />
     <assembly fullname="Global.Overlay.Common" preserve="all" />
     <assembly fullname="Global.Overlay.Runtime" preserve="all" />
-    <assembly fullname="Global.Pause.Common" preserve="all" />
-    <assembly fullname="Global.Pause.Runtime" preserve="all" />
     <assembly fullname="Global.Publisher.Abstract.Advertisment" preserve="all" />
     <assembly fullname="Global.Publisher.Abstract.Authentication" preserve="all" />
     <assembly fullname="Global.Publisher.Abstract.DataStorage" preserve="all" />
@@ -268,10 +281,6 @@
     <assembly fullname="Global.ResourcesCleaner.Logs" preserve="all" />
     <assembly fullname="Global.ResourcesCleaner.Runtime" preserve="all" />
     <assembly fullname="Global.Scene.Operations.Handling" preserve="all" />
-    <assembly fullname="Global.Scenes.LoadedHandler.Common" preserve="all" />
-    <assembly fullname="Global.Scenes.LoadedHandler.Editor" preserve="all" />
-    <assembly fullname="Global.Scenes.LoadedHandler.Logs" preserve="all" />
-    <assembly fullname="Global.Scenes.LoadedHandler.Runtime" preserve="all" />
     <assembly fullname="Global.Scenes.Operations.Abstract" preserve="all" />
     <assembly fullname="Global.Scenes.Operations.Addressables" preserve="all" />
     <assembly fullname="Global.Scenes.Operations.Common" preserve="all" />
@@ -280,8 +289,12 @@
     <assembly fullname="Global.Scenes.Operations.Logs" preserve="all" />
     <assembly fullname="Global.Scenes.Operations.Native" preserve="all" />
     <assembly fullname="Global.Scenes.Operations.Root" preserve="all" />
-    <assembly fullname="Global.Services.CameraUtilities.Editor" preserve="all" />
-    <assembly fullname="Global.Services.CameraUtilities.Runtime" preserve="all" />
+    <assembly fullname="Global.ScopeDisposer.Common" preserve="all" />
+    <assembly fullname="Global.ScopeDisposer.Editor" preserve="all" />
+    <assembly fullname="Global.ScopeDisposer.Logs" preserve="all" />
+    <assembly fullname="Global.ScopeDisposer.Runtime" preserve="all" />
+    <assembly fullname="Global.System.Compose" preserve="all" />
+    <assembly fullname="Global.UI.Compose" preserve="all" />
     <assembly fullname="Global.UiStateMachine.Common" preserve="all" />
     <assembly fullname="Global.UiStateMachine.Editor" preserve="all" />
     <assembly fullname="Global.UiStateMachine.Logs" preserve="all" />
@@ -305,9 +318,6 @@
     <assembly fullname="Menu.About.UI" preserve="all" />
     <assembly fullname="Menu.Common.Navigation" preserve="all" />
     <assembly fullname="Menu.Common.Paths" preserve="all" />
-    <assembly fullname="Menu.Common.Tasks.Abstract" preserve="all" />
-    <assembly fullname="Menu.Common.Tasks.Common" preserve="all" />
-    <assembly fullname="Menu.Common.Tasks.Runtime" preserve="all" />
     <assembly fullname="Menu.Config.Mock" preserve="all" />
     <assembly fullname="Menu.Config.Runtime" preserve="all" />
     <assembly fullname="Menu.Loop.Common" preserve="all" />

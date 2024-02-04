@@ -7,6 +7,7 @@ using GamePlay.Audio.Player.Abstract;
 using GamePlay.Audio.Sync;
 using GamePlay.Audio.UI.Voting.Runtime.Voting.Abstract;
 using GamePlay.Network.Room.Lifecycle.Runtime;
+using UnityEngine;
 
 namespace GamePlay.Audio.Controller
 {
@@ -41,7 +42,7 @@ namespace GamePlay.Audio.Controller
         {
             _cancellation = new CancellationTokenSource();
             _sync.AudioChanged += OnAudioChanged;
-            
+
             if (_roomProvider.IsOwner == true)
             {
                 var audio = await _voting.ForceRandomSelection();
@@ -76,12 +77,20 @@ namespace GamePlay.Audio.Controller
 
         private async UniTask<AudioData> HandleOwnerLoop(AudioData nextAudio)
         {
-            var playTask = await  _player.Play(nextAudio, 0f, _cancellation.Token);
+            Debug.Log($"[Audio] 0 HandleOwnerLoop start");
+            var playTask = await _player.Play(nextAudio, 0f, _cancellation.Token);
+            Debug.Log($"[Audio] 13 Play completed, set current audio");
             await _sync.SetCurrentAudio(_cancellation.Token);
+            Debug.Log($"[Audio] 14 Wait vote");
             await WaitForVoteEnd(_cancellation.Token);
+            Debug.Log($"[Audio] 18 run voting end");
+
             nextAudio = await _voting.End();
+            Debug.Log($"[Audio] 18 Fill vote");
             await _voting.Fill();
+            Debug.Log($"[Audio] 19 set next audio");
             _sync.SetNextAudio(nextAudio);
+            Debug.Log($"[Audio] 20 wait audio task end");
             await playTask;
 
             return nextAudio;
@@ -128,10 +137,19 @@ namespace GamePlay.Audio.Controller
 
         private async UniTask WaitForVoteEnd(CancellationToken cancellation)
         {
+            Debug.Log($"[Wait] 15 WaitForVoteEnd start");
+
             while (_timeProvider.Duration - _timeProvider.CurrentTime > _options.Vote.VoteStartOffset)
+            {
+                Debug.Log($"[Wait] 16 WaitForVoteEnd in progress: " +
+                          $"{_timeProvider.Duration} - {_timeProvider.CurrentTime} ({_timeProvider.Duration - _timeProvider.CurrentTime}) > {_options.Vote.VoteStartOffset}");
+
                 await UniTask.Yield(cancellation);
+            }
+            
+            Debug.Log($"[Wait] 17 WaitForVoteEnd end");
         }
-        
+
         private void OnAudioChanged(AudioData audio)
         {
             if (_roomProvider.IsOwner == true)

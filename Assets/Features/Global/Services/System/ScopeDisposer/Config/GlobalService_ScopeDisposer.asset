@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63440294cd8a4d6cba2e6de46a89a087, type: 3}
-  m_Name: GlobalService_CurrentSceneHandler
+  m_Name: GlobalService_ScopeDisposer
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1479630455214617550, guid: 73439a491358a3440aacdab1031c4529, type: 3}
-  _logSettings: {fileID: 11400000, guid: 493e09e1e6bb89340bae950145dc2804, type: 2}
+  _logSettings: {fileID: 11400000, guid: e3ed0b8157d7d15428dd304a890d4897, type: 2}
