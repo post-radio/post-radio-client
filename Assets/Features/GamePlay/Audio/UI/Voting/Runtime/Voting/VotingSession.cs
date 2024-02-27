@@ -33,9 +33,10 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
         private IDisposable _voteListener;
         private CancellationTokenSource _cancellation;
         private Dictionary<string, AudioMetadata> _entries;
+        private string _previousSelected;
 
         public bool IsFilled => _entries.Any();
-        
+
         public void OnEnabled()
         {
             _events.AddRoute<VoteEntriesUpdate>(OnEntriesUpdate);
@@ -66,6 +67,7 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
         public AudioMetadata End()
         {
             var winner = CalculateWinner(_votes, _entries);
+            _previousSelected = winner.Url;
             _eventsDistributor.SendAll(new EndVoteEvent(winner));
             _votes.Clear();
             _entries.Clear();
@@ -87,10 +89,10 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
 
             _votes.TryAdd(currentVote, 0);
             _votes[currentVote] += 1;
-            
+
             if (_playersVotes.TryAdd(player, currentVote) == false)
                 _playersVotes[player] = currentVote;
-            
+
             var responsePayload = new VoteEntriesUpdate(_votes);
             _eventsDistributor.SendAll(responsePayload);
         }
@@ -115,7 +117,14 @@ namespace GamePlay.Audio.UI.Voting.Runtime.Voting
             IReadOnlyDictionary<string, AudioMetadata> entries)
         {
             if (votes.Count == 0)
-                return entries.Values.First();
+            {
+                var first = entries.Values.First(); 
+                
+                if (first.Url == _previousSelected)
+                    return entries[entries.Keys.ToList()[1]];
+
+                return first;
+            }
 
             var winnerUrl = votes.First().Key;
             var winnerVotesCount = 0;

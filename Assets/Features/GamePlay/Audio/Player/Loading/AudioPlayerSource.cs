@@ -12,7 +12,7 @@ namespace GamePlay.Audio.Player.Loading
     public class AudioPlayerSource : MonoBehaviour, IAudioPlayerSource, IAudioTimeProvider
     {
         private const float PlayTimeout = 3f;
-        private const float PlayEpsilon = 0.01f;
+        private const float PlayEpsilon = 0.5f;
 
         [SerializeField] private AudioSource _source;
 
@@ -109,12 +109,19 @@ namespace GamePlay.Audio.Player.Loading
             {
                 Debug.Log($"[Wait] WaitAudioEnd start");
 
-                while (_source.clip != null && _source.time < _source.clip.length - 0.1f)
+                await UniTask.Delay(PlayEpsilon * 2f, cancellation);
+                
+                while (_source.clip != null && _source.isPlaying == true && _source.time > PlayEpsilon && _source.time < _source.clip.length - 0.1f)
                 {
                     Debug.Log($"[Wait] WaitAudioEnd in progress: {_source.time} < {_source.clip.length - 0.1f}");
 
                     await UniTask.Yield(cancellation);
                 }
+                
+                Debug.Log($"[Wait] WaitAudioEnd completed: {_source.time} < {_source.clip.length - 0.1f}, " +
+                          $"!= null: {_source.clip != null}, " +
+                          $"isPlaying: {_source.isPlaying}, " +
+                          $"time > 0.1: {_source.time > 0.01f}");
             }
         }
 
